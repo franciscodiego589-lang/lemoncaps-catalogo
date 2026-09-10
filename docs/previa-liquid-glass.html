@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Lemon Caps — Prévia Liquid Glass</title>
+<style>
+:root{
+  color-scheme: light dark;
+  --radius-xl:28px; --radius-lg:22px; --radius-md:16px; --radius-sm:12px; --radius-pill:999px;
+
+  --lime:#A6E100; --lime-deep:#6FA300; --lime-ink:#152400;
+
+  --ink:#14161B; --ink-soft:#565B66; --text-muted:#6B7280;
+  --paper:#FFFFFF; --paper-soft:#F1F3F5;
+  --card-bg:#FFFFFF; --card-border:rgba(20,22,27,0.07);
+  --table-bg:#F6F7F9; --table-border:rgba(20,22,27,0.08);
+  --text-on-card:#14161B;
+
+  --glass-fill:rgba(255,255,255,0.55);
+  --glass-fill-strong:rgba(255,255,255,0.72);
+  --glass-border:rgba(255,255,255,0.65);
+  --glass-shadow:0 8px 32px rgba(20,20,30,0.14);
+  --glass-spec-top:inset 0 1px 0 rgba(255,255,255,0.95);
+  --glass-spec-bottom:inset 0 -1px 1px rgba(255,255,255,0.18);
+  --chip-text:#21242B;
+  --modal-solid-bg:#FFFFFF;
+  --overlay-scrim:rgba(10,10,16,0.38);
+
+  --bg-c1:#CFF24E; --bg-c2:#FFAAD4; --bg-c3:#8AC6FF;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#F1F2F5; --ink-soft:#B7BCC6; --text-muted:#9AA0AC;
+    --paper:#0A0B0E; --paper-soft:#17191E;
+    --card-bg:#1B1D22; --card-border:rgba(255,255,255,0.08);
+    --table-bg:#1F2127; --table-border:rgba(255,255,255,0.09);
+    --text-on-card:#F1F2F5;
+
+    --glass-fill:rgba(30,32,38,0.5);
+    --glass-fill-strong:rgba(30,32,38,0.68);
+    --glass-border:rgba(255,255,255,0.14);
+    --glass-shadow:0 10px 36px rgba(0,0,0,0.55);
+    --glass-spec-top:inset 0 1px 0 rgba(255,255,255,0.14);
+    --glass-spec-bottom:inset 0 -1px 1px rgba(0,0,0,0.35);
+    --chip-text:#F1F2F5;
+    --modal-solid-bg:#1B1D22;
+    --overlay-scrim:rgba(0,0,0,0.55);
+  }
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); background:var(--paper);
+  min-height:100vh; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,p,ul{margin:0;}
+button,input{font:inherit; color:inherit;}
+button{background:none; border:none; cursor:pointer;}
+img{max-width:100%;}
+
+/* ---------- fundo vivo por segmento ---------- */
+.bg-layer{
+  position:fixed; inset:-10% -10% -10% -10%; z-index:-2; pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 22%, var(--bg-c1) 0%, transparent 52%),
+    radial-gradient(circle at 84% 12%, var(--bg-c2) 0%, transparent 48%),
+    radial-gradient(circle at 45% 92%, var(--bg-c3) 0%, transparent 55%),
+    linear-gradient(180deg, #fbfcef 0%, #ffffff 60%);
+  filter: blur(85px) saturate(1.35);
+  opacity:1; transition:opacity 1.15s ease;
+  animation: bgDrift 22s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+#bgB{opacity:0;}
+@media (prefers-color-scheme: dark){
+  .bg-layer{
+    filter: blur(85px) saturate(1.2) brightness(0.5);
+    background:
+      radial-gradient(circle at 18% 22%, var(--bg-c1) 0%, transparent 52%),
+      radial-gradient(circle at 84% 12%, var(--bg-c2) 0%, transparent 48%),
+      radial-gradient(circle at 45% 92%, var(--bg-c3) 0%, transparent 55%),
+      linear-gradient(180deg, #0a0b0e 0%, #0a0b0e 60%);
+  }
+}
+@keyframes bgDrift{
+  0%,100%{ transform:translate3d(0,0,0) scale(1); }
+  50%{ transform:translate3d(-1.4%,1.6%,0) scale(1.035); }
+}
+@media (prefers-reduced-motion: reduce){
+  .bg-layer{ animation:none !important; }
+  *{ scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+
+/* ---------- vidro (só no cromo) ---------- */
+.glass{
+  background:var(--glass-fill);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.06);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.06);
+  border:1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-spec-top), var(--glass-spec-bottom);
+}
+@supports not (backdrop-filter: blur(1px)){
+  .glass, .chip, .segmented, .fab, .modal.glass, .tier-badge{
+    background:var(--card-bg) !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce){
+  .glass, .chip, .segmented, .fab, .modal.glass, .tier-badge{
+    -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+    background:var(--card-bg) !important;
+  }
+}
+@media (hover:none) and (pointer:coarse){
+  .glass, .chip, .segmented, .fab, .modal.glass, .tier-badge{
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
+  }
+}
+
+/* ---------- topo ---------- */
+.topbar{ position:sticky; top:0; z-index:50; padding:12px 14px 8px; }
+.topbar-inner{
+  max-width:1240px; margin:0 auto; border-radius:var(--radius-xl);
+  padding: calc(10px + env(safe-area-inset-top,0px)) 14px 10px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px;
+}
+.brand{ order:1; display:flex; align-items:center; gap:9px; font-weight:800; font-size:17px; white-space:nowrap; }
+.brand .dot{ width:11px;height:11px;border-radius:50%; background:linear-gradient(145deg,var(--lime),var(--lime-deep)); box-shadow:0 0 0 4px rgba(166,225,0,0.18); flex:none; }
+.cart-btn{ order:2; margin-left:auto; }
+.search-wrap{
+  order:3; flex-basis:100%; margin-top:2px;
+  display:flex; align-items:center; gap:8px;
+  background:rgba(127,127,127,0.14);
+  border:1px solid rgba(127,127,127,0.16);
+  border-radius:var(--radius-pill); padding:9px 14px; color:var(--ink-soft);
+}
+.search-wrap input{ border:none; background:none; outline:none; width:100%; font-size:14px; color:var(--ink); }
+.search-wrap input::placeholder{ color:var(--text-muted); }
+@media (min-width:680px){
+  .search-wrap{ order:2; flex:1; flex-basis:auto; margin-top:0; }
+  .cart-btn{ order:3; margin-left:0; }
+}
+.icon-btn{ position:relative; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none; color:var(--ink); }
+.badge{
+  position:absolute; top:-3px; right:-3px; min-width:17px; height:17px; padding:0 4px; border-radius:999px;
+  background:var(--lime); color:var(--lime-ink); font-size:10px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 2px var(--card-bg);
+}
+
+/* ---------- título ---------- */
+.page-head{ max-width:1240px; margin:22px auto 4px; padding:0 22px; }
+.page-head h1{ font-size:26px; font-weight:800; letter-spacing:-.01em; }
+.page-head p{ margin-top:4px; font-size:13px; color:var(--text-muted); }
+
+/* ---------- filtros ---------- */
+.filters{ position:sticky; top:70px; z-index:40; padding:14px 0 10px; }
+.chips{
+  display:flex; gap:8px; overflow-x:auto; padding:4px 18px 8px; scrollbar-width:none;
+  max-width:1240px; margin:0 auto;
+}
+.chips::-webkit-scrollbar{ display:none; }
+.chip{
+  flex:none; padding:9px 16px; border-radius:var(--radius-pill); font-size:13px; font-weight:700;
+  color:var(--chip-text); white-space:nowrap; transition:transform .15s ease;
+}
+.chip:active{ transform:scale(.96); }
+.chip.active{
+  background: linear-gradient(rgba(0,0,0,.36),rgba(0,0,0,.36)), var(--chip-tint, linear-gradient(135deg,var(--lime),var(--lime-deep)));
+  color:#fff; text-shadow:0 1px 3px rgba(0,0,0,.4); border-color:rgba(255,255,255,0.35);
+}
+.tabs-row{ max-width:1240px; margin:10px auto 0; padding:0 18px; }
+.segmented{
+  position:relative; display:flex; width:100%; max-width:280px; border-radius:var(--radius-pill); padding:4px;
+}
+.segmented-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; width:calc(50% - 4px);
+  border-radius:var(--radius-pill); background:linear-gradient(135deg,var(--lime),var(--lime-deep));
+  box-shadow:0 3px 10px rgba(0,0,0,.18); transition:transform .32s cubic-bezier(.2,.8,.2,1);
+}
+.segmented-btn{
+  position:relative; z-index:1; flex:1; padding:9px 10px; text-align:center; font-size:13px; font-weight:800; color:var(--chip-text);
+  border-radius:var(--radius-pill);
+}
+.segmented-btn.active{ color:var(--lime-ink); }
+
+/* ---------- grid / cards (sólido) ---------- */
+.container{ max-width:1240px; margin:0 auto; padding:6px 18px 120px; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(272px,1fr)); gap:20px; margin-top:8px; }
+.empty-state{ grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--text-muted); font-size:14px; }
+
+.card{
+  background:var(--card-bg); border:1px solid var(--card-border); border-radius:var(--radius-xl);
+  box-shadow:0 1px 2px rgba(0,0,0,.04), 0 14px 30px rgba(20,20,30,.10);
+  overflow:hidden; display:flex; flex-direction:column;
+  animation:cardIn .5s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes cardIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+.card-media{ position:relative; height:118px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--seg-c1),var(--seg-c2)); }
+.card-media .icon{ font-size:46px; filter:drop-shadow(0 6px 10px rgba(0,0,0,.18)); }
+.tier-badge{
+  position:absolute; top:10px; left:10px; padding:5px 11px; border-radius:var(--radius-pill);
+  font-size:10.5px; font-weight:800; letter-spacing:.03em; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.3);
+  background:rgba(255,255,255,0.28); border:1px solid rgba(255,255,255,0.45);
+}
+.card-body{ padding:15px 16px 17px; display:flex; flex-direction:column; gap:9px; flex:1; }
+.card-segment{ font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.045em; color:var(--seg-text-light); }
+@media (prefers-color-scheme: dark){ .card-segment{ color:var(--seg-text-dark); } }
+.card-title{ font-size:16.5px; font-weight:800; color:var(--text-on-card); line-height:1.25; }
+.card-desc{ font-size:12.5px; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card-format{ font-size:11.5px; color:var(--text-muted); display:flex; justify-content:space-between; gap:6px; }
+
+.comp-table-wrap{ max-height:212px; overflow-y:auto; border-radius:var(--radius-md); border:1px solid var(--table-border); background:var(--table-bg); }
+table.comp-table{ width:100%; border-collapse:collapse; font-size:12px; }
+.comp-table th,.comp-table td{ padding:6px 9px; text-align:left; border-bottom:1px solid var(--table-border); }
+.comp-table th{ position:sticky; top:0; background:var(--table-bg); font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; color:var(--text-muted); }
+.comp-table td.qty{ text-align:right; white-space:nowrap; font-weight:700; font-variant-numeric:tabular-nums; }
+.comp-table tr:last-child td{ border-bottom:none; }
+.comp-table .fonte{ color:var(--text-muted); font-weight:400; }
+
+.card-usage{ font-size:11.5px; color:var(--text-muted); }
+.card-usage b{ color:var(--ink-soft); }
+
+.benefits-panel{ max-height:0; opacity:0; overflow:hidden; transition:max-height .35s ease, opacity .3s ease; }
+.benefits-panel.open{ max-height:520px; opacity:1; }
+.benefits-panel ul{ list-style:none; padding:10px 12px; margin:2px 0 0; background:var(--table-bg); border:1px solid var(--table-border); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:6px; }
+.benefits-panel li{ font-size:12px; color:var(--ink-soft); padding-left:16px; position:relative; }
+.benefits-panel li::before{ content:"✓"; position:absolute; left:0; color:var(--lime-deep); font-weight:800; }
+
+.card-price-row{ display:flex; align-items:baseline; justify-content:space-between; margin-top:2px; }
+.price{ font-size:21px; font-weight:800; }
+.price small{ font-size:11.5px; font-weight:700; color:var(--text-muted); margin-left:2px; }
+.min-note{ font-size:10.5px; color:var(--text-muted); }
+
+.card-actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+.btn{ padding:10px 13px; border-radius:var(--radius-pill); font-weight:800; font-size:12px; text-align:center; }
+.btn-ghost{ background:var(--paper-soft); color:var(--text-on-card); flex:1; min-width:100px; }
+.btn-primary{ background:linear-gradient(135deg,var(--lime),var(--lime-deep)); color:var(--lime-ink); flex:1; min-width:120px; box-shadow:0 6px 16px rgba(166,225,0,.35); }
+
+/* ---------- fab ---------- */
+.fab{
+  position:fixed; right:calc(18px + env(safe-area-inset-right,0px)); bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  z-index:60; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink);
+}
+.fab .badge{ top:-2px; right:-2px; }
+
+/* ---------- overlays / modais / drawer ---------- */
+.overlay{
+  position:fixed; inset:0; z-index:100; display:flex; align-items:flex-end; justify-content:center;
+  background:var(--overlay-scrim); opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.overlay.open{ opacity:1; pointer-events:auto; }
+@media (min-width:680px){ .overlay{ align-items:center; } }
+
+.modal{
+  width:100%; max-width:440px; margin:0 0 0; border-radius:var(--radius-xl) var(--radius-xl) 0 0;
+  padding:22px 20px calc(24px + env(safe-area-inset-bottom,0px)); transform:translateY(18px); transition:transform .32s cubic-bezier(.2,.8,.2,1);
+  max-height:86vh; overflow-y:auto;
+}
+.overlay.open .modal{ transform:translateY(0); }
+@media (min-width:680px){
+  .modal{ border-radius:var(--radius-xl); margin:16px; transform:translateY(10px) scale(.98); }
+  .overlay.open .modal{ transform:none; }
+}
+.modal.glass{ background:var(--glass-fill-strong); -webkit-backdrop-filter:blur(30px) saturate(190%) brightness(1.06); backdrop-filter:blur(30px) saturate(190%) brightness(1.06); }
+.modal.solid{ background:var(--modal-solid-bg); border:1px solid var(--card-border); box-shadow:0 24px 60px rgba(0,0,0,.28); max-width:520px; }
+
+.modal-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.modal-head h2{ font-size:18px; font-weight:800; }
+.modal-head .seg-tag{ font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.03em; margin-top:2px; }
+.modal-close{ width:32px; height:32px; border-radius:50%; background:rgba(127,127,127,0.16); display:flex; align-items:center; justify-content:center; flex:none; }
+
+.quote-price{ font-size:26px; font-weight:800; margin-bottom:2px; }
+.quote-price small{ font-size:12px; font-weight:700; color:var(--text-muted); }
+.qty-stepper{ display:flex; align-items:center; gap:10px; margin:14px 0 6px; }
+.stepper-btn{ width:42px; height:42px; border-radius:50%; background:rgba(127,127,127,0.16); font-size:19px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.qty-stepper input{ flex:1; text-align:center; font-size:20px; font-weight:800; background:rgba(127,127,127,0.1); border:1px solid rgba(127,127,127,0.18); border-radius:var(--radius-md); padding:10px; -moz-appearance:textfield; }
+.qty-stepper input::-webkit-outer-spin-button,.qty-stepper input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+.min-warning{ font-size:12px; font-weight:700; color:#B31F2E; margin:2px 0 8px; display:none; }
+.min-warning.show{ display:block; }
+.quote-subtotal{ display:flex; justify-content:space-between; align-items:baseline; padding:12px 14px; background:rgba(127,127,127,0.12); border-radius:var(--radius-md); margin:8px 0 16px; }
+.quote-subtotal .lbl{ font-size:12.5px; color:var(--text-muted); font-weight:700; }
+.quote-subtotal .val{ font-size:19px; font-weight:800; }
+.modal-actions{ display:flex; gap:10px; }
+.modal-actions .btn{ padding:13px; font-size:13.5px; }
+
+.dossie-section{ margin-bottom:16px; }
+.dossie-section h3{ font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; color:var(--text-muted); margin-bottom:8px; }
+.dossie-text{ font-size:13px; color:var(--ink-soft); white-space:pre-line; line-height:1.55; }
+
+.cart-line{ display:flex; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid var(--table-border); }
+.cart-line:last-child{ border-bottom:none; }
+.cart-line .info{ flex:1; }
+.cart-line .info .name{ font-size:13.5px; font-weight:700; }
+.cart-line .info .meta{ font-size:11.5px; color:var(--text-muted); margin-top:2px; }
+.cart-line .subtotal{ font-size:13.5px; font-weight:800; }
+.cart-remove{ width:26px; height:26px; border-radius:50%; background:rgba(127,127,127,0.16); font-size:14px; }
+.cart-total{ display:flex; justify-content:space-between; padding:14px 0 4px; font-size:15px; font-weight:800; }
+.cart-empty{ text-align:center; padding:30px 10px; color:var(--text-muted); font-size:13.5px; }
+
+.toast{
+  position:fixed; left:50%; bottom:100px; transform:translate(-50%,12px); z-index:200;
+  padding:12px 18px; border-radius:var(--radius-pill); font-size:13px; font-weight:700; color:#fff;
+  background:rgba(20,22,27,0.92); box-shadow:0 10px 28px rgba(0,0,0,.3);
+  opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+
+.footer{ text-align:center; padding:34px 18px 46px; font-size:12px; color:var(--text-muted); }
+
+@media (max-width:420px){
+  .card-actions{ flex-direction:column; }
+  .btn-ghost,.btn-primary{ width:100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer" id="bgA"></div>
+<div class="bg-layer" id="bgB"></div>
+
+<header class="topbar">
+  <div class="topbar-inner glass">
+    <div class="brand"><span class="dot"></span>Lemon Caps</div>
+    <label class="search-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar fórmula...">
+    </label>
+    <button class="icon-btn cart-btn" id="cartTopBtn" aria-label="Abrir carrinho de cotação">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="badge" id="cartBadgeTop">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="page-head">
+  <h1>Catálogo de fórmulas</h1>
+  <p>Prévia de design · Liquid Glass — cada fórmula abaixo é real, com composição e preço do catálogo vigente.</p>
+</div>
+
+<div class="filters">
+  <nav class="chips" id="chipsRow"></nav>
+  <div class="tabs-row">
+    <div class="segmented glass" id="tierTabs">
+      <div class="segmented-thumb" id="tierThumb"></div>
+      <button class="segmented-btn active" data-tier="premium">Premium</button>
+      <button class="segmented-btn" data-tier="basica">Básicas</button>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <section class="grid" id="productGrid"></section>
+</main>
+
+<footer class="footer">© 2026 Lemon Caps — Indústria de Suplementos e Nutracêuticos</footer>
+
+<button class="fab glass" id="fabCart" aria-label="Abrir carrinho de cotação">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <span class="badge" id="cartBadgeFab">0</span>
+</button>
+
+<!-- Modal: Cotar Fórmula (VIDRO) -->
+<div class="overlay" id="quoteOverlay">
+  <div class="modal glass" id="quoteModal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div>
+        <h2 id="quoteName">—</h2>
+        <div class="seg-tag" id="quoteSeg">—</div>
+      </div>
+      <button class="modal-close" id="quoteClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="quote-price" id="quotePrice">—<small>/ pote</small></div>
+    <div class="qty-stepper">
+      <button type="button" class="stepper-btn" id="qtyMinus" aria-label="Diminuir">−</button>
+      <input type="number" id="quoteQty" min="100" step="50" value="100" inputmode="numeric" aria-label="Quantidade de potes">
+      <button type="button" class="stepper-btn" id="qtyPlus" aria-label="Aumentar">+</button>
+    </div>
+    <div class="min-warning" id="minWarning">Pedido mínimo: 100 potes.</div>
+    <div class="quote-subtotal">
+      <span class="lbl">Subtotal estimado</span>
+      <span class="val" id="quoteSubtotal">—</span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="quoteCancel">Cancelar</button>
+      <button class="btn btn-primary" id="quoteConfirm">Adicionar à cotação</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Dossiê Técnico (SÓLIDO) -->
+<div class="overlay" id="dossieOverlay">
+  <div class="modal solid" id="dossieModal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div>
+        <h2 id="dossieName">—</h2>
+        <div class="seg-tag" id="dossieSeg">—</div>
+      </div>
+      <button class="modal-close" id="dossieClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="dossie-section">
+      <h3>Composição por dose</h3>
+      <div class="comp-table-wrap" style="max-height:260px;">
+        <table class="comp-table"><thead><tr><th>Insumo</th><th>Quantidade</th></tr></thead><tbody id="dossieComp"></tbody></table>
+      </div>
+    </div>
+    <div class="dossie-section">
+      <h3>Modo de uso</h3>
+      <p class="dossie-text" id="dossieUsage">—</p>
+    </div>
+    <div class="dossie-section" id="dossieAdvWrap">
+      <h3>Advertências</h3>
+      <p class="dossie-text" id="dossieAdv">—</p>
+    </div>
+  </div>
+</div>
+
+<!-- Drawer: Carrinho de cotação (VIDRO) -->
+<div class="overlay" id="cartOverlay">
+  <div class="modal glass" id="cartDrawer" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2>Cotação em andamento</h2>
+      <button class="modal-close" id="cartClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="cartList"></div>
+    <div class="cart-total" id="cartTotalRow" style="display:none;">
+      <span>Total estimado</span><span id="cartTotalVal">—</span>
+    </div>
+    <div class="modal-actions" style="margin-top:10px;">
+      <button class="btn btn-ghost" id="cartCloseBtn" style="flex:1;">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Adicionado à cotação.</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- dados reais (catalogo.lemoncaps.com.br, consultado 2026-09-09) ---------- */
+var SEGMENT_META = {
+  "Emagrecimento":        { c1:"#CFF24E", c2:"#66A616", textL:"#3F6B0D", textD:"#D8F27A" },
+  "Energia e disposição": { c1:"#FFC24E", c2:"#FF8A1E", textL:"#B85A00", textD:"#FFCB7A" },
+  "Beleza e bem-estar":   { c1:"#FFAAD4", c2:"#FF4FA0", textL:"#C22B7A", textD:"#FFB3DD" },
+  "Qualidade do sono":    { c1:"#B0A0FF", c2:"#5836D6", textL:"#3B2394", textD:"#C9BEFF" },
+  "Imunidade":            { c1:"#8AC6FF", c2:"#2470E8", textL:"#1552B0", textD:"#A9D4FF" },
+  "Foco e concentração":  { c1:"#7CF2E8", c2:"#00ACB0", textL:"#007A7D", textD:"#8FF2EC" },
+  "Sistema digestivo":    { c1:"#8CEAC0", c2:"#109C74", textL:"#0B7A5A", textD:"#9FEFC8" },
+  "Dores articulares":    { c1:"#FFA096", c2:"#E23345", textL:"#B31F2E", textD:"#FFB3AC" }
+};
+var SEGMENT_ORDER = ["Emagrecimento","Energia e disposição","Beleza e bem-estar","Qualidade do sono","Imunidade","Foco e concentração","Sistema digestivo","Dores articulares"];
+var ICONS = { capsula:"💊", goma:"🍬", liquido:"💧", soluvel:"🥤" };
+
+var PRODUCTS = [
+  {
+    id:"57db202a-3629-4694-b422-fbf589076e7f", name:"MORO SLIM", segment:"Emagrecimento", tier:"premium",
+    desc:"Essa formulação apresenta uma combinação estratégica de compostos bioativos que atuam de forma integrada no controle do peso corporal, redução de inchaço, melhora do metabolismo e suporte ao organismo como um todo.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:19.5, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Feno-grego em pó", f:"Trigonella foenum-graecum L., semente", q:"450", u:"mg"},
+      {n:"Extrato de laranja moro", f:"Citrus sinensis L. Osbeck", q:"340,14", u:"mg"},
+      {n:"Extrato de café verde", f:"Coffea arabica L., semente", q:"123,86", u:"mg"},
+      {n:"Extrato de rizomas de cúrcuma", f:"Curcuma longa L.", q:"84,21", u:"mg"},
+      {n:"Vitamina A", f:"acetato de retinol", q:"1500", u:"mcg"},
+      {n:"Cromo", f:"picolinato de cromo", q:"250", u:"mcg"}
+    ],
+    ben:["Auxílio na queima de gordura corporal","Redução do apetite e controle da compulsão alimentar","Diminuição do inchaço e da retenção de líquidos","Melhora do funcionamento intestinal","Ação antioxidante e suporte ao processo de detoxificação","Regulação do metabolismo da glicose e lipídios","Aumento da energia e disposição","Suporte à saúde metabólica geral"]
+  },
+  {
+    id:"c182cbd4-2897-4c77-8604-b224a20ecee2", name:"Pro Energy", segment:"Energia e disposição", tier:"premium",
+    desc:"Essa formulação apresenta uma combinação estratégica de compostos bioativos com atuação direcionada para aumento da libido, melhora da energia física e mental, suporte hormonal e otimização do desempenho geral do organismo.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:16.9, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nCONTÉM CAFEÍNA. NÃO RECOMENDADO PARA GESTANTES, LACTANTES, CRIANÇAS E PESSOAS SENSÍVEIS À CAFEÍNA.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Feno-grego em pó", f:"Trigonella foenum-graecum L., semente", q:"250", u:"mg"},
+      {n:"Taurina", f:null, q:"215", u:"mg"},
+      {n:"Guaraná em pó", f:"Paullinia cupana Kunth, semente", q:"200", u:"mg"},
+      {n:"Cafeína", f:null, q:"140", u:"mg"},
+      {n:"L-carnitina", f:null, q:"90", u:"mg"},
+      {n:"Cloridrato de L-arginina", f:null, q:"75", u:"mg"},
+      {n:"Zinco", f:"bisglicinato de zinco", q:"20", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"10", u:"mg"}
+    ],
+    ben:["Aumento da libido e suporte ao desempenho sexual","Melhora da circulação e vasodilatação","Aumento da energia e disposição física","Redução da fadiga e cansaço","Melhora do foco, concentração e desempenho mental","Suporte à produção hormonal (especialmente testosterona)","Otimização do metabolismo energético","Melhora da performance física e resistência","Aumento da vitalidade e bem-estar geral"]
+  },
+  {
+    id:"cfcc4b64-a382-4164-af2a-6b1e2886545d", name:"BELLA GUMMY (Biotina em Gummy)", segment:"Beleza e bem-estar", tier:"premium",
+    desc:"Essa formulação foi desenvolvida para atuar de forma integrada na beleza de dentro para fora, promovendo melhora da pele, fortalecimento de cabelos e unhas, além de suporte antioxidante e imunológico.",
+    format:"Suplemento alimentar em goma", pack:"60 gummys", icon:"goma", price:32.9, minPotes:100,
+    usage:"Consumir 2 gomas ao dia, ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Vitamina C", f:"ácido ascórbico", q:"45", u:"mg"},
+      {n:"Vitamina E", f:"acetato de DL-alfa-tocoferol", q:"16,7", u:"mg"},
+      {n:"Zinco", f:"bisglicinato de zinco", q:"12", u:"mg"},
+      {n:"Vitamina A", f:"acetato de retinol", q:"1020", u:"mcg"},
+      {n:"Biotina", f:"D-biotina", q:"45", u:"mcg"}
+    ],
+    ben:["Fortalece o sistema imunológico","Possui ação antioxidante contra radicais livres","Auxilia na produção natural de colágeno","Melhora a saúde e aparência da pele","Fortalece cabelos e unhas","Auxilia na regeneração e cicatrização celular","Contribui para o metabolismo energético e vitalidade"]
+  },
+  {
+    id:"f5e18603-2b42-4c6e-af52-8433a6523e30", name:"Serena", segment:"Qualidade do sono", tier:"premium",
+    desc:"Essa formulação foi desenvolvida para atuar de forma integrada na regulação do sono, promoção do relaxamento e equilíbrio do sistema nervoso, proporcionando melhora significativa na qualidade de vida, bem-estar e recuperação do organismo.",
+    format:"Suplemento alimentar líquido", pack:"30 ml", icon:"liquido", price:17.0, minPotes:100,
+    usage:"Ingerir 20 gotas (1 mL) ao dia, preferencialmente à noite, ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Magnésio", f:"cloreto de magnésio", q:"63", u:"mg"},
+      {n:"Inositol", f:"mio-inositol", q:"50", u:"mg"},
+      {n:"L-teanina de folhas de Camellia sinensis", f:null, q:"50", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"1,3", u:"mg"},
+      {n:"Melatonina", f:null, q:"0,21", u:"mg"}
+    ],
+    ben:["Sono leve ou interrompido","Ansiedade e estresse diário","Excesso de pensamentos antes de dormir","Cansaço constante e baixa disposição","Rotina intensa ou sobrecarga mental","Uso excessivo de telas (luz azul)","Regulação do ciclo do sono (ritmo circadiano)","Facilita o início do sono (adormecer mais rápido)","Melhora a profundidade e qualidade do sono","Reduz despertares noturnos","Promove relaxamento mental e físico","Diminui ansiedade e estresse","Reduz pensamentos acelerados","Melhora o humor e bem-estar","Aumenta a disposição ao acordar","Auxilia na recuperação física e mental","Contribui para equilíbrio do sistema nervoso"]
+  },
+  {
+    id:"5298256b-0af6-414a-985a-7841dbbf2865", name:"ZMA (Zinco, Magnésio e Vitamina D)", segment:"Beleza e bem-estar", tier:"premium",
+    desc:"Recuperação, relaxamento e desempenho em uma fórmula completa para sua rotina.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:16.5, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Bisglicinato de magnésio", f:null, q:"673,055", u:"mg"},
+      {n:"L-teanina de folhas de Camellia sinensis", f:null, q:"150", u:"mg"},
+      {n:"Bisglicinato de zinco", f:null, q:"119,02", u:"mg"},
+      {n:"Boro", f:"quelato de boro", q:"56,6", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"1,3", u:"mg"},
+      {n:"Vitamina D", f:"colecalciferol", q:"50", u:"mcg"}
+    ],
+    ben:["Auxilia na recuperação e função muscular diária.","Contribui para o funcionamento saudável dos músculos.","Auxilia no relaxamento e equilíbrio mental.","Contribui para redução do cansaço e fadiga.","Auxilia no fortalecimento do sistema imunológico.","Contribui para a saúde óssea e muscular.","Auxilia no metabolismo energético do organismo.","Contribui para o funcionamento do sistema nervoso.","Auxilia no suporte ao desempenho físico diário.","Contribui para absorção e aproveitamento de nutrientes.","Auxilia no equilíbrio e bem-estar diário.","Promove suporte nutricional completo para a rotina."]
+  },
+  {
+    id:"5c307c12-7920-46eb-af08-a9de927aef3d", name:"Multivitamínico", segment:"Imunidade", tier:"premium",
+    desc:"Uma fórmula completa desenvolvida para promover equilíbrio, bem-estar, suporte cognitivo e fortalecimento do organismo em uma única suplementação diária.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:18.2, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Vitamina C", f:"ácido ascórbico", q:"533,685", u:"mg"},
+      {n:"Magnésio", f:"bisglicinato de magnésio", q:"260", u:"mg"},
+      {n:"L-teanina de folhas de Camellia sinensis", f:null, q:"150", u:"mg"},
+      {n:"Niacina", f:"nicotinamida", q:"16", u:"mg"},
+      {n:"Zinco", f:"bisglicinato de zinco", q:"15", u:"mg"},
+      {n:"Vitamina E", f:"acetato de DL-alfa-tocoferol", q:"10", u:"mg"},
+      {n:"Ácido pantotênico", f:"D-pantotenato de cálcio", q:"5", u:"mg"},
+      {n:"Boro", f:"quelato de boro", q:"3", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"1,3", u:"mg"},
+      {n:"Vitamina B2", f:"riboflavina", q:"1,3", u:"mg"},
+      {n:"Vitamina A", f:"acetato de retinol", q:"1300", u:"mcg"},
+      {n:"Vitamina B1", f:"cloridrato de tiamina", q:"1,2", u:"mg"},
+      {n:"Cobre", f:"cobre aminoácido quelato", q:"900", u:"mcg"},
+      {n:"Ácido fólico", f:null, q:"750", u:"mcg"},
+      {n:"Cromo", f:"picolinato de cromo", q:"250", u:"mcg"},
+      {n:"Vitamina K", f:"menaquinona-7", q:"149", u:"mcg"},
+      {n:"Selênio", f:"selênio quelato", q:"100", u:"mcg"},
+      {n:"Vitamina D", f:"colecalciferol", q:"50", u:"mcg"},
+      {n:"Vitamina B12", f:"metilcobalamina", q:"9,94", u:"mcg"}
+    ],
+    ben:["Auxilia no relaxamento e equilíbrio mental diário.","Contribui para foco, concentração e desempenho cognitivo.","Auxilia no fortalecimento do sistema imunológico.","Oferece ação antioxidante contra radicais livres.","Contribui para mais energia e redução do cansaço.","Auxilia na saúde muscular e funcionamento neuromuscular.","Contribui para a saúde e fortalecimento ósseo.","Auxilia no metabolismo de proteínas e nutrientes.","Contribui para a saúde da pele, cabelos e unhas.","Auxilia no equilíbrio hormonal e metabólico.","Contribui para o funcionamento saudável do sistema nervoso.","Promove suporte ao bem-estar e qualidade de vida diária."]
+  },
+  {
+    id:"679d006e-8fa1-4dce-8203-4fcd1c6ea4cc", name:"FOCUS COLINA", segment:"Foco e concentração", tier:"premium",
+    desc:"Focus Colina Premium é uma fórmula avançada desenvolvida para pessoas que buscam potencializar foco, concentração, raciocínio e produtividade no dia a dia.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:18.9, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é medicamento.\n\nNão exceder a recomendação diária de consumo indicada na embalagem.\n\nMantenha fora do alcance de crianças.\n\nNão deve ser consumido por gestantes, lactantes e crianças.\n\nO consumo deste produto deve ser acompanhado da ingestão de hábitos alimentares saudáveis.\n\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Colina", f:"bitartarato de colina", q:"438,1375", u:"mg"},
+      {n:"L-tirosina", f:null, q:"262,5", u:"mg"},
+      {n:"L-teanina de folhas de Camellia sinensis", f:null, q:"115", u:"mg"},
+      {n:"L-carnitina", f:null, q:"95", u:"mg"},
+      {n:"Magnésio", f:"bisglicinato de magnésio", q:"63", u:"mg"},
+      {n:"Inositol", f:"mio-inositol", q:"25", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"1,3", u:"mg"},
+      {n:"Vitamina D", f:"colecalciferol", q:"50", u:"mcg"},
+      {n:"Vitamina B12", f:"metilcobalamina", q:"9,94", u:"mcg"}
+    ],
+    ben:["Auxilia na concentração e no foco diário","Contribui para a performance cognitiva","Auxilia na memória e no raciocínio","Contribui para o metabolismo energético","Ajuda a reduzir o cansaço e a fadiga","Auxilia na manutenção da saúde neurológica","Contribui para a disposição física e mental","Suporte nutricional para estudos e trabalho","Auxilia na manutenção da função cognitiva","Fórmula completa para alta produtividade"]
+  },
+  {
+    id:"287edb83-f02d-41a3-9748-779a8413ddd5", name:"Saúde Intestinal", segment:"Sistema digestivo", tier:"premium",
+    desc:"Seu intestino em equilíbrio, seu corpo funcionando no máximo potencial.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:22.9, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Magnésio", f:"bisglicinato de magnésio", q:"350", u:"mg"},
+      {n:"Quercetina", f:null, q:"280", u:"mg"},
+      {n:"Extrato de rizomas de cúrcuma", f:"Curcuma longa L.", q:"130", u:"mg"},
+      {n:"L-glutamina", f:null, q:"110,31", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"98,6", u:"mg"},
+      {n:"Zinco", f:"bisglicinato de zinco", q:"29,59", u:"mg"},
+      {n:"Vitamina A", f:"acetato de retinol", q:"1500", u:"mcg"}
+    ],
+    ben:["Auxilia no equilíbrio e funcionamento saudável do intestino.","Contribui para a saúde da microbiota intestinal.","Auxilia na regulação do trânsito intestinal diário.","Contribui para maior sensação de saciedade natural.","Auxilia na saúde da mucosa e barreira intestinal.","Oferece ação antioxidante contra radicais livres.","Auxilia na redução de processos inflamatórios naturais.","Contribui para a absorção e aproveitamento de nutrientes.","Auxilia no fortalecimento do sistema imunológico.","Contribui para o metabolismo saudável do organismo.","Auxilia no equilíbrio digestivo e bem-estar intestinal.","Promove mais conforto e qualidade de vida diária."]
+  },
+  {
+    id:"c331d26a-d09f-4c74-92ec-68cf6fad7ba8", name:"DORES MUSCULARES", segment:"Dores articulares", tier:"premium",
+    desc:"Essa formulação foi desenvolvida para atuar de forma completa na saúde das articulações, redução de dor, melhora da mobilidade e suporte à regeneração dos tecidos.",
+    format:"Suplemento alimentar em cápsula", pack:"60 cápsulas", icon:"capsula", price:14.0, minPotes:100,
+    usage:"Ingerir 2 cápsulas ao dia ou conforme orientação de profissional de saúde.",
+    adv:"Este produto não é um medicamento.\nPúblico indicado: Adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nNão deve ser consumido por gestantes, lactantes e crianças.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+    comp:[
+      {n:"Metilsulfonilmetano", f:"MSM", q:"480,5", u:"mg"},
+      {n:"Sulfato de glucosamina com cloreto de potássio", f:null, q:"200", u:"mg"},
+      {n:"Vitamina C", f:"ácido ascórbico", q:"140", u:"mg"},
+      {n:"Magnésio", f:"bisglicinato de magnésio", q:"100", u:"mg"},
+      {n:"Colágeno tipo II não desnaturado", f:null, q:"40", u:"mg"},
+      {n:"Vitamina E", f:"acetato de DL-alfa-tocoferol", q:"20", u:"mg"},
+      {n:"Zinco", f:"bisglicinato de zinco", q:"10", u:"mg"},
+      {n:"Ferro", f:"ferro aminoácido quelato", q:"8", u:"mg"},
+      {n:"Vitamina B6", f:"cloridrato de piridoxina", q:"1,3", u:"mg"},
+      {n:"Selênio", f:"selênio quelato", q:"100", u:"mcg"},
+      {n:"Vitamina D", f:"colecalciferol", q:"50", u:"mcg"},
+      {n:"Vitamina B12", f:"metilcobalamina", q:"9,94", u:"mcg"}
+    ],
+    ben:["Suporte à saúde das articulações","Redução da dor e inflamação","Melhora da mobilidade e flexibilidade","Auxílio na regeneração da cartilagem","Fortalecimento de ossos e tecidos conjuntivos","Melhora da lubrificação articular","Redução do desgaste articular","Auxílio na recuperação muscular e articular","Aumento da disposição e energia","Proteção antioxidante das células"]
+  },
+  {
+    id:"3802e241-cabc-4e53-a178-aba6cc674016", name:"CREATINA MONOHIDRATADA 300g SOLÚVEL", segment:"Energia e disposição", tier:"basica",
+    desc:null,
+    format:"Suplemento alimentar solúvel", pack:"300 gramas", icon:"soluvel", price:27.99, minPotes:100,
+    usage:"Ingerir 1 scoop (5 gramas) ao dia.",
+    adv:null,
+    comp:[
+      {n:"Creatina monoidratada", f:null, q:"5000", u:"mg"}
+    ],
+    ben:["Aumento de força e potência muscular","Melhora significativa do desempenho físico","Ganho de massa muscular (hipertrofia)","Aumento do volume e densidade muscular","Redução da fadiga e aumento da resistência","Melhora da recuperação muscular","Redução de dor pós-treino","Melhora da composição corporal","Aumento do metabolismo energético","Suporte à função cognitiva (foco e memória)","Prevenção de perda de massa muscular","Melhora da qualidade dos treinos"]
+  }
+];
+
+/* ---------- estado ---------- */
+var state = { segment:"all", tier:"premium", search:"" };
+var cart = [];
+try{ var saved = localStorage.getItem("lemoncaps_preview_cart"); if(saved) cart = JSON.parse(saved) || []; }catch(e){ cart = []; }
+
+var fmtBRL = new Intl.NumberFormat("pt-BR", { style:"currency", currency:"BRL" });
+
+/* ---------- fundo por segmento ---------- */
+var bgLayers=[document.getElementById("bgA"), document.getElementById("bgB")];
+var bgActive=0;
+function colorsForSegment(seg){
+  if(!seg || seg==="all"){ return ["#CFF24E","#FFAAD4","#8AC6FF"]; }
+  var m = SEGMENT_META[seg];
+  return [m.c1, m.c2, m.c1];
+}
+function updateBackground(seg){
+  var cols = colorsForSegment(seg);
+  var next = bgLayers[1-bgActive];
+  next.style.setProperty("--bg-c1", cols[0]);
+  next.style.setProperty("--bg-c2", cols[1]);
+  next.style.setProperty("--bg-c3", cols[2]);
+  next.style.opacity = "1";
+  bgLayers[bgActive].style.opacity = "0";
+  bgActive = 1-bgActive;
+}
+
+/* ---------- chips ---------- */
+var chipsRow = document.getElementById("chipsRow");
+function buildChips(){
+  var html = '<button class="chip active" data-segment="all">Todos</button>';
+  SEGMENT_ORDER.forEach(function(seg){
+    if(!PRODUCTS.some(function(p){ return p.segment===seg; })) return;
+    var m = SEGMENT_META[seg];
+    html += '<button class="chip" data-segment="'+seg+'" style="--chip-tint:linear-gradient(135deg,'+m.c1+','+m.c2+')">'+seg+'</button>';
+  });
+  chipsRow.innerHTML = html;
+  chipsRow.querySelectorAll(".chip").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      chipsRow.querySelectorAll(".chip").forEach(function(c){ c.classList.remove("active"); });
+      btn.classList.add("active");
+      state.segment = btn.getAttribute("data-segment");
+      updateBackground(state.segment);
+      renderGrid();
+    });
+  });
+}
+
+/* ---------- abas premium/básicas ---------- */
+var tierTabs = document.getElementById("tierTabs");
+var tierThumb = document.getElementById("tierThumb");
+tierTabs.querySelectorAll(".segmented-btn").forEach(function(btn, idx){
+  btn.addEventListener("click", function(){
+    tierTabs.querySelectorAll(".segmented-btn").forEach(function(b){ b.classList.remove("active"); });
+    btn.classList.add("active");
+    tierThumb.style.transform = idx===0 ? "translateX(0)" : "translateX(100%)";
+    state.tier = btn.getAttribute("data-tier");
+    renderGrid();
+  });
+});
+
+/* ---------- busca ---------- */
+document.getElementById("searchInput").addEventListener("input", function(e){
+  state.search = e.target.value.trim().toLowerCase();
+  renderGrid();
+});
+
+/* ---------- grid ---------- */
+var grid = document.getElementById("productGrid");
+function renderGrid(){
+  var filtered = PRODUCTS.filter(function(p){
+    var okSeg = state.segment==="all" || p.segment===state.segment;
+    var okTier = p.tier===state.tier;
+    var okSearch = state.search==="" || p.name.toLowerCase().indexOf(state.search)!==-1;
+    return okSeg && okTier && okSearch;
+  });
+  if(filtered.length===0){
+    grid.innerHTML = '<div class="empty-state">Nenhuma fórmula encontrada para este filtro.<br>Tente outro segmento, outra aba ou limpe a busca.</div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(renderCard).join("");
+  filtered.forEach(function(p){
+    var benBtn = document.querySelector('[data-ben-toggle="'+p.id+'"]');
+    if(benBtn){ benBtn.addEventListener("click", function(){ toggleBenefits(p.id); }); }
+    var dosBtn = document.querySelector('[data-dos-open="'+p.id+'"]');
+    if(dosBtn){ dosBtn.addEventListener("click", function(){ openDossie(p.id); }); }
+    var quoBtn = document.querySelector('[data-quo-open="'+p.id+'"]');
+    if(quoBtn){ quoBtn.addEventListener("click", function(){ openQuote(p.id); }); }
+  });
+}
+function tierLabel(t){ return t==="premium" ? "Premium" : "Básica"; }
+function renderCard(p){
+  var m = SEGMENT_META[p.segment];
+  var compRows = p.comp.map(function(i){
+    var fonte = i.f ? ' <span class="fonte">('+i.f+')</span>' : '';
+    return '<tr><td>'+i.n+fonte+'</td><td class="qty">'+i.q+' '+i.u+'</td></tr>';
+  }).join("");
+  var descHtml = p.desc ? '<p class="card-desc" title="'+escapeAttr(p.desc)+'">'+escapeHtml(p.desc)+'</p>' : '';
+  return ''+
+  '<article class="card" style="--seg-c1:'+m.c1+';--seg-c2:'+m.c2+';--seg-text-light:'+m.textL+';--seg-text-dark:'+m.textD+'">'+
+    '<div class="card-media"><span class="tier-badge">'+tierLabel(p.tier)+'</span><span class="icon">'+ICONS[p.icon]+'</span></div>'+
+    '<div class="card-body">'+
+      '<div class="card-segment">'+p.segment+'</div>'+
+      '<h3 class="card-title">'+escapeHtml(p.name)+'</h3>'+
+      descHtml+
+      '<div class="card-format"><span>'+p.format+'</span><span>'+p.pack+'</span></div>'+
+      '<div class="comp-table-wrap"><table class="comp-table"><thead><tr><th>Insumo</th><th>Dose</th></tr></thead><tbody>'+compRows+'</tbody></table></div>'+
+      '<p class="card-usage"><b>Modo de uso:</b> '+escapeHtml(p.usage)+'</p>'+
+      '<div class="benefits-panel" id="ben-'+p.id+'"><ul>'+p.ben.map(function(b){ return '<li>'+escapeHtml(b.replace(/^•\s*/,""))+'</li>'; }).join("")+'</ul></div>'+
+      '<div class="card-price-row"><span class="price">'+fmtBRL.format(p.price)+'<small>/ pote</small></span></div>'+
+      '<span class="min-note">Pedido mínimo: '+p.minPotes+' potes</span>'+
+      '<div class="card-actions">'+
+        '<button class="btn btn-ghost" data-ben-toggle="'+p.id+'">Benefícios</button>'+
+        '<button class="btn btn-ghost" data-dos-open="'+p.id+'">Dossiê Técnico</button>'+
+        '<button class="btn btn-primary" data-quo-open="'+p.id+'">Cotar Fórmula</button>'+
+      '</div>'+
+    '</div>'+
+  '</article>';
+}
+function escapeHtml(s){ return String(s).replace(/[&<>]/g, function(c){ return c==="&"?"&amp;":c==="<"?"&lt;":"&gt;"; }); }
+function escapeAttr(s){ return escapeHtml(s).replace(/"/g,"&quot;"); }
+function toggleBenefits(id){
+  var panel = document.getElementById("ben-"+id);
+  if(panel) panel.classList.toggle("open");
+}
+function productById(id){ return PRODUCTS.filter(function(p){ return p.id===id; })[0]; }
+
+/* ---------- modal: dossiê técnico (sólido) ---------- */
+var dossieOverlay = document.getElementById("dossieOverlay");
+function openDossie(id){
+  var p = productById(id); if(!p) return;
+  document.getElementById("dossieName").textContent = p.name;
+  document.getElementById("dossieSeg").textContent = p.segment+" · "+tierLabel(p.tier);
+  document.getElementById("dossieComp").innerHTML = p.comp.map(function(i){
+    var fonte = i.f ? ' <span class="fonte">('+i.f+')</span>' : '';
+    return '<tr><td>'+i.n+fonte+'</td><td class="qty">'+i.q+' '+i.u+'</td></tr>';
+  }).join("");
+  document.getElementById("dossieUsage").textContent = p.usage;
+  var advWrap = document.getElementById("dossieAdvWrap");
+  if(p.adv){ advWrap.style.display=""; document.getElementById("dossieAdv").textContent = p.adv; }
+  else{ advWrap.style.display="none"; }
+  openOverlay(dossieOverlay);
+}
+document.getElementById("dossieClose").addEventListener("click", function(){ closeOverlay(dossieOverlay); });
+
+/* ---------- modal: cotar fórmula (vidro) ---------- */
+var quoteOverlay = document.getElementById("quoteOverlay");
+var quoteQty = document.getElementById("quoteQty");
+var currentQuoteId = null;
+function openQuote(id){
+  var p = productById(id); if(!p) return;
+  currentQuoteId = id;
+  document.getElementById("quoteName").textContent = p.name;
+  document.getElementById("quoteSeg").textContent = p.segment+" · "+tierLabel(p.tier);
+  document.getElementById("quotePrice").innerHTML = fmtBRL.format(p.price)+"<small>/ pote</small>";
+  var existing = cart.filter(function(c){ return c.id===id; })[0];
+  quoteQty.value = existing ? existing.potes : p.minPotes;
+  updateQuoteCalc();
+  openOverlay(quoteOverlay);
+  setTimeout(function(){ quoteQty.focus(); }, 250);
+}
+function updateQuoteCalc(){
+  var p = productById(currentQuoteId); if(!p) return;
+  var qty = parseInt(quoteQty.value,10) || 0;
+  var warn = document.getElementById("minWarning");
+  var confirmBtn = document.getElementById("quoteConfirm");
+  if(qty < p.minPotes){
+    warn.classList.add("show");
+    confirmBtn.style.opacity = ".5"; confirmBtn.style.pointerEvents = "none";
+  } else {
+    warn.classList.remove("show");
+    confirmBtn.style.opacity = ""; confirmBtn.style.pointerEvents = "";
+  }
+  var subtotal = Math.round(qty * p.price * 100) / 100;
+  document.getElementById("quoteSubtotal").textContent = fmtBRL.format(subtotal);
+}
+quoteQty.addEventListener("input", updateQuoteCalc);
+document.getElementById("qtyMinus").addEventListener("click", function(){
+  quoteQty.value = Math.max(0, (parseInt(quoteQty.value,10)||0) - 50);
+  updateQuoteCalc();
+});
+document.getElementById("qtyPlus").addEventListener("click", function(){
+  quoteQty.value = (parseInt(quoteQty.value,10)||0) + 50;
+  updateQuoteCalc();
+});
+document.getElementById("quoteCancel").addEventListener("click", function(){ closeOverlay(quoteOverlay); });
+document.getElementById("quoteClose").addEventListener("click", function(){ closeOverlay(quoteOverlay); });
+document.getElementById("quoteConfirm").addEventListener("click", function(){
+  var p = productById(currentQuoteId); if(!p) return;
+  var qty = parseInt(quoteQty.value,10) || p.minPotes;
+  if(qty < p.minPotes) return;
+  var subtotal = Math.round(qty * p.price * 100) / 100;
+  var existing = cart.filter(function(c){ return c.id===p.id; })[0];
+  if(existing){ existing.potes = qty; existing.subtotal = subtotal; }
+  else{ cart.push({ id:p.id, name:p.name, potes:qty, unitPrice:p.price, subtotal:subtotal }); }
+  saveCart(); updateCartBadges(); closeOverlay(quoteOverlay); showToast("Adicionado à cotação.");
+});
+
+/* ---------- carrinho ---------- */
+var cartOverlay = document.getElementById("cartOverlay");
+function saveCart(){ try{ localStorage.setItem("lemoncaps_preview_cart", JSON.stringify(cart)); }catch(e){} }
+function updateCartBadges(){
+  var n = cart.length;
+  document.getElementById("cartBadgeTop").textContent = n;
+  document.getElementById("cartBadgeFab").textContent = n;
+}
+function renderCart(){
+  var list = document.getElementById("cartList");
+  var totalRow = document.getElementById("cartTotalRow");
+  if(cart.length===0){
+    list.innerHTML = '<div class="cart-empty">Nenhuma fórmula cotada ainda.<br>Toque em "Cotar Fórmula" em qualquer card.</div>';
+    totalRow.style.display = "none";
+    return;
+  }
+  list.innerHTML = cart.map(function(c){
+    return '<div class="cart-line">'+
+      '<div class="info"><div class="name">'+escapeHtml(c.name)+'</div><div class="meta">'+c.potes+' potes × '+fmtBRL.format(c.unitPrice)+'</div></div>'+
+      '<div class="subtotal">'+fmtBRL.format(c.subtotal)+'</div>'+
+      '<button class="cart-remove" data-remove="'+c.id+'" aria-label="Remover">×</button>'+
+    '</div>';
+  }).join("");
+  var total = cart.reduce(function(sum,c){ return sum + c.subtotal; }, 0);
+  document.getElementById("cartTotalVal").textContent = fmtBRL.format(Math.round(total*100)/100);
+  totalRow.style.display = "";
+  list.querySelectorAll("[data-remove]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id = btn.getAttribute("data-remove");
+      cart = cart.filter(function(c){ return c.id!==id; });
+      saveCart(); updateCartBadges(); renderCart();
+    });
+  });
+}
+function openCart(){ renderCart(); openOverlay(cartOverlay); }
+document.getElementById("cartTopBtn").addEventListener("click", openCart);
+document.getElementById("fabCart").addEventListener("click", openCart);
+document.getElementById("cartClose").addEventListener("click", function(){ closeOverlay(cartOverlay); });
+document.getElementById("cartCloseBtn").addEventListener("click", function(){ closeOverlay(cartOverlay); });
+
+/* ---------- overlays genéricos ---------- */
+function openOverlay(el){ el.classList.add("open"); }
+function closeOverlay(el){ el.classList.remove("open"); }
+[quoteOverlay, dossieOverlay, cartOverlay].forEach(function(ov){
+  ov.addEventListener("click", function(e){ if(e.target===ov) closeOverlay(ov); });
+});
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape"){ [quoteOverlay, dossieOverlay, cartOverlay].forEach(closeOverlay); }
+});
+
+/* ---------- toast ---------- */
+var toastTimer = null;
+function showToast(msg){
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove("show"); }, 2200);
+}
+
+/* ---------- boot ---------- */
+buildChips();
+renderGrid();
+updateCartBadges();
+})();
+</script>
+</body>
+</html>
