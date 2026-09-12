@@ -121,6 +121,27 @@ img {
   outline-offset: 2px;
 }
 
+/* Remove o atraso de ~300ms de toque no celular (o navegador não precisa
+   esperar pra saber se é duplo-toque de zoom) em todo elemento clicável. */
+.lc-chip,
+.lc-segmented-btn,
+.lc-btn,
+.lc-icon-btn,
+.lc-fab,
+.lc-modal-close,
+.lc-stepper-btn {
+  touch-action: manipulation;
+}
+
+/* Área que rola dentro de outra área que rola (tabela de composição e modal
+   dentro da página, chips dentro do topo): a rolagem para na borda, nunca
+   vaza pra empurrar o que está atrás. */
+.lc-modal,
+.lc-comp-table-wrap,
+.lc-chips {
+  overscroll-behavior: contain;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lc-bg-layer {
     animation: none !important;
@@ -321,11 +342,13 @@ img {
   font-size: 26px;
   font-weight: 800;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 .lc-page-head p {
   margin-top: 4px;
   font-size: 13px;
   color: var(--text-muted);
+  text-wrap: pretty;
 }
 
 /* ---------- filtros ---------- */
@@ -340,6 +363,25 @@ img {
   margin: 0 auto;
   border-radius: var(--radius-pill);
   padding: 4px 4px;
+  /* Fade nas bordas: largura real por lado vem de SegmentChips.tsx (medida
+     no scroll de verdade), 0px = sem conteúdo a mais pra esse lado = sem
+     fade. Uma máscara só, na superfície de vidro inteira (nunca por chip). */
+  --chip-fade-left: 0px;
+  --chip-fade-right: 0px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--chip-fade-left),
+    black calc(100% - var(--chip-fade-right)),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--chip-fade-left),
+    black calc(100% - var(--chip-fade-right)),
+    transparent 100%
+  );
 }
 .lc-chips {
   display: flex;
@@ -347,6 +389,8 @@ img {
   overflow-x: auto;
   padding: 4px 14px;
   scrollbar-width: none;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
 }
 .lc-chips::-webkit-scrollbar {
   display: none;
@@ -360,6 +404,7 @@ img {
   color: var(--chip-text);
   white-space: nowrap;
   transition: transform 0.15s ease;
+  scroll-snap-align: start;
 }
 .lc-chip:active {
   transform: scale(0.96);
@@ -441,15 +486,16 @@ img {
 
 .lc-card-media {
   position: relative;
-  height: 118px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--seg-c1), var(--seg-c2));
 }
 .lc-card-media .lc-icon {
-  font-size: 46px;
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.18));
+  color: #fff;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+  flex: none;
 }
 .lc-tier-badge {
   position: absolute;
@@ -489,13 +535,21 @@ img {
   font-weight: 800;
   color: var(--text-on-card);
   line-height: 1.25;
+  text-wrap: balance;
 }
+/* Duas linhas, no máximo. Descrições vão de zero a cinco linhas no banco, e é
+   essa variação que estica a linha inteira da grade, deixando buraco nos cards
+   curtos. Aqui NÃO se usa `white-space: nowrap` junto de `text-wrap`: as duas
+   controlam o mesmo grupo de propriedades, e a segunda cancela a primeira. */
 .lc-card-desc {
   font-size: 12.5px;
   color: var(--text-muted);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-wrap: pretty;
 }
 .lc-card-format {
   font-size: 11.5px;
@@ -548,6 +602,23 @@ img {
   font-size: 12px;
   color: var(--text-muted);
 }
+.lc-comp-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lc-comp-more {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  touch-action: manipulation;
+}
+.lc-comp-more:hover {
+  color: var(--text-on-card);
+}
 
 .lc-card-usage {
   font-size: 11.5px;
@@ -561,6 +632,7 @@ img {
   font-size: 12px;
   color: var(--ink-soft);
   margin: 0 0 6px;
+  text-wrap: pretty;
 }
 .lc-benefits-panel {
   max-height: 0;
@@ -597,6 +669,15 @@ img {
   font-weight: 800;
 }
 
+.lc-card-footer {
+  /* Empurra preço + pedido mínimo + ações pra base do card: sobra de espaço
+     do grid (cards da mesma linha esticados pra bater com o mais alto) fica
+     acima deste bloco, nunca dentro dele. */
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
 .lc-price-row {
   display: flex;
   align-items: baseline;
@@ -759,6 +840,7 @@ img {
 .lc-modal-head h2 {
   font-size: 18px;
   font-weight: 800;
+  text-wrap: balance;
 }
 .lc-modal-head .lc-seg-tag {
   font-size: 11px;
@@ -866,12 +948,14 @@ img {
   letter-spacing: 0.03em;
   color: var(--text-muted);
   margin-bottom: 8px;
+  text-wrap: balance;
 }
 .lc-dossie-text {
   font-size: 13px;
   color: var(--ink-soft);
   white-space: pre-line;
   line-height: 1.55;
+  text-wrap: pretty;
 }
 
 /* ---------- footer ---------- */

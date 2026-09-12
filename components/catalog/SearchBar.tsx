@@ -10,11 +10,13 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
     <label className="lc-search-wrap">
       <Search size={16} aria-hidden="true" />
       <input
-        type="text"
-        placeholder="Buscar fórmula..."
+        type="search"
+        placeholder="Buscar fórmula…"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         aria-label="Buscar fórmula pelo nome"
+        autoComplete="off"
+        spellCheck={false}
       />
     </label>
   );

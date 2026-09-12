@@ -8,9 +8,14 @@ import type { FormulaCompositionDTO } from "@/lib/data/formulas";
 interface CompositionTableProps {
   compositions: FormulaCompositionDTO[];
   maxHeightPx?: number;
+  // Corta a lista visível no card (sem limite -> mostra tudo, é o caso do
+  // Dossiê Técnico). Nunca esconde dado sem caminho: quando corta, mostra o
+  // botão abaixo com o total real e um jeito de ver a lista inteira.
+  limit?: number;
+  onViewAll?: () => void;
 }
 
-export function CompositionTable({ compositions, maxHeightPx = 212 }: CompositionTableProps) {
+export function CompositionTable({ compositions, maxHeightPx = 212, limit, onViewAll }: CompositionTableProps) {
   if (compositions.length === 0) {
     return (
       <div className="lc-comp-table-wrap">
@@ -19,26 +24,36 @@ export function CompositionTable({ compositions, maxHeightPx = 212 }: Compositio
     );
   }
 
+  const isTruncated = typeof limit === "number" && compositions.length > limit;
+  const visibleCompositions = isTruncated ? compositions.slice(0, limit) : compositions;
+
   return (
-    <div className="lc-comp-table-wrap" style={{ maxHeight: maxHeightPx }}>
-      <table className="lc-comp-table">
-        <thead>
-          <tr>
-            <th>Insumo</th>
-            <th>Dose</th>
-          </tr>
-        </thead>
-        <tbody>
-          {compositions.map((item) => (
-            <tr key={item.id}>
-              <td>{item.ingredientName}</td>
-              <td className="lc-qty">
-                {formatQuantity(item.quantity)} {unitLabel(item.unit)}
-              </td>
+    <div className="lc-comp-wrap">
+      <div className="lc-comp-table-wrap" style={{ maxHeight: maxHeightPx }}>
+        <table className="lc-comp-table">
+          <thead>
+            <tr>
+              <th>Insumo</th>
+              <th>Dose</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {visibleCompositions.map((item) => (
+              <tr key={item.id}>
+                <td>{item.ingredientName}</td>
+                <td className="lc-qty">
+                  {formatQuantity(item.quantity)} {unitLabel(item.unit)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {isTruncated && onViewAll && (
+        <button type="button" className="lc-comp-more" onClick={onViewAll}>
+          Ver todos os {compositions.length} insumos
+        </button>
+      )}
     </div>
   );
 }
