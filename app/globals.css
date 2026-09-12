@@ -89,6 +89,13 @@ body {
   margin: 0;
   padding: 0;
 }
+/* Topo + filtros somados formam uma faixa fixa de 207px (medido ao vivo, igual
+   em mobile e desktop: a barra de filtros sempre gruda em top:70px com ~137px
+   de altura própria). Sem isso, o navegador rola até o elemento focado por Tab
+   mas deixa a barra fixa cobrindo ele por cima. */
+html {
+  scroll-padding-top: 210px;
+}
 body {
   background: var(--background);
   color: var(--foreground);
@@ -121,6 +128,20 @@ img {
   outline-offset: 2px;
 }
 
+/* Conteúdo só para leitor de tela (ex.: contagem de resultado do filtro) —
+   ocupa espaço zero na tela, sem afetar o layout visual. */
+.lc-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Remove o atraso de ~300ms de toque no celular (o navegador não precisa
    esperar pra saber se é duplo-toque de zoom) em todo elemento clicável. */
 .lc-chip,
@@ -131,6 +152,10 @@ img {
 .lc-modal-close,
 .lc-stepper-btn {
   touch-action: manipulation;
+  /* O feedback de toque já existe via :hover/:active/:focus-visible próprios;
+     sem isto, Android/Chrome mostra o retângulo cinza padrão do navegador,
+     destoando das formas arredondadas/vidro do resto da interface. */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Área que rola dentro de outra área que rola (tabela de composição e modal
@@ -154,6 +179,10 @@ img {
 }
 
 /* ---------- fundo vivo por segmento ---------- */
+/* Loop de 22s sem controle de pausa próprio na página: risco aceito de
+   propósito (efeito sutil, blur de 85px, deslocamento de ~1,5%) — já respeita
+   prefers-reduced-motion (desativa por completo, ver media query abaixo).
+   Reconsiderar só se o efeito ficar mais perceptível no futuro. */
 .lc-bg-layer {
   position: fixed;
   inset: -10%;
@@ -291,6 +320,13 @@ img {
 .lc-search-wrap input::placeholder {
   color: var(--text-muted);
 }
+/* O input em si mantém outline:none (é uma pílula sem canto reto pra
+   destacar); o indicador de foco por teclado vai no invólucro inteiro, que é
+   a forma que o usuário realmente reconhece como "o campo de busca". */
+.lc-search-wrap:focus-within {
+  outline: 2px solid var(--lime-deep);
+  outline-offset: 2px;
+}
 @media (min-width: 680px) {
   .lc-search-wrap {
     order: 2;
@@ -313,6 +349,10 @@ img {
   justify-content: center;
   flex: none;
   color: var(--ink);
+  transition: background-color 0.15s ease;
+}
+.lc-icon-btn:hover {
+  background: rgba(127, 127, 127, 0.16);
 }
 .lc-badge {
   position: absolute;
@@ -403,11 +443,17 @@ img {
   font-weight: 700;
   color: var(--chip-text);
   white-space: nowrap;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease, filter 0.15s ease;
   scroll-snap-align: start;
 }
 .lc-chip:active {
   transform: scale(0.96);
+}
+.lc-chip:hover {
+  background: rgba(127, 127, 127, 0.16);
+}
+.lc-chip.is-active:hover {
+  filter: brightness(1.08);
 }
 .lc-chip.is-active {
   background: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)), var(--chip-tint, linear-gradient(135deg, var(--lime), var(--lime-deep)));
@@ -449,9 +495,16 @@ img {
   font-weight: 800;
   color: var(--chip-text);
   border-radius: var(--radius-pill);
+  transition: background-color 0.15s ease, filter 0.15s ease;
+}
+.lc-segmented-btn:hover {
+  background: rgba(127, 127, 127, 0.12);
 }
 .lc-segmented-btn.is-active {
   color: var(--lime-ink);
+}
+.lc-segmented-btn.is-active:hover {
+  filter: brightness(1.06);
 }
 
 /* ---------- grid / cards (sólido — nunca vidro) ---------- */
@@ -536,6 +589,10 @@ img {
   color: var(--text-on-card);
   line-height: 1.25;
   text-wrap: balance;
+  /* Nome de fórmula não tem limite de tamanho no banco; sem isto, um token
+     sem espaço mais largo que o card estoura a largura (o card tem
+     overflow:hidden, então corta no meio da palavra sem aviso). */
+  overflow-wrap: break-word;
 }
 /* Duas linhas, no máximo. Descrições vão de zero a cinco linhas no banco, e é
    essa variação que estica a linha inteira da grade, deixando buraco nos cards
@@ -634,15 +691,24 @@ img {
   margin: 0 0 6px;
   text-wrap: pretty;
 }
+/* grid-template-rows 0fr -> 1fr no lugar de max-height: a altura muda sem
+   forçar recálculo de layout a cada quadro (mesmo efeito visual, custo bem
+   menor). O wrapper .lc-benefits-panel-inner é o único filho do grid — é a
+   altura DELE que o track 1fr mede; overflow:hidden nele esconde o conteúdo
+   enquanto o track ainda está em 0fr. */
 .lc-benefits-panel {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.3s ease;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
 }
 .lc-benefits-panel.is-open {
-  max-height: 640px;
+  grid-template-rows: 1fr;
   opacity: 1;
+}
+.lc-benefits-panel-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 .lc-benefits-panel ul {
   list-style: none;
@@ -687,6 +753,7 @@ img {
 .lc-price {
   font-size: 21px;
   font-weight: 800;
+  white-space: nowrap;
 }
 .lc-price small {
   font-size: 11.5px;
@@ -726,6 +793,10 @@ img {
   color: var(--text-on-card);
   flex: 1;
   min-width: 100px;
+  transition: background-color 0.15s ease;
+}
+.lc-btn-ghost:hover:not(:disabled) {
+  background: rgba(127, 127, 127, 0.22);
 }
 .lc-btn-primary {
   background: linear-gradient(135deg, var(--lime), var(--lime-deep));
@@ -733,6 +804,11 @@ img {
   flex: 1;
   min-width: 120px;
   box-shadow: 0 6px 16px rgba(166, 225, 0, 0.35);
+  transition: box-shadow 0.15s ease, filter 0.15s ease;
+}
+.lc-btn-primary:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(166, 225, 0, 0.5);
+  filter: brightness(1.04);
 }
 @media (max-width: 420px) {
   .lc-card-actions {
@@ -756,6 +832,10 @@ img {
   align-items: center;
   justify-content: center;
   color: var(--ink);
+  transition: filter 0.15s ease;
+}
+.lc-fab:hover {
+  filter: brightness(1.1);
 }
 .lc-fab .lc-badge {
   top: -2px;
@@ -837,7 +917,7 @@ img {
   gap: 12px;
   margin-bottom: 14px;
 }
-.lc-modal-head h2 {
+.lc-modal-head h3 {
   font-size: 18px;
   font-weight: 800;
   text-wrap: balance;
@@ -859,6 +939,10 @@ img {
   align-items: center;
   justify-content: center;
   flex: none;
+  transition: background-color 0.15s ease;
+}
+.lc-modal-close:hover {
+  background: rgba(127, 127, 127, 0.3);
 }
 
 .lc-quote-price {
@@ -870,6 +954,15 @@ img {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);
+}
+/* --text-muted foi calibrado para o cartão sólido; sobre o vidro do modal
+   "Cotar Fórmula" (glass-fill sobre o scrim sobre o fundo) o contraste real,
+   medido ao vivo, cai pra ~3,94:1 (falha WCAG AA). --ink-soft, mais escuro,
+   fecha 4,5:1 com folga nos dois temas — reaplica só dentro do vidro, o
+   cartão sólido continua com --text-muted normalmente. */
+.lc-modal-glass .lc-seg-tag,
+.lc-modal-glass .lc-quote-price small {
+  color: var(--ink-soft);
 }
 .lc-qty-stepper {
   display: flex;
@@ -887,6 +980,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.15s ease;
+}
+.lc-stepper-btn:hover {
+  background: rgba(127, 127, 127, 0.3);
 }
 .lc-qty-stepper input {
   flex: 1;
@@ -924,6 +1021,12 @@ img {
   font-size: 12.5px;
   color: var(--text-muted);
   font-weight: 700;
+}
+/* Mesma causa do achado 3 (--text-muted não fecha 4,5:1 sobre o vidro): o
+   painel cinza do subtotal fica DENTRO do modal de vidro, então herda o
+   mesmo problema. Medido ao vivo antes da troca: 3,42:1. */
+.lc-modal-glass .lc-lbl {
+  color: var(--ink-soft);
 }
 .lc-quote-subtotal .lc-val {
   font-size: 19px;

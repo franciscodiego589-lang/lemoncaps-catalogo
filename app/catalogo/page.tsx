@@ -17,6 +17,15 @@ export const metadata: Metadata = {
 // de CatalogView, para refletir segmento/linha/busca na URL) — nada nesta
 // página depende de um carregamento assíncrono de verdade além da busca dos
 // dados acima, que já é aguardada antes de chegar ao client component.
+//
+// Resiliência: getCatalogData() já cacheia os dados (5 min, ver lib/data/formulas.ts)
+// e relança qualquer falha de leitura como erro sóbrio; quem trata isso para o
+// visitante é o error boundary da rota (./error.tsx — convenção do Next App
+// Router, pega qualquer throw daqui para baixo automaticamente, sem precisar de
+// try/catch nesta página). Catálogo genuinamente vazio (zero fórmulas ativas)
+// não é erro: chega aqui como `formulas: []` normalmente, e é o EmptyState
+// dentro de CatalogView (components/catalog/EmptyState.tsx) quem mostra esse
+// estado — nunca a tela de erro.
 export default async function CatalogoPage() {
   const { segments, formulas } = await getCatalogData();
 

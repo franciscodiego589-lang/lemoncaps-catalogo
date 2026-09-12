@@ -178,37 +178,60 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
       <AnimatedBackground colors={backgroundColors} />
       <GlassTopBar searchValue={search} onSearchChange={handleChangeSearch} />
 
-      <div className="lc-page-head">
-        <h1>Catálogo de fórmulas</h1>
-        <p>Composição, modo de uso e preço direto do nosso catálogo vigente.</p>
-      </div>
+      {/* header/main/nav de verdade: título, filtros e grade viviam soltos
+          como filhos do fragment (achado de auditoria "region" — leitor de
+          tela pula esse conteúdo por não pertencer a landmark nenhum). Este
+          <main> não carrega classe própria de propósito: só dá o landmark,
+          sem tocar no layout visual de cada filho (cada um já tinha seu
+          próprio max-width/padding calibrado, inclusive a faixa de filtros
+          de ponta a ponta no mobile). */}
+      <main>
+        <div className="lc-page-head">
+          <h1>Catálogo de fórmulas</h1>
+          <p>Composição, modo de uso e preço direto do nosso catálogo vigente.</p>
+        </div>
 
-      <div className="lc-filters">
-        <SegmentChips segments={segments} selected={selectedSegment} onSelect={handleSelectSegment} />
-        <LineTabs value={line} onChange={handleChangeLine} />
-      </div>
+        <div className="lc-filters">
+          <SegmentChips segments={segments} selected={selectedSegment} onSelect={handleSelectSegment} />
+          <LineTabs value={line} onChange={handleChangeLine} />
+        </div>
 
-      <main className="lc-container">
-        {filteredFormulas.length === 0 ? (
-          <EmptyState />
-        ) : (
-          <div className="lc-grid">
-            {filteredFormulas.map((formula) => (
-              <FormulaCard
-                key={formula.id}
-                formula={formula}
-                segment={segmentsById.get(formula.segmentId)}
-                onQuote={handleQuote}
-                onViewDossie={handleViewDossie}
-              />
-            ))}
-          </div>
-        )}
+        {/* Região visualmente oculta, anunciada a cada filtragem — mesmo
+            padrão do aviso de pedido mínimo em QuoteModal (role="status").
+            Sem isto, quem usa leitor de tela não sabe quantas fórmulas
+            apareceram nem que o filtro zerou a lista. */}
+        <p className="lc-sr-only" role="status" aria-live="polite">
+          {filteredFormulas.length === 0
+            ? "Nenhuma fórmula encontrada para este filtro."
+            : `${filteredFormulas.length} ${filteredFormulas.length === 1 ? "fórmula encontrada" : "fórmulas encontradas"}.`}
+        </p>
+
+        <div className="lc-container">
+          {filteredFormulas.length === 0 ? (
+            <EmptyState />
+          ) : (
+            <div className="lc-grid">
+              {filteredFormulas.map((formula) => (
+                <FormulaCard
+                  key={formula.id}
+                  formula={formula}
+                  segment={segmentsById.get(formula.segmentId)}
+                  onQuote={handleQuote}
+                  onViewDossie={handleViewDossie}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       </main>
 
-      <footer className="lc-footer">© 2026 Lemon Caps - Indústria de Suplementos e Nutracêuticos</footer>
+      <footer className="lc-footer">
+        © 2026 <span translate="no">Lemon Caps</span> - Indústria de Suplementos e Nutracêuticos
+      </footer>
 
-      <CartFab />
+      <nav aria-label="Ações">
+        <CartFab />
+      </nav>
 
       <QuoteModal
         formula={quoteFormula}

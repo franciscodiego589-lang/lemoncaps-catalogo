@@ -11,7 +11,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       <Search size={16} aria-hidden="true" />
       <input
         type="search"
-        placeholder="Buscar fórmula…"
+        placeholder="Buscar fórmula… (ex.: Colágeno)"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         aria-label="Buscar fórmula pelo nome"

@@ -20,13 +20,21 @@ export function GlassTopBar({ searchValue, onSearchChange }: GlassTopBarProps) {
       <GlassSurface className="lc-topbar-inner">
         <div className="lc-brand">
           <span className="lc-brand-dot" aria-hidden="true" />
-          Lemon Caps
+          <span translate="no">Lemon Caps</span>
         </div>
         <SearchBar value={searchValue} onChange={onSearchChange} />
         {/* A tela /carrinho completa vem em outra etapa — o link já aponta
             para lá; até ela existir, o próprio Next mostra a página padrão de
             não encontrado. */}
-        <Link href="/carrinho" className="lc-icon-btn lc-cart-btn" aria-label="Abrir carrinho de cotação">
+        <Link
+          href="/carrinho"
+          className="lc-icon-btn lc-cart-btn"
+          aria-label={
+            cartCount > 0
+              ? `Abrir carrinho de cotação, ${cartCount} ${cartCount === 1 ? "item" : "itens"}`
+              : "Abrir carrinho de cotação"
+          }
+        >
           <ShoppingCart size={20} aria-hidden="true" />
           {cartCount > 0 && (
             <span className="lc-badge" aria-hidden="true">

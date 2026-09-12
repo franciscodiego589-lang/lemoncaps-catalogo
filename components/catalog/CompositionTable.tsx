@@ -29,7 +29,17 @@ export function CompositionTable({ compositions, maxHeightPx = 212, limit, onVie
 
   return (
     <div className="lc-comp-wrap">
-      <div className="lc-comp-table-wrap" style={{ maxHeight: maxHeightPx }}>
+      {/* Sem role="region" de propósito: a página tem uma tabela dessas por
+          card (22 no catálogo hoje) e todas teriam o mesmo nome acessível —
+          22 landmarks iguais falham "landmark-unique". tabIndex + aria-label
+          já bastam pra corrigir o achado (foco por teclado + nome ao
+          anunciar), sem criar um landmark novo por card. */}
+      <div
+        className="lc-comp-table-wrap"
+        style={{ maxHeight: maxHeightPx }}
+        tabIndex={0}
+        aria-label="Composição, role para ver mais"
+      >
         <table className="lc-comp-table">
           <thead>
             <tr>

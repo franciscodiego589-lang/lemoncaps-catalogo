@@ -59,7 +59,10 @@ export function ModalShell({ isOpen, onClose, variant = "glass", title, subtitle
       >
         <div className="lc-modal-head">
           <div>
-            <h2>{title}</h2>
+            {/* H1 da página > H2 nos títulos dos cards (FormulaCard) > H3 aqui:
+                o modal abre a partir de um card, então o título dele é
+                subordinado ao H2 do card que o abriu. */}
+            <h3>{title}</h3>
             {subtitle ? <div className="lc-seg-tag">{subtitle}</div> : null}
           </div>
           <button type="button" className="lc-modal-close" onClick={onClose} aria-label="Fechar">

@@ -57,7 +57,9 @@ export function FormulaCard({ formula, segment, onQuote, onViewDossie }: Formula
       </div>
       <div className="lc-card-body">
         {hasContent(segment?.name) && <div className="lc-card-segment">{segment?.name}</div>}
-        <h3 className="lc-card-title">{formula.name}</h3>
+        <h2 className="lc-card-title" title={formula.name}>
+          {formula.name}
+        </h2>
         {hasContent(formula.description) && (
           <p className="lc-card-desc" title={formula.description ?? undefined}>
             {formula.description}
