@@ -60,9 +60,10 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
     setErrors({});
     setSubmitting(true);
     try {
-      const { quoteId } = await submitQuote({ name: trimmedName, whatsapp: normalizedWhatsapp, items });
+      const { quoteId, quoteNumber } = await submitQuote({ name: trimmedName, whatsapp: normalizedWhatsapp, items });
       onSuccess({
         quoteId,
+        quoteNumber,
         customerName: trimmedName,
         customerWhatsapp: normalizedWhatsapp,
         items,

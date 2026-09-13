@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 import { LoginForm } from "@/components/admin/LoginForm";
 import { getStaffSession } from "@/lib/data/admin";
@@ -25,6 +27,15 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
   return (
     <main className="lc-admin-auth-page">
+      {/* Canto superior esquerdo, FORA do cartão. Esta tela não tem o menu
+          lateral do admin (ele só existe depois de entrar), então o botão que
+          vive lá não ajudava aqui: quem clicava em "Admin" no catálogo caía
+          neste login e ficava sem caminho de volta a não ser fechando a aba.
+          Foi o que o dono relatou, e ele estava certo. */}
+      <Link href="/catalogo" className="lc-login-voltar">
+        <ArrowLeft size={17} aria-hidden="true" />
+        Voltar ao catálogo
+      </Link>
       <div className="lc-admin-auth-card">
         <div className="lc-admin-auth-brand">
           <span className="lc-brand-dot" aria-hidden="true" />

@@ -7,7 +7,7 @@ import { CompositionTable } from "@/components/catalog/CompositionTable";
 import { DossiePdfButton } from "@/components/catalog/DossiePdfButton";
 import { DossieTopBar } from "@/components/catalog/DossieTopBar";
 import { ProductMockup } from "@/components/catalog/ProductMockup";
-import { hasContent, lineLabel, stripLeadingBulletMarker } from "@/lib/catalog/format-catalog";
+import { hasContent, lineLabel } from "@/lib/catalog/format-catalog";
 import { getCatalogData, getFormulaBySlug, type FormulaDetailDTO } from "@/lib/data/formulas";
 import { centsToBRL } from "@/lib/money";
 import {
@@ -149,21 +149,14 @@ export default async function DossiePage({ params }: DossiePageProps) {
             </section>
           ))}
 
-          {hasBenefits && (
-            <section className="lc-dossie-section">
-              <h2>Benefícios</h2>
-              {hasContent(formula.generalBenefitsSummary) && (
-                <p className="lc-dossie-text">{formula.generalBenefitsSummary}</p>
-              )}
-              {formula.benefits.length > 0 && (
-                <ul className="lc-dossie-benefits-list">
-                  {formula.benefits.map((benefit, index) => (
-                    <li key={`${index}-${benefit}`}>{stripLeadingBulletMarker(benefit)}</li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          )}
+          {/* A seção "Benefícios" (resumo + lista) foi removida DAQUI de
+              propósito - achado do dono em 13/09/2026: o mesmo texto
+              (generalBenefitsSummary + benefits) aparecia duas vezes, aqui no
+              dossiê e em app/catalogo/[slug]/beneficios/page.tsx, que existe
+              porque foi pedido que benefícios abrissem em página própria, não
+              expandindo o card. O botão "Ver benefícios" do toolbar acima
+              (controlado por hasBenefits, mantido) já leva para lá - esse
+              conteúdo agora vive só naquela página, nunca duplicado. */}
 
           {hasContent(formula.targetAudience) && (
             <section className="lc-dossie-section">

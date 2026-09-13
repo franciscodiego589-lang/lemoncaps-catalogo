@@ -15,7 +15,10 @@ export interface SubmitQuoteInput {
 }
 
 export interface SubmitQuoteResult {
+  /** Identificador interno — nunca vai para a tela nem para o documento. */
   quoteId: string;
+  /** Número sequencial do orçamento, a partir de 1. É o que o cliente vê. */
+  quoteNumber: number;
 }
 
 export async function submitQuote({ name, whatsapp, items }: SubmitQuoteInput): Promise<SubmitQuoteResult> {
@@ -42,16 +45,23 @@ export async function submitQuote({ name, whatsapp, items }: SubmitQuoteInput): 
     quantity_potes: item.quantityPotes,
   }));
 
-  const { data: quoteId, error: quoteError } = await supabase.rpc("fn_generate_quote", {
+  // Desde 20260913080000 a RPC devolve uma LINHA (quote_id, quote_number), não
+  // mais só o uuid: o número sequencial é o que o cliente vê no documento, e o
+  // uuid nunca deve aparecer para ele. Como o retorno virou `returns table`, o
+  // PostgREST entrega um array — daí o [0].
+  const { data, error: quoteError } = await supabase.rpc("fn_generate_quote", {
     p_customer_name: name,
     p_customer_whatsapp: whatsapp,
     p_items: quoteItems,
     p_lead_id: leadId ?? undefined,
   });
   if (quoteError) throw quoteError;
-  if (!quoteId) throw new Error("O orçamento não retornou identificação.");
 
-  return { quoteId };
+  const gerado = Array.isArray(data) ? data[0] : data;
+  if (!gerado?.quote_id) throw new Error("O orçamento não retornou identificação.");
+  if (gerado.quote_number == null) throw new Error("O orçamento não retornou número.");
+
+  return { quoteId: gerado.quote_id, quoteNumber: Number(gerado.quote_number) };
 }
 
 // As duas RPCs levantam RAISE EXCEPTION com mensagem já em português, escrita

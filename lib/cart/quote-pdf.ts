@@ -36,7 +36,7 @@ function addCalendarDays(base: Date, days: number): Date {
 
 export function downloadQuotePdf(data: QuoteSuccessData): void {
   const doc = new jsPDF();
-  const documentTitle = `Orçamento ${data.quoteId}`;
+  const documentTitle = `Orçamento nº ${data.quoteNumber}`;
 
   // "Emitido em": instante real de geração deste PDF no navegador - o
   // retrato do orçamento (QuoteSuccessData) não carrega um timestamp de
@@ -48,7 +48,7 @@ export function downloadQuotePdf(data: QuoteSuccessData): void {
 
   let cursorY = drawCoverBlock(doc, CONTENT_START_Y, {
     docTypeLabel: DOC_TYPE_LABEL,
-    title: `Orçamento nº ${data.quoteId}`,
+    title: `Orçamento nº ${data.quoteNumber}`,
     subtitle: null,
     issuedAtLabel: LONG_DATETIME_FORMATTER.format(issuedAt),
   });
@@ -132,5 +132,7 @@ export function downloadQuotePdf(data: QuoteSuccessData): void {
 
   stampRunningHeaderAndFooter(doc, { docType: DOC_TYPE_LABEL, documentTitle });
 
-  doc.save(`orcamento-lemon-caps-${data.quoteId.slice(0, 8)}.pdf`);
+  // Nome do arquivo pelo número do orçamento, não por pedaço do uuid:
+  // o cliente arquiva e procura por "orçamento 7", nunca por "69127f52".
+  doc.save(`orcamento-lemon-caps-${data.quoteNumber}.pdf`);
 }

@@ -2309,11 +2309,37 @@ img {
 
 /* ---------- tela de login ---------- */
 .lc-admin-auth-page {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
+}
+/* Saída do login, fixa no canto superior esquerdo. Esta tela não tem o menu
+   lateral do admin — ele só existe depois de autenticar —, então sem isto quem
+   chegava aqui pelo botão "Admin" do catálogo ficava sem volta. */
+.lc-login-voltar {
+  position: absolute;
+  top: max(20px, env(safe-area-inset-top, 0px));
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px 0 13px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper-soft);
+  border: 1px solid var(--card-border);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.lc-login-voltar:hover,
+.lc-login-voltar:focus-visible {
+  background: #fff;
+  border-color: var(--lime-deep);
 }
 .lc-admin-auth-card {
   width: 100%;
@@ -2421,6 +2447,64 @@ img {
 .lc-admin-nav-link.is-active {
   background: linear-gradient(135deg, var(--lime), var(--lime-deep));
   color: var(--lime-ink);
+}
+/* Botão de voltar ao catálogo com rótulo escrito, na barra do carrinho e do
+   dossiê. Antes era só a seta, com o texto apenas no aria-label — quem enxerga
+   não tinha como saber para onde ela ia. */
+.lc-voltar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  height: 38px;
+  padding: 0 14px 0 11px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.lc-voltar-btn:hover,
+.lc-voltar-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 560px) {
+  .lc-voltar-btn {
+    padding: 0;
+    width: 38px;
+    justify-content: center;
+  }
+  .lc-voltar-btn span {
+    display: none;
+  }
+}
+
+/* "Voltar ao catálogo" no topo do menu do admin, logo abaixo da marca.
+   Primeira versão ficou no rodapé em cor secundária e o dono simplesmente não
+   a viu — pediu o botão de novo depois de ele já existir e funcionar. Saída de
+   tela vai onde o olho chega primeiro. Tem fundo e borda próprios para se ler
+   como botão, e não como mais um item da lista de seções. */
+.lc-admin-nav-voltar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper-soft);
+  border: 1px solid var(--card-border);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.lc-admin-nav-voltar:hover,
+.lc-admin-nav-voltar:focus-visible {
+  background: #fff;
+  border-color: var(--lime-deep);
 }
 .lc-admin-nav-footer {
   padding-top: 10px;

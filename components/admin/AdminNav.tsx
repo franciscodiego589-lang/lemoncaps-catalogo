@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, FlaskConical, LayoutDashboard, Package, Users, Wallet } from "lucide-react";
+import { ArrowLeft, FileText, FlaskConical, LayoutDashboard, Package, Users, Wallet } from "lucide-react";
 
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
@@ -29,6 +29,15 @@ export function AdminNav({ fullName, canManageQuotes }: AdminNavProps) {
         <span className="lc-brand-dot" aria-hidden="true" />
         Lemon Caps
       </div>
+      {/* Volta para o site público. Fica no TOPO, logo abaixo da marca, e com
+          contraste cheio: já esteve no rodapé em cor secundária e o dono não o
+          encontrou — pediu o botão de novo depois de ele já existir. Saída de
+          tela precisa estar onde o olho chega primeiro, não onde sobra espaço.
+          Não desloga: a sessão continua de pé para voltar ao painel. */}
+      <Link href="/catalogo" className="lc-admin-nav-voltar">
+        <ArrowLeft size={16} aria-hidden="true" />
+        Voltar ao catálogo
+      </Link>
       <div className="lc-admin-nav-links">
         {links.map(({ href, label, icon: Icon, exact }) => {
           const isActive = exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
