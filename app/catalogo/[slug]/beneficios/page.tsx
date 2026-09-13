@@ -60,9 +60,9 @@ export default async function BeneficiosPage({ params }: BeneficiosPageProps) {
           <h1>Benefícios de {formula.name}</h1>
           <p className="lc-dossie-subtitle">{subtitle}</p>
           <div className="lc-dossie-toolbar">
-            <Link href={`/catalogo/${formula.slug}`} className="lc-modal-link">
+            <Link href={`/catalogo/${formula.slug}`} className="lc-btn lc-btn-ghost">
               Ver dossiê técnico completo
-              <ArrowRight size={14} aria-hidden="true" />
+              <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>

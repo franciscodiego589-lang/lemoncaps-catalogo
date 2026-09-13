@@ -94,9 +94,9 @@ export default async function DossiePage({ params }: DossiePageProps) {
                 benefícios: as duas páginas do produto se acham uma à outra,
                 sem precisar voltar ao catálogo no meio do caminho. */}
             {hasBenefits && (
-              <Link href={`/catalogo/${formula.slug}/beneficios`} className="lc-modal-link">
+              <Link href={`/catalogo/${formula.slug}/beneficios`} className="lc-btn lc-btn-ghost">
                 Ver benefícios
-                <ArrowRight size={14} aria-hidden="true" />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             )}
           </div>

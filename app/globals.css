@@ -681,17 +681,30 @@ img {
   flex-direction: column;
   gap: 6px;
 }
+/* Botão, e não link sublinhado: dentro do card ele concorre com muito texto,
+   e como botão o cliente enxerga que ali tem uma ação. Mesma família visual
+   dos demais botões (pílula, fundo suave), só que menor por caber no card. */
 .lc-comp-more {
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--card-border);
   font-size: 11px;
-  font-weight: 700;
-  color: var(--ink-soft);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-decoration: none;
   touch-action: manipulation;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
 }
 .lc-comp-more:hover {
-  color: var(--text-on-card);
+  background: var(--table-bg);
+  border-color: var(--table-border);
 }
 
 .lc-card-usage {
@@ -1118,6 +1131,19 @@ img {
 .lc-dossie-toolbar .lc-btn {
   width: auto;
   min-width: 230px;
+}
+/* O "Ver benefícios" é um link com ícone: precisa de flex para o texto e a
+   seta ficarem lado a lado e centrados juntos (a classe base usa text-align,
+   que deixa o ícone solto), e não pode herdar o flex:1 do botão fantasma,
+   senão estica e desalinha com o botão de PDF ao lado. */
+.lc-dossie-toolbar a.lc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-width: 0;
+  text-decoration: none;
 }
 
 .lc-dossie-body {
