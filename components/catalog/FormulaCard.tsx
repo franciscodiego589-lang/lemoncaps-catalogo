@@ -2,12 +2,15 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
 
 import { centsToBRL } from "@/lib/money";
 import { FORMAT_ICONS, hasContent, lineLabel } from "@/lib/catalog/format-catalog";
+import { formatComplianceDate } from "@/lib/catalog/regulatory-info";
 import { segmentVisual } from "@/lib/catalog/segment-visuals";
 import type { FormulaDTO, SegmentDTO } from "@/lib/data/formulas";
 import { CompositionTable } from "./CompositionTable";
+import { ProductMockup } from "./ProductMockup";
 
 interface FormulaCardProps {
   formula: FormulaDTO;
@@ -45,11 +48,27 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
     "--seg-text-dark": visual.textDark,
   } as CSSProperties;
 
+  const hasMockup = hasContent(formula.mockupPath);
+
   return (
     <article className="lc-card" style={cardStyle}>
-      <div className="lc-card-media">
+      {/* O gradiente do segmento continua sendo o fundo da faixa nos dois
+          casos (--seg-c1/--seg-c2, definidos acima) - com mockup, o pote
+          aparece por cima dele; sem mockup, o ícone de traço continua exatamente
+          como antes (produto sem foto nunca fica com buraco). */}
+      <div className={`lc-card-media${hasMockup ? " lc-card-media--mockup" : ""}`}>
         <span className="lc-tier-badge">{lineLabel(formula.line)}</span>
-        <FormatIcon className="lc-icon" size={26} aria-hidden="true" />
+        {hasMockup ? (
+          <ProductMockup
+            src={formula.mockupPath as string}
+            alt={`Pote de ${formula.name}`}
+            width={240}
+            height={240}
+            variant="card"
+          />
+        ) : (
+          <FormatIcon className="lc-icon" size={26} aria-hidden="true" />
+        )}
       </div>
       <div className="lc-card-body">
         {hasContent(segment?.name) && <div className="lc-card-segment">{segment?.name}</div>}
@@ -61,6 +80,26 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
             {formula.name}
           </Link>
         </h2>
+        {formula.complianceVerifiedAt && (
+          // Selo é CONTEÚDO (fato verificado sobre o produto), por isso sempre
+          // sólido — nunca reaproveita a classe .lc-tier-badge (essa é vidro,
+          // ver "vidro no cromo" em globals.css). Só renderiza quando
+          // complianceVerifiedAt não é nulo; produto sem selo não ganha aviso
+          // negativo nem espaço vazio no lugar (regra do dono).
+          //
+          // Acessibilidade: texto visível (não é só ícone/cor) + tabIndex para
+          // foco por teclado/toque + aria-describedby aponta pro texto
+          // completo (normas + data), sempre no DOM e sempre lido por leitor
+          // de tela, revelado visualmente ao passar o mouse ou focar/tocar
+          // (CSS :hover/:focus em .lc-compliance-badge, globals.css).
+          <div className="lc-compliance-badge" tabIndex={0} aria-describedby={`compliance-detail-${formula.id}`}>
+            <ShieldCheck className="lc-icon" size={14} aria-hidden="true" />
+            <span>Composição conferida</span>
+            <span id={`compliance-detail-${formula.id}`} role="tooltip" className="lc-compliance-tooltip">
+              {formula.complianceNorms.join(", ")} · verificado em {formatComplianceDate(formula.complianceVerifiedAt)}
+            </span>
+          </div>
+        )}
         {hasContent(formula.description) && (
           <p className="lc-card-desc" title={formula.description ?? undefined}>
             {formula.description}

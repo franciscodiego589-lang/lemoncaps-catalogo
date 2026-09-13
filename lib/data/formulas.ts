@@ -8,7 +8,7 @@ import "server-only";
 import { createClient } from "@supabase/supabase-js";
 import { revalidateTag, unstable_cache } from "next/cache";
 
-import type { Database, Enums } from "@/lib/supabase/database.types";
+import type { Database, Enums, Json } from "@/lib/supabase/database.types";
 
 export type ProductLine = Enums<"product_line">;
 export type ProductFormat = Enums<"product_format">;
@@ -30,6 +30,13 @@ export interface FormulaCompositionDTO {
   // insumo (components/catalog/IngredientCard.tsx) esconde cada bloco quando
   // o campo correspondente é null - nunca inventa texto no lugar dele.
   ingredientImagePath: string | null;
+  // Texto alternativo descritivo da foto do insumo (ex.: "Frutas cítricas,
+  // fonte de vitamina C"), gravado em ingredients.metadata->>'image_alt' no
+  // mesmo levantamento que baixou a foto (ver public/insumos/CREDITOS.md para
+  // a procedência de cada imagem: fonte, autor, licença e data). Nunca cai
+  // para texto genérico tipo "imagem do insumo" - sem alt confirmado, o
+  // componente usa ingredientName (nome real, nunca texto inventado).
+  ingredientImageAlt: string | null;
   ingredientDescription: string | null;
   ingredientClaimText: string | null;
   ingredientClaimSource: string | null;
@@ -58,7 +65,21 @@ export interface FormulaDTO {
   listPriceCents: number | null;
   minimumOrderPotes: number;
   sortOrder: number;
+  // Mockup real do pote (ver supabase/migrations/20260914120000_mockups.sql):
+  // caminho publico em public/produtos, gravado SO quando o nome ou o
+  // conteudo do rotulo confirmaram a formula com certeza razoavel (13 das 28
+  // hoje). NULL = sem foto pareada - a tela cai para a faixa colorida do
+  // segmento, nunca um buraco (regra de exatidao: nunca supor qual pote e
+  // qual produto).
+  mockupPath: string | null;
   compositions: FormulaCompositionDTO[];
+  // Selo de conformidade ANVISA (ver supabase/migrations/20260914000000_conformidade.sql
+  // e lemoncaps-catalogo-planejamento/conformidade-anvisa.md). complianceVerifiedAt nulo
+  // = fórmula NÃO verificada - a UI nunca deve afirmar nem sugerir conformidade nesse
+  // caso, só omitir o selo (nunca mostrar aviso negativo nem espaço vazio no lugar).
+  complianceVerifiedAt: string | null;
+  complianceNorms: string[];
+  complianceSource: string | null;
 }
 
 export interface SegmentDTO {
@@ -79,15 +100,28 @@ function emptyToNull(value: string | null): string | null {
   return value && value.trim().length > 0 ? value : null;
 }
 
+// ingredients.metadata é jsonb livre (procedência da imagem: fonte, autor,
+// licença, data - ver public/insumos/CREDITOS.md). Aqui só interessa o campo
+// image_alt, lido com o mesmo cuidado de nunca confiar em formato de dado
+// externo: sem checar tipo, um metadata mal formado quebraria a página
+// inteira do catálogo (regra de validação nas bordas, coding-style do
+// projeto). Qualquer coisa fora do formato esperado devolve null - o
+// componente já sabe usar ingredientName como alternativa nesse caso.
+function readImageAlt(metadata: Json | null | undefined): string | null {
+  if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) return null;
+  const value = (metadata as Record<string, Json | undefined>).image_alt;
+  return typeof value === "string" ? emptyToNull(value) : null;
+}
+
 const FORMULA_COLUMNS =
-  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, net_weight, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order";
+  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, net_weight, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order, mockup_path, compliance_verified_at, compliance_norms, compliance_source";
 
 // ingredients(...) é embed de leitura via a FK formula_compositions_ingredient_id_fkey
 // (ingredient_id é nullable — linha sem ligação ainda devolve ingredients: null,
 // tratado abaixo). Nunca troca nem completa ingredient_name: o texto exato do
 // rótulo daquela fórmula continua vindo direto da própria formula_compositions.
 const COMPOSITION_COLUMNS =
-  "id, formula_id, ingredient_name, quantity, unit, sort_order, ingredient_id, ingredients(description, image_path, claim_text, claim_source)";
+  "id, formula_id, ingredient_name, quantity, unit, sort_order, ingredient_id, ingredients(description, image_path, claim_text, claim_source, metadata)";
 
 const SEGMENT_COLUMNS = "id, slug, name, sort_order";
 
@@ -199,6 +233,7 @@ async function fetchCatalogDataFromDatabase(): Promise<CatalogData> {
         // FormulaCompositionDTO acima). emptyToNull evita "" fantasma nos
         // que um dia vierem preenchidos com string vazia.
         ingredientImagePath: emptyToNull(row.ingredients?.image_path ?? null),
+        ingredientImageAlt: readImageAlt(row.ingredients?.metadata),
         ingredientDescription: emptyToNull(row.ingredients?.description ?? null),
         ingredientClaimText: emptyToNull(row.ingredients?.claim_text ?? null),
         ingredientClaimSource: emptyToNull(row.ingredients?.claim_source ?? null),
@@ -229,7 +264,11 @@ async function fetchCatalogDataFromDatabase(): Promise<CatalogData> {
     listPriceCents: row.list_price_cents,
     minimumOrderPotes: row.minimum_order_potes,
     sortOrder: row.sort_order,
+    mockupPath: emptyToNull(row.mockup_path),
     compositions: compositionsByFormula.get(row.id) ?? [],
+    complianceVerifiedAt: row.compliance_verified_at,
+    complianceNorms: row.compliance_norms ?? [],
+    complianceSource: emptyToNull(row.compliance_source),
   }));
 
   const segments: SegmentDTO[] = segmentsResult.data.map((row) => ({

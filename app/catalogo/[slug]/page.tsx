@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 
 import { CompositionTable } from "@/components/catalog/CompositionTable";
 import { DossiePdfButton } from "@/components/catalog/DossiePdfButton";
 import { DossieTopBar } from "@/components/catalog/DossieTopBar";
+import { ProductMockup } from "@/components/catalog/ProductMockup";
 import { hasContent, lineLabel, stripLeadingBulletMarker } from "@/lib/catalog/format-catalog";
 import { getCatalogData, getFormulaBySlug, type FormulaDetailDTO } from "@/lib/data/formulas";
 import { centsToBRL } from "@/lib/money";
+import {
+  formatComplianceDate,
+  MANUFACTURER_INFO,
+  REGULATORY_FRAMEWORK,
+  REGULATORY_SOURCE,
+} from "@/lib/catalog/regulatory-info";
 
 // Next 16: params de rota dinâmica são sempre Promise, sem exceção e sem
 // janela de compatibilidade síncrona (lemoncaps-catalogo-planejamento/
@@ -86,6 +93,21 @@ export default async function DossiePage({ params }: DossiePageProps) {
       <DossieTopBar />
       <main className="lc-dossie-page">
         <div className="lc-dossie-head">
+          {/* Mockup em destaque - mesmo efeito de inclinação do card do
+              catálogo, só que maior (ver ProductMockup e .lc-mockup-dossie em
+              globals.css). Fórmula sem mockup_path não perde nada aqui: a
+              seção some inteira, sem espaço vazio (regra do dono). */}
+          {hasContent(formula.mockupPath) && (
+            <div className="lc-dossie-mockup">
+              <ProductMockup
+                src={formula.mockupPath}
+                alt={`Pote de ${formula.name}`}
+                width={480}
+                height={480}
+                variant="dossie"
+              />
+            </div>
+          )}
           <h1>{formula.technicalSheetTitle ?? formula.name}</h1>
           <p className="lc-dossie-subtitle">{subtitle}</p>
           <div className="lc-dossie-toolbar">
@@ -176,6 +198,85 @@ export default async function DossiePage({ params }: DossiePageProps) {
                 <dd>{formula.minimumOrderPotes} potes</dd>
               </div>
             </dl>
+          </section>
+
+          {/* Conformidade é uma AFIRMAÇÃO sobre ESTA fórmula específica - só
+              existe quando complianceVerifiedAt não é nulo (ver
+              supabase/migrations/20260914000000_conformidade.sql). Nunca
+              confundir com a seção seguinte ("Marco regulatório aplicável"),
+              que é informação institucional igual em todo produto e não
+              afirma conformidade de ninguém - separação pedida pelo dono
+              para o layout nunca sugerir que citar a norma é o mesmo que
+              cumpri-la. */}
+          {formula.complianceVerifiedAt && (
+            <section className="lc-dossie-section lc-dossie-compliance">
+              <h2>
+                <ShieldCheck size={15} aria-hidden="true" />
+                Conformidade
+              </h2>
+              <p className="lc-dossie-text">
+                Composição conferida contra os limites vigentes da ANVISA em{" "}
+                {formatComplianceDate(formula.complianceVerifiedAt)}.
+              </p>
+              <dl className="lc-dossie-facts">
+                <div className="lc-dossie-fact">
+                  <dt>Normas conferidas</dt>
+                  <dd>{formula.complianceNorms.join(", ")}</dd>
+                </div>
+                {formula.complianceSource && (
+                  <div className="lc-dossie-fact">
+                    <dt>Fonte consultada</dt>
+                    <dd>
+                      <a href={formula.complianceSource} target="_blank" rel="noopener noreferrer">
+                        Texto consolidado da norma
+                      </a>
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            </section>
+          )}
+
+          {/* Marco regulatório aplicável: mesmo texto em TODO produto do
+              catálogo (não é dado de banco, é lei/norma - ver
+              lib/catalog/regulatory-info.ts para a procedência de cada
+              item). Citar a norma que rege esta categoria de produto não é
+              o mesmo que afirmar que ESTA fórmula específica a cumpre -
+              essa afirmação só está na seção "Conformidade" acima, quando
+              existir. */}
+          <section className="lc-dossie-section lc-dossie-legal">
+            <h2>Marco regulatório aplicável</h2>
+            <p className="lc-dossie-text">
+              Suplementos alimentares da Lemon Caps são fabricados sob o seguinte marco regulatório da ANVISA:
+            </p>
+            <ul className="lc-dossie-legal-list">
+              {REGULATORY_FRAMEWORK.map((item) => (
+                <li key={item.norm}>
+                  <b>{item.norm}</b> - {item.description}
+                </li>
+              ))}
+            </ul>
+            <p className="lc-dossie-legal-note">
+              Fonte consultada: {REGULATORY_SOURCE.label}, conferida em {REGULATORY_SOURCE.consultedAtLabel}.
+            </p>
+          </section>
+
+          {/* Rodapé institucional: mesmo dado de fabricante em TODO produto,
+              vindo dos Dizeres de Rotulagem oficiais da fábrica (ver
+              lib/catalog/regulatory-info.ts para a procedência exata). */}
+          <section className="lc-dossie-section lc-dossie-legal">
+            <h2>Fabricante e responsabilidade técnica</h2>
+            <p className="lc-dossie-legal-note">
+              Fabricado e envasado por {MANUFACTURER_INFO.companyName}, CNPJ {MANUFACTURER_INFO.cnpj}.
+              <br />
+              {MANUFACTURER_INFO.address}.
+              <br />
+              Farmacêutico responsável: {MANUFACTURER_INFO.pharmacist}.
+              <br />
+              {MANUFACTURER_INFO.registrationExemption}
+              <br />
+              SAC: {MANUFACTURER_INFO.sac}
+            </p>
           </section>
         </div>
       </main>

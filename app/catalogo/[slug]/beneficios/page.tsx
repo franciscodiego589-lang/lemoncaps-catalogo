@@ -88,9 +88,9 @@ export default async function BeneficiosPage({ params }: BeneficiosPageProps) {
             <h2>Insumos da fórmula</h2>
             {formula.compositions.length > 0 ? (
               <ul className="lc-ingredient-grid">
-                {formula.compositions.map((composition) => (
+                {formula.compositions.map((composition, index) => (
                   <li key={composition.id}>
-                    <IngredientCard composition={composition} />
+                    <IngredientCard composition={composition} index={index} />
                   </li>
                 ))}
               </ul>

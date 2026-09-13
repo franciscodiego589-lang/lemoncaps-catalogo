@@ -189,6 +189,9 @@ export type Database = {
           active: boolean
           benefits: string[]
           capsule_count: number | null
+          compliance_norms: string[] | null
+          compliance_source: string | null
+          compliance_verified_at: string | null
           created_at: string
           created_by: string | null
           deleted_at: string | null
@@ -202,6 +205,7 @@ export type Database = {
           list_price_cents: number | null
           metadata: Json
           minimum_order_potes: number
+          mockup_path: string | null
           name: string
           net_weight: string | null
           nutritional_info: string | null
@@ -225,6 +229,9 @@ export type Database = {
           active?: boolean
           benefits?: string[]
           capsule_count?: number | null
+          compliance_norms?: string[] | null
+          compliance_source?: string | null
+          compliance_verified_at?: string | null
           created_at?: string
           created_by?: string | null
           deleted_at?: string | null
@@ -238,6 +245,7 @@ export type Database = {
           list_price_cents?: number | null
           metadata?: Json
           minimum_order_potes?: number
+          mockup_path?: string | null
           name: string
           net_weight?: string | null
           nutritional_info?: string | null
@@ -261,6 +269,9 @@ export type Database = {
           active?: boolean
           benefits?: string[]
           capsule_count?: number | null
+          compliance_norms?: string[] | null
+          compliance_source?: string | null
+          compliance_verified_at?: string | null
           created_at?: string
           created_by?: string | null
           deleted_at?: string | null
@@ -274,6 +285,7 @@ export type Database = {
           list_price_cents?: number | null
           metadata?: Json
           minimum_order_potes?: number
+          mockup_path?: string | null
           name?: string
           net_weight?: string | null
           nutritional_info?: string | null

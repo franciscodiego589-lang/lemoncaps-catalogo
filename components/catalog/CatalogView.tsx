@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { ProductLine } from "@/lib/catalog/format-catalog";
+import { CATALOG_FOOTER_COMPLIANCE_NOTE } from "@/lib/catalog/regulatory-info";
 import { DEFAULT_BACKGROUND, segmentVisual } from "@/lib/catalog/segment-visuals";
 import type { FormulaDTO, SegmentDTO } from "@/lib/data/formulas";
 import { AnimatedBackground } from "./AnimatedBackground";
@@ -217,7 +218,14 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
       </main>
 
       <footer className="lc-footer">
-        © 2026 <span translate="no">Lemon Caps</span> - Indústria de Suplementos e Nutracêuticos
+        {/* Nota sóbria e honesta sobre o critério do selo (texto centralizado
+            em lib/catalog/regulatory-info.ts, junto da procedência exata) -
+            nunca afirma nem sugere que todo produto do catálogo está
+            conforme, porque não está: só os que exibem o selo. */}
+        <p className="lc-footer-compliance-note">{CATALOG_FOOTER_COMPLIANCE_NOTE}</p>
+        <p>
+          © 2026 <span translate="no">Lemon Caps</span> - Indústria de Suplementos e Nutracêuticos
+        </p>
       </footer>
 
       <nav aria-label="Ações">
