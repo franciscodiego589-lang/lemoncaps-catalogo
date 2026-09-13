@@ -14,7 +14,6 @@ import { GlassTopBar } from "./GlassTopBar";
 import { LineTabs } from "./LineTabs";
 import { QuoteModal } from "./QuoteModal";
 import { ALL_SEGMENTS, SegmentChips, type SegmentFilter } from "./SegmentChips";
-import { TechnicalSheetModal } from "./TechnicalSheetModal";
 
 interface CatalogViewProps {
   segments: SegmentDTO[];
@@ -64,8 +63,6 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
 
   const [quoteFormula, setQuoteFormula] = useState<FormulaDTO | null>(null);
   const [isQuoteOpen, setQuoteOpen] = useState(false);
-  const [dossieFormula, setDossieFormula] = useState<FormulaDTO | null>(null);
-  const [isDossieOpen, setDossieOpen] = useState(false);
 
   const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -168,11 +165,6 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
     setQuoteOpen(true);
   }
 
-  function handleViewDossie(formula: FormulaDTO) {
-    setDossieFormula(formula);
-    setDossieOpen(true);
-  }
-
   return (
     <>
       <AnimatedBackground colors={backgroundColors} />
@@ -217,7 +209,6 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
                   formula={formula}
                   segment={segmentsById.get(formula.segmentId)}
                   onQuote={handleQuote}
-                  onViewDossie={handleViewDossie}
                 />
               ))}
             </div>
@@ -238,12 +229,6 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
         segment={quoteFormula ? segmentsById.get(quoteFormula.segmentId) : undefined}
         isOpen={isQuoteOpen}
         onClose={() => setQuoteOpen(false)}
-      />
-      <TechnicalSheetModal
-        formula={dossieFormula}
-        segment={dossieFormula ? segmentsById.get(dossieFormula.segmentId) : undefined}
-        isOpen={isDossieOpen}
-        onClose={() => setDossieOpen(false)}
       />
     </>
   );

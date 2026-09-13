@@ -62,6 +62,7 @@ export type Database = {
           deleted_by: string | null
           formula_id: string
           id: string
+          ingredient_id: string | null
           ingredient_name: string
           metadata: Json
           quantity: number
@@ -80,6 +81,7 @@ export type Database = {
           deleted_by?: string | null
           formula_id: string
           id?: string
+          ingredient_id?: string | null
           ingredient_name: string
           metadata?: Json
           quantity: number
@@ -98,6 +100,7 @@ export type Database = {
           deleted_by?: string | null
           formula_id?: string
           id?: string
+          ingredient_id?: string | null
           ingredient_name?: string
           metadata?: Json
           quantity?: number
@@ -114,6 +117,13 @@ export type Database = {
             columns: ["formula_id"]
             isOneToOne: false
             referencedRelation: "formulas"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "formula_compositions_ingredient_id_fkey"
+            columns: ["ingredient_id"]
+            isOneToOne: false
+            referencedRelation: "ingredients"
             referencedColumns: ["id"]
           },
         ]
@@ -292,6 +302,81 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      ingredients: {
+        Row: {
+          active: boolean
+          category: Database["public"]["Enums"]["ingredient_category"]
+          claim_min_amount: number | null
+          claim_source: string | null
+          claim_text: string | null
+          claim_verified_at: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          deleted_by: string | null
+          description: string | null
+          id: string
+          image_path: string | null
+          metadata: Json
+          name: string
+          reason_deleted: string | null
+          slug: string
+          sort_order: number
+          synonyms: string[]
+          updated_at: string
+          updated_by: string | null
+          version: number
+        }
+        Insert: {
+          active?: boolean
+          category?: Database["public"]["Enums"]["ingredient_category"]
+          claim_min_amount?: number | null
+          claim_source?: string | null
+          claim_text?: string | null
+          claim_verified_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          description?: string | null
+          id?: string
+          image_path?: string | null
+          metadata?: Json
+          name: string
+          reason_deleted?: string | null
+          slug: string
+          sort_order?: number
+          synonyms?: string[]
+          updated_at?: string
+          updated_by?: string | null
+          version?: number
+        }
+        Update: {
+          active?: boolean
+          category?: Database["public"]["Enums"]["ingredient_category"]
+          claim_min_amount?: number | null
+          claim_source?: string | null
+          claim_text?: string | null
+          claim_verified_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          description?: string | null
+          id?: string
+          image_path?: string | null
+          metadata?: Json
+          name?: string
+          reason_deleted?: string | null
+          slug?: string
+          sort_order?: number
+          synonyms?: string[]
+          updated_at?: string
+          updated_by?: string | null
+          version?: number
+        }
+        Relationships: []
       }
       leads: {
         Row: {
@@ -608,6 +693,12 @@ export type Database = {
     }
     Enums: {
       composition_unit: "g" | "mg" | "mcg" | "ml" | "l" | "ui" | "kg"
+      ingredient_category:
+        | "vitamina"
+        | "mineral"
+        | "aminoacido"
+        | "extrato_vegetal"
+        | "outro"
       product_format: "capsula" | "soluvel" | "gummy" | "liquido"
       product_line: "premium" | "basica"
     }
@@ -738,6 +829,13 @@ export const Constants = {
   public: {
     Enums: {
       composition_unit: ["g", "mg", "mcg", "ml", "l", "ui", "kg"],
+      ingredient_category: [
+        "vitamina",
+        "mineral",
+        "aminoacido",
+        "extrato_vegetal",
+        "outro",
+      ],
       product_format: ["capsula", "soluvel", "gummy", "liquido"],
       product_line: ["premium", "basica"],
     },

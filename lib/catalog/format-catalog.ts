@@ -68,3 +68,17 @@ export function hasContent(value: string | null | undefined): value is string {
 export function hasItems<T>(value: readonly T[] | null | undefined): value is readonly T[] {
   return Array.isArray(value) && value.length > 0;
 }
+
+// Alguns benefícios já vêm do banco com marcador de lista embutido no próprio
+// texto ("• Contribui para..."), herdado da fonte original em texto livre. O
+// ✓ mostrado antes de cada item é CSS (::before em .lc-dossie-benefits-list,
+// app/globals.css) - sem esta limpeza os dois marcadores aparecem juntos
+// ("✓ • Contribui..."). Remove só o marcador do começo da string (bullet,
+// hífen, asterisco e os espaços ao redor); o dado no banco continua intacto,
+// isto muda apenas a exibição. Função pura: mesma entrada, mesma saída,
+// nenhum efeito colateral - testável isoladamente.
+const LEADING_BULLET_MARKER = /^\s*[•*-]+\s*/;
+
+export function stripLeadingBulletMarker(text: string): string {
+  return text.replace(LEADING_BULLET_MARKER, "");
+}

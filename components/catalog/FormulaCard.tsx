@@ -1,20 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import type { CSSProperties } from "react";
+import Link from "next/link";
 
 import { centsToBRL } from "@/lib/money";
 import { FORMAT_ICONS, hasContent, lineLabel } from "@/lib/catalog/format-catalog";
 import { segmentVisual } from "@/lib/catalog/segment-visuals";
 import type { FormulaDTO, SegmentDTO } from "@/lib/data/formulas";
-import { BenefitsPanel } from "./BenefitsPanel";
 import { CompositionTable } from "./CompositionTable";
 
 interface FormulaCardProps {
   formula: FormulaDTO;
   segment: SegmentDTO | undefined;
   onQuote: (formula: FormulaDTO) => void;
-  onViewDossie: (formula: FormulaDTO) => void;
 }
 
 const COMPOSITION_PREVIEW_LIMIT = 5;
@@ -22,9 +20,7 @@ const COMPOSITION_PREVIEW_LIMIT = 5;
 // O card é CONTEÚDO — sempre sólido, nunca vidro, nunca backdrop-filter (ver
 // regra central em app/globals.css). Todo texto vem exato do DTO; campo
 // vazio/nulo esconde o elemento correspondente, nunca mostra "null".
-export function FormulaCard({ formula, segment, onQuote, onViewDossie }: FormulaCardProps) {
-  const [isBenefitsOpen, setBenefitsOpen] = useState(false);
-
+export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
   const visual = segment ? segmentVisual(segment.name, segment.sortOrder) : segmentVisual("", 0);
   const FormatIcon = FORMAT_ICONS[formula.format];
   const hasBenefitsContent = hasContent(formula.generalBenefitsSummary) || formula.benefits.length > 0;
@@ -57,8 +53,13 @@ export function FormulaCard({ formula, segment, onQuote, onViewDossie }: Formula
       </div>
       <div className="lc-card-body">
         {hasContent(segment?.name) && <div className="lc-card-segment">{segment?.name}</div>}
-        <h2 className="lc-card-title" title={formula.name}>
-          {formula.name}
+        <h2 className="lc-card-title">
+          {/* Navegação de verdade (não div clicável): leva ao dossiê completo
+              da fórmula em /catalogo/[slug] — diretrizes de interface pedem
+              <Link>, nunca onClick num elemento não-interativo. */}
+          <Link href={`/catalogo/${formula.slug}`} className="lc-card-title-link" title={formula.name}>
+            {formula.name}
+          </Link>
         </h2>
         {hasContent(formula.description) && (
           <p className="lc-card-desc" title={formula.description ?? undefined}>
@@ -75,21 +76,13 @@ export function FormulaCard({ formula, segment, onQuote, onViewDossie }: Formula
         <CompositionTable
           compositions={formula.compositions}
           limit={COMPOSITION_PREVIEW_LIMIT}
-          onViewAll={() => onViewDossie(formula)}
+          viewAllHref={`/catalogo/${formula.slug}`}
         />
 
         {hasContent(formula.usageInstructions) && (
           <p className="lc-card-usage">
             <b>Modo de uso:</b> {formula.usageInstructions}
           </p>
-        )}
-
-        {hasBenefitsContent && (
-          <BenefitsPanel
-            isOpen={isBenefitsOpen}
-            summary={formula.generalBenefitsSummary}
-            benefits={formula.benefits}
-          />
         )}
 
         {/* Rodapé ancorado na base do card (margin-top: auto dentro do flex
@@ -112,20 +105,19 @@ export function FormulaCard({ formula, segment, onQuote, onViewDossie }: Formula
           <span className="lc-min-note">Pedido mínimo: {formula.minimumOrderPotes} potes</span>
 
           <div className="lc-card-actions">
+            {/* Link navega, botão age (diretrizes de interface): Benefícios e
+                Dossiê Técnico só trocam de página, então são <Link> de
+                verdade, não onClick fingindo navegação. Cotar Fórmula é a
+                única ação real do card (abre o modal de cotação). */}
             {hasBenefitsContent && (
-              <button
-                type="button"
-                className="lc-btn lc-btn-ghost"
-                aria-expanded={isBenefitsOpen}
-                onClick={() => setBenefitsOpen((current) => !current)}
-              >
+              <Link href={`/catalogo/${formula.slug}/beneficios`} className="lc-btn lc-btn-ghost">
                 Benefícios
-              </button>
+              </Link>
             )}
             {hasDossieContent && (
-              <button type="button" className="lc-btn lc-btn-ghost" onClick={() => onViewDossie(formula)}>
+              <Link href={`/catalogo/${formula.slug}`} className="lc-btn lc-btn-ghost">
                 Dossiê Técnico
-              </button>
+              </Link>
             )}
             {formula.listPriceCents != null && (
               <button type="button" className="lc-btn lc-btn-primary" onClick={() => onQuote(formula)}>

@@ -594,6 +594,16 @@ img {
      overflow:hidden, então corta no meio da palavra sem aviso). */
   overflow-wrap: break-word;
 }
+/* O <h2> continua só a caixa de layout; quem vira link de verdade (navegação
+   para /catalogo/[slug]) é o <a> por dentro — por isso a cor/decoração de
+   link do navegador precisam ser resetadas aqui, herdando do H2. */
+.lc-card-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+.lc-card-title-link:hover {
+  text-decoration: underline;
+}
 /* Duas linhas, no máximo. Descrições vão de zero a cinco linhas no banco, e é
    essa variação que estica a linha inteira da grade, deixando buraco nos cards
    curtos. Aqui NÃO se usa `white-space: nowrap` junto de `text-wrap`: as duas
@@ -623,6 +633,13 @@ img {
   border-radius: var(--radius-md);
   border: 1px solid var(--table-border);
   background: var(--table-bg);
+}
+/* Dossiê completo (/catalogo/[slug]): sem caixa de rolagem própria — a tabela
+   inteira flui na página, junto com o resto do conteúdo (e assim já nasce
+   correta para impressão, sem depender só da regra @media print abaixo). */
+.lc-comp-table-wrap.lc-comp-table-wrap--flat {
+  max-height: none;
+  overflow: visible;
 }
 .lc-comp-table {
   width: 100%;
@@ -683,56 +700,6 @@ img {
 }
 .lc-card-usage b {
   color: var(--ink-soft);
-}
-
-.lc-benefits-summary {
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin: 0 0 6px;
-  text-wrap: pretty;
-}
-/* grid-template-rows 0fr -> 1fr no lugar de max-height: a altura muda sem
-   forçar recálculo de layout a cada quadro (mesmo efeito visual, custo bem
-   menor). O wrapper .lc-benefits-panel-inner é o único filho do grid — é a
-   altura DELE que o track 1fr mede; overflow:hidden nele esconde o conteúdo
-   enquanto o track ainda está em 0fr. */
-.lc-benefits-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
-}
-.lc-benefits-panel.is-open {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-.lc-benefits-panel-inner {
-  overflow: hidden;
-  min-height: 0;
-}
-.lc-benefits-panel ul {
-  list-style: none;
-  padding: 10px 12px;
-  margin: 2px 0 0;
-  background: var(--table-bg);
-  border: 1px solid var(--table-border);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.lc-benefits-panel li {
-  font-size: 12px;
-  color: var(--ink-soft);
-  padding-left: 16px;
-  position: relative;
-}
-.lc-benefits-panel li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--lime-deep);
-  font-weight: 800;
 }
 
 .lc-card-footer {
@@ -1044,6 +1011,12 @@ img {
 .lc-dossie-section {
   margin-bottom: 16px;
 }
+/* h3 = dentro do modal "Dossiê Técnico" (ModalShell já usa h3, ver seu
+   comentário sobre hierarquia); h2 = mesma seção, agora na página completa
+   /catalogo/[slug] (ver bloco "dossiê completo" mais abaixo). Mesmo rótulo
+   visual nos dois lugares, de propósito — "Ver dossiê completo" é uma
+   continuação do modal, não uma experiência à parte. */
+.lc-dossie-section h2,
 .lc-dossie-section h3 {
   font-size: 12px;
   font-weight: 800;
@@ -1059,6 +1032,299 @@ img {
   white-space: pre-line;
   line-height: 1.55;
   text-wrap: pretty;
+}
+
+/* Link leve de navegação entre as páginas do produto (dossiê completo <->
+   benefícios, ver app/catalogo/[slug]/page.tsx e .../beneficios/page.tsx) —
+   mesma família visual do "Ver todos os X insumos" (.lc-comp-more), com ícone
+   próprio. */
+.lc-modal-link-row {
+  margin-bottom: 14px;
+}
+.lc-modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lc-modal-link:hover {
+  color: var(--text-on-card);
+}
+
+/* ==========================================================================
+   /catalogo/[slug] — dossiê técnico completo. Mesma regra central do topo
+   deste arquivo: vidro só no cromo (barra de topo, DossieTopBar reaproveita
+   .lc-topbar/.lc-glass). O conteúdo é sempre sólido, com mais respiro entre
+   seções do que o card/modal — lá é resumo, aqui é o documento inteiro.
+   ========================================================================== */
+
+/* Link "Voltar ao catálogo" no lugar da busca da barra do catálogo (ver
+   GlassTopBar/SearchBar) — mesmo comportamento responsivo do
+   .lc-search-wrap: linha própria no mobile, entre marca e carrinho a partir
+   de 680px. */
+.lc-dossie-back {
+  order: 3;
+  flex-basis: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  transition: color 0.15s ease;
+}
+.lc-dossie-back:hover {
+  color: var(--text-on-card);
+}
+@media (min-width: 680px) {
+  .lc-dossie-back {
+    order: 2;
+    flex: 1;
+    flex-basis: auto;
+  }
+}
+
+.lc-dossie-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 100px;
+}
+.lc-dossie-head h1 {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: var(--text-on-card);
+}
+.lc-dossie-subtitle {
+  margin-top: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.lc-dossie-toolbar {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+.lc-dossie-toolbar .lc-btn {
+  width: auto;
+  min-width: 230px;
+}
+
+.lc-dossie-body {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 28px;
+}
+.lc-dossie-body .lc-dossie-section {
+  margin-bottom: 0;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--card-border);
+}
+.lc-dossie-body .lc-dossie-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.lc-dossie-body .lc-dossie-section h2 {
+  margin-bottom: 12px;
+}
+
+.lc-dossie-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px 20px;
+}
+.lc-dossie-fact dt {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.lc-dossie-fact dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-on-card);
+}
+
+.lc-dossie-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lc-dossie-benefits-list li {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+.lc-dossie-benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--lime-deep);
+  font-weight: 800;
+}
+
+/* ---------- insumos da fórmula (página de benefícios) ---------- */
+/* Um cartão por insumo — sólido, mesma família visual da tabela de
+   composição (mesmo --table-bg/--table-border). A imagem SEMPRE reserva o
+   espaço quadrado, com ou sem foto real (ver IngredientCard.tsx): variante
+   --empty é só o placeholder neutro de quem ainda não tem imagem cadastrada. */
+.lc-ingredient-grid {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.lc-ingredient-card {
+  height: 100%;
+  background: var(--table-bg);
+  border: 1px solid var(--table-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lc-ingredient-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+}
+.lc-ingredient-image--empty {
+  border-style: dashed;
+}
+.lc-ingredient-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lc-ingredient-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lc-ingredient-name {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-wrap: pretty;
+}
+.lc-ingredient-qty {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.lc-ingredient-desc {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.lc-ingredient-claim {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--table-border);
+}
+.lc-ingredient-claim-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.lc-ingredient-claim-text {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.lc-ingredient-claim-source {
+  margin-top: 3px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+/* Advertências: única seção com destaque visual — é informação de segurança
+   de rótulo de suplemento, não só mais um bloco de texto (pedido explícito
+   do dono). */
+.lc-dossie-warning {
+  background: rgba(179, 31, 46, 0.07);
+  border: 1px solid rgba(179, 31, 46, 0.32);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+.lc-dossie-warning h2 {
+  color: #b31f2e;
+}
+
+/* ---------- impressão: só o dossiê, nunca o cromo, nunca o tema escuro ---------- */
+@media print {
+  .lc-dossie-topbar,
+  .lc-dossie-toolbar {
+    display: none !important;
+  }
+  .lc-dossie-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    /* Paleta clara fixa: o documento tem que sair legível no papel,
+       independente do tema do sistema de quem imprime (a regra do topo do
+       arquivo já cobre light/dark na tela — impressão é um terceiro caso). */
+    --background: #ffffff;
+    --foreground: #14161b;
+    --ink: #14161b;
+    --ink-soft: #3a3d44;
+    --text-muted: #565b66;
+    --card-bg: #ffffff;
+    --card-border: #d8dadf;
+    --table-bg: #f6f7f9;
+    --table-border: #d8dadf;
+    --text-on-card: #14161b;
+    background: #ffffff !important;
+    color: #14161b !important;
+  }
+  .lc-dossie-body .lc-dossie-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-bottom-color: #d8dadf;
+  }
+  .lc-dossie-warning {
+    background: #ffffff !important;
+    border: 1px solid #b31f2e !important;
+  }
+  .lc-comp-table-wrap {
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 
 /* ---------- footer ---------- */

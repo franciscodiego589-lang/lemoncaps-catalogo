@@ -20,6 +20,19 @@ export interface FormulaCompositionDTO {
   quantity: number;
   unit: CompositionUnit;
   sortOrder: number;
+  // Detalhe do insumo (imagem, descrição, alegação autorizada pela ANVISA):
+  // vem do LEFT JOIN com public.ingredients via ingredient_id (ver
+  // COMPOSITION_COLUMNS e fetchCatalogDataFromDatabase, abaixo). A ligação
+  // (tabela + FK) e os 70 insumos canônicos entraram no banco em 13/09/2026 -
+  // description/image_path/claim_text/claim_source nascem NULL na migration e
+  // são preenchidos depois, num processo à parte (levantamento das alegações
+  // junto à ANVISA). Por isso continuam podendo vir null aqui: o cartão do
+  // insumo (components/catalog/IngredientCard.tsx) esconde cada bloco quando
+  // o campo correspondente é null - nunca inventa texto no lugar dele.
+  ingredientImagePath: string | null;
+  ingredientDescription: string | null;
+  ingredientClaimText: string | null;
+  ingredientClaimSource: string | null;
 }
 
 export interface FormulaDTO {
@@ -31,6 +44,7 @@ export interface FormulaDTO {
   format: ProductFormat;
   regulatoryProductType: string | null;
   poteContentsDescription: string | null;
+  netWeight: string | null;
   description: string | null;
   nutritionalInfo: string | null;
   ingredientsList: string | null;
@@ -66,9 +80,14 @@ function emptyToNull(value: string | null): string | null {
 }
 
 const FORMULA_COLUMNS =
-  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order";
+  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, net_weight, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order";
 
-const COMPOSITION_COLUMNS = "id, formula_id, ingredient_name, quantity, unit, sort_order";
+// ingredients(...) é embed de leitura via a FK formula_compositions_ingredient_id_fkey
+// (ingredient_id é nullable — linha sem ligação ainda devolve ingredients: null,
+// tratado abaixo). Nunca troca nem completa ingredient_name: o texto exato do
+// rótulo daquela fórmula continua vindo direto da própria formula_compositions.
+const COMPOSITION_COLUMNS =
+  "id, formula_id, ingredient_name, quantity, unit, sort_order, ingredient_id, ingredients(description, image_path, claim_text, claim_source)";
 
 const SEGMENT_COLUMNS = "id, slug, name, sort_order";
 
@@ -171,6 +190,18 @@ async function fetchCatalogDataFromDatabase(): Promise<CatalogData> {
         quantity: row.quantity,
         unit: row.unit,
         sortOrder: row.sort_order,
+        // ingredients vem do embed (COMPOSITION_COLUMNS, acima) via
+        // ingredient_id - null quando a linha ainda não foi ligada a um
+        // insumo canônico, ou quando os 4 campos individuais ainda não
+        // foram preenchidos (ambos casos reais hoje: a ligação já existe
+        // para as 213 linhas atuais, mas description/image_path/claim_text/
+        // claim_source nascem NULL na migration, ver comentário na
+        // FormulaCompositionDTO acima). emptyToNull evita "" fantasma nos
+        // que um dia vierem preenchidos com string vazia.
+        ingredientImagePath: emptyToNull(row.ingredients?.image_path ?? null),
+        ingredientDescription: emptyToNull(row.ingredients?.description ?? null),
+        ingredientClaimText: emptyToNull(row.ingredients?.claim_text ?? null),
+        ingredientClaimSource: emptyToNull(row.ingredients?.claim_source ?? null),
       },
     ]);
   }
@@ -184,6 +215,7 @@ async function fetchCatalogDataFromDatabase(): Promise<CatalogData> {
     format: row.format,
     regulatoryProductType: emptyToNull(row.regulatory_product_type),
     poteContentsDescription: emptyToNull(row.pote_contents_description),
+    netWeight: emptyToNull(row.net_weight),
     description: emptyToNull(row.description),
     nutritionalInfo: emptyToNull(row.nutritional_info),
     ingredientsList: emptyToNull(row.ingredients_list),
@@ -264,4 +296,27 @@ export async function getCatalogData(): Promise<CatalogData> {
     console.error("[getCatalogData] catálogo indisponível:", error);
     throw new Error("Catálogo temporariamente indisponível.");
   }
+}
+
+// ---------------------------------------------------------------------------
+// Dossiê técnico completo (/catalogo/[slug])
+// ---------------------------------------------------------------------------
+
+export interface FormulaDetailDTO extends FormulaDTO {
+  segment: SegmentDTO | null;
+}
+
+// Busca uma fórmula por slug para a página de dossiê completo. Reaproveita
+// getCatalogData() (já cacheado 5 min, já filtra active/deleted_at, já nunca
+// toca formula_costs) em vez de repetir a consulta ao banco — mesma fonte de
+// dados do card e do modal "Dossiê Técnico", sem risco de os três canais
+// divergirem entre si. Devolve null quando o slug não existe (quem chama
+// decide chamar notFound()).
+export async function getFormulaBySlug(slug: string): Promise<FormulaDetailDTO | null> {
+  const { formulas, segments } = await getCatalogData();
+  const formula = formulas.find((item) => item.slug === slug);
+  if (!formula) return null;
+
+  const segment = segments.find((item) => item.id === formula.segmentId) ?? null;
+  return { ...formula, segment };
 }
