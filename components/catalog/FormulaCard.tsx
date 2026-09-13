@@ -65,8 +65,6 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
             width={240}
             height={240}
             variant="card"
-            productName={formula.name}
-            slug={formula.slug}
           />
         ) : (
           // 48px, e não os 26px de quando a faixa media 76px: a faixa agora

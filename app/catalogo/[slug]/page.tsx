@@ -105,7 +105,6 @@ export default async function DossiePage({ params }: DossiePageProps) {
                 width={480}
                 height={480}
                 variant="dossie"
-                productName={formula.name}
               />
             </div>
           )}
