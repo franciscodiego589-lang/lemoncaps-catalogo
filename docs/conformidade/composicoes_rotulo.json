@@ -1,0 +1,389 @@
+{
+  "_meta": {
+    "fonte": "Artes-finais de rotulo (PDF em curvas) da Lemon Caps, pasta drive-pdfs",
+    "metodo": "Renderizacao em alta resolucao com PyMuPDF (462 a 1237 DPI) e leitura visual dos recortes",
+    "data_extracao": "2026-09-13",
+    "convencao": "Cada item de 'composicao' vem da linha 'Composicao por porcao' do rotulo. O campo 'vd_pct' vem da tabela de INFORMACAO NUTRICIONAL. 'e_sal' = true quando a quantidade declarada e a massa do SAL (nao do elemento mineral). Quando o rotulo traz o sal e o elemento, ambos estao registrados: o sal como item com 'e_sal': true e o elemento em 'elemento_equivalente_mg'.",
+    "aviso": "Nenhum numero foi inferido. O que nao pode ser lido esta como null e listado em 'nao_legivel'."
+  },
+
+  "biogummy": {
+    "arquivo_pdf": "BioGummy.pdf",
+    "nome_no_rotulo": "Biogummy (PELE - CABELO - UNHA)",
+    "porcao": "6 g (2 gomas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "180 g",
+    "conteudo": "60 gomas",
+    "sabor": "frutas vermelhas",
+    "ingredientes_texto": "Sorbitol liquido 70%, maltitol, gelatina, agua purificada, glicerina vegetal, maltodextrina, pectina citrica, goma acacia, acido citrico (INS 330), citrato de sodio (INS 331), aroma frutas vermelhas, vitamina C (acido ascorbico), vitamina E (DL-alfa-tocoferol), zinco (bisglicinato de zinco), vitamina A (acetato de retinol), biotina (D-biotina), corante vermelho ponceau (INS 124), conservador sorbato de potassio (INS 202) e edulcorante sucralose (INS 955).",
+    "tabela_nutricional_basica": "Valor energetico 12 kcal = 50 kJ (1% VD); Carboidratos 4,8 g (2% VD), dos quais polioIs 3,4 g (**); Proteinas 0,6 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 8 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Vitamina C (acido ascorbico)", "quantidade": 45, "unidade": "mg", "vd_pct": 45, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina E (DL-alfa-tocoferol)", "quantidade": 16.7, "unidade": "mg", "vd_pct": 111, "e_sal": false, "observacao": null},
+      {"insumo": "Zinco (bisglicinato de zinco)", "quantidade": 12, "unidade": "mg", "vd_pct": 22, "e_sal": true, "elemento_equivalente_mg": 2.4, "observacao": "O rotulo escreve textualmente: 'zinco (bisglicinato de zinco - equivalente a 2,4 mg de zinco) 12 mg'. Os 12 mg sao massa do SAL; a tabela nutricional declara Zinco 2,4 mg (22% VD), que e o ELEMENTO."},
+      {"insumo": "Vitamina A (acetato de retinol)", "quantidade": 1020, "unidade": "mcg", "vd_pct": 170, "e_sal": false, "observacao": null},
+      {"insumo": "Biotina (D-biotina)", "quantidade": 45, "unidade": "mcg", "vd_pct": 150, "e_sal": false, "observacao": null}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "bioprincess": {
+    "arquivo_pdf": "BioPrincess.pdf",
+    "nome_no_rotulo": "BioPrincess",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Acido ascorbico, colageno hidrolisado, L-metionina, L-cisteina, vitamina E (DL-a-tocoferol acetato), bisglicinato de zinco, metilsulfonilmetano (MSM), hialuronato de sodio, silicio organico (acido ortossilicico), nicotinamida, selenio quelado, cloridrato de piridoxina, maltodextrina, antiumectante dioxido de silicio (INS 551), D-pantotenato de calcio, cobre quelado, riboflavina, acetato de retinol, D-biotina, acido pteroilmonoglutamico, iodeto de potassio, colecalciferol, metilcobalamina e capsula: gelatina, agua [TEXTO TRUNCADO NA PROPRIA ARTE - a caixa da tabela nutricional cobre o restante da frase]",
+    "tabela_nutricional_basica": "Valor energetico 2 kcal = 6 kJ (0% VD); Carboidratos 0,1 g (0% VD); Proteinas 0,3 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Vitamina C (acido ascorbico)", "quantidade": 250, "unidade": "mg", "vd_pct": 556, "e_sal": false, "observacao": null},
+      {"insumo": "Colageno hidrolisado", "quantidade": 120, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-metionina", "quantidade": 110, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-cisteina", "quantidade": 100, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina E (DL-a-tocoferol acetato)", "quantidade": 45, "unidade": "mg", "vd_pct": 450, "e_sal": false, "observacao": null},
+      {"insumo": "Metilsulfonilmetano (MSM)", "quantidade": 50, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Acido hialuronico", "quantidade": 50, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Na lista de ingredientes aparece como hialuronato de sodio"},
+      {"insumo": "Silicio organico (acido ortossilicico)", "quantidade": 50, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina B3 (nicotinamida)", "quantidade": 35, "unidade": "mg", "vd_pct": 219, "e_sal": false, "observacao": null},
+      {"insumo": "Zinco (bisglicinato de zinco)", "quantidade": 15, "unidade": "mg", "vd_pct": 136, "e_sal": false, "observacao": "A composicao diz 'zinco (bisglicinato de zinco) 15 mg' e a tabela declara Zinco 15 mg (136% VD): o valor e do ELEMENTO zinco, com o sal apenas entre parenteses como fonte."},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 10, "unidade": "mg", "vd_pct": 769, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B5 (D-pantotenato de calcio)", "quantidade": 5.64, "unidade": "mg", "vd_pct": 113, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B2 (riboflavina)", "quantidade": 2.74, "unidade": "mg", "vd_pct": 211, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina A (acetato de retinol)", "quantidade": 1500, "unidade": "mcg", "vd_pct": 250, "e_sal": false, "observacao": null},
+      {"insumo": "Cobre (cobre quelado)", "quantidade": 900, "unidade": "mcg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B9 (acido folico)", "quantidade": 400, "unidade": "mcg", "vd_pct": 167, "e_sal": false, "observacao": null},
+      {"insumo": "Iodo (iodeto de potassio)", "quantidade": 150, "unidade": "mcg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Selenio (selenio quelado)", "quantidade": 60, "unidade": "mcg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina D3 (colecalciferol)", "quantidade": 50, "unidade": "mcg", "vd_pct": 333, "e_sal": false, "observacao": null},
+      {"insumo": "Biotina (D-biotina)", "quantidade": 45, "unidade": "mcg", "vd_pct": 150, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B12 (metilcobalamina)", "quantidade": 9.94, "unidade": "mcg", "vd_pct": 414, "e_sal": false, "observacao": null}
+    ],
+    "confianca": "alta",
+    "nao_legivel": ["Final da lista de ingredientes: a frase termina em 'e capsula: gelatina, agua' e o restante fica escondido atras da caixa da tabela nutricional. Defeito da propria arte, nao da renderizacao."]
+  },
+
+  "creatina_po_150g": {
+    "arquivo_pdf": "CreatinaPo.pdf",
+    "nome_no_rotulo": "CREATINA MONOHIDRATADA",
+    "porcao": "5 g (1 scoop)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "150 g",
+    "conteudo": "30 doses",
+    "sabor": "sem sabor",
+    "ingredientes_texto": "Creatina monohidratada.",
+    "tabela_nutricional_basica": "Valor energetico 0 kcal = 0 kJ (0% VD); Carboidratos 0 g (0% VD); Proteinas 0 g (0% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Creatina monohidratada", "quantidade": 5000, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Tabela traz 'Creatina (mg) 5000 mg' com %VD marcado apenas com asterisco (VD nao estabelecido)"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "detox_300g": {
+    "arquivo_pdf": "Detox.pdf",
+    "nome_no_rotulo": "Detox",
+    "porcao": "10 g (1 dose)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "300 g",
+    "conteudo": "30 doses",
+    "sabor": "limao",
+    "ingredientes_texto": "Maltodextrina, acido ascorbico (vitamina C), acido citrico (INS 330), extrato de cafe verde (Coffea arabica L.), aromatizante identico ao natural de limao, extrato de rizomas de Curcuma longa L., extrato de laranja Moro (Citrus sinensis L. Osbeck), antiumectante dioxido de silicio (INS 551), edulcorante sucralose (INS 955), corantes tartrazina (INS 102) e azul brilhante FCF (INS 133) e bisglicinato de zinco.",
+    "tabela_nutricional_basica": "Valor energetico 34 kcal = 143 kJ (2%); Carboidratos 8,5 g (3%); Proteinas 0 g (0%); Gorduras totais 0 g (0%); Sodio 5 mg (0%)",
+    "composicao": [
+      {"insumo": "Maltodextrina", "quantidade": 6.603, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Acido ascorbico (vitamina C)", "quantidade": 1.6, "unidade": "g", "vd_pct": 1600, "e_sal": false, "observacao": "Equivale a 1600 mg; a tabela declara Vitamina C 1600 mg (1600% VD)"},
+      {"insumo": "Acido citrico (INS 330)", "quantidade": 0.67, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato de cafe verde (Coffea arabica L.)", "quantidade": 0.4, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Aromatizante identico ao natural de limao", "quantidade": 0.33, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato de rizomas de Curcuma longa L.", "quantidade": 0.13, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato de laranja Moro (Citrus sinensis L. Osbeck)", "quantidade": 0.1, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 0.1, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Edulcorante sucralose (INS 955)", "quantidade": 0.05, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Corantes tartrazina (INS 102) e azul brilhante FCF (INS 133)", "quantidade": 0.017, "unidade": "g", "vd_pct": null, "e_sal": false, "observacao": "Valor conjunto dos dois corantes, como escrito no rotulo"},
+      {"insumo": "Bisglicinato de zinco", "quantidade": 1.45, "unidade": "mg", "vd_pct": 3, "e_sal": true, "elemento_equivalente_mg": 0.29, "observacao": "O rotulo escreve: 'bisglicinato de zinco 1,45 mg (equivalente a 0,29 mg de zinco)'. A tabela nutricional declara Zinco 0,29 mg (3% VD), que e o ELEMENTO."}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "dreamgummy": {
+    "arquivo_pdf": "DreamGummy.pdf",
+    "nome_no_rotulo": "Dream Gummy (melatonina em goma)",
+    "porcao": "6 g (2 gomas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "180 g",
+    "conteudo": "60 gomas",
+    "sabor": "uva",
+    "ingredientes_texto": "Sorbitol liquido, maltitol, gelatina, L-triptofano, agua purificada, glicerina vegetal, maltodextrina, pectina citrica, goma acacia, acido citrico (INS 330), aroma de uva, citrato de sodio (INS 331), conservador sorbato de potassio (INS 202), edulcorante sucralose (INS 955), corante vermelho 40 (INS 129), corante azul brilhante FCF (INS 133) e melatonina.",
+    "tabela_nutricional_basica": "Valor energetico 11 kcal = 46 kJ (1% VD); Carboidratos 4,5 g (2% VD), dos quais polioIs 3,4 g; Proteinas 0,8 g (2% VD); Gorduras totais 0 g (0% VD); Sodio 8 mg (0% VD)",
+    "composicao": [
+      {"insumo": "L-triptofano", "quantidade": 800, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Consta da tabela nutricional como 'L-triptofano 800 mg', sem %VD impresso"},
+      {"insumo": "Melatonina", "quantidade": 0.21, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Tabela marca (**) = Valor Diario nao estabelecido"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "floravex": {
+    "arquivo_pdf": "Floravex-intestino.pdf",
+    "nome_no_rotulo": "Floravex",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Psyllium (Plantago ovata, casca da semente), inulina de Cichorium intybus, frutooligossacarideos (FOS), L-glutamina, extrato de rizomas de Curcuma longa L., quercetina, bisglicinato de magnesio, bisglicinato de zinco, acetato de retinila, cloridrato de piridoxina, antiumectante dioxido de silicio (INS 551) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0,3 g (0% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Psyllium (Plantago ovata, casca da semente)", "quantidade": 342, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Inulina de Cichorium intybus", "quantidade": 135, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-glutamina", "quantidade": 135, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato de rizomas de Curcuma longa L.", "quantidade": 117, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Frutooligossacarideos (FOS)", "quantidade": 90, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Magnesio (de bisglicinato de magnesio)", "quantidade": 90, "unidade": "mg", "vd_pct": 21, "e_sal": false, "observacao": "Valor do ELEMENTO magnesio; a tabela declara Magnesio 90 mg (21% VD)"},
+      {"insumo": "Quercetina", "quantidade": 72, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Zinco (de bisglicinato de zinco)", "quantidade": 13.5, "unidade": "mg", "vd_pct": 123, "e_sal": false, "observacao": "Valor do ELEMENTO zinco; a tabela declara Zinco 13,5 mg (123% VD)"},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 4.7, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.26, "unidade": "mg", "vd_pct": 97, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina A (acetato de retinila)", "quantidade": 540, "unidade": "mcg", "vd_pct": 90, "e_sal": false, "observacao": null}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "focus_colina": {
+    "arquivo_pdf": "FocusColina.pdf",
+    "nome_no_rotulo": "Focus Colina",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Bitartarato de colina, L-tirosina, L-teanina, L-carnitina, bisglicinato de magnesio, mio-inositol, cloridrato de piridoxina, colecalciferol, cianocobalamina, agente de massa celulose microcristalina, antiumectante dioxido de silicio (INS 551) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0%); Carboidratos 0,3 g (0%); Proteinas 0,3 g (0%); Gorduras totais 0 g (0%); Sodio 0 mg (0%)",
+    "composicao": [
+      {"insumo": "Colina (bitartarato de colina)", "quantidade": 470, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-tirosina", "quantidade": 220, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-teanina", "quantidade": 115, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-carnitina", "quantidade": 95, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Magnesio (bisglicinato de magnesio)", "quantidade": 60, "unidade": "mg", "vd_pct": 14, "e_sal": false, "observacao": "Valor do ELEMENTO magnesio; a tabela declara Magnesio 60 mg (14% VD)"},
+      {"insumo": "Inositol (mio-inositol)", "quantidade": 25, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina D3 (colecalciferol)", "quantidade": 5, "unidade": "mcg", "vd_pct": 33, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B12 (cianocobalamina)", "quantidade": 2.4, "unidade": "mcg", "vd_pct": 100, "e_sal": false, "observacao": null}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "lidema": {
+    "arquivo_pdf": "Lidema.pdf",
+    "nome_no_rotulo": "Lidema",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Acido ascorbico (vitamina C), L-carnitina, extrato seco de sementes de Trigonella foenum-graecum L., extrato seco de rizomas de Curcuma longa L., bisglicinato de magnesio, nicotinamida, bisglicinato de zinco, DL-alfa-tocoferol (vitamina E), inositol (mio-inositol), cloridrato de piridoxina, acido folico, colecalciferol, picolinato de cromo, antiumectante dioxido de silicio (INS 551), capsula: gelatina, agua purificada, dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0%); Carboidratos 0,3 g (0%); Proteinas 0,3 g (0%); Gorduras totais 0 g (0%); Sodio 0 mg (0%)",
+    "composicao": [
+      {"insumo": "Vitamina C (acido ascorbico)", "quantidade": 236, "unidade": "mg", "vd_pct": 236, "e_sal": false, "observacao": null},
+      {"insumo": "L-carnitina", "quantidade": 160, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato seco de sementes de Trigonella foenum-graecum L. (feno grego)", "quantidade": 160, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato seco de rizomas de Curcuma longa L.", "quantidade": 130, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Magnesio (de bisglicinato de magnesio)", "quantidade": 110, "unidade": "mg", "vd_pct": 26, "e_sal": false, "observacao": "Valor do ELEMENTO magnesio; a tabela declara Magnesio 110 mg (26% VD)"},
+      {"insumo": "Vitamina B3 (nicotinamida)", "quantidade": 21, "unidade": "mg", "vd_pct": 131, "e_sal": false, "observacao": null},
+      {"insumo": "Zinco (de bisglicinato de zinco)", "quantidade": 12, "unidade": "mg", "vd_pct": 109, "e_sal": false, "observacao": "Valor do ELEMENTO zinco; a tabela declara Zinco 12 mg (109% VD)"},
+      {"insumo": "Vitamina E (DL-alfa-tocoferol)", "quantidade": 10, "unidade": "mg", "vd_pct": 67, "e_sal": false, "observacao": null},
+      {"insumo": "Inositol (mio-inositol)", "quantidade": 10, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Acido folico", "quantidade": 400, "unidade": "mcg", "vd_pct": 417, "e_sal": false, "observacao": null},
+      {"insumo": "Cromo (de picolinato de cromo)", "quantidade": 200, "unidade": "mcg", "vd_pct": 571, "e_sal": false, "observacao": "Valor do ELEMENTO cromo; a tabela declara Cromo 200 mcg (571% VD)"},
+      {"insumo": "Vitamina D3 (colecalciferol)", "quantidade": 25, "unidade": "mcg", "vd_pct": 167, "e_sal": false, "observacao": null}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "moroslim": {
+    "arquivo_pdf": "MoroSlim.pdf",
+    "nome_no_rotulo": "Moro Slim",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Extrato seco de semente de feno-grego (Trigonella foenum-graecum L.), extrato seco de fruto de laranja Moro (Citrus sinensis (L.) Osbeck), extrato seco de rizoma de curcuma (Curcuma longa L.), espirulina (Arthrospira platensis), quitosana, extrato seco de semente de cafe verde (Coffea arabica L.), casca de semente de psyllium (Plantago ovata Forssk.), inulina de raiz de chicoria (Cichorium intybus L.), picolinato de cromo, acetato de retinol, antiumectante dioxido de silicio (INS 551) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 3 kcal = 12 kJ (0% VD); Carboidratos 0,2 g (0% VD); Proteinas 0 g (0% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Extrato seco de semente de feno-grego (Trigonella foenum-graecum L.)", "quantidade": 220, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato seco de laranja Moro (Citrus sinensis (L.) Osbeck)", "quantidade": 175, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato seco de rizoma de curcuma (Curcuma longa L.)", "quantidade": 135, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Espirulina (Arthrospira platensis)", "quantidade": 122, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Quitosana", "quantidade": 122, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Extrato seco de semente de cafe verde (Coffea arabica L.)", "quantidade": 110, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Psyllium (Plantago ovata Forssk.)", "quantidade": 66, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Inulina de raiz de chicoria (Cichorium intybus L.)", "quantidade": 44, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 2.474, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina A (acetato de retinol)", "quantidade": 1500, "unidade": "mcg", "vd_pct": 250, "e_sal": false, "observacao": null},
+      {"insumo": "Cromo (picolinato de cromo)", "quantidade": 250, "unidade": "mcg", "vd_pct": 714, "e_sal": false, "observacao": "Valor do ELEMENTO cromo; a tabela declara Cromo 250 mcg (714% VD)"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "multivitaminico": {
+    "arquivo_pdf": "multivitaminico.pdf",
+    "nome_no_rotulo": "Multi vitaminico",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Bisglicinato de magnesio, acido ascorbico (vitamina C), bisglicinato de zinco, nicotinamida, acetato de tocoferol, pantotenato de calcio, acetato de retinol, L-teanina, quelato de boro, cloridrato de piridoxina, cloridrato de tiamina, riboflavina, acido folico, bisglicinato de cobre, picolinato de cromo, menaquinona-7 (vitamina K2), cianocobalamina, colecalciferol, selenito de sodio, antiumectante dioxido de silicio (INS 551) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0,3 g (0% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Magnesio (de bisglicinato de magnesio)", "quantidade": 260, "unidade": "mg", "vd_pct": 62, "e_sal": false, "observacao": "Valor do ELEMENTO magnesio; a tabela declara Magnesio 260 mg (62% VD)"},
+      {"insumo": "L-teanina", "quantidade": 150, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Consta da tabela como 'L-teanina 150 mg ()', com o campo de %VD impresso vazio"},
+      {"insumo": "Vitamina C (acido ascorbico)", "quantidade": 100, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Zinco (de bisglicinato de zinco)", "quantidade": 15, "unidade": "mg", "vd_pct": 136, "e_sal": false, "observacao": "Valor do ELEMENTO zinco; a tabela declara Zinco 15 mg (136% VD)"},
+      {"insumo": "Vitamina B3 (nicotinamida)", "quantidade": 16, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina E (acetato de tocoferol)", "quantidade": 10, "unidade": "mg", "vd_pct": 67, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B5 (pantotenato de calcio)", "quantidade": 5, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Boro (de quelato de boro)", "quantidade": 3, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Tabela marca (**) = Valor Diario nao estabelecido"},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B1 (cloridrato de tiamina)", "quantidade": 1.2, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B2 (riboflavina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina A (acetato de retinol)", "quantidade": 1300, "unidade": "mcg", "vd_pct": 217, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina B9 (acido folico)", "quantidade": 800, "unidade": "mcg", "vd_pct": 200, "e_sal": false, "observacao": null},
+      {"insumo": "Cobre (de bisglicinato de cobre)", "quantidade": 0.9, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": "Composicao escreve 0,9 mg; a tabela declara Cobre 0,9 mg (100% VD). Equivale a 900 mcg."},
+      {"insumo": "Selenio (de selenito de sodio)", "quantidade": 100, "unidade": "mcg", "vd_pct": 167, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina K2 (menaquinona-7)", "quantidade": 149, "unidade": "mcg", "vd_pct": null, "e_sal": false, "observacao": "Tabela marca (**) = Valor Diario nao estabelecido"},
+      {"insumo": "Vitamina D3 (colecalciferol)", "quantidade": 50, "unidade": "mcg", "vd_pct": 333, "e_sal": false, "observacao": null},
+      {"insumo": "Cromo (de picolinato de cromo)", "quantidade": 35, "unidade": "mcg", "vd_pct": 100, "e_sal": false, "observacao": "Valor do ELEMENTO cromo; a tabela declara Cromo 35 mcg (100% VD)"},
+      {"insumo": "Vitamina B12 (cianocobalamina)", "quantidade": 9.94, "unidade": "mcg", "vd_pct": 414, "e_sal": false, "observacao": null},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 10, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "nuviart": {
+    "arquivo_pdf": "Nuviart.pdf",
+    "nome_no_rotulo": "Nuviart",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Metilsulfonilmetano, sulfato de glucosamina, acido ascorbico, colageno hidrolisado, carbonato de calcio, bisglicinato de magnesio, DL-alfa-tocoferol, colageno tipo II nao desnaturado, bisglicinato de zinco, bisglicinato de ferro, cloridrato de piridoxina, metilcobalamina, selenio quelado, colecalciferol, capsula (gelatina, dioxido de titanio INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0,4 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Metilsulfonilmetano (MSM)", "quantidade": 250, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Sulfato de glucosamina", "quantidade": 200, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Acido ascorbico", "quantidade": 140, "unidade": "mg", "vd_pct": 140, "e_sal": false, "observacao": "A tabela declara Vitamina C 140 mg (140% VD)"},
+      {"insumo": "Colageno hidrolisado", "quantidade": 100, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Carbonato de calcio", "quantidade": 100, "unidade": "mg", "vd_pct": null, "e_sal": true, "elemento_equivalente_mg": null, "observacao": "SAL. O rotulo NAO declara o calcio elemento nem na tabela nem entre parenteses. Nao ha como calcular sem premissa externa."},
+      {"insumo": "Bisglicinato de magnesio", "quantidade": 100, "unidade": "mg", "vd_pct": null, "e_sal": true, "elemento_equivalente_mg": null, "observacao": "SAL. O rotulo NAO declara o magnesio elemento nem na tabela nutricional."},
+      {"insumo": "Colageno tipo II nao desnaturado", "quantidade": 40, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Rotulo escreve 'Colageno tipo II nao desnaturado (Colageno tipo II nao hidrolisado) 40 mg'"},
+      {"insumo": "DL-alfa-tocoferol", "quantidade": 20, "unidade": "mg", "vd_pct": 133, "e_sal": false, "observacao": "A tabela declara Vitamina E 20 mg (133% VD)"},
+      {"insumo": "Bisglicinato de zinco", "quantidade": 10, "unidade": "mg", "vd_pct": 91, "e_sal": true, "elemento_equivalente_mg": null, "observacao": "INCOERENCIA DO PROPRIO ROTULO: a composicao declara 10 mg do SAL bisglicinato de zinco, e a tabela declara Zinco 10 mg (91% VD) como ELEMENTO. O mesmo numero nao pode valer para sal e elemento. Confirmar com a ficha tecnica da fabrica antes de cadastrar."},
+      {"insumo": "Bisglicinato de ferro", "quantidade": 8, "unidade": "mg", "vd_pct": 57, "e_sal": true, "elemento_equivalente_mg": null, "observacao": "INCOERENCIA DO PROPRIO ROTULO: composicao declara 8 mg do SAL e a tabela declara Ferro 8 mg (57% VD) como ELEMENTO. Confirmar com a ficha tecnica."},
+      {"insumo": "Cloridrato de piridoxina", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": "A tabela declara Vitamina B6 1,3 mg (100% VD)"},
+      {"insumo": "Selenio quelado", "quantidade": 100, "unidade": "mcg", "vd_pct": 167, "e_sal": false, "observacao": "A tabela declara Selenio 100 mcg (167% VD)"},
+      {"insumo": "Colecalciferol", "quantidade": 50, "unidade": "mcg", "vd_pct": 1000, "e_sal": false, "observacao": "A tabela declara Vitamina D 50 mcg (1000% VD)"},
+      {"insumo": "Metilcobalamina", "quantidade": 9.94, "unidade": "mcg", "vd_pct": 414, "e_sal": false, "observacao": "A tabela declara Vitamina B12 9,94 mcg (414% VD)"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "pro_energy": {
+    "arquivo_pdf": "ProEnergy.pdf",
+    "nome_no_rotulo": "Pro Energy",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Extrato seco de semente de feno-grego (Trigonella foenum-graecum L.), L-taurina, guarana em po (Paullinia cupana Kunth, semente), cafeina anidra, L-carnitina base, L-Aspartato de L-arginina, bisglicinato de zinco, vitamina B6 (cloridrato de piridoxina), antiumectante dioxido de silicio (INS 551) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0,3 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Extrato seco de semente de feno-grego (Trigonella foenum-graecum L.)", "quantidade": 250, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-taurina", "quantidade": 200, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Guarana em po (Paullinia cupana Kunth, semente)", "quantidade": 200, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Cafeina anidra", "quantidade": 150, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-carnitina base", "quantidade": 90, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-Aspartato de L-arginina", "quantidade": 75, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Bisglicinato de zinco", "quantidade": 20, "unidade": "mg", "vd_pct": 36, "e_sal": true, "elemento_equivalente_mg": 4, "observacao": "Os 20 mg sao massa do SAL. A tabela nutricional declara Zinco 4 mg (36% VD), que e o ELEMENTO. O restante e massa do bisglicinato."},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 10, "unidade": "mg", "vd_pct": 769, "e_sal": false, "observacao": null},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 5, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "serena": {
+    "arquivo_pdf": "Serena.pdf",
+    "nome_no_rotulo": "Serena",
+    "porcao": "1 mL (20 gotas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 ml",
+    "conteudo": "30 doses",
+    "sabor": null,
+    "ingredientes_texto": "Glicerina vegetal (glicerol - INS 422), agua purificada, L-teanina, mio-inositol, cloreto de magnesio, citrato de sodio (INS 331), acido citrico (INS 330), melatonina, cloridrato de piridoxina, conservador sorbato de potassio (INS 202), conservador benzoato de sodio (INS 211) e aromatizante identico ao natural.",
+    "tabela_nutricional_basica": "Valor energetico 1 kcal = 4 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0 g (0% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Magnesio (de cloreto de magnesio)", "quantidade": 63, "unidade": "mg", "vd_pct": 15, "e_sal": false, "observacao": "Valor do ELEMENTO magnesio; a tabela declara Magnesio 63 mg (15% VD)"},
+      {"insumo": "L-teanina", "quantidade": 50, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Mio-inositol", "quantidade": 50, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Melatonina", "quantidade": 0.21, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Tabela marca (**) = Valor Diario nao estabelecido"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "zma_complex": {
+    "arquivo_pdf": "ZmaComplex.pdf",
+    "nome_no_rotulo": "ZMA complex",
+    "porcao": "1 g (2 capsulas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "30 g",
+    "conteudo": "60 capsulas",
+    "sabor": null,
+    "ingredientes_texto": "Magnesio glicinato, dioxido de silicio (INS 551), L-teanina, bisglicinato de zinco, quelato de boro (glicinato de boro), vitamina B6 (cloridrato de piridoxina), vitamina D3 (colecalciferol) e capsula: gelatina, agua purificada e corante dioxido de titanio (INS 171).",
+    "tabela_nutricional_basica": "Valor energetico 4 kcal = 17 kJ (0% VD); Carboidratos 0,3 g (0% VD); Proteinas 0,3 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 0 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Magnesio glicinato", "quantidade": 500, "unidade": "mg", "vd_pct": 36, "e_sal": true, "elemento_equivalente_mg": 152, "observacao": "Os 500 mg sao massa do SAL. A tabela nutricional declara Magnesio 152 mg (36% VD), que e o ELEMENTO."},
+      {"insumo": "Dioxido de silicio (INS 551)", "quantidade": 217.1, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "L-teanina", "quantidade": 150, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Nao consta da tabela nutricional"},
+      {"insumo": "Bisglicinato de zinco", "quantidade": 75, "unidade": "mg", "vd_pct": 136, "e_sal": true, "elemento_equivalente_mg": 15, "observacao": "Os 75 mg sao massa do SAL. A tabela nutricional declara Zinco 15 mg (136% VD), que e o ELEMENTO."},
+      {"insumo": "Quelato de boro (glicinato de boro)", "quantidade": 56.6, "unidade": "mg", "vd_pct": null, "e_sal": true, "elemento_equivalente_mg": null, "observacao": "SAL. O boro elemento NAO e declarado na tabela nutricional deste rotulo."},
+      {"insumo": "Vitamina B6 (cloridrato de piridoxina)", "quantidade": 1.3, "unidade": "mg", "vd_pct": 100, "e_sal": false, "observacao": null},
+      {"insumo": "Vitamina D3 (colecalciferol)", "quantidade": 25, "unidade": "mcg", "vd_pct": 167, "e_sal": false, "observacao": "A tabela declara Vitamina D 25 mcg (167% VD)"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  },
+
+  "creatina_gummy": {
+    "arquivo_pdf": "creatina gummy.pdf",
+    "nome_no_rotulo": "Creatina em goma",
+    "porcao": "6 g (2 gomas)",
+    "porcoes_por_embalagem": 30,
+    "peso_liquido": "180 g",
+    "conteudo": "60 gomas",
+    "sabor": "frutas vermelhas",
+    "ingredientes_texto": "Creatina monohidratada, maltitol, sorbitol liquido, gelatina (agente de textura), agua purificada, glicerina vegetal (umectante), acido citrico (INS 330), pectina citrica (espessante), aroma frutas vermelhas, citrato de sodio (INS 331), corante vermelho ponceau (INS 124), conservador sorbato de potassio (INS 202) e edulcorante sucralose (INS 955).",
+    "tabela_nutricional_basica": "Valor energetico 9 kcal = 38 kJ (0% VD); Carboidratos 3,0 g (1% VD); dos quais polioIs 2,7 g (**); Proteinas 0,4 g (1% VD); Gorduras totais 0 g (0% VD); Sodio 10 mg (0% VD)",
+    "composicao": [
+      {"insumo": "Creatina monohidratada", "quantidade": 3000, "unidade": "mg", "vd_pct": null, "e_sal": false, "observacao": "Tabela marca (**) = Valor Diario nao estabelecido"}
+    ],
+    "confianca": "alta",
+    "nao_legivel": []
+  }
+}
