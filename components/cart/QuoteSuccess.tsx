@@ -60,7 +60,7 @@ export function QuoteSuccess({ data }: QuoteSuccessProps) {
         <CircleCheckBig size={44} className="lc-success-icon" aria-hidden="true" />
         <h1>Orçamento gerado com sucesso</h1>
         <p>Guarde a identificação abaixo para acompanhar seu pedido.</p>
-        <code className="lc-order-id">{data.quoteId}</code>
+        <code className="lc-order-id">nº {data.quoteNumber}</code>
 
         <div className="lc-success-actions">
           <button type="button" className="lc-btn lc-btn-ghost lc-btn-icon-inline" onClick={handleCopy}>

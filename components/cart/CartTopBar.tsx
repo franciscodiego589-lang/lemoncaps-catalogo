@@ -13,11 +13,14 @@ export function CartTopBar() {
   return (
     <header className="lc-topbar">
       <GlassSurface className="lc-topbar-inner">
-        {/* Era só a seta, com o texto apenas no aria-label: quem enxerga não
-            lia "voltar" em lugar nenhum e não achava a saída. O rótulo some no
-            celular (.lc-voltar-btn em globals.css), onde a barra é estreita e a
-            seta sozinha já é convenção reconhecida. */}
-        <Link href="/catalogo" className="lc-voltar-btn">
+        {/* Era só a seta, com o texto apenas no <span> visual: abaixo de
+            560px (.lc-voltar-btn em globals.css) esse <span> vira
+            display:none e, como a seta é aria-hidden, não sobrava nome
+            acessível nenhum — o link ficava mudo pro leitor de tela (achado
+            do axe-core, link-name, SERIOUS, confirmado em /carrinho a
+            375px). aria-label no próprio <a> garante o nome sempre, esteja o
+            <span> visível ou escondido. */}
+        <Link href="/catalogo" className="lc-voltar-btn" aria-label="Voltar ao catálogo">
           <ArrowLeft size={18} aria-hidden="true" />
           <span>Voltar ao catálogo</span>
         </Link>

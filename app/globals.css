@@ -231,8 +231,7 @@ img {
   .lc-glass,
   .lc-segmented,
   .lc-fab,
-  .lc-modal-glass,
-  .lc-tier-badge {
+  .lc-modal-glass {
     background: var(--card-bg) !important;
   }
 }
@@ -240,8 +239,7 @@ img {
   .lc-glass,
   .lc-segmented,
   .lc-fab,
-  .lc-modal-glass,
-  .lc-tier-badge {
+  .lc-modal-glass {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     background: var(--card-bg) !important;
@@ -251,8 +249,7 @@ img {
   .lc-glass,
   .lc-segmented,
   .lc-fab,
-  .lc-modal-glass,
-  .lc-tier-badge {
+  .lc-modal-glass {
     -webkit-backdrop-filter: blur(14px) saturate(150%);
     backdrop-filter: blur(14px) saturate(150%);
   }
@@ -391,6 +388,23 @@ img {
   background: rgba(255, 255, 255, 0.78);
   border-color: rgba(255, 255, 255, 0.9);
 }
+/* Sem variante escura, o véu branco fixo (pensado pro fundo claro) sobre o
+   fundo animado já escurecido deste tema compõe um verde-oliva médio — e o
+   texto (--ink, quase branco no escuro) perde contraste contra ele. Medido ao
+   vivo: 2,99:1 (precisa 4,5:1). Reaproveita os tokens do vidro escuro já
+   calibrados para o modal (--glass-fill-strong/--glass-border) em vez de
+   inventar um valor novo. */
+@media (prefers-color-scheme: dark) {
+  .lc-admin-btn {
+    background: var(--glass-fill-strong);
+    border-color: var(--glass-border);
+  }
+  .lc-admin-btn:hover,
+  .lc-admin-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
 /* No celular a barra já disputa espaço com busca e carrinho: fica só o
    cadeado, que continua tocável nos 36px mínimos. */
 @media (max-width: 640px) {
@@ -442,10 +456,17 @@ img {
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
+/* --text-muted é claro demais direto sobre o fundo degradê animado
+   (.lc-bg-layer) — aqui não existe cartão sólido nem véu de vidro por baixo
+   pra completar o contraste, diferente do resto do site (regra "vidro no
+   cromo, sólido no conteúdo"). Medido ao vivo: 3,85:1 (precisa 4,5:1).
+   --ink-soft é o mesmo ajuste já usado dentro do modal de vidro (ver
+   .lc-modal-glass .lc-lbl acima) para o mesmo problema — texto sobre
+   superfície sem fundo sólido próprio. */
 .lc-page-head p {
   margin-top: 4px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   text-wrap: pretty;
 }
 
@@ -717,6 +738,16 @@ img {
     transform: scale(1.025);
   }
 }
+/* Véu do chip: era BRANCO translúcido (rgba(255,255,255,.28)) sobre o
+   gradiente já claro do segmento — um véu branco só clareia mais a superfície
+   por baixo, então o texto branco dependia 100% do text-shadow pra alguém
+   enxergar, e text-shadow não conta pra métrica de contraste do WCAG (não é
+   cor de texto, é sombra). Medido ao vivo nos 4 segmentos reais e nos dois
+   temas: 1,31:1 a 1,64:1, sempre reprovado (precisa 4,5:1). Véu ESCURO
+   translúcido resolve sem sair do "vidro no cromo": o chip continua
+   translúcido (dá pra ver o gradiente de leve por trás), só a base é escura o
+   bastante pra qualquer gradiente claro de segmento por baixo garantir 4,5:1
+   com folga para o texto branco. */
 .lc-tier-badge {
   position: absolute;
   top: 10px;
@@ -727,9 +758,8 @@ img {
   font-weight: 800;
   letter-spacing: 0.03em;
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(10, 11, 14, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 .lc-card-body {
   padding: 15px 16px 17px;
@@ -1796,11 +1826,24 @@ img {
 }
 
 /* ---------- footer ---------- */
+/* Mesma causa do subtítulo em .lc-page-head p (ver comentário lá): nota de
+   conformidade e copyright ficam direto sobre o fundo degradê animado, sem
+   cartão nem véu por baixo. Medido ao vivo: nota de conformidade 3,11:1,
+   copyright 3,25:1 (precisa 4,5:1 nos dois).
+   Aqui o rodapé pousa na região mais azul do degradê (o blob de --bg-c3 fica
+   perto de 45%/92%, exatamente onde a página rola até o rodapé aparecer) —
+   --ink-soft (mesmo ajuste usado no subtítulo, que sobra confortável perto do
+   topo) FICA ABAIXO de 4,5:1 bem aqui: medido ao vivo depois de trocar só
+   para --ink-soft, 4,31-4,48:1 nos dois temas, reprovado por pouco. Como o
+   fundo é animado (desloca ~1,5%/22s) e a folga era mínima, não dava pra
+   confiar num valor tão no limite. --ink (mais escuro no claro, mais claro no
+   escuro) resolve com folga grande (medido: ver relatório da tarefa) sem
+   tocar em nenhuma propriedade de vidro. */
 .lc-footer {
   text-align: center;
   padding: 34px 18px 46px;
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--ink);
 }
 /* Nota de conformidade: sóbria e menor que o copyright, sem competir com ele
    nem parecer alarme - texto vem de lib/catalog/regulatory-info.ts. */
@@ -2471,6 +2514,20 @@ img {
 .lc-voltar-btn:focus-visible {
   background: rgba(255, 255, 255, 0.8);
 }
+/* Mesma causa do botão Admin, aqui ao lado (ver o comentário completo em
+   .lc-admin-btn): véu branco fixo, sem variante escura, sobre o fundo animado
+   escurecido vira verde-oliva médio e colide com --ink quase branco no
+   escuro. Medido ao vivo: 2,83:1 (precisa 4,5:1). */
+@media (prefers-color-scheme: dark) {
+  .lc-voltar-btn {
+    background: var(--glass-fill-strong);
+    border-color: var(--glass-border);
+  }
+  .lc-voltar-btn:hover,
+  .lc-voltar-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
 @media (max-width: 560px) {
   .lc-voltar-btn {
     padding: 0;
@@ -2967,4 +3024,47 @@ img {
 }
 .lc-admin-pagination-controls .lc-btn {
   padding: 8px 14px;
+}
+
+/* ---------- página de erro / não encontrado ---------- */
+/* Existe porque um endereço errado caía na tela padrão do Next, em inglês e sem
+   marca nenhuma. Num catálogo B2B quem chega por link velho é cliente, e essa
+   tela é a última chance de levá-lo ao catálogo em vez de perdê-lo. */
+.lc-erro-page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: var(--paper);
+}
+.lc-erro-card {
+  max-width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.lc-erro-icone {
+  color: var(--lime-deep);
+}
+.lc-erro-card h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.lc-erro-card p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.lc-erro-acoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
 }

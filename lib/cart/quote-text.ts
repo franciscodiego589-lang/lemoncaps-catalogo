@@ -16,7 +16,7 @@ export function buildQuoteOrderText(data: QuoteSuccessData): string {
     "Pedido - Lemon Caps",
     `Cliente: ${data.customerName}`,
     `WhatsApp: ${data.customerWhatsapp}`,
-    `Identificação do pedido: ${data.quoteId}`,
+    `Orçamento nº ${data.quoteNumber}`,
     "",
     "Itens:",
     ...itemLines,
@@ -30,7 +30,7 @@ export function buildQuoteOrderText(data: QuoteSuccessData): string {
 // item a item) para não estourar limite de tamanho de URL de links wa.me em
 // carrinhos com muitos itens. O detalhamento completo já está disponível via
 // "Copiar pedido" e "Baixar PDF", que o cliente pode colar/anexar na conversa.
-export function buildWhatsappMessage(data: Pick<QuoteSuccessData, "quoteId" | "totalPotes" | "totalCents">): string {
+export function buildWhatsappMessage(data: Pick<QuoteSuccessData, "quoteNumber" | "totalPotes" | "totalCents">): string {
   const potesLabel = data.totalPotes === 1 ? "pote" : "potes";
-  return `Olá! Gerei o orçamento ${data.quoteId} no catálogo Lemon Caps (${data.totalPotes} ${potesLabel}, total ${centsToBRL(data.totalCents)}). Podemos conversar sobre ele?`;
+  return `Olá! Gerei o orçamento nº ${data.quoteNumber} no catálogo Lemon Caps (${data.totalPotes} ${potesLabel}, total ${centsToBRL(data.totalCents)}). Podemos conversar sobre ele?`;
 }
