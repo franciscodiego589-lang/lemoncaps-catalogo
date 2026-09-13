@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import { MockupLightbox } from "./MockupLightbox";
 
 interface ProductMockupProps {
   src: string;
@@ -9,7 +11,15 @@ interface ProductMockupProps {
   width: number;
   height: number;
   variant: "card" | "dossie";
+  /** Nome e slug alimentam a tela cheia; sem eles o mockup não amplia. */
+  productName?: string;
+  slug?: string;
 }
+
+// Atraso entre encostar o ponteiro e abrir a tela cheia. Sem ele, atravessar a
+// grade com o mouse dispararia a ampliação de vários potes em sequência — o
+// recurso viraria armadilha em vez de atalho.
+const ATRASO_ABERTURA_MS = 350;
 
 // Inclinação 3D leve do pote, só com CSS (perspective + rotateX/rotateY nas
 // variáveis --tilt-rx/--tilt-ry, ver .lc-mockup-stage em globals.css). Nunca
@@ -24,10 +34,37 @@ const MAX_TILT_DEG = 7;
 // card a cada pixel de movimento. As variáveis CSS são escritas direto no
 // elemento via ref, agrupadas num requestAnimationFrame por evento de
 // ponteiro (no máximo uma escrita por frame).
-export function ProductMockup({ src, alt, width, height, variant }: ProductMockupProps) {
+export function ProductMockup({ src, alt, width, height, variant, productName, slug }: ProductMockupProps) {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<number | null>(null);
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
+  // Abre e fecha raramente (uma vez por interação), então useState aqui não
+  // tem o custo que teria guardando posição de ponteiro.
+  const [ampliado, setAmpliado] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const podeAmpliar = Boolean(productName);
+
+  function agendarAbertura() {
+    if (!podeAmpliar || ampliado) return;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setAmpliado(true), ATRASO_ABERTURA_MS);
+  }
+
+  function cancelarAbertura() {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }
+
+  function abrirAgora() {
+    if (!podeAmpliar) return;
+    cancelarAbertura();
+    setAmpliado(true);
+  }
+
+  useEffect(() => () => cancelarAbertura(), []);
 
   useEffect(() => {
     const stage = stageRef.current;
@@ -97,7 +134,32 @@ export function ProductMockup({ src, alt, width, height, variant }: ProductMocku
   }, []);
 
   return (
-    <div className={`lc-mockup lc-mockup-${variant}`}>
+    <div
+      className={`lc-mockup lc-mockup-${variant}${podeAmpliar ? " lc-mockup-ampliavel" : ""}`}
+      onPointerEnter={agendarAbertura}
+      onPointerLeave={cancelarAbertura}
+      onClick={abrirAgora}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          abrirAgora();
+        }
+      }}
+      // Vira alvo de teclado só quando amplia; produto sem foto não deve
+      // aparecer na navegação por Tab como se fosse clicável.
+      role={podeAmpliar ? "button" : undefined}
+      tabIndex={podeAmpliar ? 0 : undefined}
+      aria-label={podeAmpliar ? `Ampliar imagem de ${productName}` : undefined}
+    >
+      {ampliado && productName && (
+        <MockupLightbox
+          src={src}
+          alt={alt}
+          productName={productName}
+          slug={slug}
+          onClose={() => setAmpliado(false)}
+        />
+      )}
       <div ref={stageRef} className="lc-mockup-stage">
         <span className="lc-mockup-shadow" aria-hidden="true" />
         {/* Next 16: `priority` foi depreciada em favor de `preload` (ver

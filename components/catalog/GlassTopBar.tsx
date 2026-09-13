@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart } from "lucide-react";
+import { Lock, ShoppingCart } from "lucide-react";
 
 import { GlassSurface } from "@/components/glass/GlassSurface";
 import { useCartStore } from "@/lib/store/cart";
@@ -23,6 +23,20 @@ export function GlassTopBar({ searchValue, onSearchChange }: GlassTopBarProps) {
           <span translate="no">Lemon Caps</span>
         </div>
         <SearchBar value={searchValue} onChange={onSearchChange} />
+        {/* Acesso à área administrativa, discreto e no canto (pedido do dono:
+            "pode ficar na mesma página do catálogo em um canto como botão").
+            Fica aqui e não numa página externa porque, sem nenhum caminho
+            visível, o dono não achava o painel — o /login existia mas nada
+            no site levava até ele.
+
+            Não é porta dos fundos: o /admin já exige sessão do Supabase Auth
+            e registro ativo em staff_profiles. Mostrar o caminho não afrouxa
+            nada — só deixa de esconder de quem tem a senha. Por isso também
+            é discreto: não compete com o carrinho, que é a ação do cliente. */}
+        <Link href="/login" className="lc-admin-btn" title="Entrar na área administrativa">
+          <Lock size={15} aria-hidden="true" />
+          <span>Admin</span>
+        </Link>
         {/* A tela /carrinho completa vem em outra etapa — o link já aponta
             para lá; até ela existir, o próprio Next mostra a página padrão de
             não encontrado. */}

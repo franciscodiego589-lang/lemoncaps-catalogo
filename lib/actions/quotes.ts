@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 import { requireQuoteManagerAction, StaffAuthError } from "@/lib/data/admin";
@@ -58,6 +59,66 @@ export async function updateQuoteItem(
   // repassa essa mensagem como está.
   if (error) return actionError(friendlyDbError(error));
   if (!data) return actionError("Item de orçamento não encontrado.");
+
+  return actionOk({ id: data.id });
+}
+
+// public.quotes.status/internal_note (item 5 da tarefa) - mesma trava de
+// can_manage_quotes de updateQuoteItem acima. Diferente daquela action, esta
+// aqui precisa de revalidatePath: status/observação aparecem tanto na tela de
+// detalhe quanto na coluna Status da listagem (/admin/orcamentos), e
+// router.refresh() (o que QuoteItemRow.tsx usa) só atualiza a rota atual -
+// nunca a lista, que é uma página diferente. revalidatePath(path) aceita só
+// caminho literal aqui (nunca "/admin/orcamentos/[id]"), então dispensa o
+// segundo argumento "type" - ele só é exigido para padrão de rota dinâmica
+// (node_modules/next/dist/docs/.../revalidatePath.md, conferido para esta
+// tarefa: diferente de revalidateTag, que no Next 16 passou a exigir um
+// segundo argumento sempre - ver revalidateCatalogCache em lib/data/formulas.ts).
+const quoteStatusPatchSchema = z.object({
+  status: z.enum(["aberto", "aprovado", "recusado", "expirado"], { message: "Selecione um status válido." }).optional(),
+  internalNote: z.string().max(2000, "Observação muito longa (máximo 2000 caracteres).").optional(),
+});
+
+export async function updateQuoteStatus(
+  quoteId: string,
+  patch: z.infer<typeof quoteStatusPatchSchema>,
+): Promise<ActionResult<{ id: string }>> {
+  try {
+    await requireQuoteManagerAction();
+  } catch (error) {
+    if (error instanceof StaffAuthError) return actionError(error.message);
+    throw error;
+  }
+
+  const idParsed = z.string().uuid().safeParse(quoteId);
+  if (!idParsed.success) return actionError("Orçamento inválido.");
+  const parsed = quoteStatusPatchSchema.safeParse(patch);
+  if (!parsed.success) return actionError("Corrija os campos destacados.", zodIssuesToFieldErrors(parsed.error));
+  if (parsed.data.status === undefined && parsed.data.internalNote === undefined) {
+    return actionError("Nenhuma alteração para salvar.");
+  }
+
+  const row: TablesUpdate<"quotes"> = {};
+  if (parsed.data.status !== undefined) row.status = parsed.data.status;
+  if (parsed.data.internalNote !== undefined) {
+    const trimmed = parsed.data.internalNote.trim();
+    row.internal_note = trimmed === "" ? null : trimmed;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("quotes")
+    .update(row)
+    .eq("id", idParsed.data)
+    .is("deleted_at", null)
+    .select("id")
+    .maybeSingle();
+
+  if (error) return actionError(friendlyDbError(error));
+  if (!data) return actionError("Orçamento não encontrado.");
+
+  revalidatePath("/admin/orcamentos");
+  revalidatePath(`/admin/orcamentos/${idParsed.data}`);
 
   return actionOk({ id: data.id });
 }

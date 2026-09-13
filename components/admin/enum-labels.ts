@@ -1,4 +1,4 @@
-import type { CompositionUnit, IngredientCategory, ProductFormat, ProductLine } from "@/lib/data/admin";
+import type { CompositionUnit, IngredientCategory, ProductFormat, ProductLine, QuoteStatus } from "@/lib/data/admin";
 
 // Rótulos em português dos enums do banco, só para exibição no admin - os
 // valores gravados continuam exatamente os do enum (nunca traduzidos no
@@ -34,6 +34,23 @@ export const INGREDIENT_CATEGORY_LABELS: Record<IngredientCategory, string> = {
   aminoacido: "Aminoácido",
   extrato_vegetal: "Extrato vegetal",
   outro: "Outro",
+};
+
+export const QUOTE_STATUS_LABELS: Record<QuoteStatus, string> = {
+  aberto: "Aberto",
+  aprovado: "Aprovado",
+  recusado: "Recusado",
+  expirado: "Expirado",
+};
+
+// Modificador do selo visual (classe .lc-admin-badge--x) por status - reaproveita
+// a mesma paleta de active/inactive/warning já usada para outros selos (ver
+// ActiveToggle, IngredientAdminTable) em vez de inventar uma cor por valor.
+export const QUOTE_STATUS_BADGE_VARIANT: Record<QuoteStatus, "info" | "active" | "warning" | "inactive"> = {
+  aberto: "info",
+  aprovado: "active",
+  recusado: "warning",
+  expirado: "inactive",
 };
 
 export function toSelectOptions<T extends string>(labels: Record<T, string>): { value: T; label: string }[] {

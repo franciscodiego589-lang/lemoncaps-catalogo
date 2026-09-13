@@ -354,6 +354,64 @@ img {
 .lc-icon-btn:hover {
   background: rgba(127, 127, 127, 0.16);
 }
+/* Botão da área administrativa, na barra do catálogo. Primeira tentativa foi
+   só um cadeado apagado (opacity 0.42) e o dono não conseguiu enxergar — o
+   ponto do botão é justamente ser achável, então agora leva rótulo escrito.
+   Continua secundário perto do carrinho (que é a ação do cliente): fundo
+   translúcido em vez de sólido, e sem a cor da marca. Não é porta dos fundos —
+   o /admin já exige sessão do Supabase Auth e registro ativo em
+   staff_profiles; mostrar o caminho não afrouxa nada. */
+/* A barra posiciona os filhos por `order`, não pela ordem do JSX. Sem declarar
+   um, este botão herdava order 0 e ia parar antes da marca. Aqui ele empata com
+   o carrinho de propósito: em empate o flexbox desempata pela ordem do DOM, e
+   no JSX o Admin vem logo antes do carrinho — então basta um valor por faixa,
+   sem precisar renumerar marca, busca e carrinho.
+   No celular (< 680px) é ele quem carrega o `margin-left: auto`, porque passa a
+   ser o primeiro do bloco encostado à direita. */
+.lc-admin-btn {
+  order: 2;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.lc-admin-btn:hover,
+.lc-admin-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+/* No celular a barra já disputa espaço com busca e carrinho: fica só o
+   cadeado, que continua tocável nos 36px mínimos. */
+@media (max-width: 640px) {
+  .lc-admin-btn {
+    padding: 0;
+    width: 36px;
+    justify-content: center;
+  }
+  .lc-admin-btn span {
+    display: none;
+  }
+}
+/* Mesmo ponto de corte em que a busca vira flex:1 e assume o meio da barra
+   (ver .lc-search-wrap acima): daí o `auto` sai daqui e volta a ser a busca
+   que empurra o bloco da direita. */
+@media (min-width: 680px) {
+  .lc-admin-btn {
+    order: 3;
+    margin-left: 0;
+  }
+}
 .lc-badge {
   position: absolute;
   top: -3px;
@@ -537,9 +595,16 @@ img {
   flex-direction: column;
 }
 
+/* Altura ÚNICA da faixa, com ou sem foto do pote. Ela já foi 76px sem mockup
+   e 148px com, e o degrau de 72px desalinhava a grade inteira: numa fileira
+   de quatro cards, o título de uns começava bem acima do dos outros. Enquanto
+   quase nenhum produto tinha foto isso passava; com 15 de 28 fotografados,
+   virou o defeito mais visível da tela. Card sem foto não fica com buraco -
+   recebe o mesmo gradiente do segmento e o ícone de formato maior e
+   centrado (o tamanho vem de FormulaCard.tsx). */
 .lc-card-media {
   position: relative;
-  height: 76px;
+  height: 148px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,14 +614,12 @@ img {
   color: #fff;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
   flex: none;
+  opacity: 0.92;
 }
-/* Faixa cresce só quando existe foto real do pote (ProductMockup) - sem
-   mockup_path o card continua exatamente como sempre foi (ícone de traço em
-   76px), sem buraco nem redistribuição de layout pros produtos ainda sem
-   foto. O gradiente do segmento (--seg-c1/--seg-c2) continua sendo o fundo
-   nos dois casos. */
+/* Só a foto precisa transbordar a faixa: a inclinação 3D do pote
+   (.lc-mockup-stage) levanta a imagem alguns pixels no hover, e com overflow
+   escondido o topo do pote seria cortado no meio do movimento. */
 .lc-card-media--mockup {
-  height: 148px;
   overflow: visible;
 }
 
@@ -630,6 +693,172 @@ img {
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.22));
   pointer-events: none;
   user-select: none;
+}
+
+/* ---------- pote em tela cheia (MockupLightbox) ---------- */
+/* Abre ao passar o ponteiro sobre o mockup (com 350 ms de atraso) ou no
+   clique. O pote ocupa a altura toda da janela e gira acompanhando o cursor.
+   Mesma decisão do card: nada de Three.js — a fonte é foto plana, não há
+   geometria para renderizar. */
+.lc-mockup-ampliavel {
+  cursor: zoom-in;
+}
+.lc-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Sem respiro e sem gap: o pedido é que o pote cubra a página inteira, então
+     nada no fluxo pode roubar altura dele. A legenda passa a flutuar por cima
+     (position: absolute), em vez de empurrar o palco para cima. */
+  gap: 0;
+  padding: 0;
+  background: rgba(8, 10, 8, 0.82);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  cursor: zoom-out;
+  animation: lc-zoom-fade 0.22s ease both;
+}
+/* prefers-reduced-transparency: fundo sólido, sem vidro. */
+@media (prefers-reduced-transparency: reduce) {
+  .lc-zoom-overlay {
+    background: #0b0d0b;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+@keyframes lc-zoom-fade {
+  from {
+    opacity: 0;
+  }
+}
+.lc-zoom-stage {
+  --zoom-rx: 0deg;
+  --zoom-ry: 0deg;
+  --zoom-shadow-x: 0px;
+  --zoom-gloss-x: 50%;
+  --zoom-gloss-y: 50%;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: perspective(1600px) rotateX(var(--zoom-rx)) rotateY(var(--zoom-ry));
+  transform-style: preserve-3d;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+.lc-zoom-figure {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  animation: lc-zoom-in 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes lc-zoom-in {
+  from {
+    transform: scale(0.82);
+    opacity: 0;
+  }
+}
+.lc-zoom-img {
+  /* 100dvh, não 100vh: no celular o vh conta a barra de endereço que some ao
+     rolar, e o pote apareceria cortado embaixo. */
+  height: 100dvh;
+  width: auto;
+  max-width: 100vw;
+  object-fit: contain;
+  /* drop-shadow (e não box-shadow) porque a imagem tem canal alfa: a sombra
+     precisa acompanhar o contorno do pote, não o retângulo do arquivo. */
+  filter: drop-shadow(0 36px 60px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+  user-select: none;
+}
+/* Reflexo que varre a superfície seguindo o ponteiro. `mix-blend-mode` em vez
+   de opacidade chapada: assim ele clareia o vidro e o rótulo sem lavar a cor. */
+.lc-zoom-gloss {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--zoom-gloss-x) var(--zoom-gloss-y),
+    rgba(255, 255, 255, 0.22),
+    transparent 42%
+  );
+  mix-blend-mode: soft-light;
+}
+.lc-zoom-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 1%;
+  width: 46%;
+  height: 7%;
+  transform: translateX(-50%) translateX(var(--zoom-shadow-x));
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75), transparent 70%);
+  filter: blur(26px);
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+/* Flutua sobre o pote, no rodapé, em vez de ocupar altura no fluxo — assim a
+   imagem fica com a janela inteira. O degradê atrás garante contraste do texto
+   por cima de qualquer parte do rótulo, clara ou escura. */
+.lc-zoom-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 46px 24px 26px;
+  color: #fff;
+  font-size: 17px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(to top, rgba(8, 10, 8, 0.85), transparent);
+  cursor: auto;
+}
+.lc-zoom-caption .lc-btn-ghost {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.lc-zoom-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+}
+.lc-zoom-close:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lc-zoom-overlay,
+  .lc-zoom-figure {
+    animation: none;
+  }
+  .lc-zoom-stage,
+  .lc-zoom-shadow {
+    transition: none;
+    transform: translateX(-50%);
+  }
+  .lc-zoom-stage {
+    transform: none;
+  }
 }
 
 /* Obrigatório: sem inclinação nenhuma quando o sistema pede menos movimento.
@@ -2598,10 +2827,21 @@ img {
   background: rgba(179, 31, 46, 0.1);
   color: #b31f2e;
 }
+/* Selo "aberto" dos orçamentos (item 3 da tarefa) - azul #1d4ed8 sobre este
+   fundo claro mede ~8,6:1, mesma régua de contraste já aplicada aos outros
+   selos deste bloco. */
+.lc-admin-badge--info {
+  background: rgba(29, 78, 216, 0.12);
+  color: #1d4ed8;
+}
 @media (prefers-color-scheme: dark) {
   .lc-admin-badge--active {
     background: rgba(166, 225, 0, 0.16);
     color: var(--lime);
+  }
+  .lc-admin-badge--info {
+    background: rgba(147, 197, 253, 0.18);
+    color: #93c5fd;
   }
 }
 
@@ -2789,4 +3029,24 @@ img {
   font-size: 13.5px;
   color: var(--ink-soft);
   line-height: 1.5;
+}
+
+/* ---------- paginação da listagem (orçamentos) ---------- */
+.lc-admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.lc-admin-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lc-admin-pagination-controls .lc-btn {
+  padding: 8px 14px;
 }

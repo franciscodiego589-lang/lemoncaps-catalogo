@@ -14,19 +14,29 @@ interface SelectFilterSpec {
   options: SelectFilterOption[];
 }
 
+// Par "de/até" de <input type="date"> (item 3 da tarefa: filtro por período nos
+// orçamentos) - opcional e aditivo de propósito, para não mudar em nada as 3
+// telas que já usam AdminFilterBar sem passar esta prop (catálogo, insumos, leads).
+interface DateRangeFilterSpec {
+  fromParam: string;
+  toParam: string;
+  label: string;
+}
+
 interface AdminFilterBarProps {
   searchParam: string;
   searchLabel: string;
   searchPlaceholder?: string;
   selects?: SelectFilterSpec[];
+  dateRange?: DateRangeFilterSpec;
 }
 
-// Barra de busca + filtros reutilizável (catálogo, insumos, leads). Atualiza
-// a URL (searchParams) e deixa o Server Component da página buscar de novo no
-// banco - nunca filtra uma lista já carregada no cliente, para a busca
-// funcionar igual com 28 ou com 2.800 fórmulas. Busca com debounce; selects
-// aplicam na hora.
-export function AdminFilterBar({ searchParam, searchLabel, searchPlaceholder, selects = [] }: AdminFilterBarProps) {
+// Barra de busca + filtros reutilizável (catálogo, insumos, leads, orçamentos).
+// Atualiza a URL (searchParams) e deixa o Server Component da página buscar de
+// novo no banco - nunca filtra uma lista já carregada no cliente, para a busca
+// funcionar igual com 28 ou com 2.800 fórmulas. Busca com debounce; selects e
+// datas aplicam na hora.
+export function AdminFilterBar({ searchParam, searchLabel, searchPlaceholder, selects = [], dateRange }: AdminFilterBarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -80,6 +90,34 @@ export function AdminFilterBar({ searchParam, searchLabel, searchPlaceholder, se
           </select>
         </div>
       ))}
+      {dateRange ? (
+        <>
+          <div className="lc-field">
+            <label className="lc-field-label" htmlFor={`filter-${dateRange.fromParam}`}>
+              {dateRange.label} - de
+            </label>
+            <input
+              id={`filter-${dateRange.fromParam}`}
+              type="date"
+              className="lc-admin-search-input"
+              defaultValue={searchParams.get(dateRange.fromParam) ?? ""}
+              onChange={(event) => updateParam(dateRange.fromParam, event.target.value)}
+            />
+          </div>
+          <div className="lc-field">
+            <label className="lc-field-label" htmlFor={`filter-${dateRange.toParam}`}>
+              {dateRange.label} - até
+            </label>
+            <input
+              id={`filter-${dateRange.toParam}`}
+              type="date"
+              className="lc-admin-search-input"
+              defaultValue={searchParams.get(dateRange.toParam) ?? ""}
+              onChange={(event) => updateParam(dateRange.toParam, event.target.value)}
+            />
+          </div>
+        </>
+      ) : null}
     </div>
   );
 }

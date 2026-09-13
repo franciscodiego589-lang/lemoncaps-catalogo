@@ -541,10 +541,12 @@ export type Database = {
           deleted_at: string | null
           deleted_by: string | null
           id: string
+          internal_note: string | null
           lead_id: string | null
           metadata: Json
           quote_number: number
           reason_deleted: string | null
+          status: Database["public"]["Enums"]["quote_status"]
           updated_at: string
           updated_by: string | null
           version: number
@@ -557,10 +559,12 @@ export type Database = {
           deleted_at?: string | null
           deleted_by?: string | null
           id?: string
+          internal_note?: string | null
           lead_id?: string | null
           metadata?: Json
           quote_number?: never
           reason_deleted?: string | null
+          status?: Database["public"]["Enums"]["quote_status"]
           updated_at?: string
           updated_by?: string | null
           version?: number
@@ -573,10 +577,12 @@ export type Database = {
           deleted_at?: string | null
           deleted_by?: string | null
           id?: string
+          internal_note?: string | null
           lead_id?: string | null
           metadata?: Json
           quote_number?: never
           reason_deleted?: string | null
+          status?: Database["public"]["Enums"]["quote_status"]
           updated_at?: string
           updated_by?: string | null
           version?: number
@@ -676,9 +682,12 @@ export type Database = {
           created_at: string | null
           customer_name: string | null
           customer_whatsapp: string | null
+          internal_note: string | null
           item_count: number | null
+          lead_id: string | null
           quote_id: string | null
           quote_number: number | null
+          status: Database["public"]["Enums"]["quote_status"] | null
           total_cents: number | null
           total_profit_cents: number | null
         }
@@ -713,6 +722,7 @@ export type Database = {
         | "outro"
       product_format: "capsula" | "soluvel" | "gummy" | "liquido"
       product_line: "premium" | "basica"
+      quote_status: "aberto" | "aprovado" | "recusado" | "expirado"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -850,6 +860,7 @@ export const Constants = {
       ],
       product_format: ["capsula", "soluvel", "gummy", "liquido"],
       product_line: ["premium", "basica"],
+      quote_status: ["aberto", "aprovado", "recusado", "expirado"],
     },
   },
 } as const

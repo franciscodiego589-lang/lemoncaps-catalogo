@@ -1,15 +1,17 @@
 import Link from "next/link";
 
+import { QUOTE_STATUS_BADGE_VARIANT, QUOTE_STATUS_LABELS } from "@/components/admin/enum-labels";
 import type { AdminQuoteListItemDTO } from "@/lib/data/admin";
 import { centsToBRL } from "@/lib/money";
 
 interface QuotesTableProps {
   quotes: AdminQuoteListItemDTO[];
+  emptyMessage?: string;
 }
 
-export function QuotesTable({ quotes }: QuotesTableProps) {
+export function QuotesTable({ quotes, emptyMessage = "Nenhum orçamento gerado ainda." }: QuotesTableProps) {
   if (quotes.length === 0) {
-    return <p className="lc-admin-empty">Nenhum orçamento gerado ainda.</p>;
+    return <p className="lc-admin-empty">{emptyMessage}</p>;
   }
 
   return (
@@ -19,6 +21,7 @@ export function QuotesTable({ quotes }: QuotesTableProps) {
           <tr>
             <th scope="col">Nº</th>
             <th scope="col">Cliente</th>
+            <th scope="col">Status</th>
             <th scope="col">Itens</th>
             <th scope="col">Total</th>
             <th scope="col">Lucro estimado</th>
@@ -36,6 +39,11 @@ export function QuotesTable({ quotes }: QuotesTableProps) {
               <td>
                 {quote.customerName}
                 <div className="lc-admin-panel-row-meta">{quote.customerWhatsapp}</div>
+              </td>
+              <td>
+                <span className={`lc-admin-badge lc-admin-badge--${QUOTE_STATUS_BADGE_VARIANT[quote.status]}`}>
+                  {QUOTE_STATUS_LABELS[quote.status]}
+                </span>
               </td>
               <td className="lc-admin-col-num">{quote.itemCount}</td>
               <td className="lc-admin-col-num">{centsToBRL(quote.totalCents)}</td>

@@ -1,0 +1,43 @@
+# Publicação do catálogo na Netlify.
+#
+# Por que Netlify e não Supabase: o Supabase guarda banco, autenticação e
+# arquivos — não executa aplicação. Este catálogo é Next.js com renderização no
+# servidor, Server Actions e rotas dinâmicas (/admin inteiro), então precisa de
+# um runtime Node. O banco continua no Supabase; o que sobe aqui é só o app.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Fixa a linha do Node em que o projeto foi desenvolvido e testado. Sem isso
+  # a Netlify escolhe a padrão dela, que muda com o tempo — e um build que
+  # passa hoje quebraria sozinho numa troca futura, sem ninguém mexer em nada.
+  NODE_VERSION = "22"
+  # Next 16 usa Turbopack por padrão. Deixado explícito para o build da Netlify
+  # não divergir do que roda na máquina.
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# O runtime de Next da Netlify é quem traduz rotas dinâmicas, Server Actions e
+# o otimizador de imagem para funções. Sem ele, só o conteúdo estático subiria
+# e /admin responderia 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Cabeçalhos de segurança. O catálogo é público e recebe dado de cliente
+# (nome e WhatsApp no pedido de cotação), então vale fechar o básico.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+# Os mockups e as fotos de insumo têm nome versionado (terminam em
+# "-sem-fundo"), então podem ser cacheados de forma agressiva: quando a imagem
+# muda, o nome muda junto e a URL antiga deixa de ser pedida.
+[[headers]]
+  for = "/produtos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

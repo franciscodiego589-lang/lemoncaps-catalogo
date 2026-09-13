@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import type { Enums } from "@/lib/supabase/database.types";
+import { sanitizarTermoBusca } from "./postgrest-filtro";
 
 // =============================================================================
 // SESSÃO E AUTORIZAÇÃO - usado por toda página e toda Server Action do /admin.
@@ -498,8 +499,12 @@ export async function getAdminLeads(search?: string): Promise<AdminLeadDTO[]> {
     .limit(200); // teto defensivo - sem paginação nesta primeira versão da tela
 
   if (search && search.trim() !== "") {
-    const term = search.trim();
-    query = query.or(`name.ilike.%${term}%,whatsapp.ilike.%${term}%`);
+    // Mesma sanitização da busca de orçamentos: o termo entra na linguagem de
+    // filtro do PostgREST, não em SQL, e ali vírgula e ponto são sintaxe.
+    const term = sanitizarTermoBusca(search);
+    if (term !== "") {
+      query = query.or(`name.ilike.%${term}%,whatsapp.ilike.%${term}%`);
+    }
   }
 
   const { data, error } = await query;
@@ -516,111 +521,21 @@ export async function getAdminLeads(search?: string): Promise<AdminLeadDTO[]> {
 
 // =============================================================================
 // ORÇAMENTOS - /admin/orcamentos (exige can_manage_quotes, conferido na page).
+// Extraído para lib/data/admin-quotes.ts (este arquivo passava de 800 linhas
+// com a listagem geral + filtros + exportação do item 1-5 da tarefa) -
+// reexportado aqui para nenhum import existente (`@/lib/data/admin`) precisar
+// mudar.
 // =============================================================================
 
-export interface AdminQuoteListItemDTO {
-  id: string;
-  quoteNumber: number;
-  customerName: string;
-  customerWhatsapp: string;
-  createdAt: string;
-  itemCount: number;
-  totalCents: number;
-  totalProfitCents: number | null;
-}
-
-export async function getAdminQuotes(): Promise<AdminQuoteListItemDTO[]> {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("quote_summaries")
-    .select("quote_id, quote_number, customer_name, customer_whatsapp, created_at, item_count, total_cents, total_profit_cents")
-    .order("created_at", { ascending: false })
-    .limit(200); // teto defensivo - sem paginação nesta primeira versão da tela
-
-  if (error) throw new Error(`Falha ao carregar orçamentos: ${error.message}`);
-
-  return (data ?? [])
-    .filter((row): row is typeof row & { quote_id: string; quote_number: number } => row.quote_id !== null && row.quote_number !== null)
-    .map((row) => ({
-      id: row.quote_id,
-      quoteNumber: row.quote_number,
-      customerName: row.customer_name ?? "",
-      customerWhatsapp: row.customer_whatsapp ?? "",
-      createdAt: row.created_at ?? "",
-      itemCount: row.item_count ?? 0,
-      totalCents: row.total_cents ?? 0,
-      totalProfitCents: row.total_profit_cents,
-    }));
-}
-
-export interface AdminQuoteItemDTO {
-  id: string;
-  formulaId: string;
-  formulaNameSnapshot: string;
-  quantityPotes: number;
-  unitCostCents: number | null;
-  unitPriceCents: number;
-  lineTotalCents: number;
-  lineCostCents: number | null;
-  profitCents: number | null;
-  profitMarginPct: number | null;
-  sortOrder: number;
-}
-
-export interface AdminQuoteDetailDTO {
-  id: string;
-  quoteNumber: number;
-  customerName: string;
-  customerWhatsapp: string;
-  createdAt: string;
-  items: AdminQuoteItemDTO[];
-}
-
-export async function getAdminQuoteById(id: string): Promise<AdminQuoteDetailDTO | null> {
-  const supabase = await createClient();
-
-  const [quoteResult, itemsResult] = await Promise.all([
-    supabase.from("quotes").select("id, quote_number, customer_name, customer_whatsapp, created_at").eq("id", id).is("deleted_at", null).maybeSingle(),
-    supabase
-      .from("quote_items")
-      .select(
-        "id, formula_id, formula_name_snapshot, quantity_potes, unit_cost_cents, unit_price_cents, line_total_cents, line_cost_cents, profit_cents, profit_margin_pct, sort_order",
-      )
-      .eq("quote_id", id)
-      .is("deleted_at", null)
-      .order("sort_order", { ascending: true }),
-  ]);
-
-  if (quoteResult.error) throw new Error(`Falha ao carregar orçamento: ${quoteResult.error.message}`);
-  if (!quoteResult.data) return null;
-  if (itemsResult.error) throw new Error(`Falha ao carregar itens do orçamento: ${itemsResult.error.message}`);
-
-  const q = quoteResult.data;
-  return {
-    id: q.id,
-    quoteNumber: q.quote_number,
-    customerName: q.customer_name,
-    customerWhatsapp: q.customer_whatsapp,
-    createdAt: q.created_at,
-    items: (itemsResult.data ?? []).map((item) => ({
-      id: item.id,
-      formulaId: item.formula_id,
-      formulaNameSnapshot: item.formula_name_snapshot,
-      quantityPotes: item.quantity_potes,
-      unitCostCents: item.unit_cost_cents,
-      unitPriceCents: item.unit_price_cents,
-      // line_total_cents é coluna GERADA como quantity_potes * unit_price_cents
-      // (schema.sql) - as duas entradas são NOT NULL, então o produto nunca é
-      // nulo de verdade; o tipo gerado marca "number | null" de forma
-      // conservadora (é bigint). ?? 0 nunca é alcançado na prática.
-      lineTotalCents: item.line_total_cents ?? 0,
-      lineCostCents: item.line_cost_cents,
-      profitCents: item.profit_cents,
-      profitMarginPct: item.profit_margin_pct,
-      sortOrder: item.sort_order,
-    })),
-  };
-}
+export type {
+  AdminQuoteDetailDTO,
+  AdminQuoteItemDTO,
+  AdminQuoteListItemDTO,
+  AdminQuotesPage,
+  QuoteFilters,
+  QuoteStatus,
+} from "@/lib/data/admin-quotes";
+export { getAdminQuoteById, getAdminQuotes, getAdminQuotesForExport } from "@/lib/data/admin-quotes";
 
 // =============================================================================
 // DASHBOARD - /admin.

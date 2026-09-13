@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { QuoteItemsEditor } from "@/components/admin/QuoteItemsEditor";
+import { QuoteStatusEditor } from "@/components/admin/QuoteStatusEditor";
 import { getAdminQuoteById } from "@/lib/data/admin";
 
 export const metadata = { title: "Orçamento · Lemon Caps Admin" };
@@ -20,6 +21,7 @@ export default async function EditarOrcamentoPage({ params }: { params: Promise<
           </p>
         </div>
       </div>
+      <QuoteStatusEditor quoteId={quote.id} status={quote.status} internalNote={quote.internalNote} />
       <QuoteItemsEditor items={quote.items} />
     </>
   );

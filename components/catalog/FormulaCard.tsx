@@ -65,9 +65,14 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
             width={240}
             height={240}
             variant="card"
+            productName={formula.name}
+            slug={formula.slug}
           />
         ) : (
-          <FormatIcon className="lc-icon" size={26} aria-hidden="true" />
+          // 48px, e não os 26px de quando a faixa media 76px: a faixa agora
+          // tem a mesma altura em todo card (ver .lc-card-media), e um ícone
+          // pequeno demais no meio dela pareceria imagem que não carregou.
+          <FormatIcon className="lc-icon" size={48} aria-hidden="true" />
         )}
       </div>
       <div className="lc-card-body">
@@ -100,11 +105,13 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
             </span>
           </div>
         )}
-        {hasContent(formula.description) && (
-          <p className="lc-card-desc" title={formula.description ?? undefined}>
-            {formula.description}
-          </p>
-        )}
+        {/* A descrição comercial saiu do card por ordem do dono (13/09/2026):
+            no espaço de duas linhas ela sempre aparecia cortada com reticências
+            ("...uma fórmula avançada desenvolvida para pessoas que…"), o que não
+            informa nada e ainda desalinhava a altura dos cards entre si. O texto
+            completo continua no dossiê do produto, em /catalogo/[slug]. O campo
+            segue no banco e na página de edição do admin — só não é exibido
+            aqui. */}
         {hasFormatRow && (
           <div className="lc-card-format">
             <span>{formula.regulatoryProductType ?? ""}</span>
