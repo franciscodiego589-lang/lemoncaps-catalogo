@@ -43,3 +43,9 @@ graphify-out/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# aia-harness
+.claude/settings.local.json
+.claude/*.local.*
+.claude/.aia-harness-pending/
+graphify-out/cost.json
+graphify-out/cache/
