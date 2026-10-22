@@ -56,15 +56,23 @@ export function QuoteStatusEditor({ quoteId, status, internalNote }: QuoteStatus
   async function handleSave() {
     setError(null);
     setSaving(true);
-    const result = await updateQuoteStatus(quoteId, { status: draft.status as QuoteStatus, internalNote: draft.note });
-    setSaving(false);
-
-    if (!result.ok) {
-      setError(result.error);
-      return;
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateQuoteStatus virava erro não tratado no cliente e o
+    // botão ficava travado em "Salvando…".
+    try {
+      const result = await updateQuoteStatus(quoteId, { status: draft.status as QuoteStatus, internalNote: draft.note });
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      toast.success("Orçamento atualizado.");
+      router.refresh();
+    } catch (caught) {
+      console.error("[QuoteStatusEditor] falha ao atualizar orçamento:", caught);
+      toast.error("Não foi possível atualizar o orçamento agora. Tente novamente.");
+    } finally {
+      setSaving(false);
     }
-    toast.success("Orçamento atualizado.");
-    router.refresh();
   }
 
   return (

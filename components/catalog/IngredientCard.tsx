@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Image as ImageIcon } from "lucide-react";
 
 import { formatQuantity, hasContent, unitLabel } from "@/lib/catalog/format-catalog";
@@ -70,18 +71,25 @@ export function IngredientCard({ composition, index = 0 }: IngredientCardProps) 
     return (
       <article className="lc-ingredient-card lc-ingredient-card--photo">
         <div className="lc-ingredient-photo">
-          {/* Fonte é public/insumos (arquivo local, licença conferida por
-              insumo - ver public/insumos/CREDITOS.md); por isso next/image
-              não é necessário aqui, sem domínio remoto para configurar. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={composition.ingredientImagePath ?? undefined}
-            alt={composition.ingredientImageAlt ?? composition.ingredientName}
-            width={800}
-            height={800}
-            loading={loading}
-            className="lc-ingredient-photo-img"
-          />
+          {/* Fonte é public/insumos (arquivo local, licença conferida por insumo —
+              ver public/insumos/CREDITOS.md). Passou a usar next/image em
+              14/09/2026: a justificativa anterior ("sem domínio remoto para
+              configurar") estava errada — next/image não exige domínio nenhum para
+              imagem local, é o caso mais simples dele. Medido antes da troca: os
+              arquivos são 800x600 JPG servidos num espaço de 229x229 CSS px, e
+              quatro deles (460,8 KB) chegavam já na página de produto por prefetch.
+              Com next/image o servidor entrega WebP no tamanho pedido. */}
+          {composition.ingredientImagePath ? (
+            <Image
+              src={composition.ingredientImagePath}
+              alt={composition.ingredientImageAlt ?? composition.ingredientName}
+              width={480}
+              height={480}
+              sizes="(max-width: 640px) 45vw, 240px"
+              loading={loading}
+              className="lc-ingredient-photo-img"
+            />
+          ) : null}
           <div className="lc-ingredient-caption">
             <div className="lc-ingredient-caption-glass">
               {nameEl}

@@ -9,6 +9,8 @@ import type { CompositionUnit, IngredientCategory, ProductFormat, ProductLine, Q
 export const PRODUCT_LINE_LABELS: Record<ProductLine, string> = {
   premium: "Premium",
   basica: "Básica",
+  essencial: "Econômica",
+  lemon_caps: "Lemon Caps",
 };
 
 export const PRODUCT_FORMAT_LABELS: Record<ProductFormat, string> = {

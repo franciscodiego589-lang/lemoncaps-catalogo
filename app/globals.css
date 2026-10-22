@@ -142,6 +142,32 @@ img {
   border: 0;
 }
 
+/* Link "pular para o conteúdo" — nenhuma das 7 rotas tinha (achado da
+   auditoria de contraste/navegação de 14/09/2026): quem navega por teclado
+   era obrigado a repetir a barra de topo inteira a cada página. Fica fora da
+   tela (top: -48px) até ganhar foco por Tab; primeiro filho do <body> em
+   app/layout.tsx, para ser o primeiro parável da página inteira. Aponta para
+   #main-content, id colocado em cada <main> das páginas públicas. */
+.lc-skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.lc-skip-link:focus-visible {
+  top: 12px;
+  outline: 2px solid var(--lime-deep);
+  outline-offset: 2px;
+}
+
 /* Remove o atraso de ~300ms de toque no celular (o navegador não precisa
    esperar pra saber se é duplo-toque de zoom) em todo elemento clicável. */
 .lc-chip,
@@ -150,7 +176,12 @@ img {
 .lc-icon-btn,
 .lc-fab,
 .lc-modal-close,
-.lc-stepper-btn {
+.lc-stepper-btn,
+/* .lc-voltar-btn entrou nesta lista em 13/09/2026 (achado da auditoria de
+   interface): era o único botão do fluxo de cotação fora dela. Como não usa a
+   classe .lc-btn, seguia herdando no celular o atraso de toque e o retângulo
+   cinza do navegador que todo o resto da interface tirou de propósito. */
+.lc-voltar-btn {
   touch-action: manipulation;
   /* O feedback de toque já existe via :hover/:active/:focus-visible próprios;
      sem isto, Android/Chrome mostra o retângulo cinza padrão do navegador,
@@ -358,6 +389,16 @@ img {
    translúcido em vez de sólido, e sem a cor da marca. Não é porta dos fundos —
    o /admin já exige sessão do Supabase Auth e registro ativo em
    staff_profiles; mostrar o caminho não afrouxa nada. */
+/* HISTÓRICO do seletor .lc-nav-btn, porque a resposta muda em poucas horas:
+   ele vestia o botão "Fabricação" das barras de topo e ficou SEM USO em
+   13/09/2026, quando a fabricação virou a página inicial (ver app/page.tsx) e
+   o botão saiu — passaria a apontar para o mesmo endereço que a marca.
+   No mesmo dia ele VOLTOU A SER USADO, agora pelo botão "Documentação" da
+   barra do catálogo (components/catalog/GlassTopBar.tsx), que leva a
+   /documentacao. O papel é idêntico ao de antes — um item de navegação ao lado
+   do Admin —, então todas as regras abaixo que o citam (inclusive
+   .lc-nav-btn ~ .lc-admin-btn e .lc-nav-btn--always-labelled) valem como
+   foram calibradas, sem ajuste. */
 /* A barra posiciona os filhos por `order`, não pela ordem do JSX. Sem declarar
    um, este botão herdava order 0 e ia parar antes da marca. Aqui ele empata com
    o carrinho de propósito: em empate o flexbox desempata pela ordem do DOM, e
@@ -365,7 +406,8 @@ img {
    sem precisar renumerar marca, busca e carrinho.
    No celular (< 680px) é ele quem carrega o `margin-left: auto`, porque passa a
    ser o primeiro do bloco encostado à direita. */
-.lc-admin-btn {
+.lc-admin-btn,
+.lc-nav-btn {
   order: 2;
   margin-left: auto;
   display: inline-flex;
@@ -384,7 +426,9 @@ img {
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 .lc-admin-btn:hover,
-.lc-admin-btn:focus-visible {
+.lc-admin-btn:focus-visible,
+.lc-nav-btn:hover,
+.lc-nav-btn:focus-visible {
   background: rgba(255, 255, 255, 0.78);
   border-color: rgba(255, 255, 255, 0.9);
 }
@@ -395,12 +439,15 @@ img {
    calibrados para o modal (--glass-fill-strong/--glass-border) em vez de
    inventar um valor novo. */
 @media (prefers-color-scheme: dark) {
-  .lc-admin-btn {
+  .lc-admin-btn,
+  .lc-nav-btn {
     background: var(--glass-fill-strong);
     border-color: var(--glass-border);
   }
   .lc-admin-btn:hover,
-  .lc-admin-btn:focus-visible {
+  .lc-admin-btn:focus-visible,
+  .lc-nav-btn:hover,
+  .lc-nav-btn:focus-visible {
     background: rgba(255, 255, 255, 0.14);
     border-color: rgba(255, 255, 255, 0.3);
   }
@@ -408,12 +455,14 @@ img {
 /* No celular a barra já disputa espaço com busca e carrinho: fica só o
    cadeado, que continua tocável nos 36px mínimos. */
 @media (max-width: 640px) {
-  .lc-admin-btn {
+  .lc-admin-btn,
+  .lc-nav-btn {
     padding: 0;
     width: 36px;
     justify-content: center;
   }
-  .lc-admin-btn span {
+  .lc-admin-btn span,
+  .lc-nav-btn span {
     display: none;
   }
 }
@@ -421,11 +470,109 @@ img {
    (ver .lc-search-wrap acima): daí o `auto` sai daqui e volta a ser a busca
    que empurra o bloco da direita. */
 @media (min-width: 680px) {
-  .lc-admin-btn {
+  .lc-admin-btn,
+  .lc-nav-btn {
     order: 3;
     margin-left: 0;
   }
 }
+/* Quando os dois convivem na mesma barra (catálogo: Fabricação + Admin), quem
+   abre o bloco encostado à direita é o Fabricação — ele vem antes no DOM e,
+   com o mesmo `order`, o flexbox desempata pela ordem do DOM. Só o primeiro do
+   bloco pode carregar o `margin-left: auto`; no segundo, esse auto abriria um
+   vão entre os dois. Seletor de irmão em vez de classe extra no JSX: a barra
+   sem Fabricação (dossiê) continua funcionando exatamente como antes. */
+.lc-nav-btn ~ .lc-admin-btn {
+  margin-left: 0;
+}
+/* Alvo de toque de 44px sem mexer no desenho. A pílula tem 36px de altura (e
+   36 de largura no celular, quando encolhe para o ícone) — bonita na barra,
+   mas 8px abaixo do alvo mínimo de 44px que este projeto adota. Em vez de
+   engordar o botão e desalinhar a barra inteira, um retângulo invisível
+   centrado estende só a ÁREA que responde ao dedo. Vale para os dois botões da
+   barra, o Fabricação e o Admin.
+   Os 4px que sobram de cada lado não encostam no vizinho: o `gap` da barra é
+   de 12px, sobram 4px livres entre as áreas expandidas. */
+.lc-admin-btn,
+.lc-nav-btn {
+  position: relative;
+}
+.lc-admin-btn::after,
+.lc-nav-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  min-width: 44px;
+  min-height: 44px;
+}
+/* Variante da landing (/): lá a barra tem só marca + Fabricação + CTA, sobra
+   largura de sobra, e a palavra escrita é justamente o que faz o visitante
+   descobrir que a fábrica trabalha para marcas de terceiros — então esta não
+   encolhe para o ícone no celular.
+   O `order: 1` empata com a marca de propósito: no empate o flexbox usa a
+   ordem do DOM, onde a marca vem primeiro. Sem isso o botão herdaria o
+   `order: 2` da regra compartilhada e pularia para depois do CTA. */
+.lc-nav-btn--always-labelled {
+  order: 1;
+  margin-left: 0;
+}
+@media (max-width: 640px) {
+  .lc-nav-btn--always-labelled {
+    padding: 0 14px;
+    width: auto;
+  }
+  .lc-nav-btn--always-labelled span {
+    display: inline;
+  }
+}
+@media (min-width: 680px) {
+  .lc-nav-btn--always-labelled {
+    order: 1;
+  }
+}
+/* O CTA da landing precisa de `order` explícito para continuar sendo o último
+   da barra: sem ele herdava `order: 0` e, com o botão Fabricação em `order: 1`,
+   passaria a aparecer ANTES da própria marca. */
+.lc-home-topbar-cta {
+  order: 2;
+  /* Media 38px com o padding da .lc-btn (medido ao vivo), abaixo dos 44px de
+     alvo mínimo. Nasceu na landing antiga e continua servindo à barra da
+     porta de entrada (/), que reaproveita o mesmo CTA de topo. */
+  min-height: 44px;
+}
+
+/* Marca clicável (leva para /). Desde 13/09/2026 está em TODAS as barras menos
+   a da própria raiz — catálogo, dossiê e carrinho —, porque a raiz virou a
+   apresentação da fábrica e a marca é o caminho de volta para ela (ver
+   app/page.tsx). Na barra da raiz a marca continua sendo texto: linkar / para /
+   não leva a lugar nenhum. Reseta a cor/decoração de link do navegador,
+   herdando a tipografia da .lc-brand. */
+.lc-brand-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+.lc-brand-link:hover {
+  text-decoration: underline;
+}
+/* A marca mede 26px de altura (é a própria linha de texto), abaixo do alvo
+   mínimo de 44px. Mesma solução dos botões da barra: um retângulo invisível
+   centrado estende só a área que responde ao dedo, o desenho não muda um
+   pixel. */
+.lc-brand-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 44px;
+}
+
 .lc-badge {
   position: absolute;
   top: -3px;
@@ -460,13 +607,15 @@ img {
    (.lc-bg-layer) — aqui não existe cartão sólido nem véu de vidro por baixo
    pra completar o contraste, diferente do resto do site (regra "vidro no
    cromo, sólido no conteúdo"). Medido ao vivo: 3,85:1 (precisa 4,5:1).
-   --ink-soft é o mesmo ajuste já usado dentro do modal de vidro (ver
-   .lc-modal-glass .lc-lbl acima) para o mesmo problema — texto sobre
-   superfície sem fundo sólido próprio. */
+   --ink-soft foi a primeira troca (mesmo ajuste já usado dentro do modal de
+   vidro, ver .lc-modal-glass .lc-lbl acima), mas reprova por pouco nos dois
+   temas: medido ao vivo 4,20:1 no claro e 4,27:1 no escuro. --ink fecha com
+   folga (11,15:1 no claro, 7,27:1 no escuro) — auditoria de contraste ao
+   vivo de 14/09/2026. */
 .lc-page-head p {
   margin-top: 4px;
   font-size: 13px;
-  color: var(--ink-soft);
+  color: var(--ink);
   text-wrap: pretty;
 }
 
@@ -540,6 +689,111 @@ img {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   border-color: rgba(255, 255, 255, 0.35);
 }
+/* Segunda faixa de chips empilhada (filtro por formato, abaixo do de
+   segmento, dentro de .lc-filters): espaçamento só entre duas faixas de
+   vidro consecutivas, sem precisar de classe nova em nenhuma das duas. */
+.lc-chips-bar + .lc-chips-bar {
+  margin-top: 8px;
+}
+
+/* Dropdown de formato (FormatChips.tsx, 23/09/2026): <details>/<summary>
+   nativo, mesmo padrão de RegulatoryRigor.tsx. O painel de opções é
+   position:absolute pra "descer" sobre a grade de produtos sem empurrar o
+   layout — .lc-filters já é sticky com z-index:40, então o painel herda essa
+   pilha e não precisa de z-index próprio.
+   .lc-format-bar reaproveita .lc-chips-bar (mesmo vidro/padding), mas essa
+   classe carrega mask-image pro fade nas bordas do scroll horizontal das
+   OUTRAS faixas de chip (SegmentChips) — sem cancelar aqui, a máscara corta
+   (deixa invisível e sem clique) o painel que estoura a caixa por baixo.
+   width:fit-content encolhe a faixa pro tamanho do botão (pedido do dono,
+   23/09/2026: não precisa ficar do tamanho da faixa de segmento em cima). A
+   margem esquerda alinha o botão ao começo da faixa de segmento acima
+   (.lc-chips-bar: max-width 1240px centralizada) — com inline-flex ele ficava
+   grudado na borda esquerda da tela em monitor largo. */
+.lc-format-bar {
+  display: flex;
+  width: fit-content;
+  position: relative;
+  overflow: visible;
+  max-width: 100%;
+  margin-left: max(0px, calc((100% - 1240px) / 2));
+  margin-right: auto;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+.lc-format-details {
+  position: relative;
+  max-width: 100%;
+}
+.lc-format-details > summary {
+  list-style: none;
+}
+.lc-format-details > summary::-webkit-details-marker {
+  display: none;
+}
+.lc-format-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--chip-text);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease;
+}
+.lc-format-trigger:hover {
+  background: rgba(127, 127, 127, 0.16);
+}
+.lc-format-chevron {
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.lc-format-details[open] .lc-format-chevron {
+  transform: rotate(180deg);
+}
+.lc-format-list {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 8px);
+  left: 0;
+  /* min-width:100% em vez de right:0: o botão agora encolhe pro conteúdo
+     (.lc-format-bar), então o painel precisa poder crescer além dessa
+     largura quando alguma opção ("Solúvel", "Gummy"...) for mais comprida
+     que a opção ativa mostrada no botão, sem quebrar linha. */
+  min-width: 100%;
+  width: max-content;
+  max-width: min(260px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border-radius: var(--radius-md);
+}
+.lc-format-option {
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  color: var(--chip-text);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease;
+}
+.lc-format-option:hover {
+  background: rgba(127, 127, 127, 0.16);
+}
+.lc-format-option.is-active {
+  background: linear-gradient(rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.36)), linear-gradient(135deg, var(--lime), var(--lime-deep));
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
 .lc-tabs-row {
   max-width: 1240px;
   margin: 10px auto 0;
@@ -605,6 +859,9 @@ img {
   color: var(--text-muted);
   font-size: 14px;
 }
+.lc-empty-state-actions {
+  margin-top: 16px;
+}
 
 .lc-card {
   background: var(--card-bg);
@@ -614,6 +871,47 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* Mesma resposta ao ponteiro dos cartões da home (ver o bloco "RESPOSTA AO
+     PONTEIRO"), para as duas telas lerem como um sistema só. Aqui vale o
+     mesmo cuidado: o card NÃO é um link — quem leva a algum lugar é o título,
+     "Benefícios", "Dossiê técnico" e "Cotar fórmula", cada um com seu próprio
+     alvo. O card levanta para dizer "é esta a coluna que você está lendo",
+     numa grade de quatro colunas onde é fácil perder a linha de vista; não
+     para prometer clique. */
+  transition:
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.26s ease;
+}
+.lc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(111, 163, 0, 0.42);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 22px 44px rgba(20, 20, 30, 0.16);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-card:hover {
+    border-color: rgba(166, 225, 0, 0.45);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.4),
+      0 24px 48px rgba(0, 0, 0, 0.55);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lc-card {
+    transition: none;
+  }
+  .lc-card:hover {
+    transform: none;
+  }
+}
+@media (hover: none) {
+  .lc-card:hover {
+    transform: none;
+    border-color: var(--card-border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  }
 }
 
 /* Altura ÚNICA da faixa, com ou sem foto do pote. Ela já foi 76px sem mockup
@@ -630,6 +928,13 @@ img {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--seg-c1), var(--seg-c2));
+}
+/* A faixa da foto é link para o dossiê (FormulaCard.tsx). */
+a.lc-card-media {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 .lc-card-media .lc-icon {
   color: #fff;
@@ -1379,7 +1684,22 @@ img {
   }
 }
 
+/* width: 100% (não só max-width) é o que faz a diferença aqui: este <main> é
+   filho direto do <body> flex-column (ver app/layout.tsx, "flex flex-col").
+   Com width:auto (valor implícito quando só max-width+margin:auto existem), um
+   item flex com margem automática no eixo cruzado FICA DE FORA do stretch
+   (regra do próprio flexbox) e passa a se dimensionar por shrink-to-fit - que
+   nunca encolhe abaixo do min-content da própria árvore. A tabela nutricional
+   de 2 grupos de %VD (hoje só o Multi Vitta) tem células "white-space: nowrap"
+   cujo min-content passa de 400px, e SEM width:100% esse número virava a
+   largura do <main> inteiro, estourando a página em celular (achado real,
+   medido ao vivo em 360/390px: scrollWidth chegava a 425px). Com width:100%
+   definido, o item deixa de ser "auto" e o stretch nem entra em jogo - a
+   largura fica sempre a do body (nunca maior), e o wrapper próprio da tabela
+   (.lc-nutri-table-wrap, overflow-x:auto) volta a conter a rolagem como já era
+   a intenção (ver comentário de topo de NutritionTable.tsx). */
 .lc-dossie-page {
+  width: 100%;
   max-width: 760px;
   margin: 0 auto;
   padding: 28px 20px 100px;
@@ -1467,6 +1787,140 @@ img {
   font-size: 14px;
   font-weight: 700;
   color: var(--text-on-card);
+}
+
+/* ---------- tabela de Informação Nutricional - MODELO VERTICAL da Anvisa
+   (IN 75/2020, Anexo XII; RDC 429/2020) ----------
+   Ampliação de escopo (ordem do dono, 16/09/2026, com 2 imagens de
+   referência): reproduzir o visual do modelo vertical oficial - caixa de
+   borda fina preta, título em negrito centralizado, linha grossa depois da
+   porção, cabeçalho de colunas em negrito, valores centralizados, rodapé
+   dentro da caixa. Ver a citação literal do Anexo XII no comentário de topo
+   de components/catalog/NutritionTable.tsx.
+   CORES FIXAS preto-sobre-branco (NUNCA var(--ink)/var(--card-bg) do tema):
+   isto é rotulagem regulatória, não decoração do site - precisa continuar
+   lendo igual no modo claro e no escuro (mesmo raciocínio de ".lc-comp-table
+   SEMPRE sólida, nunca vidro" logo acima neste arquivo, um degrau adiante:
+   aqui a COR também fica fixa). O <caption> faz o papel do <h2> que as
+   seções irmãs deste dossiê usam - por isso não há h2 duplicado em volta
+   desta tabela. */
+.lc-nutri-table-wrap {
+  overflow-x: auto;
+  /* Rolagem por inércia no iOS quando este wrapper precisa mesmo rolar (2
+     grupos de %VD - hoje só o Multi Vitta, ver comentário de
+     NutritionTable.tsx) - sem isto o Safari mobile rola "travado". */
+  -webkit-overflow-scrolling: touch;
+  border-radius: 2px;
+  border: 1.5px solid #000;
+  background: #fff;
+}
+.lc-nutri-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fff;
+  color: #000;
+}
+.lc-nutri-table caption {
+  caption-side: top;
+  text-align: center;
+  padding: 10px 12px 8px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+.lc-nutri-table th,
+.lc-nutri-table td {
+  padding: 5px 10px;
+  text-align: left;
+  border-bottom: 1px solid #000;
+  color: #000;
+}
+/* Linha de cabeçalho de colunas ("100 g" | "X g ou ml" | "%VD*") - Anexo
+   XII: "Estilo: negrito (bold)... Alinhamento horizontal e vertical:
+   centralizado" para os títulos de coluna. */
+.lc-nutri-table .lc-nutri-col-headers th {
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+}
+.lc-nutri-table tbody th {
+  font-weight: 400;
+  color: #000;
+}
+.lc-nutri-table .lc-nutri-meta-row th,
+.lc-nutri-table .lc-nutri-meta-row td {
+  font-weight: 400;
+  color: #000;
+}
+/* Linha GROSSA depois de "Porção" (Anexo XII, "modelo vertical"): separa o
+   bloco de cabeçalho (título + porções + porção) do grid de nutrientes. */
+.lc-nutri-table .lc-nutri-meta-row--divisoria th,
+.lc-nutri-table .lc-nutri-meta-row--divisoria td {
+  border-bottom: 2.5px solid #000;
+}
+/* Indentação por nível (0 = nutriente principal, 1 = "n", 2 = "nn", 3 =
+   "nnn" no Anexo XII) via padding calculado a partir de --lc-nivel (definido
+   inline por linha em NutritionTable.tsx), nunca "&nbsp;" repetido no texto. */
+.lc-nutri-table th.lc-nutri-item {
+  padding-left: calc(10px + var(--lc-nivel, 0) * 14px);
+}
+.lc-nutri-table .lc-nutri-qty,
+.lc-nutri-table .lc-nutri-vd {
+  text-align: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.lc-nutri-table tbody tr:last-child th,
+.lc-nutri-table tbody tr:last-child td {
+  border-bottom: none;
+}
+/* Linha provisória: itálico - nunca a cor de advertência (essa é reservada
+   para risco real de rótulo). O dado continua exibido por inteiro, só
+   sinalizado como pendente de laudo (ver title/.lc-sr-only em
+   NutritionTable.tsx, que carregam o texto real da pendência). */
+.lc-nutri-table tr.lc-nutri-row--provisorio > * {
+  font-style: italic;
+}
+.lc-nutri-table .lc-nutri-foot {
+  padding: 8px 10px 9px;
+  font-size: 10.5px;
+  color: #000;
+  border-bottom: none;
+}
+/* Ajuste fino para telas estreitas (celular): menos respiro e piso de 12px de
+   fonte (nunca menor - abaixo disso a etiqueta deixa de ser legível), nome do
+   item pode quebrar linha, e as colunas numéricas ganham largura mínima para
+   o dígito não ficar espremido. Isto reduz o quanto a tabela de 2 grupos de
+   %VD (Multi Vitta) precisa rolar dentro do próprio .lc-nutri-table-wrap -
+   não elimina essa rolagem própria nesse caso específico (autorizada pelo
+   dono), só encolhe a distância. */
+@media (max-width: 640px) {
+  .lc-nutri-table th,
+  .lc-nutri-table td {
+    padding: 4px 6px;
+  }
+  .lc-nutri-table caption {
+    padding: 8px 8px 6px;
+  }
+  .lc-nutri-table .lc-nutri-col-headers th {
+    font-size: 12px;
+  }
+  .lc-nutri-table .lc-nutri-foot {
+    font-size: 12px;
+    padding: 6px 8px 7px;
+  }
+  .lc-nutri-table th.lc-nutri-item {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    padding-left: calc(6px + var(--lc-nivel, 0) * 10px);
+  }
+  .lc-nutri-table .lc-nutri-qty,
+  .lc-nutri-table .lc-nutri-vd {
+    min-width: 34px;
+  }
 }
 
 .lc-dossie-benefits-list {
@@ -1823,6 +2277,9 @@ img {
     max-height: none !important;
     overflow: visible !important;
   }
+  .lc-nutri-table-wrap {
+    overflow: visible !important;
+  }
 }
 
 /* ---------- footer ---------- */
@@ -1997,6 +2454,21 @@ img {
   min-height: 1em;
 }
 
+/* Vermelho de alerta no carrinho — mesmo par claro/escuro já usado em
+   .lc-admin-metrica-valor--alerta (área admin, ver acima): #b31f2e mede
+   2,53:1 sobre o card escuro do botão "Remover" (--card-bg dark
+   rgb(27,29,34)) e 2,59:1 sobre o aviso de pedido mínimo dentro do modal
+   (rgb(25,27,32)) — os dois reprovam o piso de 4,5:1 do WCAG AA. #fca5a5
+   mede 8,88:1 nesse mesmo fundo. Auditoria de contraste ao vivo de
+   14/09/2026. */
+@media (prefers-color-scheme: dark) {
+  .lc-cart-item-remove,
+  .lc-cart-item-warning,
+  .lc-min-warning {
+    color: #fca5a5;
+  }
+}
+
 /* ---------- painel de resumo + formulário (sólido, fixo no desktop) ---------- */
 .lc-checkout-panel {
   background: var(--card-bg);
@@ -2068,6 +2540,12 @@ img {
 }
 
 /* ---------- estado vazio do carrinho ---------- */
+/* Mesma causa do subtítulo em .lc-page-head p e do crédito em
+   .lc-footer-credit (ver comentários lá): o carrinho vazio fica direto
+   sobre o fundo degradê animado, sem cartão sólido por baixo. --text-muted
+   mede 3,95:1 no claro e 4,27:1 no escuro — reprova o piso de 4,5:1. --ink
+   fecha com folga (11,15:1 no claro, 7,27:1 no escuro) — auditoria de
+   contraste ao vivo de 14/09/2026. */
 .lc-cart-empty {
   display: flex;
   flex-direction: column;
@@ -2075,12 +2553,17 @@ img {
   gap: 10px;
   padding: 70px 20px;
   text-align: center;
-  color: var(--text-muted);
+  color: var(--ink);
 }
 .lc-cart-empty h2 {
   font-size: 18px;
   font-weight: 800;
   color: var(--text-on-card);
+  /* text-wrap: balance como em .lc-page-head h1 — títulos curtos e centrados
+     distribuem as linhas por igual em vez de deixar uma palavra órfã embaixo.
+     Faltava nos títulos de estado (vazio, sucesso, erro): achado da auditoria
+     de interface de 13/09/2026. */
+  text-wrap: balance;
 }
 .lc-cart-empty .lc-btn {
   margin-top: 6px;
@@ -2105,6 +2588,8 @@ img {
 .lc-success-panel h1 {
   font-size: 21px;
   font-weight: 800;
+  /* Mesmo motivo de .lc-cart-empty h2 (auditoria de 13/09/2026). */
+  text-wrap: balance;
 }
 .lc-success-icon {
   color: var(--lime-deep);
@@ -2339,6 +2824,710 @@ img {
 }
 .lc-home-footer-cta .lc-btn {
   flex: none;
+  /* Mesmo ajuste do CTA de topo: 38px medidos, 44px de alvo mínimo. Este
+     rodapé é o mesmo da porta de entrada (/). */
+  min-height: 44px;
+}
+
+/* ==========================================================================
+   Blocos de marca própria (private label) — nasceram em /fabricacao e desde
+   13/09/2026 montam a raiz do site. Mesma regra central do topo
+   deste arquivo: vidro só no cromo (a barra de topo reaproveita
+   .lc-topbar/.lc-glass, sem classe própria). Todo o resto — formatos,
+   caminhos, segmentos, normas, lote mínimo e contato — é CONTEÚDO, e
+   conteúdo é sempre sólido.
+   Reaproveita quase tudo da landing (.lc-home-hero, .lc-home-section,
+   .lc-home-section-head, .lc-home-steps, .lc-home-step, .lc-footer) e os
+   botões (.lc-btn, .lc-btn-primary, .lc-btn-ghost, .lc-btn-icon-inline). O que
+   segue é só o que a landing não tinha.
+   ========================================================================== */
+
+/* ---------- abertura ---------- */
+/* Direto sobre o fundo degradê animado (.lc-bg-layer), sem cartão nem véu de
+   vidro por baixo: aqui vale a mesma lição já registrada no .lc-footer e no
+   .lc-page-head p deste arquivo — --text-muted e --ink-soft não fecham 4,5:1
+   nessa condição, --ink fecha com folga. */
+.lc-fab-eyebrow {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.lc-fab-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+/* .lc-btn-ghost vem com flex:1 (pensado pra dividir espaço dentro do card) —
+   sozinho numa barra flex isso o esticaria; e o fundo dele (--paper-soft) é
+   quase transparente contra o degradê, então aqui ele ganha superfície sólida
+   própria, que é o que garante o contraste do texto. */
+.lc-fab-hero-secondary {
+  flex: none;
+  padding: 14px 20px;
+  font-size: 13.5px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+}
+.lc-fab-hero-secondary:hover {
+  background: var(--paper-soft);
+}
+
+/* ---------- formatos (conteúdo, sólido) ---------- */
+.lc-fab-format-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.lc-fab-format {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Selo redondo com o ícone do formato — reaproveita o mesmo par de ícones do
+   card de fórmula (FORMAT_ICONS), pra quem já viu o catálogo reconhecer. */
+.lc-fab-format-icon,
+.lc-fab-path-icon,
+.lc-fab-batch-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  margin-bottom: 6px;
+  background: rgba(111, 163, 0, 0.13);
+  border: 1px solid rgba(111, 163, 0, 0.38);
+  color: var(--lime-deep);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-fab-format-icon,
+  .lc-fab-path-icon,
+  .lc-fab-batch-icon {
+    background: rgba(166, 225, 0, 0.16);
+    border-color: rgba(166, 225, 0, 0.42);
+    color: var(--lime);
+  }
+}
+.lc-fab-format-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-fab-format-count {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.lc-fab-format-count strong {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  font-variant-numeric: tabular-nums;
+}
+/* `margin-top: auto` ancora as apresentações na base do cartão. Os quatro
+   cartões da fileira têm a mesma altura (o grid estica todos até o mais alto,
+   que é o do pó solúvel, com três apresentações), e sem isto a sobra caía toda
+   embaixo de "Goma" e "Líquido", que têm uma só — o vazio ficava maior que o
+   conteúdo. Com o auto, a sobra sobe para cima da legenda e a última linha de
+   todos os cartões se alinha. */
+.lc-fab-format-legend {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+/* Apresentações na grafia exata do banco ("150 Gramas", "30 ml", "420 gramas
+   (30 doses de 14 g)"): são dado de produto, não texto de marketing, e
+   uniformizar maiúscula aqui seria reescrever cadastro. Por isso o chip
+   quebra linha em vez de truncar — o mais longo tem que caber inteiro. */
+.lc-fab-presentations {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.lc-fab-presentations li {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--table-bg);
+  border: 1px solid var(--table-border);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-on-card);
+}
+
+/* ---------- como funciona ---------- */
+/* São cinco etapas, não três como na landing — e cinco não fecha fileira
+   nenhuma. Em grid a sobra vira buraco: medido a 1440px, cabiam três por linha
+   e as duas últimas ficavam encostadas à esquerda, com metade da fileira vazia
+   à direita. Flex com wrap centralizado resolve, porque a última fileira se
+   centraliza sozinha, seja qual for o número de etapas.
+   O `max-width` impede que duas etapas sozinhas numa fileira estiquem até
+   ficar o dobro da largura das de cima. */
+.lc-fab-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lc-fab-steps .lc-home-step {
+  flex: 1 1 240px;
+  max-width: 340px;
+}
+
+/* ---------- por onde começar ---------- */
+.lc-fab-paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+.lc-fab-path,
+.lc-fab-regulatory-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lc-fab-path h3,
+.lc-fab-regulatory-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-wrap: balance;
+}
+.lc-fab-path p,
+.lc-fab-regulatory-card p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+/* Empurra o botão para a base do cartão: sobra de altura do grid (cartões da
+   mesma linha esticados pra bater com o mais alto) fica acima dele, nunca
+   entre o texto e o botão. */
+.lc-fab-path-cta {
+  align-self: flex-start;
+  flex: none;
+  margin-top: auto;
+  /* 44px de alvo de toque: com `padding: 10px` da .lc-btn o botão media 42px
+     (medido ao vivo), 2px abaixo do mínimo. O min-height resolve sem esticar a
+     tipografia. */
+  min-height: 44px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-decoration: none;
+}
+.lc-fab-ingredient-list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lc-fab-ingredient-list li {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  padding-left: 18px;
+  position: relative;
+}
+.lc-fab-ingredient-list li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: var(--lime-deep);
+  font-weight: 800;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-fab-ingredient-list li::before {
+    color: var(--lime);
+  }
+}
+.lc-fab-ingredient-list strong {
+  font-weight: 800;
+  color: var(--text-on-card);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- segmentos atendidos ---------- */
+/* Parece chip, mas não é o .lc-chip do catálogo: aquele é controle de filtro
+   (cromo, vidro, clicável); aqui é uma lista de fatos, então superfície
+   sólida e nada de estado de hover/ativo. */
+.lc-fab-segment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.lc-fab-segment {
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 18px rgba(20, 20, 30, 0.07);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-on-card);
+}
+
+/* ===================================================================
+   RESPOSTA AO PONTEIRO — os cartões da home deixam de ser inertes
+   ===================================================================
+   Pedido do dono em 14/09/2026: "quando passe o mouse nos cartões eles
+   interagem e não fiquem parados".
+
+   A calibragem é deliberada, e é o ponto todo desta seção: NENHUM cartão
+   da home é clicável. Os links vivem DENTRO deles (o botão "Ver o
+   catálogo de fórmulas" dentro do cartão de caminho, o link da
+   documentação dentro das normas) — o cartão em si não leva a lugar
+   nenhum. Por isso o hover aqui levanta e ilumina, mas NÃO usa
+   `cursor: pointer` e não imita um botão: prometer clique onde não há
+   clique é pior do que não responder, porque o visitante tenta, nada
+   acontece, e ele conclui que a página está quebrada.
+
+   O movimento é curto (4px) e a curva é de desaceleração (easeOutQuint):
+   o cartão chega rápido e assenta, em vez de deslizar. `transform` e
+   `box-shadow` são compostos pela GPU, então isto não custa reflow nem
+   trava a rolagem de uma página longa como esta. */
+.lc-fab-format,
+.lc-fab-path,
+.lc-fab-regulatory-card,
+.lc-home-step {
+  transition:
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.26s ease;
+}
+.lc-fab-format:hover,
+.lc-fab-path:hover,
+.lc-fab-regulatory-card:hover,
+.lc-home-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(111, 163, 0, 0.42);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 22px 44px rgba(20, 20, 30, 0.16);
+}
+/* O selo redondo do ícone é o detalhe que "acorda" o cartão: ele ganha o
+   verde cheio da marca enquanto o cartão está sob o ponteiro. É o mesmo
+   gesto do selo de destaque do catálogo, para os dois lerem como um
+   sistema só. */
+.lc-fab-format-icon,
+.lc-fab-path-icon {
+  transition:
+    background-color 0.26s ease,
+    border-color 0.26s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lc-fab-format:hover .lc-fab-format-icon,
+.lc-fab-path:hover .lc-fab-path-icon {
+  background: rgba(111, 163, 0, 0.22);
+  border-color: rgba(111, 163, 0, 0.62);
+  transform: scale(1.07);
+}
+/* As etapas numeradas têm o número no ::before, não um ícone: é ele que
+   responde. */
+.lc-home-step::before {
+  transition:
+    background-color 0.26s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lc-home-step:hover::before {
+  transform: scale(1.08);
+}
+/* Os chips de segmento são pequenos e ficam lado a lado: levantar 4px
+   faria a fileira inteira parecer trêmula ao passar o mouse. Eles só
+   ganham contorno e uma sombra um pouco mais presente. */
+.lc-fab-segment {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.lc-fab-segment:hover {
+  border-color: rgba(111, 163, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 22px rgba(20, 20, 30, 0.1);
+}
+/* Os quatro números são células de uma grade com divisórias compartilhadas:
+   deslocar uma célula romperia o alinhamento das linhas divisórias com as
+   vizinhas. Aqui a resposta é de cor — o número assume o verde da marca. */
+.lc-fab-figure {
+  transition: background-color 0.22s ease;
+}
+.lc-fab-figure-value {
+  transition: color 0.22s ease;
+}
+.lc-fab-figure:hover {
+  background: rgba(166, 225, 0, 0.09);
+}
+.lc-fab-figure:hover .lc-fab-figure-value {
+  color: var(--lime-deep);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-fab-format:hover,
+  .lc-fab-path:hover,
+  .lc-fab-regulatory-card:hover,
+  .lc-home-step:hover {
+    border-color: rgba(166, 225, 0, 0.45);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.4),
+      0 24px 48px rgba(0, 0, 0, 0.55);
+  }
+  .lc-fab-format:hover .lc-fab-format-icon,
+  .lc-fab-path:hover .lc-fab-path-icon {
+    background: rgba(166, 225, 0, 0.26);
+    border-color: rgba(166, 225, 0, 0.66);
+  }
+  .lc-fab-segment:hover {
+    border-color: rgba(166, 225, 0, 0.5);
+  }
+  .lc-fab-figure:hover {
+    background: rgba(166, 225, 0, 0.08);
+  }
+  .lc-fab-figure:hover .lc-fab-figure-value {
+    color: var(--lime);
+  }
+}
+/* Quem pediu menos movimento continua recebendo a resposta — ela só deixa
+   de se mover. Contorno, sombra e cor permanecem, então o retorno visual
+   de "estou sobre este cartão" não se perde. */
+@media (prefers-reduced-motion: reduce) {
+  .lc-fab-format,
+  .lc-fab-path,
+  .lc-fab-regulatory-card,
+  .lc-home-step,
+  .lc-fab-format-icon,
+  .lc-fab-path-icon,
+  .lc-home-step::before,
+  .lc-fab-segment,
+  .lc-fab-figure,
+  .lc-fab-figure-value {
+    transition: none;
+  }
+  .lc-fab-format:hover,
+  .lc-fab-path:hover,
+  .lc-fab-regulatory-card:hover,
+  .lc-home-step:hover {
+    transform: none;
+  }
+  .lc-fab-format:hover .lc-fab-format-icon,
+  .lc-fab-path:hover .lc-fab-path-icon,
+  .lc-home-step:hover::before {
+    transform: none;
+  }
+}
+/* Aparelho sem ponteiro fino (celular, tablet) não tem hover de verdade: o
+   estado ficaria "grudado" no cartão tocado até o toque seguinte. Todo o
+   bloco acima vale só onde existe mouse. */
+@media (hover: none) {
+  .lc-fab-format:hover,
+  .lc-fab-path:hover,
+  .lc-fab-regulatory-card:hover,
+  .lc-home-step:hover,
+  .lc-fab-segment:hover,
+  .lc-fab-figure:hover {
+    transform: none;
+    border-color: var(--card-border);
+    background: var(--card-bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  }
+}
+
+/* ---------- rigor técnico e regulatório ---------- */
+.lc-fab-regulatory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+/* O cartão das normas era branco sobre fundo branco, com o triângulo nativo do
+   <details> como única pista de que ali havia conteúdo — a informação mais
+   forte de quem vende fabricação passava despercebida. Agora ele é um botão de
+   destaque, com o verde da marca.
+
+   A hierarquia é deliberada: este botão NÃO usa o verde sólido dos CTAs
+   ("Ver o catálogo de fórmulas"). Aquele é a ação de venda e continua sendo o
+   elemento mais forte da página; este é credibilidade, e usa o mesmo verde em
+   fundo suave com borda marcada. Chama o olho sem disputar o clique. */
+.lc-fab-norms {
+  margin-top: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+/* Alvo de toque: 16px de padding em cima e embaixo + o ícone de 40px passam
+   folgado dos 44px mínimos, e a área clicável é a linha inteira. */
+.lc-norms-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(180deg, rgba(166, 225, 0, 0.16), rgba(166, 225, 0, 0.07));
+  border-left: 3px solid var(--lime);
+  transition:
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+/* Remove o marcador nativo (triângulo) nos dois motores: o indicador de estado
+   passa a ser o chevron próprio, que gira. `list-style: none` resolve Firefox e
+   Chrome recentes; o ::-webkit-details-marker cobre Safari e WebKit antigo. */
+.lc-norms-cta {
+  list-style: none;
+}
+.lc-norms-cta::-webkit-details-marker {
+  display: none;
+}
+.lc-norms-cta::marker {
+  content: "";
+}
+.lc-norms-cta-icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--lime);
+  /* Ícone quase preto sobre o lime vivo: par de alto contraste, o mesmo já
+     usado no selo "Composição conferida". */
+  color: var(--lime-ink);
+  box-shadow: 0 2px 8px rgba(111, 163, 0, 0.28);
+}
+.lc-norms-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.lc-norms-cta-text strong {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--lime-ink);
+  letter-spacing: -0.01em;
+}
+.lc-norms-cta-text span {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+/* O chevron usava --lime-deep (#6fa300) e REPROVAVA o piso de 3:1 que o WCAG
+   1.4.11 exige de elemento gráfico: medido em três pontos do gradiente, ficou
+   entre 2,81:1 e 2,94:1 — falha do topo à base, não é questão de ter escolhido
+   o ponto errado para medir. O agravante é que o fundo do botão compartilha o
+   matiz do próprio ícone, então o verde tinge o verde.
+
+   Passa a --lime-ink, o verde mais escuro da paleta (o mesmo do título), que
+   fecha com folga larga. `aria-hidden` no ícone não isenta: 1.4.11 protege
+   quem enxerga o ícone e não usa leitor de tela. No escuro nada muda — lá o
+   --lime já dava 7,83:1. */
+.lc-norms-cta-chevron {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--lime-ink);
+  transition: transform 0.2s ease;
+}
+.lc-fab-norms[open] .lc-norms-cta-chevron,
+.lc-regulatory-norms[open] .lc-norms-cta-chevron,
+.lc-doc-amendments[open] .lc-norms-cta-chevron {
+  transform: rotate(180deg);
+}
+.lc-norms-cta:hover {
+  background: linear-gradient(180deg, rgba(166, 225, 0, 0.26), rgba(166, 225, 0, 0.13));
+}
+/* Aberto, o botão vira cabeçalho da lista: ganha a linha divisória e perde o
+   arredondamento de baixo, para ler como uma peça só com o conteúdo. */
+.lc-fab-norms[open] .lc-norms-cta,
+.lc-regulatory-norms[open] .lc-norms-cta,
+.lc-doc-amendments[open] .lc-norms-cta {
+  border-bottom: 1px solid var(--card-border);
+}
+/* O indicador de foco acompanha o retângulo real do summary (que ocupa a
+   largura toda do cartão), sem vazar pela borda arredondada. */
+.lc-norms-cta:focus-visible {
+  outline: 2px solid var(--lime-deep);
+  outline-offset: -4px;
+}
+@media (max-width: 520px) {
+  .lc-norms-cta {
+    gap: 12px;
+    padding: 14px;
+  }
+  .lc-norms-cta-text strong {
+    font-size: 14px;
+  }
+  /* Em 320px sobram ~200px de largura para o texto depois do ícone, dos gaps e
+     do chevron, e a linha de apoio tem 87 caracteres — ela ocuparia 3 a 4
+     linhas e deixaria o botão alto e denso, o oposto de "chamar o olho".
+     Diminuir a fonte é a saída certa aqui: a alternativa seria cortar a frase,
+     e ela é justamente a procedência do dado (a norma e a data da consulta),
+     que não se abrevia numa página regulatória. */
+  .lc-norms-cta-text span {
+    font-size: 11.5px;
+    line-height: 1.35;
+  }
+}
+/* Quem pediu menos movimento não vê o chevron girar — o estado continua legível
+   pela posição dele e pelo conteúdo que aparece. */
+@media (prefers-reduced-motion: reduce) {
+  .lc-norms-cta,
+  .lc-norms-cta-chevron {
+    transition: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .lc-norms-cta {
+    background: linear-gradient(180deg, rgba(166, 225, 0, 0.14), rgba(166, 225, 0, 0.06));
+  }
+  .lc-norms-cta:hover {
+    background: linear-gradient(180deg, rgba(166, 225, 0, 0.22), rgba(166, 225, 0, 0.1));
+  }
+  /* No escuro o título não pode usar --lime-ink (quase preto): passa a usar a
+     tinta clara padrão, e o chevron sobe para o lime vivo para não sumir. */
+  .lc-norms-cta-text strong {
+    color: var(--text-on-card);
+  }
+  .lc-norms-cta-chevron {
+    color: var(--lime);
+  }
+}
+.lc-fab-norms-list {
+  margin: 0;
+  padding: 0 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.lc-fab-norm {
+  padding-top: 14px;
+  border-top: 1px solid var(--card-border);
+}
+.lc-fab-norm dt {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-fab-norm dd {
+  margin: 3px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---------- lote mínimo ---------- */
+/* ATENÇÃO — .lc-fab-batch e .lc-fab-batch-text ficaram SEM USO em 13/09/2026:
+   vestiam components/manufacturing/MinimumBatch.tsx, que saiu da página quando
+   o lote mínimo subiu para a faixa de números da primeira dobra
+   (.lc-fab-figures, no fim deste arquivo). O componente continua no repositório
+   por ordem do dono, e estas regras continuam aqui para que ele volte inteiro
+   se alguém o reativar. (.lc-fab-batch-icon divide o seletor com
+   .lc-fab-format-icon/.lc-fab-path-icon, que seguem em uso.)
+   Um cartão largo só, e não mais um grid: é a primeira pergunta de quem
+   procura fabricante, então precisa parar o olho em vez de virar mais um
+   quadradinho numa fileira. */
+.lc-fab-batch {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  padding: 24px 22px;
+}
+.lc-fab-batch-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0;
+}
+.lc-fab-batch-text h2 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-wrap: balance;
+}
+.lc-fab-batch-text p {
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+@media (max-width: 520px) {
+  .lc-fab-batch {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ---------- chamada final ---------- */
+.lc-fab-contact {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px rgba(20, 20, 30, 0.1);
+  padding: 32px 24px;
+  text-align: center;
+}
+.lc-fab-contact h2 {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-wrap: balance;
+}
+.lc-fab-contact p {
+  margin: 8px auto 0;
+  max-width: 480px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-fab-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+/* O e-mail é o rótulo do próprio botão (é o dado que a pessoa quer copiar), e
+   endereço de e-mail não quebra bem: em tela estreita ele passa a ocupar a
+   linha inteira em vez de espremer. */
+.lc-fab-contact-btn {
+  flex: none;
+  padding: 14px 20px;
+  font-size: 13.5px;
+  text-decoration: none;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* ==========================================================================
@@ -2384,6 +3573,14 @@ img {
   background: #fff;
   border-color: var(--lime-deep);
 }
+/* Mesmo defeito do "Voltar ao catálogo" do menu do admin, pela mesma causa:
+   #fff literal sem variante escura deixava o rótulo em 1,12:1 no hover. */
+@media (prefers-color-scheme: dark) {
+  .lc-login-voltar:hover,
+  .lc-login-voltar:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
 .lc-admin-auth-card {
   width: 100%;
   max-width: 380px;
@@ -2424,21 +3621,46 @@ img {
 }
 
 /* ---------- casca (nav lateral + conteúdo) ---------- */
+/* A moldura ganhou uma lavagem de cor MUITO fraca, e por um motivo técnico,
+   não decorativo: a barra lateral usa .lc-glass (backdrop-filter), e vidro só
+   é vidro se houver algo atrás para borrar. Sobre --paper branco puro, o blur
+   não tinha o que processar e a lateral aparecia como um painel chapado — o
+   oposto do que "vidro no cromo" quer dizer. Com esta lavagem, o mesmo CSS de
+   vidro que o catálogo já usa passa a ler de verdade no admin.
+   Estático de propósito: nada de animação como no .lc-bg-layer do catálogo —
+   painel de trabalho não pode ter fundo em movimento.
+   Os dois tons saem de --bg-c1 e --bg-c3, que já existem nos tokens; as
+   opacidades (0,16 e 0,10) são o teto medido: nelas, o texto do cabeçalho da
+   página em --ink-soft fecha 6,18:1 sobre o pior ponto da lavagem. */
 .lc-admin-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background:
+    radial-gradient(1100px 520px at 0% 0%, rgba(207, 242, 78, 0.16), transparent 62%),
+    radial-gradient(900px 460px at 100% 6%, rgba(138, 198, 255, 0.1), transparent 58%), var(--paper);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-shell {
+    background:
+      radial-gradient(1100px 520px at 0% 0%, rgba(207, 242, 78, 0.07), transparent 62%),
+      radial-gradient(900px 460px at 100% 6%, rgba(138, 198, 255, 0.05), transparent 58%), var(--paper);
+  }
 }
 @media (min-width: 860px) {
   .lc-admin-shell {
     flex-direction: row;
   }
 }
+/* Grudado só na LATERAL de verdade (≥860px), onde ele é uma coluna estreita
+   ao lado do conteúdo. Abaixo disso o menu vira uma faixa no topo com 357px de
+   altura medidos ao vivo num aparelho de 844px — com position: sticky ele
+   ficava PRESO ali, tapando 42% da tela durante a rolagem inteira. Defeito
+   que já existia; corrigido aqui porque a faixa cresceu com o agrupamento por
+   seção. No celular o menu agora rola junto com a página, e o "Voltar ao
+   catálogo" continua onde sempre esteve: no topo, primeiro elemento da tela. */
 .lc-admin-nav {
   flex: none;
-  position: sticky;
-  top: 0;
-  z-index: 40;
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -2446,6 +3668,9 @@ img {
 }
 @media (min-width: 860px) {
   .lc-admin-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
     width: 232px;
     height: 100vh;
     border-radius: 0;
@@ -2459,14 +3684,49 @@ img {
   font-size: 15px;
   padding: 8px 10px 14px;
 }
-.lc-admin-nav-links {
+/* Seções agrupadas por assunto (cadastro / comercial) em vez de uma lista
+   corrida de seis itens — ver o porquê no comentário de GRUPOS, em
+   components/admin/AdminNav.tsx. */
+.lc-admin-nav-grupos {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
   flex: 1;
 }
+.lc-admin-nav-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+/* O rótulo do grupo só aparece na lateral vertical. Abaixo de 860px o menu
+   vira uma faixa horizontal no topo e um título por linha custaria três
+   alturas de texto numa tela de 390px, sem organizar nada — ali a separação
+   já vem da própria quebra de linha. */
+.lc-admin-nav-grupo-titulo {
+  display: none;
+}
+.lc-admin-nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+}
 @media (min-width: 860px) {
+  .lc-admin-nav-grupos {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+  .lc-admin-nav-grupo-titulo {
+    display: block;
+    padding: 0 12px 4px;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
   .lc-admin-nav-links {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -2476,6 +3736,7 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-height: 40px;
   padding: 10px 12px;
   border-radius: var(--radius-md);
   font-size: 13.5px;
@@ -2487,9 +3748,16 @@ img {
   background: rgba(127, 127, 127, 0.14);
   color: var(--text-on-card);
 }
+/* Estado ativo mais firme: além do gradiente lima que já existia, ganhou peso
+   de fonte e uma sombra na cor da marca. O gradiente sozinho se perdia quando
+   a lateral, de vidro, pegava o tom claro do fundo por trás. --lime-ink sobre
+   as duas pontas do gradiente mede 10,43:1 (na lima clara) e 5,38:1 (na lima
+   escura) — passa em AA nos dois extremos. */
 .lc-admin-nav-link.is-active {
   background: linear-gradient(135deg, var(--lime), var(--lime-deep));
   color: var(--lime-ink);
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(166, 225, 0, 0.3);
 }
 /* Botão de voltar ao catálogo com rótulo escrito, na barra do carrinho e do
    dossiê. Antes era só a seta, com o texto apenas no aria-label — quem enxerga
@@ -2548,11 +3816,12 @@ img {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 14px;
+  min-height: 44px;
+  margin-bottom: 16px;
   padding: 10px 12px;
   border-radius: var(--radius-md);
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
   background: var(--paper-soft);
   border: 1px solid var(--card-border);
@@ -2562,6 +3831,18 @@ img {
 .lc-admin-nav-voltar:focus-visible {
   background: #fff;
   border-color: var(--lime-deep);
+}
+/* Defeito real, medido em 13/09/2026: o #fff do hover acima é literal e não
+   tinha variante escura, então no tema escuro o botão virava branco mantendo
+   a cor do texto (--ink, quase branco) — 1,12:1, o rótulo sumia justo no
+   passar do mouse. Um véu claro por cima do próprio fundo resolve sem trocar
+   a cor do texto: 11,80:1. É o botão que o dono mais cobra; não pode piscar
+   e sumir. */
+@media (prefers-color-scheme: dark) {
+  .lc-admin-nav-voltar:hover,
+  .lc-admin-nav-voltar:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 .lc-admin-nav-footer {
   padding-top: 10px;
@@ -2613,10 +3894,14 @@ img {
   font-weight: 800;
   letter-spacing: -0.01em;
 }
+/* --ink-soft, não --text-muted: este subtítulo é o único texto do admin que
+   fica direto sobre a moldura da casca, sem card por baixo. Medido ali,
+   --text-muted dá 4,39:1 (reprova em AA) e --ink-soft dá 6,18:1. Mesma troca
+   que os selos deste arquivo já tinham feito pelo mesmo motivo. */
 .lc-admin-page-head p {
   margin-top: 4px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   max-width: 60ch;
 }
 .lc-admin-toolbar {
@@ -2648,35 +3933,501 @@ img {
   font-size: 13.5px;
 }
 
-/* ---------- estatísticas do dashboard ---------- */
-.lc-admin-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 26px;
+/* ==========================================================================
+   VISÃO GERAL (/admin) — indicadores, pendências, listas e atalhos.
+
+   Regra da casa aplicada aqui inteira: VIDRO NO CROMO, SÓLIDO NO CONTEÚDO.
+   Nada neste bloco usa backdrop-filter. Número, rótulo, contagem de pendência
+   e valor em reais são conteúdo que se lê — ficam sobre --card-bg/--table-bg,
+   opacos, com contraste cheio. O vidro é só da barra lateral, mais abaixo.
+
+   Contraste: todo par de cor usado aqui foi CALCULADO (WCAG 2.1, com o alfa
+   já composto sobre o fundo real), não estimado. Os dois números que mandaram
+   trocar a cor escolhida:
+     · --text-muted (#6b7280) sobre --paper-soft (#f1f3f5) mede 4,35:1 —
+       REPROVA em AA. Por isso todo texto secundário sobre fundo que não seja
+       branco usa --ink-soft (6,12:1 no mesmo fundo, 6,35:1 sobre --table-bg).
+     · #b31f2e sobre o card ESCURO mede 2,53:1 — reprova. No tema escuro o
+       vermelho de urgência vira #fca5a5 (8,48:1 sobre --table-bg escuro),
+       seguindo o mesmo padrão que o arquivo já usa para o azul (#93c5fd).
+   ========================================================================== */
+
+/* ---------- ação principal no cabeçalho da página ---------- */
+/* Sobrescreve o padding e o flex:1 de .lc-btn/.lc-btn-primary: aqui o botão
+   fica ao lado do título, não numa fileira de ações de card. Os 44px de altura
+   mínima são alvo de toque exigido, não estética. */
+.lc-admin-acao-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: none;
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 13px;
 }
-.lc-admin-stat-tile {
+
+/* ---------- indicadores ---------- */
+/* Pesos DIFERENTES de propósito. A tela anterior tinha dois quadrados iguais
+   (ativas / inativas) e o olho não sabia onde pousar. O número que sustenta o
+   negócio — quantas fórmulas estão de fato no ar — ocupa duas colunas e tem o
+   corpo quase o dobro; o resto é contexto ao redor dele. */
+.lc-admin-metricas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+@media (min-width: 520px) {
+  .lc-admin-metricas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lc-admin-metrica--destaque {
+    grid-column: span 2;
+  }
+}
+@media (min-width: 900px) {
+  .lc-admin-metricas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1180px) {
+  .lc-admin-metricas {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+/* minmax(0, 1fr) acima e min-width: 0 aqui: sem os dois, um valor comprido
+   como "R$ 130.190,00" estica a coluna do grid e empurra a página inteira
+   para a rolagem horizontal. */
+.lc-admin-metrica {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 15px 17px 16px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
-  padding: 16px 18px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+/* O cartão inteiro é o link — alvo de toque enorme, muito além dos 44px, em
+   vez de um "ver mais" minúsculo no rodapé. */
+.lc-admin-metrica:hover {
+  border-color: rgba(111, 163, 0, 0.55);
+  box-shadow: 0 6px 18px rgba(20, 20, 30, 0.08);
+}
+.lc-admin-metrica-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(111, 163, 0, 0.13);
+  color: var(--lime-ink);
+}
+.lc-admin-metrica-valor {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-on-card);
+  font-variant-numeric: tabular-nums;
+}
+.lc-admin-metrica-rotulo {
+  margin-top: 4px;
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.lc-admin-metrica-nota {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+/* Banho de lima com o card OPACO por baixo — continua superfície sólida, não
+   vidro: é só um degradê de tinta sobre fundo cheio. */
+.lc-admin-metrica--destaque {
+  background: linear-gradient(135deg, rgba(166, 225, 0, 0.1), rgba(166, 225, 0, 0.02) 62%), var(--card-bg);
+  padding: 18px 20px 20px;
+}
+.lc-admin-metrica--destaque .lc-admin-metrica-icone {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+}
+.lc-admin-metrica--destaque .lc-admin-metrica-valor {
+  font-size: 44px;
+  letter-spacing: -0.03em;
+}
+/* Em tela larga o destaque ocupa duas colunas e a composição empilhada
+   deixava metade do cartão vazia. Aqui ele vira uma linha — ícone, número
+   grande, e o rótulo com a nota à direita — que usa a largura em vez de
+   sobrar. */
+@media (min-width: 900px) {
+  .lc-admin-metrica--destaque {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-areas:
+      "icone valor rotulo"
+      "icone valor nota";
+    align-items: center;
+    column-gap: 22px;
+  }
+  .lc-admin-metrica--destaque .lc-admin-metrica-icone {
+    grid-area: icone;
+    margin-bottom: 0;
+  }
+  .lc-admin-metrica--destaque .lc-admin-metrica-valor {
+    grid-area: valor;
+    font-size: 56px;
+  }
+  .lc-admin-metrica--destaque .lc-admin-metrica-rotulo {
+    grid-area: rotulo;
+    align-self: end;
+    margin-top: 0;
+  }
+  .lc-admin-metrica--destaque .lc-admin-metrica-nota {
+    grid-area: nota;
+    align-self: start;
+    margin-top: 4px;
+  }
+}
+/* No celular os cartões secundários deitam: ícone e rótulo à esquerda, número
+   à direita. Empilhados, os cinco somavam quase três telas de rolagem antes
+   de o painel de pendências aparecer — e pendência é a razão de a tela
+   existir. O destaque continua vertical, para não perder a hierarquia. */
+@media (max-width: 519px) {
+  .lc-admin-metrica:not(.lc-admin-metrica--destaque) {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icone rotulo valor"
+      "icone nota valor";
+    align-items: center;
+    column-gap: 12px;
+    padding: 12px 14px;
+  }
+  .lc-admin-metrica:not(.lc-admin-metrica--destaque) .lc-admin-metrica-icone {
+    grid-area: icone;
+    margin-bottom: 0;
+  }
+  .lc-admin-metrica:not(.lc-admin-metrica--destaque) .lc-admin-metrica-rotulo {
+    grid-area: rotulo;
+    margin-top: 0;
+  }
+  .lc-admin-metrica:not(.lc-admin-metrica--destaque) .lc-admin-metrica-nota {
+    grid-area: nota;
+    margin-top: 2px;
+  }
+  .lc-admin-metrica:not(.lc-admin-metrica--destaque) .lc-admin-metrica-valor {
+    grid-area: valor;
+    font-size: 20px;
+    text-align: right;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-metrica-icone {
+    background: rgba(166, 225, 0, 0.16);
+    color: var(--lime);
+  }
+  .lc-admin-metrica:hover {
+    border-color: rgba(166, 225, 0, 0.45);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ---------- pendências ---------- */
+/* A gravidade nunca é dita só pela cor: cada linha traz ícone próprio, a
+   palavra "Urgente"/"Atenção" escrita e a contagem "8 de 27" em texto. A barra
+   é reforço visual — some para o leitor de tela (aria-hidden no componente). */
+.lc-admin-pend-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
-.lc-admin-stat-tile .lc-admin-stat-value {
-  font-size: 28px;
+.lc-admin-pend-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  /* A coluna vazia embaixo do ícone é de propósito: em tela estreita a
+     contagem e o botão alinham com o TEXTO, não com a borda do cartão — sem
+     isso o bloco ficava com dois recuos diferentes na mesma linha de leitura. */
+  grid-template-areas:
+    "icone texto"
+    ".     medida"
+    ".     acao";
+  align-items: center;
+  gap: 10px 12px;
+  padding: 12px 14px;
+  background: var(--table-bg);
+  border: 1px solid var(--table-border);
+  border-left: 3px solid var(--ink-soft);
+  border-radius: var(--radius-md);
+}
+@media (min-width: 780px) {
+  .lc-admin-pend-item {
+    grid-template-columns: auto minmax(0, 1fr) 132px auto;
+    grid-template-areas: "icone texto medida acao";
+  }
+}
+.lc-admin-pend-icone {
+  grid-area: icone;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  color: var(--ink-soft);
+  background: rgba(127, 127, 127, 0.16);
+}
+.lc-admin-pend-texto {
+  grid-area: texto;
+  min-width: 0;
+}
+.lc-admin-pend-titulo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-on-card);
+  text-wrap: pretty;
+}
+.lc-admin-pend-selo {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  background: rgba(127, 127, 127, 0.16);
+}
+.lc-admin-pend-hint {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-admin-pend-medida {
+  grid-area: medida;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.lc-admin-pend-numero {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.lc-admin-pend-de {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.lc-admin-pend-barra {
+  display: block;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(127, 127, 127, 0.22);
+  overflow: hidden;
+}
+.lc-admin-pend-barra-preenchida {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--ink-soft);
+}
+.lc-admin-pend-acao {
+  grid-area: acao;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.15s ease;
+}
+.lc-admin-pend-acao:hover {
+  border-color: var(--lime-deep);
+}
+/* Urgente: o vermelho que já existe no arquivo (#b31f2e), medido em 6,21:1
+   sobre --table-bg. Só entra quando metade ou mais do universo está afetada —
+   a régua está em FATIA_PARA_URGENTE, em lib/data/admin-dashboard.ts. */
+.lc-admin-pend-item--urgente {
+  border-left-color: #b31f2e;
+}
+.lc-admin-pend-item--urgente .lc-admin-pend-icone,
+.lc-admin-pend-item--urgente .lc-admin-pend-selo {
+  color: #b31f2e;
+  background: rgba(179, 31, 46, 0.1);
+}
+.lc-admin-pend-item--urgente .lc-admin-pend-barra-preenchida {
+  background: #b31f2e;
+}
+.lc-admin-pend-limpo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.lc-admin-pend-limpo svg {
+  color: var(--lime-deep);
+  flex: none;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-pend-barra {
+    background: rgba(255, 255, 255, 0.16);
+  }
+  .lc-admin-pend-icone,
+  .lc-admin-pend-selo {
+    background: rgba(255, 255, 255, 0.14);
+  }
+  .lc-admin-pend-item--urgente {
+    border-left-color: #fca5a5;
+  }
+  .lc-admin-pend-item--urgente .lc-admin-pend-icone,
+  .lc-admin-pend-item--urgente .lc-admin-pend-selo {
+    color: #fca5a5;
+    background: rgba(252, 165, 165, 0.16);
+  }
+  .lc-admin-pend-item--urgente .lc-admin-pend-barra-preenchida {
+    background: #fca5a5;
+  }
+  .lc-admin-pend-limpo svg {
+    color: var(--lime);
+  }
+}
+
+/* ---------- duas colunas (leads / orçamentos) ---------- */
+/* Só a partir de 1040px: abaixo disso as duas listas empilham. O gap é apenas
+   horizontal — o espaçamento vertical continua vindo do margin-bottom do
+   próprio painel, para não somar dois espaços quando empilha. */
+.lc-admin-duas-colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 16px;
+}
+@media (min-width: 1040px) {
+  .lc-admin-duas-colunas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- lista densa de painel (leads / orçamentos recentes) ---------- */
+.lc-admin-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.lc-admin-lista-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+.lc-admin-lista-item:first-child {
+  padding-top: 0;
+}
+.lc-admin-lista-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+/* min-width: 0 num item flex é o que permite o nome comprido quebrar em vez de
+   estourar a largura do painel. */
+.lc-admin-lista-texto {
+  min-width: 0;
+}
+.lc-admin-lista-titulo {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-on-card);
+  overflow-wrap: anywhere;
+}
+.lc-admin-lista-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+.lc-admin-lista-quando,
+.lc-admin-lista-valor {
+  flex: none;
+  white-space: nowrap;
+}
+.lc-admin-lista-quando {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.lc-admin-lista-valor {
+  font-size: 14px;
   font-weight: 800;
   color: var(--text-on-card);
   font-variant-numeric: tabular-nums;
 }
-.lc-admin-stat-tile .lc-admin-stat-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+
+/* ---------- atalhos do dia a dia ---------- */
+.lc-admin-atalhos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+.lc-admin-atalho {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--card-border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.lc-admin-atalho:hover {
+  border-color: var(--lime-deep);
+  background: var(--card-bg);
+}
+
+/* ---------- painel genérico ---------- */
 .lc-admin-panel {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -2689,34 +4440,53 @@ img {
   font-weight: 800;
   margin-bottom: 12px;
 }
+/* Título do painel com um link ou um contador à direita, na mesma linha.
+   Substituiu o par h2 + rodapé "Ver todos os leads" da versão anterior: o
+   caminho para a lista completa passa a viver ao lado do título, onde se
+   procura por ele, e o rodapé some junto com o espaço morto que ocupava. */
+.lc-admin-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 12px;
+}
+.lc-admin-panel-head h2 {
+  margin-bottom: 0;
+}
+.lc-admin-panel-head-meta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+/* Altura de 44px com margem negativa de mesmo valor: o alvo de toque cresce
+   sem abrir um buraco no espaçamento do cabeçalho. */
+.lc-admin-panel-head-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0 8px;
+  margin: -10px -8px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.lc-admin-panel-head-link:hover {
+  color: var(--text-on-card);
+  text-decoration: underline;
+}
 .lc-admin-panel-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.lc-admin-panel-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 13px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--card-border);
-}
-.lc-admin-panel-row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.lc-admin-panel-row-title {
-  font-weight: 700;
-  color: var(--text-on-card);
-}
 .lc-admin-panel-row-meta {
   font-size: 11.5px;
   color: var(--text-muted);
-}
-.lc-admin-panel-footer {
-  margin-top: 14px;
 }
 
 /* ---------- tabela densa de administração ---------- */
@@ -2817,6 +4587,17 @@ img {
   .lc-admin-badge--info {
     background: rgba(147, 197, 253, 0.18);
     color: #93c5fd;
+  }
+  /* O selo "recusado" era o único deste bloco sem variante escura: #b31f2e
+     sobre o card escuro (#1b1d22) mede 2,53:1 — reprova em AA com folga. A
+     troca segue exatamente o mesmo padrão do azul logo acima: a variante
+     clara do MESMO tom, aqui #fca5a5, que mede 6,37:1 sobre o fundo do selo.
+     Passou despercebido porque a listagem de orçamentos não tinha nenhum
+     recusado no banco; o painel de visão geral pode mostrar um a qualquer
+     momento. */
+  .lc-admin-badge--warning {
+    background: rgba(252, 165, 165, 0.16);
+    color: #fca5a5;
   }
 }
 
@@ -2962,6 +4743,75 @@ img {
   color: #b31f2e;
 }
 
+/* ---------- editor da tabela de Informação Nutricional (NutritionTableEditor.tsx) ----------
+   Mesmos primitivos do editor de composição acima (.lc-field, .lc-field-label,
+   .lc-admin-icon-btn, .lc-admin-comp-actions/.lc-admin-comp-reorder) - só o
+   layout de campos por linha é próprio (lc-admin-nutri-row), porque esta
+   linha tem muito mais campos (item, nível, quantidade, unidade, kJ opcional,
+   100 g/ml opcional, %VD por grupo, nota, provisório) do que uma linha de
+   composição. Flex-wrap (não grid de colunas fixas): o número de campos varia
+   por linha (kJ só na energia; %VD tem 1 ou 2 grupos) e por tabela (100 g/ml
+   é opcional) - grid de colunas fixas exigiria recalcular o layout a cada
+   combinação; flex-wrap acomoda qualquer uma sem CSS condicional. */
+.lc-admin-nutri-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.lc-admin-nutri-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 10px;
+  padding: 12px;
+  border: 1px solid var(--table-border);
+  border-radius: var(--radius-md);
+  background: var(--table-bg);
+}
+.lc-admin-nutri-row .lc-field {
+  gap: 4px;
+}
+.lc-admin-nutri-row .lc-field-label {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+.lc-admin-nutri-field--item {
+  flex: 2 1 200px;
+}
+.lc-admin-nutri-field--pequeno {
+  flex: 1 1 96px;
+}
+.lc-admin-nutri-field--nota {
+  flex: 2 1 220px;
+}
+.lc-admin-nutri-field--provisorio {
+  flex: 0 0 auto;
+}
+/* Alvo de toque ≥40px só nesta linha (mobile): .lc-admin-icon-btn de base é
+   32px, o mesmo usado por CompositionRow, que este ajuste não toca (seletor
+   mais específico, só dentro de .lc-admin-nutri-row). Acima de 640px o mouse
+   já mira com precisão; não há motivo para crescer no desktop. */
+@media (max-width: 640px) {
+  .lc-admin-nutri-row .lc-admin-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* Prévia ao vivo - mesma NutritionTable do dossiê público, dentro de um
+   cartão discreto só para separar visualmente do formulário. A tabela em si
+   já é preto-sobre-branco fixo (ver .lc-nutri-table-wrap) - este wrapper não
+   mexe nessas cores, só dá respiro ao redor. */
+.lc-admin-nutri-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 1px dashed var(--card-border);
+  border-radius: var(--radius-lg);
+}
+
 /* ---------- área interna (custos) — visualmente distinta de propósito ---------- */
 .lc-admin-internal-banner {
   display: flex;
@@ -3054,6 +4904,10 @@ img {
   font-weight: 800;
   color: var(--ink);
   letter-spacing: -0.01em;
+  /* Mesmo motivo de .lc-cart-empty h2 (auditoria de 13/09/2026). O parágrafo
+     logo abaixo já usava text-wrap: pretty; o título estava sem nenhum dos
+     dois. */
+  text-wrap: balance;
 }
 .lc-erro-card p {
   color: var(--ink-soft);
@@ -3067,4 +4921,1354 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 6px;
+}
+
+/* ==========================================================================
+   Edição em lote de custos (/admin/custos) — CostsBatchTable.
+   A tela reaproveita quase tudo que já existe (.lc-admin-table,
+   .lc-admin-metrica, .lc-field-input/.lc-field-textarea, .lc-btn*,
+   .lc-admin-form-actions, .lc-admin-acao-principal); as regras abaixo só
+   cobrem o que é mesmo específico desta tela: colunas mais largas, cor de
+   margem (lucro/prejuízo) e o campo de nota compacto por linha.
+   ========================================================================== */
+
+.lc-admin-costs-batch {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* As 3 fichas de resumo (custos definidos / margem média / margem negativa)
+   reaproveitam a aparência de .lc-admin-metrica (cartão do dashboard), mas
+   não são link — não há para onde navegar a partir de "margem média". Sem
+   este modificador elas herdariam o hover de link (borda + sombra), sugerindo
+   um clique que não faz nada. */
+.lc-admin-metrica--estatica {
+  cursor: default;
+}
+.lc-admin-metrica.lc-admin-metrica--estatica:hover {
+  border-color: var(--card-border);
+  box-shadow: none;
+}
+
+/* Vermelho de alerta (margem negativa) — mesmo par claro/escuro já usado no
+   arquivo para erro/urgência: #b31f2e mede só ~2,5:1 sobre o card ESCURO
+   (--card-bg dark #1b1d22) e reprova AA; #fca5a5 mede acima de 6:1 no mesmo
+   fundo (mesma régua de contraste já aplicada aos selos de badge acima). */
+.lc-admin-metrica-valor.lc-admin-metrica-valor--alerta {
+  color: #b31f2e;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-metrica-valor.lc-admin-metrica-valor--alerta {
+    color: #fca5a5;
+  }
+}
+
+/* 7 colunas (fórmula, preço, custo editável, margem R$, margem %, nota, ação)
+   pedem mais fôlego que os 640px genéricos de .lc-admin-table antes de entrar
+   em scroll horizontal. */
+.lc-admin-table.lc-admin-costs-table {
+  min-width: 860px;
+}
+.lc-admin-costs-table th:nth-child(3),
+.lc-admin-costs-table td:nth-child(3) {
+  min-width: 130px;
+}
+.lc-admin-costs-table th:nth-child(6),
+.lc-admin-costs-table td:nth-child(6) {
+  min-width: 180px;
+}
+
+/* Custo por pote: .lc-field-input nasce width:100% (pensado para formulário
+   de coluna única); dentro de uma célula de tabela um campo largo assim é só
+   espaço vazio — 120px já sobra para "1.234,56". */
+.lc-field-input.lc-admin-cost-input {
+  width: 120px;
+  min-width: 100px;
+  padding: 9px 11px;
+}
+
+/* Nota interna por linha: .lc-field-textarea nasce com min-height:84px
+   (pensado para o formulário de UMA fórmula, com espaço de sobra); em 28
+   linhas de uma vez isso vira uma tela enorme de rolar. Duas linhas visíveis
+   bastam para uma nota curta — quem precisar escrever mais sempre pode abrir
+   a edição individual pelo link "Editar" da própria linha. */
+.lc-field-textarea.lc-admin-cost-notes {
+  width: 100%;
+  min-width: 160px;
+  max-width: 240px;
+  min-height: 44px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+/* Linha com alteração ainda não salva — mesmo tom de lima já usado nos selos
+   "ativo" do arquivo, bem mais fraco (é o fundo inteiro da linha, não um selo
+   pontual). A segunda regra (com :hover explícito) garante que o tingimento
+   de "alterado" continua visível mesmo com o mouse em cima da linha, em vez
+   de ser encoberto pelo cinza de .lc-admin-table tr:hover td. */
+.lc-admin-table tr.lc-admin-row-dirty td {
+  background: rgba(166, 225, 0, 0.09);
+}
+.lc-admin-table tr.lc-admin-row-dirty:hover td {
+  background: rgba(166, 225, 0, 0.14);
+}
+
+/* Margem por linha (R$ e %) — mesmo par de cores usado nas badges "ativo" /
+   "recusado" do arquivo: --lime-ink (claro) / --lime (escuro) para lucro, o
+   vermelho já descrito acima para prejuízo. Texto simples, não selo cheio:
+   são até 28 linhas juntas, um selo por linha pesaria demais na leitura. */
+.lc-admin-table td.lc-admin-margin--positiva {
+  color: var(--lime-ink);
+}
+.lc-admin-table td.lc-admin-margin--negativa {
+  color: #b31f2e;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-table td.lc-admin-margin--positiva {
+    color: var(--lime);
+  }
+  .lc-admin-table td.lc-admin-margin--negativa {
+    color: #fca5a5;
+  }
+}
+
+/* ==========================================================================
+   PACOTE TÉCNICO E ASSINATURA DA FICHA (embalagem/logística + aprovação do RT)
+   ========================================================================== */
+
+/* Nota curta abaixo do título de um grupo do formulário, explicando PARA QUE
+   serve aquele bloco. Nasceu com os dois grupos de embalagem, onde a diferença
+   entre "unidade de venda" e "caixa de despacho" precisa ficar dita, não
+   adivinhada — quem confunde ali grava peso de pote como peso de caixa.
+   Reaproveitável por qualquer fieldset .lc-admin-form-section. */
+.lc-admin-section-note {
+  margin: -4px 0 14px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 78ch;
+}
+
+/* ---------- assinatura da ficha, no admin ---------- */
+.lc-admin-approvals {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Aviso de que aprovação não se edita nem se apaga. Tratamento de INFORMAÇÃO
+   FORTE, não de erro: é a regra do recurso, não um problema — por isso o verde
+   da casa (mesmo par de cor do selo de conformidade em .lc-dossie-compliance),
+   nunca o vermelho de .lc-dossie-warning, que aqui assustaria sem motivo. */
+.lc-admin-approvals-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(111, 163, 0, 0.32);
+  border-radius: var(--radius-md);
+  background: rgba(111, 163, 0, 0.08);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.lc-admin-approvals-warning b {
+  color: var(--text-on-card);
+}
+.lc-admin-approvals-warning svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--lime-deep);
+}
+
+.lc-admin-approvals-title {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  .lc-admin-approvals-warning {
+    background: rgba(166, 225, 0, 0.1);
+    border-color: rgba(166, 225, 0, 0.35);
+  }
+  .lc-admin-approvals-warning svg {
+    color: var(--lime);
+  }
+}
+
+/* ---------- assinatura da ficha, no dossiê público ---------- */
+/* Herda .lc-dossie-compliance inteiro (fundo e borda verdes, ícone lima, dt em
+   --ink-soft para o contraste continuar acima de 4,5:1 sobre o fundo tingido —
+   ver o comentário daquela regra). Aqui só o espaçamento da lista de
+   aprovações anteriores, que a seção de conformidade não tem. */
+.lc-dossie-signature .lc-dossie-legal-note {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+.lc-dossie-signature .lc-dossie-legal-list {
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   PRODUTO EM DESTAQUE + lista densa do catálogo no admin
+   (formulas.featured_at, migration 20260916143000)
+
+   Duas telas, uma regra visual só: "vidro no cromo, sólido no conteúdo". Nada
+   aqui usa backdrop-filter — selo de destaque, miniatura, chip de pendência e
+   botão de alternância são todos CONTEÚDO, e conteúdo é sempre superfície
+   sólida. O vidro continua onde sempre esteve: barra de topo e navegação.
+
+   Contraste: cada par cor/fundo abaixo foi MEDIDO (fórmula WCAG 2.x de
+   luminância relativa) sobre a cor real do fundo em que o elemento vive, nos
+   dois temas. Os números estão anotados em cada regra.
+   ========================================================================== */
+
+/* ---------- selo "Destaque" no card do catálogo público ---------- */
+/* Mesma receita dos outros selos do projeto (fundo tingido + texto da variante
+   escura do mesmo tom), aqui na cor da marca.
+   Claro:  #152400 sobre rgba(166,225,0,0.18) achatado no card #ffffff
+           (= rgb(239,250,209)) -> 14,7:1.
+   Escuro: #a6e100 sobre rgba(166,225,0,0.16) achatado no card #1b1d22
+           (= rgb(49,60,29))    ->  7,5:1.
+   Os dois com folga larga sobre os 4,5:1 de texto normal. */
+.lc-featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: rgba(166, 225, 0, 0.18);
+  color: var(--lime-ink);
+}
+.lc-featured-badge .lc-icon {
+  flex: none;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-featured-badge {
+    background: rgba(166, 225, 0, 0.16);
+    color: var(--lime);
+  }
+}
+
+/* ---------- aviso de destaque em excesso (/admin/catalogo) ---------- */
+/* Avisa, não impede (ordem do dono). Reaproveita a moldura tingida de lima já
+   usada em .lc-admin-approvals-warning; o texto usa --ink, que o tema já troca
+   sozinho (claro #14161b, escuro #f1f2f5) e mede acima de 15:1 nos dois. */
+.lc-admin-aviso-destaques {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(111, 163, 0, 0.35);
+  border-radius: var(--radius-md);
+  background: rgba(166, 225, 0, 0.09);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.lc-admin-aviso-destaques svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--lime-deep);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-aviso-destaques svg {
+    color: var(--lime);
+  }
+}
+
+/* ---------- lista do catálogo: densidade e hierarquia ---------- */
+/* Seis colunas (produto, pendências, preço, destaque, situação, ação) precisam
+   de mais fôlego que os 640px genéricos de .lc-admin-table. O contêiner
+   .lc-admin-table-wrap já tem overflow-x:auto: em 390px quem rola é a TABELA,
+   dentro da própria moldura — a página nunca rola de lado. */
+.lc-admin-table.lc-admin-catalog-table {
+  min-width: 780px;
+}
+.lc-admin-catalog-table th:first-child,
+.lc-admin-catalog-table td:first-child {
+  min-width: 260px;
+}
+
+/* A célula do produto é a única com peso visual alto da linha: foto para achar
+   pelo olho, nome grande (o dado principal) e, abaixo, a linha de apoio com
+   segmento, linha e formato. Antes eram quatro colunas do mesmo tamanho e a
+   varredura da lista não tinha onde pousar. */
+.lc-admin-produto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.lc-admin-produto-thumb {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--card-border);
+  background: var(--table-bg);
+  object-fit: contain;
+}
+.lc-admin-produto-thumb--vazia {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+}
+.lc-admin-produto-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+/* 14,5px e peso 800 contra os 13px do resto da tabela: é o nome que manda. */
+.lc-admin-produto-nome {
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-on-card);
+  text-decoration: none;
+}
+.lc-admin-produto-nome:hover {
+  text-decoration: underline;
+}
+/* --ink-soft (#565b66), e NÃO --text-muted: sobre o branco da linha o muted
+   mede 4,84:1 e passa, mas a linha em :hover escurece para rgb(240,240,240) e
+   ali o mesmo cinza cai para 4,25:1 — reprova AA justamente quando o ponteiro
+   está em cima. --ink-soft mede 6,85:1 parado e 6,01:1 no hover. */
+.lc-admin-produto-meta {
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* ---------- pendências por linha ---------- */
+/* Os mesmos cinco itens que o painel de visão geral conta — aqui produto a
+   produto, que é onde cada um se resolve. Chip é texto de verdade, nunca uma
+   bolinha colorida: quem não distingue a cor lê "Sem foto" do mesmo jeito.
+   Claro:  #8a4b00 sobre rgba(180,83,9,0.10) achatado no branco
+           (= rgb(248,238,230)) -> 7,4:1.
+   Escuro: #fcd9a5 sobre rgba(253,186,116,0.14) achatado em #1b1d22
+           (= rgb(59,52,44))    -> 9,4:1. */
+.lc-admin-pend-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 260px;
+}
+.lc-admin-pend-chip {
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 10.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  background: rgba(180, 83, 9, 0.1);
+  color: #8a4b00;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-pend-chip {
+    background: rgba(253, 186, 116, 0.14);
+    color: #fcd9a5;
+  }
+}
+
+/* ---------- botão de destaque (FeaturedToggle) ---------- */
+/* Alvo de toque: 44px de altura real, medido no navegador — nada de área
+   invisível maior que o desenho. É por isso que a linha da tabela ficou mais
+   alta, e é uma troca deliberada: um botão de 22px numa lista de 27 produtos
+   erra o alvo no celular.
+   Estado NUNCA é só cor: a estrela é sólida quando é destaque e vazada quando
+   não é, e o botão anuncia aria-pressed. A cor é reforço, não o recado.
+   Não destacado — claro:  --ink-soft #565b66 sobre #ffffff -> 6,85:1
+                  escuro: --ink-soft #b7bcc6 sobre #1b1d22 -> 8,88:1
+   Destacado    — claro:  --lime-ink #152400 sobre rgb(239,250,209) -> 14,7:1
+                  escuro: --lime #a6e100 sobre rgb(49,60,29)        ->  7,5:1 */
+.lc-admin-featured-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--ink-soft);
+  background: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.lc-admin-featured-btn:hover:not(:disabled) {
+  border-color: rgba(111, 163, 0, 0.45);
+}
+.lc-admin-featured-btn.is-featured {
+  background: rgba(166, 225, 0, 0.18);
+  border-color: rgba(111, 163, 0, 0.4);
+  color: var(--lime-ink);
+}
+.lc-admin-featured-btn:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+@media (prefers-color-scheme: dark) {
+  .lc-admin-featured-btn.is-featured {
+    background: rgba(166, 225, 0, 0.16);
+    color: var(--lime);
+  }
+}
+/* prefers-reduced-motion já zera transições globalmente no topo do arquivo
+   (regra `*`), então não há transição a desligar aqui de novo. */
+
+/* Situação (ActiveToggle) e ação da linha acompanham os mesmos 44px, para os
+   três controles da linha terem o mesmo alvo — e o mesmo alinhamento. O selo
+   continua com a aparência compacta de sempre nas outras telas do admin: este
+   aumento vale só dentro da tabela do catálogo. */
+.lc-admin-catalog-table .lc-admin-badge {
+  min-height: 44px;
+  padding: 0 12px;
+  justify-content: center;
+}
+.lc-admin-row-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text-on-card);
+}
+.lc-admin-row-action:hover {
+  border-color: rgba(111, 163, 0, 0.45);
+  text-decoration: underline;
+}
+
+/* ===========================================================================
+   MARCO REGULATÓRIO — declaração institucional e normas (13/09/2026)
+   ===========================================================================
+   Usado no dossiê (.lc-regulatory-*) e na página /documentacao (.lc-doc-*).
+
+   Contraste: nada aqui inventa cor. Tudo sai dos tokens que já existem no
+   :root e já têm par no bloco @media (prefers-color-scheme: dark), então os
+   dois temas ficam cobertos de uma vez. As medidas, no tema claro sobre
+   --card-bg #ffffff e no escuro sobre --card-bg #1b1d22:
+
+     --text-on-card   16,1:1 (claro) / 15,1:1 (escuro)  — texto principal
+     --ink-soft        6,8:1 (claro) /  8,9:1 (escuro)  — texto de apoio
+     --text-muted      4,8:1 (claro) /  6,4:1 (escuro)  — nota discreta
+
+   Todos passam o mínimo AA de 4,5:1 para texto normal. --lime-deep fica em
+   3,0:1 no tema claro, ou seja, só serve para borda, ícone e texto grande —
+   por isso nunca é cor de texto corrido aqui, só de barra lateral e de foco. */
+
+/* ---------- bloco do dossiê ---------- */
+.lc-regulatory-claims {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.lc-regulatory-claims li {
+  padding: 14px 16px;
+  background: var(--paper-soft);
+  border-left: 3px solid var(--lime-deep);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.lc-regulatory-claims b {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-regulatory-claims span {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+/* A fronteira entre "a fábrica trabalha assim" e "este produto foi conferido".
+   Não é letra miúda de propósito: precisa ser lida. */
+.lc-regulatory-boundary {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border: 1px dashed var(--card-border);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+/* Vira cartão, como o da home. Ordem do dono em 14/09/2026: "todos os botões em
+   destaque, não só alguns". Antes era só uma linha de texto com um filete em
+   cima e o triângulo nativo — dentro do dossiê, que já é uma página densa de
+   tabelas, ela sumia. O estilo do botão vem de .lc-norms-cta, compartilhado
+   pelos três <details> do site (home, dossiê e documentação), para os três não
+   divergirem na próxima alteração. */
+.lc-regulatory-norms {
+  margin-top: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.lc-regulatory-norms-body h3 {
+  margin: 14px 0 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.lc-regulatory-list {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.lc-regulatory-list dt {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-regulatory-list dt span {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.lc-regulatory-list dd {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---------- página /documentacao ---------- */
+.lc-doc-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 96px 20px 64px;
+  display: grid;
+  gap: 28px;
+}
+.lc-doc-hero {
+  padding: 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+}
+.lc-doc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(111, 163, 0, 0.12);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-on-card);
+}
+.lc-doc-hero h1 {
+  margin: 14px 0 0;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-on-card);
+  text-wrap: balance;
+}
+.lc-doc-lead {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-claims {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.lc-doc-claims li {
+  padding: 16px;
+  background: var(--paper-soft);
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--lime-deep);
+}
+.lc-doc-claims h2 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-doc-claims p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-boundary {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border: 1px dashed var(--card-border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-section {
+  padding: 24px 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+}
+.lc-doc-section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-on-card);
+}
+.lc-doc-text {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-note {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+.lc-doc-norm-list {
+  margin: 18px 0 0;
+  display: grid;
+  gap: 14px;
+}
+.lc-doc-norm {
+  padding-top: 14px;
+  border-top: 1px solid var(--card-border);
+}
+.lc-doc-norm dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+.lc-doc-norm-id {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-doc-norm-date {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.lc-doc-norm-status {
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(111, 163, 0, 0.12);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-on-card);
+}
+.lc-doc-norm dd {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-norm-scope {
+  color: var(--text-muted);
+}
+/* Terceiro <details> do site, mesmo tratamento dos outros dois — ver o
+   comentário em .lc-regulatory-norms. */
+.lc-doc-amendments {
+  margin-top: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.lc-doc-amendments summary:focus-visible {
+  outline: 2px solid var(--lime-deep);
+  outline-offset: -4px;
+}
+.lc-doc-amendments-body {
+  padding: 0 18px 16px;
+}
+.lc-doc-amendment-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px;
+}
+.lc-doc-amendment-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+.lc-doc-amendment-list b {
+  color: var(--text-on-card);
+}
+.lc-doc-card {
+  margin-top: 16px;
+  padding: 18px;
+  background: var(--paper-soft);
+  border-left: 3px solid var(--lime-deep);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.lc-doc-card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-on-card);
+}
+.lc-doc-card p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-doc-facts {
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+}
+.lc-doc-facts > div {
+  padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+}
+.lc-doc-facts dt {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.lc-doc-facts dd {
+  margin: 3px 0 0;
+  font-size: 13.5px;
+  color: var(--text-on-card);
+  text-wrap: pretty;
+}
+.lc-doc-source a,
+.lc-doc-facts a {
+  color: var(--text-on-card);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lc-doc-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.lc-doc-back-home {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-on-card);
+}
+@media (max-width: 640px) {
+  .lc-doc-main {
+    padding: 88px 14px 48px;
+    gap: 20px;
+  }
+  .lc-doc-hero,
+  .lc-doc-section {
+    padding: 20px 18px;
+  }
+  .lc-doc-back .lc-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- rodapé do <details> de normas na seção RegulatoryRigor ---------- */
+/* A lista .lc-fab-norms-list já traz o padding lateral de 20px e o inferior de
+   18px; estes parágrafos ficam FORA dela, então precisam do mesmo recuo para
+   alinhar com as normas acima. */
+.lc-fab-norms-note {
+  margin: 0;
+  padding: 12px 20px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+.lc-fab-norms-note:last-child {
+  padding-bottom: 18px;
+}
+.lc-fab-norms-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 800;
+  color: var(--text-on-card);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lc-fab-norms-link:focus-visible {
+  outline: 2px solid var(--lime-deep);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+/* Dentro da seção da página inicial o bloco da fronteira respira mais que no
+   dossiê, onde ele fecha uma seção estreita.
+
+   A cor também muda, e pelo mesmo motivo do bloco "contraste sobre o degradê":
+   este parágrafo tem fundo transparente (só uma borda tracejada), então na home
+   ele ficou direto sobre o degradê quando a página ganhou o fundo vivo. Em
+   --ink-soft ele fecha entre 4,31:1 e 4,48:1 ali — abaixo do mínimo AA de
+   4,5:1. No dossiê a regra base segue valendo, porque lá o fundo é outro. */
+.lc-home-section > .lc-regulatory-boundary {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   / (porta de entrada — apresentação da fábrica). Acrescentado em 13/09/2026,
+   quando a fabricação em marca própria virou a primeira tela do site e as duas
+   páginas antigas (landing institucional em / e /fabricacao) viraram uma só.
+   Ver o porquê completo em app/page.tsx.
+
+   Só o que as classes já existentes não davam. Continua valendo a regra central
+   do topo deste arquivo: vidro só no cromo (a barra reaproveita
+   .lc-topbar/.lc-glass); herói, painel de números, faixas e cartões são
+   CONTEÚDO, e conteúdo é sempre sólido.
+   ========================================================================== */
+
+/* ---------- herói com mais peso ---------- */
+/* A crítica do dono a outra tela deste projeto foi "está muito simples": blocos
+   de peso igual, um atrás do outro. A abertura do site é onde a hierarquia
+   precisa ser mais visível, então aqui o título cresce sobre o tamanho da
+   landing antiga (30/40px) e a caixa fica mais larga, para o título ocupar duas
+   linhas cheias em vez de três curtas. */
+.lc-fab-hero {
+  max-width: 880px;
+  padding: 44px 20px 26px;
+}
+.lc-fab-hero .lc-home-hero-title {
+  font-size: 33px;
+}
+@media (min-width: 680px) {
+  .lc-fab-hero .lc-home-hero-title {
+    font-size: 46px;
+  }
+}
+.lc-fab-hero .lc-home-hero-lead {
+  font-size: 16.5px;
+  max-width: 640px;
+}
+/* O CTA do catálogo é o botão dominante da primeira dobra (ordem do dono: "dela
+   parte pro catálogo"), e o de contato é o secundário. Sem isto os dois teriam
+   a mesma altura e o mesmo ar de importância dentro do .lc-fab-hero-actions. */
+.lc-fab-hero .lc-home-hero-cta {
+  min-height: 52px;
+  font-size: 15px;
+}
+.lc-fab-hero .lc-fab-hero-secondary {
+  min-height: 52px;
+}
+
+/* ---------- painel de números (primeira dobra, conteúdo sólido) ---------- */
+.lc-fab-figures-wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 6px 20px 10px;
+}
+/* As linhas divisórias são o próprio `gap`: o container pinta o fundo e os
+   cartões pintam por cima, então sobra 1px de risco entre eles. Evita borda
+   condicional ("só a partir do segundo", "só quando estão na mesma linha"),
+   que é onde esse tipo de grade costuma quebrar ao mudar de largura. */
+.lc-fab-figures {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--table-border);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 34px rgba(20, 20, 30, 0.12);
+}
+@media (min-width: 560px) {
+  .lc-fab-figures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 940px) {
+  .lc-fab-figures {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.lc-fab-figure {
+  background: var(--card-bg);
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.lc-fab-figure-value {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-on-card);
+  font-variant-numeric: tabular-nums;
+}
+.lc-fab-figure-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+.lc-fab-figure-note {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* ---------- faixas que marcam o ritmo da página ---------- */
+/* Alternam o fundo para separar os blocos sem precisar de mais uma linha nem de
+   mais um título. Contraste medido em 13/09/2026 (WCAG 2.1: texto normal precisa
+   de 4,5:1):
+
+     --text-muted #6b7280 sobre --paper-soft #f1f3f5 = 4,35:1  REPROVA
+     --ink-soft   #565b66 sobre --paper-soft #f1f3f5 = 6,12:1  passa
+     --ink-soft   #b7bcc6 sobre --paper-soft #17191e = 9,23:1  passa (escuro)
+
+   Por isso a linha de apoio dos títulos troca de token DENTRO da faixa. É o
+   único texto que fica direto sobre ela: todo o resto do conteúdo das seções
+   vive dentro de cartão sólido (--card-bg), onde --text-muted dá 4,83:1 no
+   claro e 6,42:1 no escuro. */
+/* A faixa era `--paper-soft` sólido — o cinza que dava o ritmo da página
+   quando o fundo era branco chapado. Desde que a home ganhou o degradê vivo
+   (ver AnimatedBackground em app/page.tsx), um sólido aqui taparia justamente
+   o que se quer mostrar.
+
+   Virou um VÉU translúcido: a faixa continua clareando a área e marcando o
+   ritmo, mas o degradê aparece por baixo. É véu, não vidro — sem
+   `backdrop-filter`. Duas razões: a regra do projeto reserva o vidro para o
+   cromo (barra, chips, abas) e o mantém fora do conteúdo; e um blur nesta
+   área, que ocupa a largura toda e reaparece três vezes numa página de mais
+   de 5.000 px, é exatamente o caso de travamento de rolagem que o próprio
+   projeto já documentou.
+
+   A opacidade alta (0,82) é deliberada e é o que protege a leitura: o texto
+   de apoio destas faixas usa --ink-soft, cujo contraste foi medido contra
+   --paper-soft. A 0,82 sobre o degradê pastel, o fundo efetivo fica a um
+   passo do cinza original, e a margem de contraste se mantém. Baixar esta
+   opacidade sem refazer a conta reprova o texto em AA. */
+.lc-fab-band {
+  background: rgba(241, 243, 245, 0.82);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+@media (prefers-color-scheme: dark) {
+  .lc-fab-band {
+    background: rgba(23, 25, 30, 0.82);
+  }
+}
+/* Sem suporte a transparência declarada pelo usuário, a faixa volta a ser
+   sólida — mesma queda que .lc-glass já faz. */
+@media (prefers-reduced-transparency: reduce) {
+  .lc-fab-band {
+    background: var(--paper-soft);
+  }
+}
+.lc-fab-band .lc-home-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.lc-fab-band .lc-home-section-head p {
+  color: var(--ink-soft);
+}
+
+/* ---------- contraste sobre o degradê ----------
+   Consequência direta de a home ter ganhado o fundo vivo: todo texto que fica
+   DIRETO sobre ele, sem cartão nem véu por baixo, muda de patamar de contraste.
+
+   O projeto já tinha medido isto em outras telas e registrado o número:
+   --text-muted (#6b7280) fecha 4,35:1 sobre o degradê — REPROVA o mínimo AA de
+   4,5:1. Só --ink passa com folga. Enquanto o fundo era branco chapado o
+   --text-muted passava; ele não "piorou", foi o fundo que mudou embaixo dele.
+
+   Dois textos caem nesse caso, e só eles: a linha de apoio do herói (primeira
+   dobra, o texto mais lido da página) e o subtítulo das seções que ficam FORA
+   das faixas. Os subtítulos DENTRO das faixas seguem em --ink-soft, na regra
+   logo acima, porque ali existe o véu de 0,82 por baixo. Todo o resto do
+   conteúdo da home vive dentro de cartão sólido, onde nada muda.
+
+   Implementação: o padrão vira --ink, e a regra da faixa (logo acima, mais
+   específica) devolve --ink-soft a quem está dentro dela. A primeira tentativa
+   aqui usou `:not(.lc-fab-band .lc-home-section)`, com combinador descendente
+   dentro do :not() — o compilador de CSS DESCARTOU a regra inteira, e ela
+   sumiu do bundle sem erro nenhum. Conferido no CSS servido: não estava lá.
+   Por isso o caminho é este, com seletor simples. */
+.lc-fab-hero .lc-home-hero-lead,
+.lc-home-section-head p {
+  color: var(--ink);
+}
+
+/* ---------- ação secundária dentro do cartão de caminho ---------- */
+/* O .lc-btn-ghost tem fundo --paper-soft, que é quase a mesma cor do cartão
+   branco em que ele fica; a borda é o que o faz parecer botão. */
+.lc-fab-path-cta--ghost {
+  border: 1px solid var(--card-border);
+}
+.lc-fab-path-cta--ghost:hover {
+  border-color: rgba(111, 163, 0, 0.45);
+}
+
+/* Assinatura de quem desenvolveu o site, nos três rodapés. Deliberadamente
+   discreta: menor e mais apagada que o copyright da Lemon Caps logo acima -
+   crédito de fornecedor não disputa atenção com a marca do cliente.
+   CORRIGIDO 14/09/2026: o comentário anterior dizia que --text-muted era
+   seguro aqui "porque o rodapé fica sobre superfície sólida, nunca direto
+   sobre o degradê" — a premissa era FALSA para /carrinho, onde o CartView
+   renderiza o AnimatedBackground atrás de tudo, rodapé incluso. Medido ao
+   vivo: 3,25–4,34:1 em /carrinho (reprova o piso de 4,5:1); 12–18:1 nas
+   outras rotas, onde o rodapé de fato pousa sobre superfície sólida. --ink
+   fecha os dois casos com folga (11,15:1 no claro, 7,27:1 no escuro). */
+.lc-footer-credit {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+/* Link do número da norma (RDC/IN) para o texto oficial no AnvisaLegis.
+   Classe compartilhada pelas quatro listas que citam normas (a lista e o
+   histórico de alterações em /documentacao, o dossiê do produto e a seção
+   regulatória da home), para as quatro não divergirem.
+
+   `color` e `text-decoration` precisam ser declarados aqui: o reset do
+   Tailwind zera os dois em <a>, e nenhuma regra ancestral destas listas
+   devolvia o sublinhado - sem isto o link ficaria indistinguivel do texto.
+
+   A cor e --text-on-card, nunca --lime-deep: aquele verde ja reprovou o piso
+   de 4,5:1 em fundo claro tingido, numa auditoria anterior deste mesmo
+   arquivo. Aqui o par fecha ~18:1 no claro e ~15:1 no escuro. O lime-deep
+   aparece so no contorno de foco, onde a exigencia e 3:1. */
+.lc-norm-link {
+  color: var(--text-on-card);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lc-norm-link:focus-visible {
+  outline: 2px solid var(--lime-deep);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- botao de WhatsApp ----------
+   Pedido do dono em 14/09/2026: o botao de WhatsApp usa o verde do WhatsApp, e
+   os outros CTAs ficam com cor diferente, para o canal de contato se distinguir
+   do resto a primeira vista.
+
+   O verde e o #25D366 oficial - mas o TEXTO E QUASE-PRETO, nao branco. Isso e
+   deliberado e medido: branco sobre #25D366 fecha 1,98:1, muito abaixo do
+   minimo de 4,5:1 do WCAG. E a combinacao que o proprio WhatsApp usa nos
+   aplicativos dele, e ela reprova. Com a tinta escura, o MESMO verde sobe para
+   9,38:1 - a cor icone continua reconhecivel e o texto fica legivel para todo
+   mundo. Escurecer o verde ate o branco passar (o teal #128C7E so chega a
+   4,14:1, ainda reprovado; seria preciso descer ao #075E54) custaria o
+   reconhecimento imediato da marca, que e justamente o ponto do pedido.
+
+   A tinta e a mesma --lime-ink ja usada pelo botao primario da marca: os dois
+   CTAs ficam com a mesma familia de texto e se diferenciam pelo fundo, que e o
+   que o dono pediu. Verde-limao (#a6e100) e verde-WhatsApp (#25D366) sao
+   proximos em luminancia, mas muito distantes em matiz - e o icone do WhatsApp
+   no botao e a pista definitiva, nunca so a cor. */
+@media (prefers-color-scheme: dark) {
+  /* No escuro o verde claro se destaca demais; o tom levemente rebaixado
+     mantem o reconhecimento sem brilhar na tela. O texto segue escuro, que
+     contra este verde continua com folga larga. */
+}
+
+/* ---------- cabeçalho da página de Benefícios ----------
+   A foto do pote (ou, sem foto, o ícone do formato sobre o gradiente do
+   segmento) ao lado do título. Empilhada em tela estreita e lado a lado a
+   partir de 680px — mesmo ponto de corte que a barra de ações do dossiê já
+   usa. O motivo de empilhar: o título desta página é "Benefícios de " + nome
+   da fórmula, já longo; dividir a largura com a foto em 320-480px faria ele
+   quebrar em mais linhas do que quebra hoje.
+
+   O ladrilho e de 148px, que nao e numero novo: e a mesma altura da faixa de
+   imagem do cartao da vitrine. Valor reaproveitado de proposito. */
+.lc-beneficios-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+@media (min-width: 680px) {
+  .lc-beneficios-heading {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.lc-beneficios-media {
+  flex: none;
+  align-self: center;
+  width: 148px;
+  height: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--seg-c1), var(--seg-c2));
+}
+.lc-beneficios-media .lc-icon {
+  color: #fff;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+  opacity: 0.92;
+}
+/* So a FOTO transborda o ladrilho, pelo mesmo motivo do cartao da vitrine: a
+   inclinacao no hover sobe a imagem alguns pixels, e com o recorte ligado o
+   topo do pote seria cortado no meio do movimento. */
+.lc-beneficios-media--mockup {
+  overflow: visible;
+}
+/* Sem isto o texto para de quebrar linha corretamente ao lado do ladrilho
+   (itens flex nascem com min-width:auto). */
+.lc-beneficios-heading-text {
+  min-width: 0;
+}
+
+/* =========================================================================
+   ERGONOMIA DE TOQUE — telas de celular e tablet (14/09/2026)
+   =========================================================================
+   Medido ao vivo com Chromium em 375x667, 360x800 e 390x844 antes de escrever
+   uma linha: NENHUMA página rola de lado, e os três elementos que passam da
+   borda são intencionais (a camada decorativa .lc-bg-layer, o carrossel de
+   .lc-chip e o texto .lc-sr-only, que é só para leitor de tela). Ou seja, o
+   layout já era responsivo — o que faltava era tamanho de alvo para o dedo.
+
+   A auditoria encontrou 125 alvos abaixo de 44px na página do catálogo, 28 na
+   documentação, 17 no dossiê. 44px é o mínimo que a diretriz da Apple (HIG) e
+   a do Google (Material) pedem, e é também o critério 2.5.8 do WCAG 2.2 (nível
+   AA, que exige 24px, com 44px recomendado): abaixo disso o toque erra o alvo
+   e acerta o vizinho.
+
+   Tudo aqui vive dentro de (hover: none) and (pointer: coarse) — quem navega
+   com mouse não é afetado, e o desenho da versão desktop fica idêntico ao que
+   já estava aprovado. Onde o elemento é pequeno por decisão visual (ícone
+   redondo, link dentro de frase), a área de toque cresce por padding ou por
+   pseudo-elemento, sem mudar o tamanho aparente.
+   ========================================================================= */
+@media (hover: none) and (pointer: coarse) {
+  /* Botões redondos de ícone: 40 -> 44. */
+  .lc-icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Botões da barra superior (Documentação, Admin): 36 -> 44 de altura. */
+  /* min-width junto da altura: no celular esses botões escondem o rótulo e
+     ficam só com o ícone, então corrigir a altura sozinha deixava 36px de
+     largura — alvo estreito do mesmo jeito. */
+  .lc-admin-btn,
+  .lc-nav-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 16px;
+    justify-content: center;
+  }
+
+  /* Botões de ação em geral. min-height em vez de height: botão com texto de
+     duas linhas continua crescendo em vez de cortar o texto. */
+  .lc-btn {
+    min-height: 44px;
+    padding: 12px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Chips de categoria do catálogo. */
+  .lc-chip {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Campo de busca: o input media 21px de altura, menor que o dedo. */
+  .lc-search input,
+  .lc-search-input,
+  input[type="search"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    min-height: 44px;
+  }
+
+  /* Links que são ação, não texto corrido: voltar, ver mais, marca no topo.
+     Ganham altura própria em vez de depender da altura da linha. */
+  .lc-dossie-back,
+  .lc-voltar-btn,
+  .lc-login-voltar,
+  .lc-comp-more,
+  .lc-brand-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Títulos de card são o alvo mais usado da vitrine: o dedo vai no nome do
+     produto. Ganham altura de toque sem mexer no tamanho da fonte. */
+  .lc-card-title-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Links de norma (RDC/IN) aparecem no meio de frases: crescer a caixa
+     empurraria o texto ao redor. A área de toque cresce por fora, com um
+     pseudo-elemento invisível centrado no link — o texto fica onde está.
+     Conferido por elementFromPoint: um toque 15px acima do texto já acerta
+     o link. A medição por getBoundingClientRect não enxerga isso, porque o
+     retângulo do pseudo-elemento não entra na caixa do elemento. */
+  .lc-norm-link,
+  .lc-doc-norm-id {
+    position: relative;
+  }
+  .lc-norm-link::after,
+  .lc-doc-norm-id::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+
+  /* O carrossel de categorias rola de lado, mas nada na tela diz isso. Uma
+     sombra à direita aparece enquanto houver conteúdo escondido e some ao
+     chegar no fim, presa ao próprio scroll (sem JavaScript). */
+  .lc-chips {
+    scroll-padding-inline: 14px;
+    background:
+      linear-gradient(to right, var(--paper-soft) 30%, rgba(255, 255, 255, 0)) left center / 24px 100% no-repeat,
+      linear-gradient(to left, var(--paper-soft) 30%, rgba(255, 255, 255, 0)) right center / 24px 100% no-repeat;
+    background-attachment: local, local;
+  }
+}
+
+/* Linhas no site (liga/desliga das abas Premium e Econômica) e seletor de
+   linha por produto na lista do Catálogo - admin, pedido do dono 21/10/2026. */
+.lc-admin-linhas {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.28));
+  border-radius: var(--radius-md);
+  background: var(--surface, transparent);
+}
+.lc-admin-linhas-titulo {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+.lc-admin-linhas-ajuda {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.lc-admin-linhas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+.lc-admin-linha-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.28));
+  border-radius: var(--radius-md);
+}
+.lc-admin-linha-card strong {
+  display: block;
+}
+.lc-admin-linha-meta {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.lc-admin-linha-card .lc-admin-badge {
+  min-height: 32px;
+  padding: 3px 14px;
+  border: 0;
+  cursor: pointer;
+}
+.lc-admin-linhas-aviso {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #b31f2e;
+}
+.lc-admin-line-switch {
+  display: inline-flex;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.35));
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.lc-admin-line-switch-btn {
+  min-height: 32px;
+  padding: 3px 12px;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.lc-admin-line-switch-btn.is-active {
+  background: rgba(111, 163, 0, 0.16);
+  color: var(--lime-ink);
+  cursor: default;
+}
+.lc-admin-line-switch-btn:disabled:not(.is-active) {
+  opacity: 0.6;
 }

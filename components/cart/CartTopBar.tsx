@@ -24,10 +24,13 @@ export function CartTopBar() {
           <ArrowLeft size={18} aria-hidden="true" />
           <span>Voltar ao catálogo</span>
         </Link>
-        <div className="lc-brand">
+        {/* Marca clicável = caminho para a página inicial, que desde 13/09/2026
+            é a apresentação da fábrica (ver app/page.tsx). Antes era texto
+            morto: do carrinho só dava para voltar ao catálogo. */}
+        <Link href="/" className="lc-brand lc-brand-link" title="Lemon Caps - página inicial">
           <span className="lc-brand-dot" aria-hidden="true" />
           <span translate="no">Lemon Caps</span>
-        </div>
+        </Link>
       </GlassSurface>
     </header>
   );

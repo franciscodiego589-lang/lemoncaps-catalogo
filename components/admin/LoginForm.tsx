@@ -24,6 +24,14 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const error = state && !state.ok ? state : null;
+  // Erro sem fieldErrors (credenciais inválidas, usuário sem acesso staff) não
+  // aponta pra um campo específico — de propósito, pra não revelar qual dos
+  // dois está errado. Mas os dois campos precisam ficar marcados como
+  // inválidos mesmo assim: sem isso, quem usa leitor de tela ouve o erro
+  // geral (role="alert") mas os campos continuam aria-invalid="false" e sem
+  // aria-describedby (achado da auditoria WCAG 2.2 AA de 14/09/2026).
+  const hasFieldError = Boolean(error?.fieldErrors?.email) || Boolean(error?.fieldErrors?.password);
+  const hasGeneralError = Boolean(error) && !hasFieldError;
 
   useEffect(() => {
     if (!error) return;
@@ -47,9 +55,9 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
           type="email"
           autoComplete="username"
           required
-          className={`lc-field-input${error?.fieldErrors?.email ? " is-invalid" : ""}`}
-          aria-invalid={Boolean(error?.fieldErrors?.email)}
-          aria-describedby={error?.fieldErrors?.email ? "admin-login-email-error" : undefined}
+          className={`lc-field-input${error?.fieldErrors?.email || hasGeneralError ? " is-invalid" : ""}`}
+          aria-invalid={Boolean(error?.fieldErrors?.email) || hasGeneralError}
+          aria-describedby={error?.fieldErrors?.email ? "admin-login-email-error" : hasGeneralError ? "login-error" : undefined}
         />
         {error?.fieldErrors?.email ? (
           <p id="admin-login-email-error" className="lc-field-error" role="alert">
@@ -69,9 +77,9 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
           type="password"
           autoComplete="current-password"
           required
-          className={`lc-field-input${error?.fieldErrors?.password ? " is-invalid" : ""}`}
-          aria-invalid={Boolean(error?.fieldErrors?.password)}
-          aria-describedby={error?.fieldErrors?.password ? "admin-login-password-error" : undefined}
+          className={`lc-field-input${error?.fieldErrors?.password || hasGeneralError ? " is-invalid" : ""}`}
+          aria-invalid={Boolean(error?.fieldErrors?.password) || hasGeneralError}
+          aria-describedby={error?.fieldErrors?.password ? "admin-login-password-error" : hasGeneralError ? "login-error" : undefined}
         />
         {error?.fieldErrors?.password ? (
           <p id="admin-login-password-error" className="lc-field-error" role="alert">
@@ -81,7 +89,7 @@ export function LoginForm({ redirectTo }: LoginFormProps) {
       </div>
 
       {error ? (
-        <p className="lc-field-error" role="alert">
+        <p id="login-error" className="lc-field-error" role="alert">
           {error.error}
         </p>
       ) : null}

@@ -23,9 +23,30 @@ const nullableString = z
   .nullable()
   .transform((v) => (v === null || v === "" ? null : v));
 
+// Mesmo afrouxamento consciente de lib/actions/formulas.ts (ordem do dono,
+// 17/09/2026): vazio não trava o salvamento. ingredients.name é NOT NULL sem
+// default -> vira "PENDENTE". ingredients.slug é NOT NULL + UNIQUE + CHECK de
+// formato (ingredients_slug_format) -> nunca "", nunca um literal fixo (ia
+// colidir no segundo insumo salvo em branco); o sufixo de timestamp resolve os
+// dois problemas de uma vez. Ver o comentário mais extenso em formulas.ts.
+const nameOrPendente = z
+  .string()
+  .trim()
+  .max(200)
+  .transform((v) => (v === "" ? "PENDENTE" : v));
+
+const slugOrRascunho = z.preprocess(
+  (v) => {
+    if (typeof v !== "string") return v;
+    const normalizado = v.trim().toLowerCase();
+    return normalizado === "" ? `rascunho-${Date.now()}` : normalizado;
+  },
+  z.string().max(150).regex(slugRegex, "Use só letras minúsculas, números e hífen."),
+);
+
 const ingredientFieldsShape = {
-  name: z.string().trim().min(1, "Informe o nome.").max(200),
-  slug: z.string().trim().toLowerCase().min(1, "Informe o slug.").max(150).regex(slugRegex, "Use só letras minúsculas, números e hífen."),
+  name: nameOrPendente,
+  slug: slugOrRascunho,
   category: z.enum(["vitamina", "mineral", "aminoacido", "extrato_vegetal", "outro"], { message: "Selecione a categoria." }),
   description: nullableString,
   imagePath: nullableString,

@@ -9,8 +9,14 @@
 -- enum idempotente e o mesmo cuidado de security_invoker/grants ja usados no
 -- restante do projeto.
 --
--- ESCRITA MAS NAO APLICADA: por pedido explicito do dono, esta migration fica
--- só no arquivo nesta tarefa - quem aplica ao banco é o dono, quando decidir.
+-- JA APLICADA AO BANCO. Conferido no banco vivo em 13/09/2026: public.quotes
+-- responde com as colunas status e internal_note, e os orcamentos 1, 2 e 5
+-- ja estao com status 'aberto'. O cabecalho anterior dizia "ESCRITA MAS NAO
+-- APLICADA" e ficou para tras depois que o dono aplicou - e aviso errado e
+-- pior que aviso nenhum, porque convida a rodar de novo o que ja passou.
+-- O corpo abaixo e idempotente (o enum nasce num bloco que engole
+-- duplicate_object), entao reaplicar nao quebraria; ainda assim, o registro
+-- passa a dizer a verdade.
 -- =====================================================================================
 
 

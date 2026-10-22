@@ -5,6 +5,12 @@ import { useRef, useState, type FormEvent } from "react";
 import { toast } from "sonner";
 
 import { CheckboxField, NumberField, SelectField, TextAreaField, TextField } from "@/components/admin/FormFields";
+import {
+  FormulaPackagingFields,
+  packagingFormStateToSpec,
+  toPackagingFormState,
+  type PackagingFormState,
+} from "@/components/admin/FormulaPackagingFields";
 import { PRODUCT_FORMAT_LABELS, PRODUCT_LINE_LABELS, toSelectOptions } from "@/components/admin/enum-labels";
 import { createFormula, updateFormula, type FormulaWritableInput, type FormulaWritablePatch } from "@/lib/actions/formulas";
 import type { AdminFormulaDetailDTO, AdminSegmentDTO } from "@/lib/data/admin";
@@ -15,7 +21,11 @@ interface FormulaFormProps {
   initial?: AdminFormulaDetailDTO;
 }
 
-interface FormState {
+// FormState estende PackagingFormState (os 12 campos de embalagem e logística, com os
+// respectivos conversores, em components/admin/FormulaPackagingFields.tsx) - os campos
+// vivem no mesmo estado e são salvos no mesmo submit, só o pedaço de JSX é que mora em
+// outro arquivo, para este aqui não virar uma parede de inputs.
+interface FormState extends PackagingFormState {
   name: string;
   slug: string;
   segmentId: string;
@@ -25,7 +35,6 @@ interface FormState {
   poteContentsDescription: string;
   netWeight: string;
   description: string;
-  nutritionalInfo: string;
   ingredientsList: string;
   usageInstructions: string;
   benefitsText: string;
@@ -38,10 +47,12 @@ interface FormState {
   minimumOrderPotes: number | "";
   sortOrder: number | "";
   active: boolean;
+  technicalSheetVersion: number | "";
 }
 
 function toFormState(formula?: AdminFormulaDetailDTO): FormState {
   return {
+    ...toPackagingFormState(formula),
     name: formula?.name ?? "",
     slug: formula?.slug ?? "",
     segmentId: formula?.segmentId ?? "",
@@ -51,7 +62,6 @@ function toFormState(formula?: AdminFormulaDetailDTO): FormState {
     poteContentsDescription: formula?.poteContentsDescription ?? "",
     netWeight: formula?.netWeight ?? "",
     description: formula?.description ?? "",
-    nutritionalInfo: formula?.nutritionalInfo ?? "",
     ingredientsList: formula?.ingredientsList ?? "",
     usageInstructions: formula?.usageInstructions ?? "",
     benefitsText: (formula?.benefits ?? []).join("\n"),
@@ -64,6 +74,8 @@ function toFormState(formula?: AdminFormulaDetailDTO): FormState {
     minimumOrderPotes: formula?.minimumOrderPotes ?? 100,
     sortOrder: formula?.sortOrder ?? 0,
     active: formula?.active ?? false,
+    // Ficha nova começa na versão 1 - é também o default da coluna no banco.
+    technicalSheetVersion: formula?.technicalSheetVersion ?? 1,
   };
 }
 
@@ -74,6 +86,7 @@ const nullIfEmpty = (value: string): string | null => (value.trim() === "" ? nul
 // null, e a lista de benefícios (uma linha por item) vira array.
 function toWritableInput(state: FormState): FormulaWritableInput {
   return {
+    ...packagingFormStateToSpec(state),
     name: state.name.trim(),
     slug: state.slug.trim(),
     segmentId: state.segmentId,
@@ -83,7 +96,15 @@ function toWritableInput(state: FormState): FormulaWritableInput {
     poteContentsDescription: nullIfEmpty(state.poteContentsDescription),
     netWeight: nullIfEmpty(state.netWeight),
     description: state.description.trim(),
-    nutritionalInfo: nullIfEmpty(state.nutritionalInfo),
+    // Não é mais editável aqui - vira DERIVADO da tabela estruturada
+    // (NutritionTableEditor.tsx grava o texto via a Server Action própria,
+    // updateNutritionTable, a cada vez que a tabela é salva). Enviar null
+    // neste formulário garante duas coisas: fórmula nova nasce sem texto
+    // solto (só a tabela estruturada define isto daqui em diante), e
+    // diffInput (abaixo) nunca inclui nutritionalInfo no patch de uma
+    // fórmula existente (o valor "atual" calculado por toWritableInput
+    // também é sempre null - nunca há mudança a diffar).
+    nutritionalInfo: null,
     ingredientsList: nullIfEmpty(state.ingredientsList),
     usageInstructions: nullIfEmpty(state.usageInstructions),
     benefits: state.benefitsText
@@ -96,9 +117,16 @@ function toWritableInput(state: FormState): FormulaWritableInput {
     storageInstructions: nullIfEmpty(state.storageInstructions),
     technicalSheetTitle: nullIfEmpty(state.technicalSheetTitle),
     listPriceCents: state.priceText.trim() === "" ? null : brlStringToCents(state.priceText),
-    minimumOrderPotes: state.minimumOrderPotes === "" ? 0 : state.minimumOrderPotes,
+    // Vazio volta para 100 (o DEFAULT da coluna no banco), nunca para 0: a
+    // Server Action exige minimumOrderPotes >= 1 (CHECK minimum_order_potes >
+    // 0) - mandar 0 aqui só trocaria a trava "campo vazio" por uma mensagem de
+    // erro do servidor, o que não desbloqueia nada (ordem do dono, 17/09/2026).
+    minimumOrderPotes: state.minimumOrderPotes === "" ? 100 : state.minimumOrderPotes,
     sortOrder: state.sortOrder === "" ? 0 : state.sortOrder,
     active: state.active,
+    // Campo apagado no formulário volta para 1 (o mínimo aceito pelo banco), nunca
+    // para 0 - versão de ficha começa em 1 e a constraint recusaria zero.
+    technicalSheetVersion: state.technicalSheetVersion === "" ? 1 : state.technicalSheetVersion,
   };
 }
 
@@ -129,6 +157,15 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
     if (fieldErrors[key as string]) setFieldErrors((prev) => ({ ...prev, [key]: undefined }));
   }
 
+  // Mesma coisa que set(), só que recebendo um pedaço do estado - é o formato que
+  // FormulaPackagingFields usa (ver o comentário do prop onChange lá).
+  function setPatch(patch: Partial<FormState>) {
+    setState((prev) => ({ ...prev, ...patch }));
+    for (const key of Object.keys(patch)) {
+      if (fieldErrors[key]) setFieldErrors((prev) => ({ ...prev, [key]: undefined }));
+    }
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (isPending) return;
@@ -137,25 +174,42 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
     const input = toWritableInput(state);
 
     setPending(true);
-    const result = initial ? await updateFormula(initial.id, diffInput(input, originalInput.current)) : await createFormula(input);
-    setPending(false);
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateFormula/createFormula virava erro não tratado no
+    // cliente e o botão ficava travado em "Salvando…".
+    try {
+      const result = initial ? await updateFormula(initial.id, diffInput(input, originalInput.current)) : await createFormula(input);
 
-    if (!result.ok) {
-      setFieldErrors(result.fieldErrors ?? {});
-      setFormError(result.error);
-      const firstInvalidKey = Object.keys(result.fieldErrors ?? {})[0];
-      if (firstInvalidKey) {
-        const el = document.getElementById(`formula-${firstInvalidKey}`);
-        el?.focus();
-        el?.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (!result.ok) {
+        setFieldErrors(result.fieldErrors ?? {});
+        setFormError(result.error);
+        const firstInvalidKey = Object.keys(result.fieldErrors ?? {})[0];
+        if (firstInvalidKey) {
+          const el = document.getElementById(`formula-${firstInvalidKey}`);
+          el?.focus();
+          el?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        return;
       }
-      return;
-    }
 
-    toast.success(initial ? "Fórmula salva." : "Fórmula criada.");
-    originalInput.current = input;
-    if (!initial) router.push(`/admin/catalogo/${result.data.id}`);
-    else router.refresh();
+      // Aviso não-bloqueante (ex.: EAN-13/DUN-14 com dígito verificador errado): a
+      // fórmula salvou, só o código de barras ficou como PENDENTE - ver
+      // gtinPendingWarning em lib/actions/formulas.ts.
+      if (result.data.warnings) {
+        for (const mensagem of Object.values(result.data.warnings)) {
+          if (mensagem) toast.warning(mensagem);
+        }
+      }
+      toast.success(initial ? "Fórmula salva." : "Fórmula criada.");
+      originalInput.current = input;
+      if (!initial) router.push(`/admin/catalogo/${result.data.id}`);
+      else router.refresh();
+    } catch (caught) {
+      console.error("[FormulaForm] falha ao salvar fórmula:", caught);
+      toast.error("Não foi possível salvar a fórmula agora. Tente novamente.");
+    } finally {
+      setPending(false);
+    }
   }
 
   return (
@@ -163,15 +217,17 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
       <fieldset className="lc-admin-form-section">
         <h2>Identificação</h2>
         <div className="lc-admin-form-grid">
-          <TextField id="formula-name" label="Nome" value={state.name} onChange={(v) => set("name", v)} error={fieldErrors.name} required />
+          {/* Não é mais "required": vazio grava como PENDENTE (ordem do dono, 17/09/2026 - ver lib/actions/formulas.ts). */}
+          <TextField id="formula-name" label="Nome" value={state.name} onChange={(v) => set("name", v)} error={fieldErrors.name} />
           <TextField
             id="formula-slug"
             label="Slug (URL)"
             value={state.slug}
             onChange={(v) => set("slug", v)}
             error={fieldErrors.slug}
-            hint="Só letras minúsculas, números e hífen. Ex.: multivitaminico-adulto."
-            required
+            // Não é mais "required": vazio gera um slug de rascunho automático
+            // (ordem do dono, 17/09/2026 - ver lib/actions/formulas.ts).
+            hint="Só letras minúsculas, números e hífen. Ex.: multivitaminico-adulto. Em branco, um slug de rascunho é gerado sozinho."
           />
           <SelectField
             id="formula-segmentId"
@@ -216,7 +272,7 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
             label="Ativo (visível no catálogo público)"
             checked={state.active}
             onChange={(v) => set("active", v)}
-            hint="Só pode ficar ativo com preço por pote definido."
+            hint="Fora da linha Econômica, só pode ficar ativo com preço por pote definido. A Econômica pode ir ao ar sem preço (aparece como Preço sob consulta)."
           />
         </div>
       </fieldset>
@@ -235,7 +291,12 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
           <TextField id="formula-netWeight" label="Peso líquido" value={state.netWeight} onChange={(v) => set("netWeight", v)} error={fieldErrors.netWeight} />
           <TextField
             id="formula-technicalSheetTitle"
-            label="Título da ficha técnica"
+            // "Dossiê técnico" e não "ficha técnica": é o nome que o catálogo
+            // usa em toda parte visível (título da página, botão do card, capa
+            // dos dois PDFs). O campo do banco continua sendo
+            // technical_sheet_title — quem edita aqui precisa reconhecer o que
+            // está preenchendo pelo nome que verá no site.
+            label="Título do dossiê técnico"
             value={state.technicalSheetTitle}
             onChange={(v) => set("technicalSheetTitle", v)}
             error={fieldErrors.technicalSheetTitle}
@@ -248,14 +309,10 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
         <h2>Conteúdo</h2>
         <div className="lc-admin-form-grid">
           <TextAreaField id="formula-description" label="Descrição" value={state.description} onChange={(v) => set("description", v)} error={fieldErrors.description} full />
-          <TextAreaField
-            id="formula-nutritionalInfo"
-            label="Informação nutricional"
-            value={state.nutritionalInfo}
-            onChange={(v) => set("nutritionalInfo", v)}
-            error={fieldErrors.nutritionalInfo}
-            full
-          />
+          <p className="lc-admin-section-note lc-field--full">
+            A informação nutricional agora tem editor próprio, estruturado por linha, mais abaixo nesta página (&quot;Informação nutricional&quot;) -
+            o texto de rótulo é gerado a partir dali, não é mais digitado aqui.
+          </p>
           <TextAreaField
             id="formula-ingredientsList"
             label="Declaração de ingredientes"
@@ -317,6 +374,31 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
         </div>
       </fieldset>
 
+      {/* Pacote técnico: dado LOGÍSTICO (código de barras, peso, dimensão,
+          quantidade por caixa). Fica separado do bloco regulatório logo abaixo de
+          propósito - são naturezas diferentes e normalmente não é a mesma pessoa
+          que preenche as duas. */}
+      <FormulaPackagingFields state={state} fieldErrors={fieldErrors} onChange={setPatch} />
+
+      <fieldset className="lc-admin-form-section">
+        <h2>Ficha técnica e responsabilidade</h2>
+        <p className="lc-admin-section-note">
+          Dado REGULATÓRIO. A versão da ficha é o que a assinatura do responsável técnico carimba: só suba o número
+          quando a mudança for grande a ponto de exigir nova aprovação — um ajuste de preço não é ficha nova. Depois de
+          subir a versão, registre a nova aprovação no bloco “Assinatura da ficha técnica”, no fim desta página.
+        </p>
+        <div className="lc-admin-form-grid">
+          <NumberField
+            id="formula-technicalSheetVersion"
+            label="Versão da ficha técnica"
+            value={state.technicalSheetVersion}
+            onChange={(v) => set("technicalSheetVersion", v)}
+            error={fieldErrors.technicalSheetVersion}
+            min={1}
+          />
+        </div>
+      </fieldset>
+
       <fieldset className="lc-admin-form-section">
         <h2>Comercial</h2>
         <div className="lc-admin-form-grid">
@@ -335,7 +417,7 @@ export function FormulaForm({ segments, initial }: FormulaFormProps) {
             onChange={(v) => set("minimumOrderPotes", v)}
             error={fieldErrors.minimumOrderPotes}
             min={1}
-            required
+            hint="Em branco volta para 100 (o padrão)."
           />
           <NumberField
             id="formula-sortOrder"

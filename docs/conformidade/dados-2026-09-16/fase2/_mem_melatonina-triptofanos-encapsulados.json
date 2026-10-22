@@ -1,0 +1,141 @@
+{
+ "documento": "/Users/diegofrancisco/Downloads/dossie-tecnico-melatonina-triptofanos-encapsulados (1).pdf",
+ "revisao": "Documento gerado (jsPDF), sem número de revisão — 2ª versão encontrada (3 páginas, emitida 13/09/2026 00:37); existe uma 1ª versão de 12/09/2026 22:22 (1 página, mesmos números de composição, sem o texto do marco regulatório) tratada como rascunho anterior do mesmo gerador, não como documento conflitante.",
+ "data": "13/09/2026 (metadado creationDate do PDF)",
+ "procedencia": "/Users/diegofrancisco/Downloads/dossie-tecnico-melatonina-triptofanos-encapsulados (1).pdf",
+ "porcao": "1 g (2 cápsulas) · 30 porções por embalagem",
+ "formato": "cápsula",
+ "capsula": {
+  "tamanho": null,
+  "massa_mg": null
+ },
+ "insumos": [
+  {
+   "nome_no_memorial": "L-triptofano",
+   "forma_quimica": "L-triptofano",
+   "massa_mg": 572.38,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 572.38,
+   "ativo_recalculado_mg": 572.38,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO do dossiê técnico gerado (sem laudo/lote — número provavelmente extraído do banco de dados do catálogo, não de um memorial de cálculo). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Ácido L-aspártico",
+   "forma_quimica": "Ácido L-aspártico",
+   "massa_mg": 150.0,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 150.0,
+   "ativo_recalculado_mg": 150.0,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal, sem laudo/lote). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "L-glutamina",
+   "forma_quimica": "L-glutamina",
+   "massa_mg": 94.77,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 94.77,
+   "ativo_recalculado_mg": 94.77,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal, sem laudo/lote). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Fosfatidilserina",
+   "forma_quimica": "Fosfatidilserina",
+   "massa_mg": 70.0,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 70.0,
+   "ativo_recalculado_mg": 70.0,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal, sem laudo/lote). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Magnésio (bisglicinato de magnésio)",
+   "forma_quimica": "Magnésio (bisglicinato de magnésio)",
+   "massa_mg": 63.0,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 63.0,
+   "ativo_recalculado_mg": 63.0,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal — mesma dose-alvo de magnésio elementar usada no Nuviart e no Serena, mas sem massa de SAL informada aqui, só o valor de magnésio elementar; não dá para conferir a massa do bisglicinato pesado). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Zinco (bisglicinato de zinco)",
+   "forma_quimica": "Zinco (bisglicinato de zinco)",
+   "massa_mg": 29.59,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 29.59,
+   "ativo_recalculado_mg": 29.59,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal — mesmo valor-teto de zinco usado no Bio Princess/Biotina em Cápsula). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Dióxido de silício (INS 551)",
+   "forma_quimica": "Dióxido de silício (INS 551)",
+   "massa_mg": 20.01,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": null,
+   "ativo_recalculado_mg": null,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO. Antiumectante — tratado aqui como insumo porque é o único documento (sem separação insumo/excipiente). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Melatonina",
+   "forma_quimica": "Melatonina",
+   "massa_mg": 0.21,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 0.21,
+   "ativo_recalculado_mg": 0.21,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal — mesmo valor-teto de melatonina usado no Serena, 0,21mg = teto ANVISA). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  },
+  {
+   "nome_no_memorial": "Biotina (D-biotina)",
+   "forma_quimica": "Biotina (D-biotina)",
+   "massa_mg": 0.045,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 45.0,
+   "ativo_recalculado_mg": 45.0,
+   "conta_fecha": null,
+   "fornecedor": null,
+   "lote": null,
+   "observacao": "LIDO (nominal, \"45 mcg\" = 0,045mg — mesmo valor usado no Bio Princess/Biotina em Cápsula). [conta_fecha no original: \"NÃO LEGÍVEL / SEM DADO NO LAUDO\"]"
+  }
+ ],
+ "excipientes": [],
+ "massa_total_mg": 1000.005,
+ "soma_fecha": true,
+ "observacoes": [
+  "NÃO HÁ MEMORIAL DE CÁLCULO nem laudo/lote para nenhum insumo — o único documento diretamente associado ao nome/segmento/preço do produto do catálogo é um \"dossiê técnico\" gerado (produtor de PDF: jsPDF, sem assinatura, sem código de documento), com números que aparentam vir do banco de dados do catálogo, não de uma pesagem de laboratório. Todos os \"ativo_mg\" são a massa nominal declarada, não uma entrega recalculada — conta_fecha não pode ser verdadeiramente verificado para nenhum insumo.",
+  "TRÊS FORMULAÇÕES INCOMPATÍVEIS PARA \"MELATONINA + TRIPTOFANO\": (1) o dossiê técnico do catálogo (cápsula, 572,38mg de L-triptofano + 6 outros ativos); (2) a ficha CAPLEEV (goma, 860mg de L-triptofano, SEM os outros ativos); (3) a Ordem de Produção OP nº586 para a \"Exclusiva Nutri Ltda.\" (cápsula, 800mg de triptofano + só melatonina, SEM os outros 6 ativos). As três descrevem produtos de nome muito parecido mas NENHUMA delas é claramente \"a\" fórmula do produto do catálogo Lemoncaps — (2) é de outro cliente/marca (Capleev) e outro formato (goma); (3) é de outro cliente (Exclusiva Nutri) e uma fórmula muito mais simples. Isto é registrado como achado, sem escolher uma das três como \"a certa\" além da que mais se aproxima do nome/preço/segmento do catálogo (o dossiê técnico).",
+  "Soma dos 9 itens do dossiê técnico = 999,995mg aproximadamente 1.000mg da porção declarada — fecha em massa nominal, mas isso não confirma teor real de nenhum ativo (sem laudo).",
+  "CONFERÊNCIA DE FECHAMENTO DE MASSA (feita nesta consolidação): Soma de TODOS os insumos+excipientes = 1000.005 mg; porção declarada ≈ 1000.0 mg; diferença +0.00 mg. Nenhum item ficou sem massa extraída.",
+  "Fontes secundárias conferidas: /Users/diegofrancisco/Downloads/FICHA TÉCNICA MELATONINA + TRIPTOFANO CAPLEEV.docx (ficha técnica de OUTRO produto/cliente: goma/gummy \"CAPLEEV\", 6g/2 gomas, Melatonina 0,21mg + L-triptofano 860mg — dose de triptofano 50% MAIOR que a do dossiê acima, mas é formato GOMA, não cápsula; documento é majoritariamente uma especificação gráfica de rótulo, elaborado por Diego Francisco em 20/03/2026, com o campo \"DISTRIBUIDO POR CNPJ E DADOS ?\" deixado como pergunta/placeholder não preenchido) | /Users/diegofrancisco/Downloads/Ordem_de_Producao_Melatonina_Triptofano_OP_586_layout_corrigido.pdf (Ordem de Produção OP nº586, produto \"Melatonina + Triptofano\" em cápsula, mas para o CLIENTE \"Exclusiva Nutri Ltda.\" — fórmula muito mais simples: só Triptofano 800mg + Melatonina 0,21mg + SiO2 76,92mg + amido de milho 122,86mg = 1.000mg/porção, SEM ácido aspártico, L-glutamina, fosfatidilserina, magnésio, zinco ou biotina)"
+ ]
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Lock, ShoppingCart } from "lucide-react";
+import { Lock, ScrollText, ShoppingCart } from "lucide-react";
 
 import { GlassSurface } from "@/components/glass/GlassSurface";
 import { useCartStore } from "@/lib/store/cart";
@@ -18,11 +18,43 @@ export function GlassTopBar({ searchValue, onSearchChange }: GlassTopBarProps) {
   return (
     <header className="lc-topbar">
       <GlassSurface className="lc-topbar-inner">
-        <div className="lc-brand">
+        {/* A marca é o caminho de volta para a página inicial — que desde
+            13/09/2026 É a apresentação da fábrica (ver app/page.tsx).
+            Até essa data havia aqui um botão "Fabricação" apontando para
+            /fabricacao; com a fabricação virando a raiz, ele e a marca
+            passariam a levar ao mesmo endereço. Dois itens de menu para o mesmo
+            lugar confundem, então ficou o padrão que todo site usa: o
+            logotipo leva ao início. Ordem do dono, 13/09/2026. */}
+        <Link href="/" className="lc-brand lc-brand-link" title="Lemon Caps - página inicial">
           <span className="lc-brand-dot" aria-hidden="true" />
           <span translate="no">Lemon Caps</span>
-        </div>
+        </Link>
         <SearchBar value={searchValue} onChange={onSearchChange} />
+        {/* Documentação regulatória (pedido do dono, 13/09/2026: "coloca um
+            botão de documentação, por exemplo, de todas as normas que seguimos
+            da ANVISA e vigilância sanitária"). Leva a /documentacao.
+
+            Reaproveita .lc-nav-btn, que tinha ficado sem uso quando o botão
+            "Fabricação" saiu desta barra e que já está calibrado para
+            exatamente este papel: mesma pílula translúcida do Admin, mesmas
+            regras de `order`, o `margin-left: auto` do bloco da direita (o
+            Admin abre mão dele pela regra `.lc-nav-btn ~ .lc-admin-btn`) e o
+            alvo de toque de 44px.
+
+            aria-label explícito, e não só o `title`: no celular o <span> sai
+            do layout com display:none, o que também o tira do nome acessível —
+            o link viraria um ícone sem nome para leitor de tela. O rótulo aqui
+            CONTÉM a palavra visível "Documentação", como exige o critério WCAG
+            2.5.3 (Label in Name). */}
+        <Link
+          href="/documentacao"
+          className="lc-admin-btn lc-nav-btn"
+          aria-label="Documentação regulatória"
+          title="Documentação regulatória"
+        >
+          <ScrollText size={15} aria-hidden="true" />
+          <span>Documentação</span>
+        </Link>
         {/* Acesso à área administrativa, discreto e no canto (pedido do dono:
             "pode ficar na mesma página do catálogo em um canto como botão").
             Fica aqui e não numa página externa porque, sem nenhum caminho

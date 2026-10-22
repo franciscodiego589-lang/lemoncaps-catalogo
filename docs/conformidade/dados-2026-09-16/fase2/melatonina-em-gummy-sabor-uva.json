@@ -1,0 +1,285 @@
+{
+ "slug": "melatonina-em-gummy-sabor-uva",
+ "porcao_mg": 6000,
+ "porcao_descricao": "6 g (2 gomas de 3,00 g) — 30 porções (60 gomas, 180 g); a ficha \"Suelen\" da versão só-melatonina traz 7,0 g (2 gomas), 210 g",
+ "formato": "gummy",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Triptofano — L-Triptofano (CAS 73-22-3)",
+   "forma_insumo": "L-triptofano",
+   "massa_insumo_mg": 750.75,
+   "teor_pct": 99.9,
+   "teor_fonte": "laudo lote 950388 (Analitic/INLAB, val. 03/10/2026 — vence em 17 dias; 6 ensaios, sem perfil de impurezas)",
+   "ativo_mg": 750.0,
+   "unidade_ativo": "mg",
+   "conta": "750,75 mg × 99,9 % = 750,0 mg",
+   "minimo": 42,
+   "maximo": 860,
+   "pct_do_maximo": 87.21,
+   "linha_anexo": "I·Triptofano·L-Triptofano; III·Triptofano (42 mg); IV·Triptofano (860 mg)",
+   "laudo": {
+    "lote": "950388",
+    "validade": "03/10/2026",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "800 mg = 93 % do teto; 750 mg = 87,2 % (memorial rev02 já sugeria 750 mg). Existe versão do produto SEM triptofano (ver memorial) — decisão do dono"
+  },
+  {
+   "constituinte_anexo_i": "Melatonina — Melatonina (CAS 73-31-4, IN 102/2021)",
+   "forma_insumo": "Melatonina",
+   "massa_insumo_mg": 0.1812,
+   "teor_pct": 99.33,
+   "teor_fonte": "laudo lote 950151 (Analitic/INLAB): 99,5 % base seca × (1 − 0,17 % umidade) = 99,33 % — LAUDO VENCIDO em 09/12/2024 (último teor conhecido; todos os 5 laudos de melatonina em disco estão vencidos) — pedir laudo novo",
+   "ativo_mg": 0.18,
+   "unidade_ativo": "mg",
+   "conta": "0,1812 mg × 99,33 % = 0,180 mg",
+   "minimo": null,
+   "maximo": 0.21,
+   "pct_do_maximo": 85.71,
+   "linha_anexo": "I·Melatonina; III·Melatonina (NE); IV·Melatonina (0,21 mg)",
+   "laudo": {
+    "lote": "950151",
+    "validade": "09/12/2024",
+    "vencido": true
+   },
+   "status": "dose ajustada",
+   "motivo": "0,21 mg cravava o teto de segurança; 0,18 mg = 85,7 % do teto (memorial sugeria 0,19 mg = 90,5 %, acima da regra de 90 %)"
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Sorbitol líquido 70 %",
+   "ins": "420",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE (memorial: \"matriz de goma q.s.p. 5.198,99 mg\")"
+  },
+  {
+   "nome": "Maltitol",
+   "ins": "965",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 106330 válido (99,70 %)"
+  },
+  {
+   "nome": "Gelatina",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; espécie animal não declarada (lote 214196)"
+  },
+  {
+   "nome": "Água purificada",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Glicerina vegetal",
+   "ins": "422",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Maltodextrina",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 210170 VENCIDO 26/07/2026"
+  },
+  {
+   "nome": "Pectina cítrica",
+   "ins": "440",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Goma acácia",
+   "ins": "414",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 105226 pH fora de spec"
+  },
+  {
+   "nome": "Ácido cítrico",
+   "ins": "330",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Aroma de uva",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; sem laudo citado"
+  },
+  {
+   "nome": "Citrato de sódio",
+   "ins": "331",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 6ST2401047 válido"
+  },
+  {
+   "nome": "Sorbato de potássio",
+   "ins": "202",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; grau PA em uso — trocar por grau alimentício"
+  },
+  {
+   "nome": "Sucralose",
+   "ins": "955",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Corante vermelho 40",
+   "ins": "129",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; SEM laudo no dossiê"
+  },
+  {
+   "nome": "Corante azul brilhante FCF",
+   "ins": "133",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; SEM laudo no dossiê"
+  },
+  {
+   "nome": "Matriz de goma — soma (q.s.p.)",
+   "ins": null,
+   "massa_mg": 5249.07,
+   "observacao": "6.000,00 − 750,93 mg de ativos = 5.249,07 mg"
+  }
+ ],
+ "soma_porcao_mg": 6000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "porcao_coluna": "6 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "PENDENTE",
+    "unidade": "kcal",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "memorial sem massa dos excipientes; rótulo/memorial: 11 kcal = 46 kJ (não recalculável)"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 4,5 g"
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "maltodextrina na base — fração de mono/dissacarídeos não quantificada"
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Polióis totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "rótulo/memorial: 3,4 g"
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 0,8 g (gelatina; massa não disponível)"
+   },
+   {
+    "item": "L-triptofano",
+    "quantidade": "750",
+    "quantidade_num": 750.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "aminoácido específico, 1º nível sob Proteínas (Anexo XI); sem VDR"
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "pectina/goma acácia; massas não disponíveis"
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "PENDENTE",
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 8 mg"
+   },
+   {
+    "item": "Melatonina",
+    "quantidade": "0,18",
+    "quantidade_num": 0.18,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "substância bioativa; sem VDR → %VD em branco"
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: IN 75/2020 Anexo III (0,180 mg → \"0,18\"). Ordem: Anexo XI."
+ },
+ "ingredients_list": "Sorbitol líquido, maltitol, gelatina, L-triptofano, água purificada, glicerina vegetal, maltodextrina, pectina cítrica, goma acácia, ácido cítrico (INS 330), aroma de uva, citrato de sódio (INS 331), conservador sorbato de potássio (INS 202), edulcorante sucralose (INS 955), corante vermelho 40 (INS 129), corante azul brilhante FCF (INS 133) e melatonina. Não contém glúten [ensaio MGW RG 005706/03/2026, < 10 ppm, lote G20/1550]. [Alergênicos: \"Contém: peixe\" se a gelatina for de peixe — espécie PENDENTE]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes, crianças e pessoas envolvidas em atividades que requerem atenção constante. Pessoas com enfermidades e/ou sob o uso de medicamentos, consulte seu médico.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nO consumo excessivo pode ter efeito laxativo (contém polióis). [base legal a confirmar pelo RT]\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "Decisão do dono: o pote em produção leva L-triptofano (versão A — \"Dream Gummy\", arte DreamGummy.pdf e cadastro atual) ou é só melatonina (versão B — \"Melatonina em Gummy\", ficha Suelen de 28/08/2026 e Relatório de Rótulos)? O SQL grava a versão A; a versão B está no memorial.",
+  "Laudo NOVO de melatonina: todos os cinco laudos em disco estão vencidos (950151 desde 09/12/2024; Lepuge AUTO040242/AUTO039807 desde 27/05/2026; Gamma 11038 desde 2022).",
+  "Laudo do L-triptofano lote 950388 vence em 03/10/2026 e tem só 6 ensaios (sem identificação nem perfil de impurezas) — exigir certificado completo; confirmar no painel da ANVISA se a especificação de fabricante (Kyowa Hakko, citada pelo memorial) vale para \"L-Triptofano\" (CAS 73-22-3) ou só para \"L-triptofano de glicose de milho\" — no texto literal do Anexo I o L-Triptofano não traz nota de fabricante.",
+  "Massas dos excipientes da matriz (memorial só traz o q.s.p.) — sem elas, energia, carboidratos, polióis, proteínas, fibras e sódio ficam PENDENTES.",
+  "Corantes vermelho 40 e azul brilhante FCF sem laudo no dossiê; goma acácia com pH fora de spec; sorbato PA; maltodextrina vencida; gelatina sem espécie.",
+  "target_audience e storage_instructions estão vazios no banco — o SQL não os preenche (fora do escopo pedido); propor \"Adultos (19 anos ou mais)\" e a conservação padrão.",
+  "Frases \"preferencialmente antes de dormir\"/\"rotina noturna\" no rótulo podem ser lidas como alegação implícita (memorial) — RT confere."
+ ],
+ "veredito": "CONFORME CONDICIONADO A (laudo novo de melatonina; laudo completo/novo de L-triptofano; decisão versão A/B)",
+ "_procedencia": {
+  "memorial": "MEM-CALC-DREAMGUMMY-rev02 (13/08/2026)",
+  "rotulo": "composicoes_rotulo.json/dreamgummy (DreamGummy.pdf)"
+ }
+}

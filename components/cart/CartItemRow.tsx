@@ -5,7 +5,7 @@ import { Trash } from "lucide-react";
 import { toast } from "sonner";
 
 import { centsToBRL } from "@/lib/money";
-import { useCartStore, type CartItem } from "@/lib/store/cart";
+import { PRICE_ON_REQUEST_LABEL, useCartStore, type CartItem } from "@/lib/store/cart";
 
 const QUANTITY_STEP = 50;
 
@@ -25,7 +25,7 @@ export function CartItemRow({ item }: CartItemRowProps) {
   const [draft, setDraft] = useState(item.quantityPotes);
 
   const isBelowMinimum = draft < item.minimumOrderPotes;
-  const previewSubtotalCents = Math.max(draft, 0) * item.unitPriceCents;
+  const previewSubtotalCents = item.unitPriceCents === null ? null : Math.max(draft, 0) * item.unitPriceCents;
 
   // Aplica o mesmo piso que lib/store/cart.ts (clampQuantity, função interna,
   // não exportada) já impõe no estado global — replicado aqui para corrigir o
@@ -65,7 +65,8 @@ export function CartItemRow({ item }: CartItemRowProps) {
       <div className="lc-cart-item-info">
         <div className="lc-cart-item-name">{item.name}</div>
         <div className="lc-cart-item-unit">
-          {centsToBRL(item.unitPriceCents)} / pote · Pedido mínimo: {item.minimumOrderPotes} potes
+          {item.unitPriceCents === null ? PRICE_ON_REQUEST_LABEL : `${centsToBRL(item.unitPriceCents)} / pote`} ·
+          Pedido mínimo: {item.minimumOrderPotes} potes
         </div>
       </div>
 
@@ -105,7 +106,9 @@ export function CartItemRow({ item }: CartItemRowProps) {
         </button>
       </div>
 
-      <div className="lc-cart-item-subtotal">{centsToBRL(previewSubtotalCents)}</div>
+      <div className="lc-cart-item-subtotal">
+        {previewSubtotalCents === null ? "Sob consulta" : centsToBRL(previewSubtotalCents)}
+      </div>
 
       <button type="button" className="lc-cart-item-remove" onClick={handleRemove}>
         <Trash size={15} aria-hidden="true" />

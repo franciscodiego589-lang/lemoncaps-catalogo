@@ -5,6 +5,7 @@ import { useState, useSyncExternalStore } from "react";
 import { AnimatedBackground } from "@/components/catalog/AnimatedBackground";
 import { DEFAULT_BACKGROUND } from "@/lib/catalog/segment-visuals";
 import { cartTotalCents, useCartStore } from "@/lib/store/cart";
+import { clearQuoteSnapshot, rememberQuoteSuccess, restoreQuoteSuccessFromUrl } from "@/lib/cart/quote-snapshot";
 import type { QuoteSuccessData } from "@/lib/cart/types";
 import { CartEmptyState } from "./CartEmptyState";
 import { CartItemRow } from "./CartItemRow";
@@ -13,8 +14,7 @@ import { CartSummary } from "./CartSummary";
 import { CartTopBar } from "./CartTopBar";
 import { CustomerForm } from "./CustomerForm";
 import { QuoteSuccess } from "./QuoteSuccess";
-
-type CartPhase = "cart" | "success";
+import { DeveloperCredit } from "@/components/common/DeveloperCredit";
 
 function subscribeNoop() {
   return () => {};
@@ -39,39 +39,68 @@ function useHasMounted(): boolean {
 // (useCartStore, zustand/persist) — não existe durante a renderização no
 // servidor, então esta tela nunca pode mostrar o carrinho de verdade antes de
 // montar no navegador: até lá, um esqueleto igual nos dois lados (ver
-// CartSkeleton), para nunca divergir na hidratação. `phase` decide entre o
-// carrinho normal e a tela de sucesso pós-orçamento; ao entrar em "success" o
-// carrinho é esvaziado (o pedido já foi registrado no banco), mas o retrato
-// dos itens/valores usados naquele orçamento continua disponível via
-// successData, para "Copiar pedido"/"Baixar PDF"/"Falar no WhatsApp".
+// CartSkeleton), para nunca divergir na hidratação. `successData` decide entre
+// o carrinho normal e a tela de sucesso pós-orçamento: quando ele existe, o
+// pedido já foi registrado no banco e o carrinho foi esvaziado, mas o retrato
+// dos itens/valores continua disponível para "Copiar orçamento" e "Baixar PDF".
+// (O botão "Falar no WhatsApp" existiu aqui até 14/09/2026, quando o dono tirou
+// os botões de WhatsApp do site: quem chega ao catálogo já falou com o comercial.)
+//
+// O retrato NÃO vive só aqui: `rememberQuoteSuccess` o guarda no
+// sessionStorage e marca `?orcamento=<numero>` na URL, e o estado abaixo nasce
+// de `restoreQuoteSuccessFromUrl`, que remonta a tela no F5. Antes da
+// auditoria de 13/09/2026 tudo isso morava só no useState — recarregar a
+// página na tela de sucesso jogava o cliente num carrinho vazio, sem o número
+// do orçamento e sem os três botões. O porquê inteiro e o que foi decidido
+// sobre nome/WhatsApp guardados no navegador estão em lib/cart/quote-snapshot.ts.
 export function CartView() {
   const hasMounted = useHasMounted();
 
   const items = useCartStore((state) => state.items);
   const clear = useCartStore((state) => state.clear);
 
-  const [phase, setPhase] = useState<CartPhase>("cart");
-  const [successData, setSuccessData] = useState<QuoteSuccessData | null>(null);
+  // Inicialização preguiçosa (a função é chamada uma vez, no primeiro render):
+  // no servidor devolve null, porque não há URL nem sessionStorage; no
+  // navegador é o que ressuscita a tela de sucesso depois do F5. Nada é
+  // pintado a partir daqui antes de `hasMounted` virar true, então isto não
+  // pode divergir na hidratação.
+  const [successData, setSuccessData] = useState<QuoteSuccessData | null>(restoreQuoteSuccessFromUrl);
 
   function handleQuoteSuccess(data: QuoteSuccessData) {
-    setSuccessData(data);
+    // Guardar ANTES de trocar de tela: se o navegador recarregar entre uma
+    // coisa e outra, o retrato já está salvo e a tela volta sozinha.
+    rememberQuoteSuccess(data);
     clear();
-    setPhase("success");
+    setSuccessData(data);
   }
 
+  // Saída deliberada da tela de sucesso: o retrato (que carrega nome e
+  // WhatsApp do cliente) some do navegador na hora, sem esperar o prazo de
+  // validade. Só o armazenamento é limpo — o estado do React morre junto com
+  // a navegação, e zerá-lo aqui só faria a tela piscar no caminho.
+  function handleLeaveSuccess() {
+    clearQuoteSnapshot();
+  }
+
+  const isShowingSuccess = hasMounted && successData !== null;
   const totalPotes = items.reduce((sum, item) => sum + item.quantityPotes, 0);
   const totalCents = cartTotalCents(items);
 
   return (
     <>
-      {phase !== "success" && <AnimatedBackground colors={DEFAULT_BACKGROUND} />}
+      {/* `hasMounted &&` no meio da condição não é enfeite: no primeiro render
+          do cliente (ainda hidratando) ele é false, então o fundo animado
+          aparece exatamente como apareceu no HTML do servidor. Sem isso, um F5
+          com orçamento guardado tiraria o fundo já no primeiro render e a
+          hidratação divergiria. */}
+      {!isShowingSuccess && <AnimatedBackground colors={DEFAULT_BACKGROUND} />}
       <CartTopBar />
 
-      <main>
+      <main id="main-content">
         {!hasMounted ? (
           <CartSkeleton />
-        ) : phase === "success" && successData ? (
-          <QuoteSuccess data={successData} />
+        ) : successData ? (
+          <QuoteSuccess data={successData} onLeave={handleLeaveSuccess} />
         ) : (
           <>
             <div className="lc-page-head">
@@ -114,8 +143,17 @@ export function CartView() {
         )}
       </main>
 
+      {/* `Lemon&nbsp;Caps`: espaço não separável para a marca nunca quebrar em
+          duas linhas no rodapé (achado da auditoria de 13/09/2026 — em tela
+          estreita "Lemon" ficava numa linha e "Caps" na seguinte). O
+          `translate="no"` já existente segue o mesmo princípio: nome próprio
+          não se traduz nem se parte. */}
       <footer className="lc-footer">
-        © 2026 <span translate="no">Lemon Caps</span> - Indústria de Suplementos e Nutracêuticos
+        <p>
+          © 2026 <span translate="no">Lemon&nbsp;Caps</span> - Indústria de Suplementos e
+          Nutracêuticos
+        </p>
+        <DeveloperCredit />
       </footer>
     </>
   );

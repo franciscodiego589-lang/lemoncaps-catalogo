@@ -1,0 +1,282 @@
+{
+ "slug": "creatina-monohidratada-150g-soluvel",
+ "nome": "Creatina Monoidratada 150 g Solúvel",
+ "grupo_trabalho": "G3",
+ "porcao_mg": 4000.0,
+ "porcao_descricao": "4 g (1 dosador nivelado — validar gravimetricamente) — cerca de 38 porções em 150 g",
+ "formato": "pó (solúvel)",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "grupos_vd": [
+  "adultos_19_anos_ou_mais"
+ ],
+ "porcoes_por_embalagem": "Cerca de 38",
+ "porcao_tabela": "4 g (1 dosador)",
+ "veredito": "CONFORME (com folga) — condicionado à validação gravimétrica do dosador",
+ "pendencias": [
+  "Decisão do RT sobre a base do limite de creatina: leitura A (massa de creatina monoidratada, praticada pelo memorial e pela auditoria de 15/09) ou leitura B (creatina anidra, descontando a perda por dessecação de 11,5 % do laudo). A dose de 4.000 mg fica conforme e com folga nas duas.",
+  "Validação gravimétrica do dosador: o certificado do dosador (Part Number 3.41.001.548) é de 8 mL de volume, não de massa; pela densidade aparente do laudo (491–737 g/L) 8 mL pesam 3,9–5,9 g. Definir o dosador/nível que entrega 4,0 g e registrar o ensaio.",
+  "Nova arte de rótulo (porção 4 g; porções por embalagem conforme IN 75 Anexo VI).",
+  "Glúten: Lei 10.674/2003 obriga a frase; não há ensaio deste produto — só grafar \"Não contém glúten\" com laudo (ou declaração formal do RT)."
+ ],
+ "alternativas": [],
+ "mudancas": [],
+ "removidos": [],
+ "cabe": true,
+ "insumos": [
+  {
+   "chave": "creatina",
+   "status": "dose ajustada",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Creatina",
+   "forma_anexo_i": "Creatina monohidratada",
+   "forma_insumo": "Creatina monoidratada (pó)",
+   "classe": "outro",
+   "ingredient_slug": "creatina-monoidratada",
+   "massa_insumo_mg": 4000.0,
+   "teor_laudo_pct": 100.5,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 100.5,
+   "fator_conversao": null,
+   "teor_fonte": "laudo lote interno 26A05-B023-217949 / fabricante 20250913 (SM/Fagron; teor 100,5 % base seca; perda por dessecação 11,5 %; creatinina 95 ppm; val. 22/09/2028)",
+   "conta": "leitura A: 4,000 mg × 100.5 % = 4.020,0 mg (80.4 % do teto; 134 % do mínimo) · leitura B (creatina anidra): 4,000 × (1 − 0.115) × 1.005 = 3.557,7 mg (71.2 % do teto; 118.6 % do mínimo)",
+   "ativo_mg": 4020.0,
+   "ativo": 4020.0,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": 3000.0,
+   "maximo": 5000.0,
+   "unidade_limite": null,
+   "pct_do_maximo": 80.4,
+   "linha_anexo": "I·Creatina·Creatina monohidratada; III·Creatina (3.000 mg); IV·Creatina (5.000 mg, IN 373/2025)",
+   "laudo": {
+    "lote": "217949 (26A05-B023-217949)",
+    "validade": "22/09/2028",
+    "vencido": false
+   },
+   "motivo": "5.000 mg cravava o teto: com o teor do laudo (100,5 %) a entrega calculada é 5.025 mg > 5.000 mg (leitura A). 4.000 mg dá folga nas duas leituras e tolera ±10 % de variação do dosador volumétrico sem sair da faixa 3.000–5.000 mg",
+   "tab": "Creatina",
+   "ordem": 401,
+   "vit": null
+  }
+ ],
+ "excipientes": [],
+ "soma_insumos_mg": 4000.0,
+ "soma_excipientes_mg": 0,
+ "soma_porcao_mg": 4000.0,
+ "energia_modelo": {
+  "kcal_decl": 0.0,
+  "fixos": 0.0,
+  "partes_fixas": [],
+  "tot": 0.0,
+  "incluidos": [],
+  "excluidos": [
+   "creatina"
+  ]
+ },
+ "tabela": {
+  "porcoes_por_embalagem": "Cerca de 38",
+  "porcao": "4 g (1 dosador)",
+  "grupos": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": 0.0,
+    "unidade": "kcal",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": "creatina não tem fator no Anexo XXII da IN 75 → 0 kcal; ≤ 4 kcal declara-se 0 (Anexo IV)",
+    "pendente": false,
+    "provisorio": false,
+    "kj": 0.0,
+    "kcal_exato": 0.0
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 2,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": "creatina não é proteína (por formulação); Kjeldahl no produto leria o nitrogênio da creatina — critério do RT",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "quantidade": 0.0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Creatina",
+    "quantidade": 4000.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "massa nominal de creatina monoidratada (lote 217949: teor 100,5 % b.s.; leitura A/B é decisão do RT)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: Anexo III da IN 75/2020 (paráfrase do gabarito de 16/09/2026). %VD: Anexo VIII da IN 75/2020 para o grupo do rótulo (macronutrientes: Anexo II), calculado sobre a quantidade declarada. Quantidade não significativa (Anexo IV): %VD 0. Sem VDR: célula em branco (RDC 429/2020, art. 12, §1º). Energia: fatores do Anexo XXII da IN 75 (kcal/g); kJ = kcal × 4,184."
+ },
+ "ingredients_list": "Creatina monoidratada. [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado]",
+ "warnings_memorial": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "advertencias_anexo_vi": [
+  [
+   "Creatina",
+   "Este produto não deve ser consumido por gestantes, lactantes e crianças."
+  ]
+ ],
+ "warnings": [
+  "Este produto não é um medicamento.",
+  "Não exceder a recomendação diária de consumo indicada na embalagem.",
+  "Mantenha fora do alcance de crianças.",
+  "Público indicado: adultos (19 anos ou mais).",
+  "Ingerir 1 dosador (4 g) diluído em água, 1 vez ao dia.",
+  "Este produto não deve ser consumido por gestantes, lactantes e crianças.",
+  "Conservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+ ],
+ "metadata_extra": {
+  "_procedencia": {
+   "memorial": "MEM-CALC-CREATINAPO-rev02 (13/08/2026, apresentação 150 g)",
+   "rotulo": "composicoes_rotulo.json/creatina_po_150g",
+   "laudo": "01_laudo_creatina-monoidratada_lote-217949.pdf"
+  }
+ },
+ "composicao": [
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "sort_order": 0,
+   "ingredient_name": "Creatina monohidratada",
+   "quantity": 4000.0,
+   "unit": "mg",
+   "ingredient_slug": "creatina-monoidratada",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "constituinte",
+    "constituinte": "Creatina",
+    "forma_anexo_i": "Creatina monohidratada",
+    "forma_insumo": "Creatina monoidratada (pó)",
+    "massa_insumo_mg": 4000.0,
+    "teor_laudo_pct": 100.5,
+    "potencia_ui_por_g": null,
+    "fator_conversao": null,
+    "teor_efetivo_pct": 100.5,
+    "teor_fonte": "laudo lote interno 26A05-B023-217949 / fabricante 20250913 (SM/Fagron; teor 100,5 % base seca; perda por dessecação 11,5 %; creatinina 95 ppm; val. 22/09/2028)",
+    "conta": "leitura A: 4,000 mg × 100.5 % = 4.020,0 mg (80.4 % do teto; 134 % do mínimo) · leitura B (creatina anidra): 4,000 × (1 − 0.115) × 1.005 = 3.557,7 mg (71.2 % do teto; 118.6 % do mínimo)",
+    "ativo": 4020.0,
+    "unidade_ativo": "mg",
+    "ativo_mg": 4020.0,
+    "minimo": 3000.0,
+    "maximo": 5000.0,
+    "unidade_limite": "mg",
+    "pct_do_maximo": 80.4,
+    "linha_anexo": "I·Creatina·Creatina monohidratada; III·Creatina (3.000 mg); IV·Creatina (5.000 mg, IN 373/2025)",
+    "laudo_lote": "217949 (26A05-B023-217949)",
+    "laudo_validade": "22/09/2028",
+    "laudo_vencido": false,
+    "status": "dose ajustada",
+    "e_sal": false,
+    "elemento_equivalente": null
+   }
+  }
+ ],
+ "nutritional_info_texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: Cerca de 38\nPorção: 4 g (1 dosador)\nQuantidade por porção | %VD*\nValor energético 0 kcal = 0 kJ | 0%\nCarboidratos 0 g | 0%\n  Açúcares totais 0 g | \n    Açúcares adicionados 0 g | 0%\nProteínas 0 g | 0%\nGorduras totais 0 g | 0%\n  Gorduras saturadas 0 g | 0%\n  Gorduras trans 0 g | 0%\nFibras alimentares 0 g | 0%\nSódio 0 mg | 0%\nCreatina 4.000 mg | \n*Percentual de valores diários fornecidos pela porção",
+ "warnings_texto": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos (19 anos ou mais).\nIngerir 1 dosador (4 g) diluído em água, 1 vez ao dia.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+}

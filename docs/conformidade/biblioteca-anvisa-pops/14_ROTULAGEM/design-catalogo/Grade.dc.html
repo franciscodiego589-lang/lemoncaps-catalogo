@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #fbfdf5;
+      font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", ui-sans-serif, system-ui, sans-serif; }
+    a { color: #252d00; } a:hover { color: #181e00; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .chip { font-size: 12px; font-weight: 500; padding: 7px 13px; border-radius: 999px; border: 1px solid #e3e6de; background: #fff; color: #60674d; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .chip-on { background: #252d00; border-color: #252d00; color: #f0ffac; }
+    .mini { width: 300px; background: #fff; border: 1px solid #e3e6de; border-radius: 16px; overflow: hidden; }
+  </style>
+</helmet>
+
+<div style="padding: 30px; display: flex; flex-direction: column; gap: 22px;">
+
+  <div style="display: flex; flex-direction: column; gap: 5px;">
+    <h1 style="margin: 0; font-size: 26px; font-weight: 600; color: #1e2500; letter-spacing: -.02em;">Catálogo de Fórmulas</h1>
+    <span style="font-size: 13px; color: #60674d;">20 produtos · 122 insumos conferidos contra o painel da ANVISA</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+    <div style="background: #fff; border: 1px solid #e3e6de; border-radius: 12px; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px;">
+      <span class="mono" style="font-size: 27px; font-weight: 500; color: #4d7c0f; line-height: 1;">17</span>
+      <span style="font-size: 11.5px; color: #60674d;">conformes</span>
+    </div>
+    <div style="background: #fff; border: 1px solid #e3e6de; border-radius: 12px; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px;">
+      <span class="mono" style="font-size: 27px; font-weight: 500; color: #a16207; line-height: 1;">2</span>
+      <span style="font-size: 11.5px; color: #60674d;">com ponto de atenção</span>
+    </div>
+    <div style="background: #fff; border: 1px solid #f6c9cc; border-radius: 12px; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px;">
+      <span class="mono" style="font-size: 27px; font-weight: 500; color: #e62b34; line-height: 1;">1</span>
+      <span style="font-size: 11.5px; color: #8a3239;">bloqueado</span>
+    </div>
+    <div style="background: #fff; border: 1px solid #e3e6de; border-radius: 12px; padding: 15px 17px; display: flex; flex-direction: column; gap: 5px;">
+      <span class="mono" style="font-size: 27px; font-weight: 500; color: #1e2500; line-height: 1;">32</span>
+      <span style="font-size: 11.5px; color: #60674d;">constituintes no teto exato</span>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 9px; flex-wrap: wrap;">
+    <div class="chip chip-on">Todos <span class="mono" style="opacity: .7;">20</span></div>
+    <div class="chip"><span style="width: 7px; height: 7px; border-radius: 999px; background: #4d7c0f;"></span> Conformes <span class="mono" style="color: #60674d;">17</span></div>
+    <div class="chip"><span style="width: 7px; height: 7px; border-radius: 999px; background: #a16207;"></span> Atenção <span class="mono" style="color: #60674d;">2</span></div>
+    <div class="chip"><span style="width: 7px; height: 7px; border-radius: 999px; background: #e62b34;"></span> Bloqueados <span class="mono" style="color: #60674d;">1</span></div>
+    <div style="width: 1px; height: 22px; background: #e3e6de;"></div>
+    <div class="chip">Cápsula</div>
+    <div class="chip">Pó</div>
+    <div class="chip">Gotas</div>
+    <div class="chip">Goma</div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;">
+
+    <div class="mini" style="border-color: #f6c9cc;">
+      <div style="height: 4px; background: #252d00;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #fdeced; color: #e62b34; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Bloqueado</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">6 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">ZMA</h3>
+        <div style="font-size: 11.5px; color: #8a3239; line-height: 1.4;">Boro 6,4&times; acima do teto e fonte não autorizada</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Beleza e bem-estar</span>
+          <span style="font-size: 11px; color: #252d00; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div style="height: 4px; background: #4d7c0f;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #eef7e0; color: #4d7c0f; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Conforme</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">5 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">Bella Gummy</h3>
+        <div style="font-size: 11.5px; color: #60674d; line-height: 1.4;">30 alegações autorizadas disponíveis</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Beleza e bem-estar</span>
+          <span style="font-size: 11px; color: #4d7c0f; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div style="height: 4px; background: #4d7c0f;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #fbf3e0; color: #a16207; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Atenção</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">7 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">Saúde Intestinal</h3>
+        <div style="font-size: 11.5px; color: #a16207; line-height: 1.4;">5 constituintes no teto exato, sem margem</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Sistema digestivo</span>
+          <span style="font-size: 11px; color: #4d7c0f; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div style="height: 4px; background: #4d7c0f;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #eef7e0; color: #4d7c0f; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Conforme</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">3 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">Shot + Colágeno</h3>
+        <div style="font-size: 11.5px; color: #60674d; line-height: 1.4;">Colágeno no mínimo de 8,4 g — nome sustentado</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Beleza e bem-estar</span>
+          <span style="font-size: 11px; color: #4d7c0f; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div style="height: 4px; background: #a16207;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #fbf3e0; color: #a16207; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Atenção</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">6 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">Slim Up</h3>
+        <div style="font-size: 11.5px; color: #a16207; line-height: 1.4;">Cúrcuma a 41,6% do mínimo — sem alegação</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Emagrecimento</span>
+          <span style="font-size: 11px; color: #a16207; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div style="height: 4px; background: #e62b34;"></div>
+      <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="background: #eef7e0; color: #4d7c0f; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px;">Conforme</span>
+          <span class="mono" style="font-size: 10.5px; color: #60674d;">8 insumos</span>
+        </div>
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: #1e2500;">Pro Energy</h3>
+        <div style="font-size: 11.5px; color: #60674d; line-height: 1.4;">Cafeína somada das duas fontes: 150 mg de 200</div>
+        <div style="height: 1px; background: #e3e6de;"></div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 11px; color: #60674d;">Energia e disposição</span>
+          <span style="font-size: 11px; color: #e62b34; font-weight: 600;">Dossiê ›</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1060,"height":760}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

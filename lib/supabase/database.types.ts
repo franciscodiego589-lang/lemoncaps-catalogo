@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      catalog_lines: {
+        Row: {
+          enabled: boolean
+          line: Database["public"]["Enums"]["product_line"]
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          enabled?: boolean
+          line: Database["public"]["Enums"]["product_line"]
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          enabled?: boolean
+          line?: Database["public"]["Enums"]["product_line"]
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       audit_logs: {
         Row: {
           action: string
@@ -184,10 +205,82 @@ export type Database = {
           },
         ]
       }
+      formula_sheet_approvals: {
+        Row: {
+          active: boolean
+          approved_at: string
+          approved_by_license: string
+          approved_by_name: string
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          deleted_by: string | null
+          formula_id: string
+          id: string
+          metadata: Json
+          notes: string | null
+          reason_deleted: string | null
+          sheet_version: number
+          updated_at: string
+          updated_by: string | null
+          version: number
+        }
+        Insert: {
+          active?: boolean
+          approved_at?: string
+          approved_by_license: string
+          approved_by_name: string
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          formula_id: string
+          id?: string
+          metadata?: Json
+          notes?: string | null
+          reason_deleted?: string | null
+          sheet_version: number
+          updated_at?: string
+          updated_by?: string | null
+          version?: number
+        }
+        Update: {
+          active?: boolean
+          approved_at?: string
+          approved_by_license?: string
+          approved_by_name?: string
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          formula_id?: string
+          id?: string
+          metadata?: Json
+          notes?: string | null
+          reason_deleted?: string | null
+          sheet_version?: number
+          updated_at?: string
+          updated_by?: string | null
+          version?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "formula_sheet_approvals_formula_id_fkey"
+            columns: ["formula_id"]
+            isOneToOne: false
+            referencedRelation: "formulas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       formulas: {
         Row: {
           active: boolean
           benefits: string[]
+          box_depth_mm: number | null
+          box_gross_weight_g: number | null
+          box_height_mm: number | null
+          box_width_mm: number | null
           capsule_count: number | null
           compliance_norms: string[] | null
           compliance_source: string | null
@@ -197,8 +290,12 @@ export type Database = {
           deleted_at: string | null
           deleted_by: string | null
           description: string
+          dun14: string | null
+          ean13: string | null
+          featured_at: string | null
           format: Database["public"]["Enums"]["product_format"]
           general_benefits_summary: string | null
+          gross_weight_g: number | null
           id: string
           ingredients_list: string | null
           line: Database["public"]["Enums"]["product_line"]
@@ -209,16 +306,22 @@ export type Database = {
           name: string
           net_weight: string | null
           nutritional_info: string | null
+          package_depth_mm: number | null
+          package_height_mm: number | null
+          package_width_mm: number | null
           pote_contents_description: string | null
           reason_deleted: string | null
           regulatory_product_type: string | null
           segment_id: string
           serving_description: string | null
+          shelf_life_months: number | null
           slug: string
           sort_order: number
           storage_instructions: string | null
           target_audience: string | null
           technical_sheet_title: string | null
+          technical_sheet_version: number
+          units_per_box: number | null
           updated_at: string
           updated_by: string | null
           usage_instructions: string | null
@@ -228,6 +331,10 @@ export type Database = {
         Insert: {
           active?: boolean
           benefits?: string[]
+          box_depth_mm?: number | null
+          box_gross_weight_g?: number | null
+          box_height_mm?: number | null
+          box_width_mm?: number | null
           capsule_count?: number | null
           compliance_norms?: string[] | null
           compliance_source?: string | null
@@ -237,8 +344,12 @@ export type Database = {
           deleted_at?: string | null
           deleted_by?: string | null
           description?: string
+          dun14?: string | null
+          ean13?: string | null
+          featured_at?: string | null
           format: Database["public"]["Enums"]["product_format"]
           general_benefits_summary?: string | null
+          gross_weight_g?: number | null
           id?: string
           ingredients_list?: string | null
           line: Database["public"]["Enums"]["product_line"]
@@ -249,16 +360,22 @@ export type Database = {
           name: string
           net_weight?: string | null
           nutritional_info?: string | null
+          package_depth_mm?: number | null
+          package_height_mm?: number | null
+          package_width_mm?: number | null
           pote_contents_description?: string | null
           reason_deleted?: string | null
           regulatory_product_type?: string | null
           segment_id: string
           serving_description?: string | null
+          shelf_life_months?: number | null
           slug: string
           sort_order?: number
           storage_instructions?: string | null
           target_audience?: string | null
           technical_sheet_title?: string | null
+          technical_sheet_version?: number
+          units_per_box?: number | null
           updated_at?: string
           updated_by?: string | null
           usage_instructions?: string | null
@@ -268,6 +385,10 @@ export type Database = {
         Update: {
           active?: boolean
           benefits?: string[]
+          box_depth_mm?: number | null
+          box_gross_weight_g?: number | null
+          box_height_mm?: number | null
+          box_width_mm?: number | null
           capsule_count?: number | null
           compliance_norms?: string[] | null
           compliance_source?: string | null
@@ -277,8 +398,12 @@ export type Database = {
           deleted_at?: string | null
           deleted_by?: string | null
           description?: string
+          dun14?: string | null
+          ean13?: string | null
+          featured_at?: string | null
           format?: Database["public"]["Enums"]["product_format"]
           general_benefits_summary?: string | null
+          gross_weight_g?: number | null
           id?: string
           ingredients_list?: string | null
           line?: Database["public"]["Enums"]["product_line"]
@@ -289,16 +414,22 @@ export type Database = {
           name?: string
           net_weight?: string | null
           nutritional_info?: string | null
+          package_depth_mm?: number | null
+          package_height_mm?: number | null
+          package_width_mm?: number | null
           pote_contents_description?: string | null
           reason_deleted?: string | null
           regulatory_product_type?: string | null
           segment_id?: string
           serving_description?: string | null
+          shelf_life_months?: number | null
           slug?: string
           sort_order?: number
           storage_instructions?: string | null
           target_audience?: string | null
           technical_sheet_title?: string | null
+          technical_sheet_version?: number
+          units_per_box?: number | null
           updated_at?: string
           updated_by?: string | null
           usage_instructions?: string | null
@@ -457,7 +588,7 @@ export type Database = {
           reason_deleted: string | null
           sort_order: number
           unit_cost_cents: number | null
-          unit_price_cents: number
+          unit_price_cents: number | null
           updated_at: string
           updated_by: string | null
           version: number
@@ -480,7 +611,7 @@ export type Database = {
           reason_deleted?: string | null
           sort_order?: number
           unit_cost_cents?: number | null
-          unit_price_cents: number
+          unit_price_cents?: number | null
           updated_at?: string
           updated_by?: string | null
           version?: number
@@ -503,7 +634,7 @@ export type Database = {
           reason_deleted?: string | null
           sort_order?: number
           unit_cost_cents?: number | null
-          unit_price_cents?: number
+          unit_price_cents?: number | null
           updated_at?: string
           updated_by?: string | null
           version?: number
@@ -691,7 +822,15 @@ export type Database = {
           total_cents: number | null
           total_profit_cents: number | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "quotes_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Functions: {
@@ -707,7 +846,10 @@ export type Database = {
           p_items: Json
           p_lead_id?: string
         }
-        Returns: string
+        Returns: {
+          quote_id: string
+          quote_number: number
+        }[]
       }
       show_limit: { Args: never; Returns: number }
       show_trgm: { Args: { "": string }; Returns: string[] }
@@ -721,7 +863,7 @@ export type Database = {
         | "extrato_vegetal"
         | "outro"
       product_format: "capsula" | "soluvel" | "gummy" | "liquido"
-      product_line: "premium" | "basica"
+      product_line: "premium" | "basica" | "essencial" | "lemon_caps"
       quote_status: "aberto" | "aprovado" | "recusado" | "expirado"
     }
     CompositeTypes: {
@@ -859,7 +1001,7 @@ export const Constants = {
         "outro",
       ],
       product_format: ["capsula", "soluvel", "gummy", "liquido"],
-      product_line: ["premium", "basica"],
+      product_line: ["premium", "basica", "essencial", "lemon_caps"],
       quote_status: ["aberto", "aprovado", "recusado", "expirado"],
     },
   },

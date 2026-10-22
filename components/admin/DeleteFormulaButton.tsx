@@ -24,20 +24,27 @@ export function DeleteFormulaButton({ formulaId, formulaName }: DeleteFormulaBut
   const [isPending, setPending] = useState(false);
 
   async function handleConfirm() {
-    if (reason.trim() === "") {
-      setError("Informe o motivo da exclusão.");
-      return;
-    }
+    // Motivo em branco não trava mais a exclusão (ordem do dono, 18/09/2026 - ver
+    // lib/actions/formulas.ts): a Server Action grava "PENDENTE" sozinha.
     setPending(true);
     setError(null);
-    const result = await softDeleteFormula(formulaId, reason);
-    setPending(false);
-    if (!result.ok) {
-      setError(result.error);
-      return;
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de softDeleteFormula virava erro não tratado no cliente e o
+    // modal ficava travado em "Excluindo…".
+    try {
+      const result = await softDeleteFormula(formulaId, reason);
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      toast.success("Fórmula excluída.");
+      router.push("/admin/catalogo");
+    } catch (caught) {
+      console.error("[DeleteFormulaButton] falha ao excluir fórmula:", caught);
+      toast.error("Não foi possível excluir a fórmula agora. Tente novamente.");
+    } finally {
+      setPending(false);
     }
-    toast.success("Fórmula excluída.");
-    router.push("/admin/catalogo");
   }
 
   return (
@@ -61,7 +68,11 @@ export function DeleteFormulaButton({ formulaId, formulaName }: DeleteFormulaBut
               value={reason}
               onChange={(event) => setReason(event.target.value)}
               aria-invalid={Boolean(error)}
+              aria-describedby="delete-formula-reason-hint"
             />
+            <p id="delete-formula-reason-hint" className="lc-field-hint">
+              Em branco grava como PENDENTE. A exclusão é lógica e reversível diretamente no banco, se necessário.
+            </p>
           </div>
           {error ? (
             <p className="lc-field-error" role="alert">

@@ -9,9 +9,12 @@ export const metadata = {
   title: "Página não encontrada | Lemon Caps",
 };
 
+// O id do <main> é o destino do link "Pular para o conteúdo" do layout raiz, que
+// aparece em TODA página — inclusive nesta. Sem ele, quem navega por teclado
+// aciona o atalho e não sai do lugar.
 export default function NotFound() {
   return (
-    <main className="lc-erro-page">
+    <main id="main-content" className="lc-erro-page">
       <div className="lc-erro-card">
         <PackageSearch size={44} aria-hidden="true" className="lc-erro-icone" />
         <h1>Não encontramos esta página</h1>

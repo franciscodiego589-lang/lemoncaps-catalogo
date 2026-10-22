@@ -18,7 +18,10 @@ interface Draft {
 }
 
 function toDraft(item: AdminQuoteItemDTO): Draft {
-  return { quantityText: String(item.quantityPotes), priceText: centsToPlain(item.unitPriceCents) };
+  return {
+    quantityText: String(item.quantityPotes),
+    priceText: item.unitPriceCents === null ? "" : centsToPlain(item.unitPriceCents),
+  };
 }
 
 // Margem/lucro (item.profitCents, item.profitMarginPct) vêm de colunas
@@ -49,12 +52,19 @@ export function QuoteItemRow({ item }: QuoteItemRowProps) {
   const isDirty = draft.quantityText !== saved.quantityText || draft.priceText !== saved.priceText;
 
   async function handleSave() {
-    const quantity = Number(draft.quantityText);
-    const priceCents = brlStringToCents(draft.priceText);
-    if (!Number.isInteger(quantity) || quantity <= 0) {
-      setError("Quantidade precisa ser um número inteiro maior que zero.");
+    // Vazio vira 0 - pedido do dono (17/09/2026: nenhum campo trava o
+    // salvar por estar incompleto, mesmo padrão de CostForm.tsx e
+    // CostsBatchTable.tsx). Texto REALMENTE preenchido com algo que não é
+    // número continua barrado aqui: aí não é "vazio", é formato inválido, e
+    // isso a tela sempre recusou.
+    const trimmedQuantity = draft.quantityText.trim();
+    const quantity = trimmedQuantity === "" ? 0 : Number(trimmedQuantity);
+    if (!Number.isInteger(quantity) || quantity < 0) {
+      setError("Quantidade precisa ser um número inteiro (0 ou mais).");
       return;
     }
+    const trimmedPrice = draft.priceText.trim();
+    const priceCents = trimmedPrice === "" ? 0 : brlStringToCents(trimmedPrice);
     if (priceCents === null || priceCents < 0) {
       setError("Preço inválido.");
       return;
@@ -62,15 +72,23 @@ export function QuoteItemRow({ item }: QuoteItemRowProps) {
 
     setError(null);
     setSaving(true);
-    const result = await updateQuoteItem(item.id, { quantityPotes: quantity, unitPriceCents: priceCents });
-    setSaving(false);
-
-    if (!result.ok) {
-      setError(result.error);
-      return;
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateQuoteItem virava erro não tratado no cliente e o
+    // botão ficava travado em "Salvando…".
+    try {
+      const result = await updateQuoteItem(item.id, { quantityPotes: quantity, unitPriceCents: priceCents });
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      toast.success("Item do orçamento atualizado.");
+      router.refresh();
+    } catch (caught) {
+      console.error("[QuoteItemRow] falha ao salvar item do orçamento:", caught);
+      toast.error("Não foi possível salvar este item agora. Tente novamente.");
+    } finally {
+      setSaving(false);
     }
-    toast.success("Item do orçamento atualizado.");
-    router.refresh();
   }
 
   return (
@@ -81,19 +99,23 @@ export function QuoteItemRow({ item }: QuoteItemRowProps) {
           className={`lc-field-input${error ? " is-invalid" : ""}`}
           inputMode="numeric"
           value={draft.quantityText}
+          placeholder="0"
           onChange={(event) => setDraft((prev) => ({ ...prev, quantityText: event.target.value }))}
-          aria-label={`Quantidade de potes de ${item.formulaNameSnapshot}`}
+          aria-label={`Quantidade de potes de ${item.formulaNameSnapshot} - em branco grava 0`}
         />
       </td>
       <td className="lc-admin-col-num">
         <input
           className={`lc-field-input${error ? " is-invalid" : ""}`}
           value={draft.priceText}
+          placeholder={item.unitPriceCents === null ? "sob consulta" : "0,00"}
           onChange={(event) => setDraft((prev) => ({ ...prev, priceText: event.target.value }))}
-          aria-label={`Preço por pote de ${item.formulaNameSnapshot}`}
+          aria-label={`Preço por pote de ${item.formulaNameSnapshot} - em branco grava 0`}
         />
       </td>
-      <td className="lc-admin-col-num">{centsToBRL(item.lineTotalCents)}</td>
+      <td className="lc-admin-col-num">
+        {item.lineTotalCents === null ? "Sob consulta" : centsToBRL(item.lineTotalCents)}
+      </td>
       <td className="lc-admin-col-num">
         {item.profitMarginPct !== null ? (
           <span className={item.profitMarginPct >= 0 ? "lc-admin-margin-positive" : "lc-admin-margin-negative"}>

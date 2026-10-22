@@ -1,0 +1,576 @@
+{
+ "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+ "nome": "Multi Vitta — Gestante e Lactante em Cápsula",
+ "data": "16/09/2026",
+ "porcao_mg": 1000.0,
+ "porcao_descricao": "1 g (2 cápsulas)",
+ "formato": "cápsula (sem memorial: tamanho e capacidade não registrados; assumida a mesma cápsula tamanho 0 de 500 mg de pó dos demais produtos da linha)",
+ "grupo_populacional": "gestantes e lactantes — colunas \"Gestantes\" e \"Lactantes\" dos Anexos III e IV, aplicada a mais restritiva das duas a cada constituinte (mínimo = maior dos mínimos; máximo = menor dos máximos)",
+ "porcoes_por_embalagem": 30,
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Cálcio",
+   "forma_insumo": "Carbonato de cálcio, grau DC (CAS 471-34-1)",
+   "massa_insumo_mg": 566.9831,
+   "teor_pct": 37.92,
+   "teor_fonte": "laudo",
+   "ativo_mg": 215,
+   "ativo_declarado": 215,
+   "unidade_ativo": "mg",
+   "minimo": 195,
+   "maximo": 2015.51,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 195,00 / lact. 195,00",
+   "maximo_txt": "gest. 2.015,51 / lact. 2.082,58",
+   "pct_do_maximo": 10.67,
+   "linha_anexo": "I·Carbonato de cálcio; III·Cálcio gest. 195 / lact. 195; IV·gest. 2.015,51 / lact. 2.082,58",
+   "laudo": {
+    "lote": "950403 (Analitic, fabricante 241029)",
+    "validade": "28/10/2029",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "300 mg de Ca exigem 791 mg de carbonato (37,92%) — não cabem em 1 g com o resto. 215 mg = 110% do mínimo dos dois grupos (10,7% do teto de gestantes). O cadastro dizia 'cálcio elementar 300 mg'.",
+   "conta": "215 mg / 0,3792 = 566,98 mg de carbonato de cálcio",
+   "ingredient_slug": "calcio-elementar",
+   "ingredient_name": "Cálcio (carbonato de cálcio)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Magnésio",
+   "forma_insumo": "Bisglicinato de magnésio (CAS 14783-68-7)",
+   "massa_insumo_mg": 218.3984,
+   "teor_pct": 30.22,
+   "teor_fonte": "laudo vencido",
+   "ativo_mg": 66,
+   "ativo_declarado": 66,
+   "unidade_ativo": "mg",
+   "minimo": 60,
+   "maximo": 350,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 60,00 / lact. 54,00",
+   "maximo_txt": "gest. 350,00 / lact. 350,00",
+   "pct_do_maximo": 18.86,
+   "linha_anexo": "I·Bisglicinato de magnésio; III·Magnésio gest. 60 / lact. 54; IV·350 / 350",
+   "laudo": {
+    "lote": "90844 (Analitic, fabricante 66342023062230)",
+    "validade": "21/06/2025",
+    "vencido": true,
+    "obs": "pedir laudo novo antes de pesar"
+   },
+   "status": "dose ajustada",
+   "motivo": "60 mg cravavam o mínimo de gestantes; 66 mg = 110% desse mínimo (18,9% do teto). Forma do cadastro mantida; exige laudo novo (os dois laudos de bisglicinato 30% da máquina estão vencidos). O óxido de magnésio (109,5 mg para 66 mg) é alternativa se o bisglicinato não tiver laudo.",
+   "conta": "66 mg / 0,3022 = 218,40 mg de bisglicinato de magnésio",
+   "ingredient_slug": "magnesio",
+   "ingredient_name": "Magnésio (bisglicinato de magnésio)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Vitamina C",
+   "forma_insumo": "Ácido ascórbico (CAS 50-81-7)",
+   "massa_insumo_mg": 20.1005,
+   "teor_pct": 99.5,
+   "teor_fonte": "laudo",
+   "ativo_mg": 20,
+   "ativo_declarado": 20,
+   "unidade_ativo": "mg",
+   "minimo": 18,
+   "maximo": 1723.43,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 12,75 / lact. 18,00",
+   "maximo_txt": "gest. 1.723,43 / lact. 1.726,73",
+   "pct_do_maximo": 1.16,
+   "linha_anexo": "I·Ácido ascórbico/Ácido L-ascórbico; III·Vitamina C gest. 12,75 / lact. 18; IV·1.723,43 / 1.726,73",
+   "laudo": {
+    "lote": "950467 (Analitic, fabricante 250306-C01)",
+    "validade": "05/03/2029",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "20 mg = 111% do mínimo de lactantes (18 mg), 1,2% do teto — dose do cadastro.",
+   "conta": "20 mg / 0,995 = 20,10 mg",
+   "ingredient_slug": "vitamina-c",
+   "ingredient_name": "Vitamina C (ácido ascórbico)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Ferro",
+   "forma_insumo": "Bisglicinato ferroso (CAS 20150-34-9) — insumo a adquirir com laudo (todos os laudos da máquina estão vencidos)",
+   "massa_insumo_mg": 39.9803,
+   "teor_pct": 20.26,
+   "teor_fonte": "laudo vencido",
+   "ativo_mg": 8.1,
+   "ativo_declarado": 8.1,
+   "unidade_ativo": "mg",
+   "minimo": 4.05,
+   "maximo": 34.71,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 4,05 / lact. 1,50",
+   "maximo_txt": "gest. 34,71 / lact. 34,96",
+   "pct_do_maximo": 23.34,
+   "linha_anexo": "I·Bisglicinato ferroso; III·Ferro gest. 4,05 / lact. 1,5; IV·34,71 / 34,96",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "status": "mantido — PENDENTE laudo",
+   "motivo": "8,1 mg = 200% do mínimo de gestantes (23,3% do teto) — dose do cadastro (30% do VD de gestantes, 27 mg). Nenhum laudo vigente de bisglicinato ferroso existe na máquina; o 'Quelato Ferro Bios 20%' (NaturalPRO) do Nuviart não declara identidade química.",
+   "conta": "8,1 mg / 0,2026 = 39,98 mg (PROVISÓRIO; recalcular pelo laudo do lote comprado)",
+   "ingredient_slug": "ferro",
+   "ingredient_name": "Ferro (bisglicinato ferroso)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Niacina",
+   "forma_insumo": "Nicotinamida/Niacinamida (CAS 98-92-0)",
+   "massa_insumo_mg": 8.0735,
+   "teor_pct": 99.09,
+   "teor_fonte": "laudo",
+   "ativo_mg": 8,
+   "ativo_declarado": 8,
+   "unidade_ativo": "mg NE",
+   "minimo": 2.7,
+   "maximo": 30,
+   "unidade_limite": "mg NE",
+   "minimo_txt": "gest. 2,70 / lact. 2,55",
+   "maximo_txt": "gest. 30,00 / lact. 30,00",
+   "pct_do_maximo": 26.67,
+   "linha_anexo": "I·Nicotinamida/Niacinamida; III·Niacina gest. 2,7 / lact. 2,55; IV·30 / 30",
+   "laudo": {
+    "lote": "872226 (Alamar/INLAB, código 5710)",
+    "validade": "09/2027",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "8 mg NE = 26,7% do teto — dose do cadastro. VDR de niacina para gestantes e lactantes não foi extraído do Anexo VIII (pendência do gabarito) — %VD PENDENTE.",
+   "conta": "8 mg / 0,9909 = 8,07 mg",
+   "ingredient_slug": "vitamina-b3",
+   "ingredient_name": "Vitamina B3 (nicotinamida)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Ácido pantotênico",
+   "forma_insumo": "D-pantotenato de cálcio (CAS 137-08-6)",
+   "massa_insumo_mg": 4.9803,
+   "teor_pct": 98.2,
+   "teor_fonte": "laudo",
+   "ativo_mg": 4.5,
+   "ativo_declarado": 4.5,
+   "unidade_ativo": "mg",
+   "minimo": 1.05,
+   "maximo": 5.49,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 0,90 / lact. 1,05",
+   "maximo_txt": "gest. 5,83 / lact. 5,49",
+   "pct_do_maximo": 81.97,
+   "linha_anexo": "I·D-pantotenato de cálcio; III·gest. 0,9 / lact. 1,05; IV·gest. 5,83 / lact. 5,49",
+   "laudo": {
+    "lote": "91186 (Analitic, fabricante 241222X022)",
+    "validade": "21/12/2027",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "5,0 mg eram 91,1% do teto de lactantes (5,49); nova dose 4,5 mg (82,0% do teto mais restritivo).",
+   "conta": "4,5 mg / (0,982 × 0,9201) = 4,980 mg",
+   "ingredient_slug": "vitamina-b5",
+   "ingredient_name": "Vitamina B5 (D-pantotenato de cálcio)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Vitamina E",
+   "forma_insumo": "Acetato de DL-alfa-tocoferol, pó 50% (CAS 7695-91-2)",
+   "massa_insumo_mg": 14.7193,
+   "teor_pct": 50.7,
+   "teor_fonte": "laudo",
+   "ativo_mg": 5.0,
+   "ativo_declarado": 5.0,
+   "unidade_ativo": "mg",
+   "minimo": 2.85,
+   "maximo": 800,
+   "unidade_limite": "mg",
+   "minimo_txt": "gest. 2,25 / lact. 2,85",
+   "maximo_txt": "gest. 800,00 / lact. 800,00",
+   "pct_do_maximo": 0.62,
+   "linha_anexo": "I·Acetato de DL-alfa-tocoferol; III·Vitamina E gest. 2,25 / lact. 2,85; IV·800 / 800",
+   "laudo": {
+    "lote": "91320 (Analitic, fabricante 2025040605)",
+    "validade": "05/04/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "o cadastro tinha 5 mg de acetato = 3,35 mg de α-tocoferol, a 0,5 mg do mínimo de lactantes (2,85). Nova dose: 5,0 mg de α-tocoferol (175% do mínimo; 0,6% do teto).",
+   "conta": "5 mg / (0,507 × 0,67) = 14,72 mg de pó",
+   "ingredient_slug": "vitamina-e",
+   "ingredient_name": "Vitamina E (acetato de DL-alfa-tocoferol)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Cobre",
+   "forma_insumo": "Bisglicinato de cobre (CAS 13479-54-4) — insumo a adquirir",
+   "massa_insumo_mg": 2.9978,
+   "teor_pct": 30.02,
+   "teor_fonte": "assumido",
+   "ativo_mg": 0.9,
+   "ativo_declarado": 900,
+   "unidade_ativo": "µg",
+   "minimo": 195,
+   "maximo": 6935.01,
+   "unidade_limite": "µg",
+   "minimo_txt": "gest. 150,00 / lact. 195,00",
+   "maximo_txt": "gest. 6.935,01 / lact. 7.036,33",
+   "pct_do_maximo": 12.98,
+   "linha_anexo": "I·Bisglicinato de cobre; III·Cobre gest. 150 / lact. 195; IV·6.935,01 / 7.036,33",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "status": "mantido — PENDENTE laudo",
+   "motivo": "dose do cadastro (13,0% do teto). O cadastro já nomeia bisglicinato de cobre; não há laudo dessa forma na máquina (só 'cobre aminoácido quelato' NaturalPRO, forma não identificada, e gluconato de cobre vencido).",
+   "conta": "0,9 mg / 0,3002 = 2,998 mg (assumido)",
+   "ingredient_slug": "cobre",
+   "ingredient_name": "Cobre (bisglicinato de cobre)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Ácido fólico",
+   "forma_insumo": "Ácido fólico/Ácido N-pteroil-L-glutâmico (CAS 59-30-3)",
+   "massa_insumo_mg": 0.5515,
+   "teor_pct": 90.67,
+   "teor_fonte": "laudo",
+   "ativo_mg": 0.83333,
+   "ativo_declarado": 833.33,
+   "unidade_ativo": "µg DFE",
+   "minimo": 666.6,
+   "maximo": 1138.3,
+   "unidade_limite": "µg DFE",
+   "minimo_txt": "gest. 666,60 / lact. 75,00",
+   "maximo_txt": "gest. 1.138,30 / lact. 1.162,30",
+   "pct_do_maximo": 73.21,
+   "linha_anexo": "I·Ácido fólico; III·gest. 666,6 / lact. 75 µg DFE; IV·gest. 1.138,3 / lact. 1.162,3 µg DFE (nota iv)",
+   "laudo": {
+    "lote": "AUTO039613 (Lepuge, fabricante 202406008)",
+    "validade": "02/06/2027",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "800 µg de ácido fólico = 1.333,3 µg DFE, acima dos dois tetos (1.138,3 e 1.162,3). Nova dose 500 µg de ácido fólico = 833,3 µg DFE: 125% do mínimo de gestantes (666,6), 73,2% do teto de gestantes; 139% do VD de gestantes (600) e 167% do VD de lactantes (500).",
+   "conta": "500 µg / 0,9067 = 551,5 µg = 0,551 mg de insumo; 500 / 0,6 = 833,3 µg DFE",
+   "ingredient_slug": "vitamina-b9",
+   "ingredient_name": "Ácido fólico",
+   "cadastro_quantidade": 500,
+   "cadastro_unidade": "mcg"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina D",
+   "forma_insumo": "Vitamina D3 (colecalciferol), pó 100.000 UI/g (CAS 67-97-0)",
+   "massa_insumo_mg": 13.913,
+   "teor_pct": null,
+   "teor_fonte": "laudo",
+   "ativo_mg": 0.04,
+   "ativo_declarado": 40,
+   "unidade_ativo": "µg",
+   "minimo": 2.25,
+   "maximo": 50.0,
+   "unidade_limite": "µg",
+   "minimo_txt": "gest. 2,25 / lact. 2,25",
+   "maximo_txt": "gest. 50,00 / lact. 50,00",
+   "pct_do_maximo": 80.0,
+   "linha_anexo": "I·Vitamina D3 (Colecalciferol); III·Vitamina D 2,25 / 2,25; IV·50 / 50",
+   "laudo": {
+    "lote": "91408 (Analitic, fabricante 2025111601)",
+    "validade": "15/11/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "50 µg era o teto exato; nova dose 40 µg (80,0%; 267% do VD).",
+   "conta": "40 µg × 40 = 1.600 UI; 1.600 / 115 UI/mg = 13,91 mg",
+   "ingredient_slug": "vitamina-d",
+   "ingredient_name": "Vitamina D3 (colecalciferol)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  },
+  {
+   "constituinte_anexo_i": "Vitamina B12",
+   "forma_insumo": "Metilcobalamina (CAS 13422-55-4)",
+   "massa_insumo_mg": 0.009,
+   "teor_pct": 89.27,
+   "teor_fonte": "laudo",
+   "ativo_mg": 0.008,
+   "ativo_declarado": 8,
+   "unidade_ativo": "µg",
+   "minimo": 0.42,
+   "maximo": 10.07,
+   "unidade_limite": "µg",
+   "minimo_txt": "gest. 0,39 / lact. 0,42",
+   "maximo_txt": "gest. 10,46 / lact. 10,07",
+   "pct_do_maximo": 79.44,
+   "linha_anexo": "I·Metilcobalamina; III·Vitamina B12 gest. 0,39 / lact. 0,42; IV·gest. 10,46 / lact. 10,07",
+   "laudo": {
+    "lote": "219376 (26B20-B032-219376, Fagron/SM, fabricante 032511057)",
+    "validade": "14/11/2030",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "10,46 µg era o teto exato de gestantes e ultrapassava o de lactantes (10,07); nova dose 8 µg (79,4% do teto de lactantes; 308% e 286% dos VDs).",
+   "conta": "8 µg / 0,8927 = 8,96 µg = 0,00896 mg",
+   "ingredient_slug": "vitamina-b12",
+   "ingredient_name": "Vitamina B12 (metilcobalamina)",
+   "cadastro_quantidade": null,
+   "cadastro_unidade": null
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Dióxido de silício (antiumectante)",
+   "ins": "551",
+   "massa_mg": 109.29341933363719,
+   "obs": "q.s.p. 1.000 mg — quantum satis (IN 211/2023, 14.2). O cadastro trazia 592,14 mg (59% da cápsula), valor sem fonte."
+  },
+  {
+   "nome": "Cápsula: gelatina, água purificada e corante dióxido de titânio",
+   "ins": "171",
+   "massa_mg": null,
+   "obs": "assumida a mesma cápsula dos demais produtos (Qualicaps/Genix, 98,45 mg) — não há memorial deste produto"
+  }
+ ],
+ "removidos": [],
+ "soma_insumos_mg": 890.707,
+ "soma_excipientes_mg": 109.293,
+ "soma_porcao_mg": 1000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": 30,
+  "porcao": "1 g (2 cápsulas)",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "0 kcal = 0 kJ",
+    "unidade": "kcal/kJ",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "0",
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "0",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    }
+   },
+   {
+    "item": "Vitamina D",
+    "quantidade": "40",
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 266.7,
+     "lactantes": 266.7
+    }
+   },
+   {
+    "item": "Vitamina E",
+    "quantidade": "5",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 33.3,
+     "lactantes": 33.3
+    }
+   },
+   {
+    "item": "Vitamina C",
+    "quantidade": "20",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 23.5,
+     "lactantes": 16.7
+    }
+   },
+   {
+    "item": "Niacina",
+    "quantidade": "8",
+    "unidade": "mg NE",
+    "vd_pct": {
+     "gestantes": "PENDENTE",
+     "lactantes": "PENDENTE"
+    }
+   },
+   {
+    "item": "Ácido fólico",
+    "quantidade": "833",
+    "unidade": "µg DFE",
+    "vd_pct": {
+     "gestantes": 138.9,
+     "lactantes": 166.7
+    }
+   },
+   {
+    "item": "Ácido pantotênico",
+    "quantidade": "4,5",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 75.0,
+     "lactantes": 64.3
+    }
+   },
+   {
+    "item": "Vitamina B12",
+    "quantidade": "8",
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 307.7,
+     "lactantes": 285.7
+    }
+   },
+   {
+    "item": "Cálcio",
+    "quantidade": "215",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 16.5,
+     "lactantes": 16.5
+    }
+   },
+   {
+    "item": "Cobre",
+    "quantidade": "900",
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 90.0,
+     "lactantes": 69.2
+    }
+   },
+   {
+    "item": "Ferro",
+    "quantidade": "8,1",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 30.0,
+     "lactantes": 81.0
+    }
+   },
+   {
+    "item": "Magnésio",
+    "quantidade": "66",
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 16.5,
+     "lactantes": 18.3
+    }
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "texto": "Porções por embalagem: 30\nPorção: 1 g (2 cápsulas)\nValor energético: 0 kcal = 0 kJ (0% gestantes; 0% lactantes)\nCarboidratos: 0 g (0% gestantes; 0% lactantes)\nAçúcares totais: 0 g (0% gestantes; 0% lactantes)\nAçúcares adicionados: 0 g (0% gestantes; 0% lactantes)\nProteínas: 0 g (0% gestantes; 0% lactantes)\nGorduras totais: 0 g (0% gestantes; 0% lactantes)\nGorduras saturadas: 0 g (0% gestantes; 0% lactantes)\nGorduras trans: 0 g (0% gestantes; 0% lactantes)\nFibras alimentares: 0 g (0% gestantes; 0% lactantes)\nSódio: 0 mg (0% gestantes; 0% lactantes)\nVitamina D: 40 µg (267% gestantes; 267% lactantes)\nVitamina E: 5 mg (33% gestantes; 33% lactantes)\nVitamina C: 20 mg (24% gestantes; 17% lactantes)\nNiacina: 8 mg NE (PENDENTE gestantes; PENDENTE lactantes)\nÁcido fólico: 833 µg DFE (139% gestantes; 167% lactantes)\nÁcido pantotênico: 4,5 mg (75% gestantes; 64% lactantes)\nVitamina B12: 8 µg (308% gestantes; 286% lactantes)\nCálcio: 215 mg (17% gestantes; 17% lactantes)\nCobre: 900 µg (90% gestantes; 69% lactantes)\nFerro: 8,1 mg (30% gestantes; 81% lactantes)\nMagnésio: 66 mg (17% gestantes; 18% lactantes)\n*Percentual de valores diários fornecidos pela porção"
+ },
+ "ingredients_list": "Carbonato de cálcio, bisglicinato de magnésio, antiumectante dióxido de silício (INS 551), bisglicinato ferroso, ácido ascórbico (vitamina C), acetato de DL-alfa-tocoferol (vitamina E), colecalciferol (vitamina D3), nicotinamida (vitamina B3), D-pantotenato de cálcio (vitamina B5), bisglicinato de cobre, ácido fólico, metilcobalamina (vitamina B12) e cápsula: gelatina, água purificada e corante dióxido de titânio (INS 171).",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: gestantes e lactantes. Ingerir 2 cápsulas ao dia, sob orientação de médico ou nutricionista.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "**Composição — decisão do dono:** a lista de ingredientes do cadastro cita vitamina A, K2, complexo B, biotina, cromo e selênio que não têm quantidade em lugar nenhum (nem memorial, nem ficha, nem rótulo existem). Esta proposta só formula o que está cadastrado com quantidade. Se o dono quiser completar o multivitamínico pré-natal, as faixas a respeitar (mais restritiva entre gestantes e lactantes, Anexos III/IV) são: vitamina A 195–2.414,35 µg RAE (só pré-formada; o iodo, importante para o grupo, teria faixa 43,5–717,56 µg); vitamina K 13,5–126,02 µg; tiamina 0,21–1,93 mg; riboflavina 0,24–2,66 mg; B6 0,3–78,59 mg; biotina 5,25–45 µg; cromo 6,75–45 µg; selênio 10,5–309,65 µg; zinco 1,95–23,50 mg; iodo 43,5–717,56 µg. Manganês e boro são 'NA' para os dois grupos — não podem entrar.",
+  "**Laudo novo de bisglicinato de magnésio** (ou trocar por óxido de magnésio, 109,5 mg para 66 mg, insumo a adquirir).",
+  "**Comprar bisglicinato ferroso e bisglicinato de cobre com laudo** — nenhum laudo vigente dessas formas existe na máquina; a massa do ferro (39,98 mg) usa o último teor conhecido de um laudo vencido.",
+  "**Memorial de cálculo e ficha técnica inexistentes** — este produto é vendido sem nenhum documento de fabricação (achado do inventário de 16/09). O RT precisa emitir o memorial a partir desta proposta antes de qualquer produção.",
+  "**Cápsula:** confirmar tamanho e capacidade (assumida a cápsula 0 de 500 mg dos outros produtos).",
+  "**VDR de niacina para gestantes e lactantes** não foi extraído do Anexo VIII (pendência do gabarito) — a célula de %VD da niacina fica PENDENTE, não vazia por falta de VDR.",
+  "**Rótulo (a criar):** designação 'Suplemento alimentar em cápsulas', público 'gestantes e lactantes', tabela com as duas colunas de %VD, sem a frase genérica de gestantes."
+ ],
+ "alternativas": [
+  "**Óxido de magnésio** no lugar do bisglicinato (109,5 mg para 66 mg; a adquirir) — reduz a dependência do laudo vencido e libera 109 mg.",
+  "**Cálcio a 300 mg com 3 cápsulas por porção** (791 mg de carbonato) — só com mudança de porção, decisão do dono."
+ ],
+ "mudancas": [
+  "Grupo populacional: o cadastro dizia 'Adultos com 19 anos ou mais'; passa a 'Gestantes e lactantes', com limites e %VD das colunas próprias (nome do produto, RDC 243/2018, art. 14, I, a).",
+  "Cálcio: 300 → 215 mg (carbonato 791 → 567,0 mg) — motivo: a porção não comporta 791 mg de carbonato; 215 mg = 110% do mínimo (195 mg nos dois grupos).",
+  "Magnésio: 60 → 66 mg (218,40 mg de bisglicinato a 30,22%) — motivo: 60 mg cravava o mínimo de gestantes; laudo novo obrigatório.",
+  "Ácido fólico: 800 → 500 µg (1.333,3 → 833,3 µg DFE) — motivo: acima dos dois tetos (1.138,3 / 1.162,3 µg DFE) e mínimo de gestantes de 666,6 µg DFE.",
+  "Vitamina B12: 10,46 → 8 µg — motivo: acima do teto de lactantes (10,07) e no teto de gestantes.",
+  "Vitamina D3: 50 → 40 µg — teto exato.",
+  "Ácido pantotênico: 5 → 4,5 mg — 91% do teto de lactantes (5,49).",
+  "Vitamina E: 3,35 → 5,0 mg de α-tocoferol (14,72 mg de pó) — margem de 0,5 mg sobre o mínimo de lactantes era insuficiente.",
+  "Dióxido de silício: 592,14 mg (sem fonte) → q.s.p.",
+  "Vitamina C, ferro, niacina, cobre: mantidos (ferro e cobre condicionados a laudo)."
+ ],
+ "veredito": "CONFORME CONDICIONADO A (laudo novo do bisglicinato de magnésio; laudos de bisglicinato ferroso e bisglicinato de cobre; emissão do memorial de cálculo pelo RT) — e à decisão do dono sobre completar ou não os nutrientes citados sem dose"
+}

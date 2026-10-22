@@ -1,0 +1,15 @@
+{
+  "artboards": [
+    { "file": "Grade.dc.html", "x": 0, "y": 0, "w": 1060, "h": 760 },
+    { "file": "Main.dc.html", "x": 1180, "y": 0, "w": 500, "h": 880 },
+    { "file": "CardConforme.dc.html", "x": 1760, "y": 0, "w": 500, "h": 800 },
+    { "file": "Dossie.dc.html", "x": 2340, "y": 0, "w": 712, "h": 1020 }
+  ],
+  "annotations": [
+    { "id": "nota-grade", "x": 0, "y": -150, "w": 420, "text": "VISÃO GERAL\nO semáforo no topo responde a pergunta que o catálogo hoje não responde: o que posso fabricar agora?\n\nOs quatro números saem do mesmo verificador que roda os 122 insumos contra o painel." },
+    { "id": "nota-bloqueado", "x": 1180, "y": -150, "w": 420, "text": "CARD BLOQUEADO — ZMA\nA faixa de cor da categoria continua igual à do catálogo atual. O que muda é o selo de estado e a barra de ocupação em cada linha.\n\nO boro aparece hachurado porque estoura o limite: 638%." },
+    { "id": "nota-conforme", "x": 1760, "y": -150, "w": 420, "text": "CARD CONFORME — BELLA GUMMY\nMesmo layout, sem o bloco de não conformidade. No lugar dele entra o que a equipe comercial precisa: as alegações que podem ser ditas, na redação exata da ANVISA." },
+    { "id": "nota-dossie", "x": 2340, "y": -150, "w": 420, "text": "DOSSIÊ TÉCNICO\nAbre pelo botão do card. O insumo com problema já vem expandido; os demais ficam recolhidos com uma etiqueta que resume o estado.\n\nCada ficha traz os 11 campos do painel." }
+  ],
+  "launch": { "view": "canvas" }
+}

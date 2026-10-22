@@ -21,7 +21,12 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
   return (
     <div className="lc-admin-shell">
       <AdminNav fullName={session.fullName} canManageQuotes={session.canManageQuotes} />
-      <main className="lc-admin-content">
+      {/* id="main-content" é o destino do link "Pular para o conteúdo" do layout
+          raiz, que aparece em toda página. Sem ele, quem opera o admin por
+          teclado aciona o atalho e não sai do lugar — e o admin é justamente
+          onde mais se navega por teclado, preenchendo formulário atrás de
+          formulário. */}
+      <main id="main-content" className="lc-admin-content">
         <div className="lc-admin-content-inner">{children}</div>
       </main>
     </div>

@@ -1,0 +1,395 @@
+{
+ "slug": "omega-pro-tg",
+ "nome": "Ômega Pró TG",
+ "grupo_trabalho": "G2",
+ "porcao_mg": 1000.0,
+ "porcao_descricao": "2 softgels (1 g de óleo), 1 vez ao dia",
+ "formato": "softgel (cápsula mole) — 'TG' indica triglicerídeo, segundo o nome; nenhum documento confirma",
+ "grupo_populacional": "adultos (> 19 anos)",
+ "grupos_vd": [
+  "adultos_19_anos_ou_mais"
+ ],
+ "porcoes_por_embalagem": "30",
+ "porcao_tabela": "1 g (2 softgels)",
+ "veredito": "NÃO RESOLVIDO (não existe laudo do óleo de peixe, memorial nem rótulo — a composição do cadastro não tem procedência; e a aplicação do mínimo de 5 g de lipídeos totais ao óleo de peixe depende de posição do RT). Se o laudo confirmar EPA 185,34 + DHA 123,56 mg por 2 softgels e o RT adotar a interpretação 2, a fórmula fica CONFORME (EPA + DHA = 308,9 mg, 15 % do teto)",
+ "pendencias": [
+  "LAUDO DO ÓLEO DE PEIXE do lote em uso: forma (triglicerídeo / éster etílico / rTG), EPA e DHA em mg/g, perfil de ácidos graxos (saturados, trans), colesterol, oxidação (índice de peróxidos, anisidina, TOTOX), metais pesados (Hg, Pb, Cd, As), dioxinas/PCB, fornecedor e validade. Sem ele não há como confirmar 185,34 mg de EPA e 123,56 mg de DHA nem montar a tabela nutricional.",
+  "MEMORIAL DE CÁLCULO: massa de óleo por softgel, composição da cápsula (gelatina, glicerina, água, antioxidante) e rendimento — não existe.",
+  "RÓTULO/ARTE: não existe; ingredients_list e warnings estão vazios no banco.",
+  "RT: posição escrita sobre o mínimo de 5 g de 'Lipídeos totais' (Anexo III) — se aplicável ao óleo de peixe como constituinte do grupo Lipídeos (interpretação 1: 1 g fica abaixo; seriam 5 g/dia) ou só a produtos apresentados como fonte de lipídeos (interpretação 2: conforme, EPA + DHA 308,9 mg dentro de 37,5–2.000 mg). O painel oficial mostra as duas informações para 'Óleo de peixe'.",
+  "Os quatro laudos de 'ômega' em disco são pós (nanoemulsão, ALA vegetal vencido, DHA de alga, scan) — nenhum serve para este softgel."
+ ],
+ "alternativas": [],
+ "mudancas": [],
+ "removidos": [],
+ "cabe": true,
+ "insumos": [
+  {
+   "chave": "oleo-peixe",
+   "status": "mantido — sem procedência",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Lipídeos totais",
+   "forma_anexo_i": "Óleo de peixe",
+   "forma_insumo": "óleo de peixe TG (triglicerídeo) — segundo o cadastro; NENHUM laudo de óleo de peixe em disco",
+   "classe": "outro",
+   "ingredient_slug": "oleo-de-peixe-tg",
+   "massa_insumo_mg": 1000.0,
+   "teor_laudo_pct": null,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 100.0,
+   "fator_conversao": null,
+   "teor_fonte": "cadastro do banco (sem memorial, sem rótulo, sem laudo) — PROCEDÊNCIA NÃO CONFIRMADA",
+   "conta": null,
+   "ativo_mg": 1000.0,
+   "ativo": 1.0,
+   "unidade_ativo": "g",
+   "acido_folico_ug": null,
+   "minimo": 5000.0,
+   "maximo": null,
+   "unidade_limite": null,
+   "pct_do_maximo": null,
+   "linha_anexo": "III·Lipídeos totais (5) / IV·Lipídeos totais (NE)",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "motivo": "LEITURA LITERAL: o Anexo I põe 'Óleo de peixe' no grupo Lipídeos; o Anexo III fixa 'Lipídeos totais' mínimo 5 g para > 19 anos (máximo NE no Anexo IV). INTERPRETAÇÃO 1 (por grupo): o mínimo de 5 g se aplica a qualquer constituinte do grupo Lipídeos → 1 g de óleo = 20 % do mínimo, ABAIXO; para cumprir seriam 5 g de óleo por dia (5 softgels de 1 g, ou porção de 5 g). INTERPRETAÇÃO 2 (por função): o óleo de peixe é a fonte de EPA e DHA, constituintes com linha própria nos Anexos III/IV (37,5–2.000 mg), e o mínimo de 'Lipídeos totais' se aplica ao produto apresentado como fonte de lipídeos/gorduras; nesse caso a linha fica conforme. A auditoria de 15/09 registrou que o painel oficial mostra, para 'Óleo de peixe', tanto a função 'Fonte de EPA / Fonte de DHA' quanto 'Lipídeos: mínimo 5 g'. Não decido: cabe ao RT (ou consulta à ANVISA).",
+   "tab": "Gorduras totais",
+   "ordem": 40,
+   "vit": null
+  },
+  {
+   "chave": "oleo-peixe",
+   "status": "mantido — sem procedência",
+   "retirado": false,
+   "componente": true,
+   "constituinte": "Lipídeos totais",
+   "forma_anexo_i": "Óleo de peixe",
+   "forma_insumo": "EPA (ácido eicosapentaenoico) do óleo de peixe",
+   "classe": "outro",
+   "ingredient_slug": "oleo-de-peixe-tg",
+   "massa_insumo_mg": 185.34,
+   "teor_laudo_pct": null,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 100.0,
+   "fator_conversao": null,
+   "teor_fonte": "cadastro (sem laudo)",
+   "conta": null,
+   "ativo_mg": 185.34,
+   "ativo": 0.18534,
+   "unidade_ativo": "g",
+   "acido_folico_ug": null,
+   "minimo": 37.5,
+   "maximo": 2000.0,
+   "unidade_limite": null,
+   "pct_do_maximo": null,
+   "linha_anexo": "III·EPA e DHA (37,5) / IV·EPA e DHA (2.000)",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "motivo": "Componente do óleo, não massa adicional. Soma EPA + DHA = 308,90 mg = 15,4 % do teto de 2.000 mg e 824 % do mínimo de 37,5 mg — CONFORME pelos números do cadastro, sem laudo que os confirme.",
+   "tab": "Gorduras totais",
+   "ordem": 40,
+   "vit": null
+  },
+  {
+   "chave": "oleo-peixe",
+   "status": "mantido — sem procedência",
+   "retirado": false,
+   "componente": true,
+   "constituinte": "Lipídeos totais",
+   "forma_anexo_i": "Óleo de peixe",
+   "forma_insumo": "DHA (ácido docosaexaenoico) do óleo de peixe",
+   "classe": "outro",
+   "ingredient_slug": "oleo-de-peixe-tg",
+   "massa_insumo_mg": 123.56,
+   "teor_laudo_pct": null,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 100.0,
+   "fator_conversao": null,
+   "teor_fonte": "cadastro (sem laudo)",
+   "conta": null,
+   "ativo_mg": 123.56,
+   "ativo": 0.12356,
+   "unidade_ativo": "g",
+   "acido_folico_ug": null,
+   "minimo": 37.5,
+   "maximo": 2000.0,
+   "unidade_limite": null,
+   "pct_do_maximo": 15.4,
+   "linha_anexo": "III·EPA e DHA (37,5) / IV·EPA e DHA (2.000)",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "motivo": "Idem (na soma). A nota i do Anexo III (≥ 30 mg de DHA) está nas colunas Gestantes/Lactantes, não na de > 19 anos.",
+   "tab": "Gorduras totais",
+   "ordem": 40,
+   "vit": null
+  },
+  {
+   "chave": null,
+   "status": "mantido — sem procedência",
+   "retirado": false,
+   "componente": true,
+   "constituinte": "(componente) outros ácidos graxos ômega-3",
+   "forma_anexo_i": "componente do óleo",
+   "forma_insumo": "componente do óleo",
+   "classe": null,
+   "ingredient_slug": "outros-acidos-graxos-omega-3",
+   "massa_insumo_mg": 7.6,
+   "teor_laudo_pct": null,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 100.0,
+   "fator_conversao": null,
+   "teor_fonte": "cadastro",
+   "conta": null,
+   "ativo_mg": 7.6,
+   "ativo": 7.6,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": null,
+   "maximo": null,
+   "unidade_limite": null,
+   "pct_do_maximo": null,
+   "linha_anexo": "— (não é constituinte listado; informativo)",
+   "laudo": {
+    "lote": null,
+    "validade": null,
+    "vencido": null
+   },
+   "motivo": "185,34 + 123,56 + 7,6 = 316,5 mg = 'ômega-3 total' do cadastro (fecha).",
+   "tab": null,
+   "ordem": 999,
+   "vit": null
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Cápsula mole (softgel) — composição desconhecida",
+   "ins": null,
+   "massa_mg": null,
+   "obs": "Nenhum documento informa gelatina/glicerina/água/antioxidante da cápsula.",
+   "papel": "envoltorio",
+   "laudo_lote": null,
+   "capsula": true,
+   "agregado": false,
+   "slug": null,
+   "nome_catalogo": null
+  }
+ ],
+ "soma_insumos_mg": 1000.0,
+ "soma_excipientes_mg": 0,
+ "soma_porcao_mg": 1000.0,
+ "energia_modelo": {
+  "kcal_decl": 9.0,
+  "fixos": 9.0,
+  "partes_fixas": [
+   "óleo 1 g × 9.0 = 9"
+  ],
+  "tot": 9.0,
+  "incluidos": [],
+  "excluidos": []
+ },
+ "tabela": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 softgels)",
+  "grupos": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": 9.0,
+    "unidade": "kcal",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": "PROVISÓRIO — 1 g de óleo × 9 kcal/g (Atwater); kJ 37 kJ/g PROVISÓRIO",
+    "pendente": false,
+    "provisorio": true,
+    "kj": 38.0,
+    "kcal_exato": 9.0
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 2,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": 1.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 2
+    },
+    "nivel": 0,
+    "nota": "PROVISÓRIO — óleo declarado no cadastro, sem laudo",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "PENDENTE — depende do laudo do óleo (perfil de ácidos graxos)",
+    "pendente": true,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "PENDENTE — laudo do óleo",
+    "pendente": true,
+    "provisorio": false
+   },
+   {
+    "item": "Ômega 3",
+    "quantidade": 317.0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 8
+    },
+    "nivel": 1,
+    "nota": "316,5 mg (cadastro); VD 4.000 mg do Anexo II — PROVISÓRIO",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "EPA",
+    "quantidade": 185.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": "sub-item de ômega 3",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "DHA",
+    "quantidade": 124.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": "sub-item de ômega 3",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Colesterol",
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "PENDENTE — laudo do óleo",
+    "pendente": true,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "quantidade": 0.0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: Anexo III da IN 75/2020 (paráfrase do gabarito de 16/09/2026). %VD: Anexo VIII da IN 75/2020 para o grupo do rótulo (macronutrientes: Anexo II), calculado sobre a quantidade declarada. Quantidade não significativa (Anexo IV): %VD 0. Sem VDR: célula em branco (RDC 429/2020, art. 12, §1º). Energia: fatores do Anexo XXII da IN 75 (kcal/g); kJ = kcal × 4,184."
+ },
+ "ingredients_list": null,
+ "warnings_memorial": "Este produto não é um medicamento.\nPúblico indicado: adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nALÉRGICOS: CONTÉM PEIXE.\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nNão consumir se o lacre de segurança estiver violado.",
+ "advertencias_anexo_vi": [],
+ "warnings": [
+  "Este produto não é um medicamento.",
+  "Não exceder a recomendação diária de consumo indicada na embalagem.",
+  "Mantenha fora do alcance de crianças.",
+  "Público indicado: adultos (19 anos ou mais).",
+  "Ingerir 2 softgels ao dia.",
+  "ALÉRGICOS: CONTÉM PEIXE.",
+  "Conservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+ ],
+ "metadata_extra": {
+  "sql_sem_composicao": true,
+  "sql_nao_gravar_nutritional_info": true,
+  "sql_sem_composicao_motivo": "NÃO RESOLVIDO — sem laudo do óleo, memorial ou rótulo não há fonte para gravar composição nova; o SQL só grava os dizeres obrigatórios do art. 14 da RDC 243/2018 (hoje vazios), o alergênico 'peixe' (decorre do único insumo do cadastro) e a porção, e marca a tabela como PROVISÓRIA no metadata.",
+  "laudos_encontrados_incompativeis": [
+   "NPT-0226141 'Nanomega 3' (NaturalPRO, lote NPT.0226/141, val. 02/2028): nanoemulsão em PÓ, ômega-3 15,3 % p/p, insolúvel em água — incompatível com softgel de óleo TG; não é o insumo deste produto.",
+   "'OMEGA 3 PÓ.pdf' (Florien, lote NPT.0222/175): ômega-3 vegetal (ácido alfa-linolênico) em pó, 15,2 %, VENCIDO em 28/02/2024 — não é EPA/DHA de peixe.",
+   "'BIO ATIVOS-OMEGA 3 Po.pdf' (Documents/LAUDOS): digitalização não lida; pelo nome, também pó.",
+   "'DHA Ultra-V 20 %' (SM, lote 26C27-B024-221282, val. 23/12/2028): DHA de Schizochytrium sp. em pó — fonte de alga, não óleo de peixe."
+  ],
+  "fonte_antes": "SOMENTE o cadastro do banco (5 linhas: óleo de peixe TG 1.000 mg; ômega-3 total 316,5; EPA 185,34; DHA 123,56; outros 7,6). Não existe memorial de cálculo, ficha técnica, rótulo nem laudo do óleo de peixe em disco (busca da frente dos memoriais em MEMORIAIS_2026 2, Desktop/POPS e Downloads)."
+ },
+ "composicao": [],
+ "nutritional_info_texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 softgels)\nQuantidade por porção | %VD*\nValor energético 9 kcal = 38 kJ | 0%\nCarboidratos 0 g | 0%\n  Açúcares totais 0 g | \n    Açúcares adicionados 0 g | 0%\nProteínas 0 g | 0%\nGorduras totais 1 g | 2%\n  Gorduras saturadas PENDENTE | \n  Gorduras trans PENDENTE | \n  Ômega 3 317 mg | 8%\n    EPA 185 mg | \n    DHA 124 mg | \n  Colesterol PENDENTE | \nFibras alimentares 0 g | 0%\nSódio 0 mg | 0%\n*Percentual de valores diários fornecidos pela porção",
+ "warnings_texto": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos (19 anos ou mais).\nIngerir 2 softgels ao dia.\nALÉRGICOS: CONTÉM PEIXE.\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+}

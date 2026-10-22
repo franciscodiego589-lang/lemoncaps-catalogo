@@ -93,21 +93,30 @@ export function IngredientForm({ initial }: IngredientFormProps) {
     const input = toWritableInput(state);
 
     setPending(true);
-    const result = initial ? await updateIngredient(initial.id, diffInput(input, originalInput.current)) : await createIngredient(input);
-    setPending(false);
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateIngredient/createIngredient virava erro não tratado
+    // no cliente e o botão ficava travado em "Salvando…".
+    try {
+      const result = initial ? await updateIngredient(initial.id, diffInput(input, originalInput.current)) : await createIngredient(input);
 
-    if (!result.ok) {
-      setFieldErrors(result.fieldErrors ?? {});
-      setFormError(result.error);
-      const firstInvalidKey = Object.keys(result.fieldErrors ?? {})[0];
-      if (firstInvalidKey) document.getElementById(`ingredient-${firstInvalidKey}`)?.focus();
-      return;
+      if (!result.ok) {
+        setFieldErrors(result.fieldErrors ?? {});
+        setFormError(result.error);
+        const firstInvalidKey = Object.keys(result.fieldErrors ?? {})[0];
+        if (firstInvalidKey) document.getElementById(`ingredient-${firstInvalidKey}`)?.focus();
+        return;
+      }
+
+      toast.success(initial ? "Insumo salvo." : "Insumo criado.");
+      originalInput.current = input;
+      if (!initial) router.push(`/admin/insumos/${result.data.id}`);
+      else router.refresh();
+    } catch (caught) {
+      console.error("[IngredientForm] falha ao salvar insumo:", caught);
+      toast.error("Não foi possível salvar o insumo agora. Tente novamente.");
+    } finally {
+      setPending(false);
     }
-
-    toast.success(initial ? "Insumo salvo." : "Insumo criado.");
-    originalInput.current = input;
-    if (!initial) router.push(`/admin/insumos/${result.data.id}`);
-    else router.refresh();
   }
 
   return (
@@ -115,15 +124,17 @@ export function IngredientForm({ initial }: IngredientFormProps) {
       <fieldset className="lc-admin-form-section">
         <h2>Identificação</h2>
         <div className="lc-admin-form-grid">
-          <TextField id="ingredient-name" label="Nome" value={state.name} onChange={(v) => set("name", v)} error={fieldErrors.name} required />
+          {/* Nem "name" nem "slug" são mais "required": vazio grava PENDENTE /
+              gera um slug de rascunho sozinho (ordem do dono, 17/09/2026 - ver
+              lib/actions/ingredients.ts). */}
+          <TextField id="ingredient-name" label="Nome" value={state.name} onChange={(v) => set("name", v)} error={fieldErrors.name} />
           <TextField
             id="ingredient-slug"
             label="Slug (URL)"
             value={state.slug}
             onChange={(v) => set("slug", v)}
             error={fieldErrors.slug}
-            hint="Só letras minúsculas, números e hífen."
-            required
+            hint="Só letras minúsculas, números e hífen. Em branco, um slug de rascunho é gerado sozinho."
           />
           <SelectField
             id="ingredient-category"

@@ -87,27 +87,44 @@ export function stampRunningHeaderAndFooter(doc: jsPDF, identity: DocumentIdenti
 }
 
 export interface CoverBlockOptions {
-  docTypeLabel: string;
+  // Opcional: quando ausente, o bloco vira um título "leve" - sem rótulo de
+  // tipo de documento nem linha de emissão, só título + subtítulo + filete de
+  // fechamento. Caso de uso real: a ficha técnica de cada item dentro do
+  // orçamento (lib/cart/quote-pdf.ts) - a capa/emissão do documento inteiro já
+  // apareceu uma vez só, na primeira página; repetir "Emitido em" a cada
+  // produto cotado seria ruído, não informação nova.
+  docTypeLabel?: string;
   title: string;
   subtitle?: string | null;
-  issuedAtLabel: string;
+  // Idem docTypeLabel: omitido, a linha "Emitido em ..." simplesmente não
+  // aparece.
+  issuedAtLabel?: string;
 }
 
-// Bloco de abertura da primeira página: identidade do documento em destaque
-// (rótulo do tipo de documento, título grande, subtítulo opcional, data de
-// emissão por extenso) fechado por um filete grosso na cor de acento da
-// marca. Funciona como "capa" sem gastar uma página inteira em branco - o
-// cabeçalho/rodapé corridos (acima) já cobrem a identidade em toda página.
+// Bloco de abertura de página: identidade do documento (ou de uma seção dele)
+// em destaque - rótulo do tipo de documento opcional, título grande,
+// subtítulo opcional, data de emissão opcional - fechado por um filete grosso
+// na cor de acento da marca. Na primeira página de cada documento funciona
+// como "capa" sem gastar uma página inteira em branco (o cabeçalho/rodapé
+// corridos, acima, já cobrem a identidade em toda página); dentro do
+// orçamento também abre cada ficha técnica de item cotado, só com
+// título+subtítulo (docTypeLabel e issuedAtLabel de fora, ver interface acima).
 export function drawCoverBlock(doc: jsPDF, startY: number, options: CoverBlockOptions): number {
   let cursorY = startY;
   const contentWidth = getContentWidth(doc);
 
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(FONT_SIZE_DOC_TYPE_LABEL);
-  doc.setTextColor(...COLOR_LIME_DEEP);
-  doc.text(options.docTypeLabel.toUpperCase(), PAGE_MARGIN_X, cursorY);
-  cursorY += 8.5;
+  if (options.docTypeLabel) {
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(FONT_SIZE_DOC_TYPE_LABEL);
+    doc.setTextColor(...COLOR_LIME_DEEP);
+    doc.text(options.docTypeLabel.toUpperCase(), PAGE_MARGIN_X, cursorY);
+    cursorY += 8.5;
+  }
 
+  // setFont explícito (nunca depende do que a linha do docTypeLabel deixou
+  // configurado): docTypeLabel é opcional agora, então o título precisa
+  // garantir sozinho que sai em negrito nos dois casos.
+  doc.setFont("helvetica", "bold");
   doc.setFontSize(FONT_SIZE_COVER_TITLE);
   doc.setTextColor(...COLOR_INK);
   const titleLines = doc.splitTextToSize(options.title, contentWidth) as string[];
@@ -124,11 +141,13 @@ export function drawCoverBlock(doc: jsPDF, startY: number, options: CoverBlockOp
     cursorY += 6.5;
   }
 
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(FONT_SIZE_CAPTION);
-  doc.setTextColor(...COLOR_MUTED);
-  doc.text(`Emitido em ${options.issuedAtLabel}`, PAGE_MARGIN_X, cursorY);
-  cursorY += 5.5;
+  if (options.issuedAtLabel) {
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(FONT_SIZE_CAPTION);
+    doc.setTextColor(...COLOR_MUTED);
+    doc.text(`Emitido em ${options.issuedAtLabel}`, PAGE_MARGIN_X, cursorY);
+    cursorY += 5.5;
+  }
 
   doc.setDrawColor(...COLOR_LIME_DEEP);
   doc.setLineWidth(0.9);

@@ -19,10 +19,14 @@ export function DossieTopBar() {
   return (
     <header className="lc-topbar lc-dossie-topbar">
       <GlassSurface className="lc-topbar-inner">
-        <div className="lc-brand">
+        {/* Marca clicável = caminho para a página inicial, que desde 13/09/2026
+            é a apresentação da fábrica (ver app/page.tsx). Convive com o
+            "Voltar ao catálogo" logo ao lado sem ambiguidade: um volta um
+            passo na navegação, o outro sai para o começo do site. */}
+        <Link href="/" className="lc-brand lc-brand-link" title="Lemon Caps - página inicial">
           <span className="lc-brand-dot" aria-hidden="true" />
           <span translate="no">Lemon Caps</span>
-        </div>
+        </Link>
         <Link href="/catalogo" className="lc-dossie-back">
           <ArrowLeft size={16} aria-hidden="true" />
           Voltar ao catálogo

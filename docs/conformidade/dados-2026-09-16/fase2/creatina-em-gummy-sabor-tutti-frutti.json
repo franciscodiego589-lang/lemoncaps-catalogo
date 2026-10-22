@@ -1,0 +1,265 @@
+{
+ "slug": "creatina-em-gummy-sabor-tutti-frutti",
+ "porcao_mg": 6000,
+ "porcao_descricao": "2 gomas (rótulo: 6 g; massa real da porção PENDENTE de pesagem — os sólidos da receita somam 7.262 mg)",
+ "formato": "gummy",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "forma_insumo": "Creatina monoidratada (pó)",
+   "massa_insumo_mg": 3500.0,
+   "teor_pct": 100.5,
+   "teor_fonte": "laudo lote 26A05-B023-217949 (teor 100,5 % base seca; LOD 11,5 %; val. 22/09/2028) — lote replicado do memorial de frutas vermelhas; tutti-frutti não tem memorial próprio",
+   "ativo_mg": 3517.5,
+   "unidade_ativo": "mg (leitura A)",
+   "ativo_leitura_b_mg": 3113.0,
+   "conta": "leitura A: 3.500 × 100,5 % = 3.517,5 mg (117,3 % do mínimo; 70,4 % do teto) · leitura B: 3.500 × 0,885 × 1,005 = 3.112,9 mg (103,8 % do mínimo; 62,3 % do teto)",
+   "minimo": 3000,
+   "maximo": 5000,
+   "pct_do_maximo": 70.35,
+   "pct_do_maximo_leitura_b": 62.26,
+   "linha_anexo": "I·Creatina·Creatina monohidratada; III·Creatina (3.000 mg); IV·Creatina (5.000 mg, IN 373/2025)",
+   "laudo": {
+    "lote": "217949 (26A05-B023-217949)",
+    "validade": "22/09/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "3.000 mg cravava o mínimo (100,5 % com o teor; 88,9 % na leitura B) e a creatina degrada a creatinina em meio úmido e ácido: 3.500 mg fica acima do mínimo nas duas leituras e o memorial já pedia 3.200–3.300 mg"
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Sorbitol líquido 70 %",
+   "ins": "420",
+   "massa_mg": 1750.0,
+   "observacao": "sólidos: 1.750 × 70 % = 1.225 mg (hipótese: \"70 %\" = concentração de sorbitol; o laudo anexado, lote 106371, é de sorbitol em PÓ, 98,5 %)"
+  },
+  {
+   "nome": "Maltitol",
+   "ins": "965",
+   "massa_mg": 1260.0,
+   "observacao": "1.260 × 99,7 % (laudo lote 106330, val. 22/04/2027) = 1.256 mg"
+  },
+  {
+   "nome": "Gelatina",
+   "ins": null,
+   "massa_mg": 700.0,
+   "observacao": "laudo lote 214196 (val. 17/08/2030): N ≥ 15,0 %; espécie animal não declarada"
+  },
+  {
+   "nome": "Água purificada",
+   "ins": null,
+   "massa_mg": 323.3,
+   "observacao": "evapora na cocção"
+  },
+  {
+   "nome": "Glicerina vegetal",
+   "ins": "422",
+   "massa_mg": 245.0,
+   "observacao": "sem fator de energia próprio no Anexo XXII da IN 75 — PENDENTE decisão do RT"
+  },
+  {
+   "nome": "Ácido cítrico",
+   "ins": "330",
+   "massa_mg": 168.0,
+   "observacao": "ácido orgânico: 3 kcal/g (Anexo XXII)"
+  },
+  {
+   "nome": "Pectina cítrica",
+   "ins": "440",
+   "massa_mg": 140.0,
+   "observacao": "fibra alimentar solúvel: 2 kcal/g (Anexo XXII); ácido galacturônico 90 % (laudo lote 107755)"
+  },
+  {
+   "nome": "Citrato de sódio",
+   "ins": "331",
+   "massa_mg": 14.0,
+   "observacao": "forma (anidro/di-hidratado) não informada; Na = 3,3–3,7 mg"
+  },
+  {
+   "nome": "Sorbato de potássio",
+   "ins": "202",
+   "massa_mg": 7.0,
+   "observacao": "lote em uso é grau PA (reagente) — trocar por grau alimentício (Analitic lote 91202)"
+  },
+  {
+   "nome": "Aroma de tutti-frutti",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa do sabor frutas vermelhas; tutti-frutti PENDENTE (OP: 0,783 % do lote)"
+  },
+  {
+   "nome": "Corante [rosa — nome técnico e INS PENDENTES]",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "OP do tutti-frutti chama de \"corante rosa\" (0,064 % do lote) — sem INS nem laudo"
+  },
+  {
+   "nome": "Sucralose",
+   "ins": "955",
+   "massa_mg": 2.67,
+   "observacao": "99,74 % (laudo lote 91233)"
+  }
+ ],
+ "soma_porcao_mg": 8109.97,
+ "cabe": false,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "porcao_coluna": "6 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "9",
+    "unidade": "kcal",
+    "kj": "39",
+    "quantidade_num": 9.0,
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "sorbitol 1,225 g × 2,6 + maltitol 1,256 g × 2,1 + proteína 0,656 g × 4 + ácido cítrico 0,168 g × 3 + pectina 0,126 g × 2 = 9,20 kcal (glicerina 0,245 g sem fator no Anexo XXII: se contada a 4 kcal/g → 10,18 kcal — decisão do RT)"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "2,5",
+    "quantidade_num": 2.5,
+    "unidade": "g",
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "= polióis 2,481 g; sem açúcares. Glicerina (0,245 g) NÃO incluída: sem fator no Anexo XXII da IN 75 nem enquadramento como carboidrato na RDC 429 Art. 3 VIII — se o RT a contar como carboidrato a 4 kcal/g, carboidratos = 2,7 g e energia = 10 kcal"
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "sem açúcares na receita (polióis excluídos por definição, RDC 429 Art. 3 II)"
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Polióis totais",
+    "quantidade": "2,5",
+    "quantidade_num": 2.5,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "sorbitol 1,225 g + maltitol 1,256 g = 2,481 g (rótulo atual diz 2,7 g)"
+   },
+   {
+    "item": "Sorbitol",
+    "quantidade": "1,2",
+    "quantidade_num": 1.2,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Maltitol",
+    "quantidade": "1,3",
+    "quantidade_num": 1.3,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "0,7",
+    "quantidade_num": 0.7,
+    "unidade": "g",
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "gelatina 700 mg × N 15,0 % × 6,25 = 0,656 g (com fator 5,55 da gelatina: 0,58 g — critério do RT); rótulo atual diz 0,4 g"
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "pectina 140 mg × 90 % = 0,126 g ≤ 0,5 g → não significativa → 0"
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "mg",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "citrato de sódio 14 mg → 3,3–3,7 mg de Na (≤ 5 mg → 0); rótulo atual diz 10 mg — sem lastro no memorial; PENDENTE análise de sódio no produto acabado"
+   },
+   {
+    "item": "Creatina",
+    "quantidade": "3.500",
+    "quantidade_num": 3500.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "sem VDR: %VD em branco. Massa nominal de creatina monoidratada; lote 217949: 3.517,5 mg (leitura A) ou 3.113 mg de creatina anidra (leitura B)"
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: IN 75/2020 Anexo III. Não significativo: Anexo IV. Ordem/indentação: Anexo XI. Energia: Anexo XXII (sorbitol 2,6; maltitol 2,1; proteínas 4; ácidos orgânicos 3; fibras solúveis 2)."
+ },
+ "ingredients_list": "Creatina monoidratada, sorbitol líquido, maltitol, gelatina (agente de textura), água purificada, glicerina vegetal (umectante), ácido cítrico (INS 330), pectina cítrica (espessante), aroma de tutti-frutti, citrato de sódio (INS 331), corante [nome técnico e INS PENDENTES — \"corante rosa\" na OP], conservador sorbato de potássio (INS 202) e edulcorante sucralose (INS 955). [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado] [Alergênicos: \"Contém: peixe\" se a gelatina for de peixe — espécie PENDENTE]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nO consumo excessivo pode ter efeito laxativo (contém polióis). [base legal a confirmar pelo RT]\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "A porção declarada (6 g = 2 gomas de 3,00 g) NÃO comporta a receita do memorial: sólidos por porção = 7.262 mg (creatina 3.500 + excipientes secos 3.762 mg); com 3.000 mg de creatina já eram 6.814 mg. A \"evaporação de 1.662,3 mg\" alegada pelo memorial excede a água disponível (525 mg no sorbitol líquido + 323,3 mg = 848,3 mg). Ou a goma pesa mais que 3 g (então 180 g/60 gomas e \"6 g\" estão errados) ou a creatina por 2 gomas é menor que a declarada (pela proporção da OP, 34,7 % de creatina no lote, 2 gomas de 3 g teriam ≈ 2.380 mg — ABAIXO do mínimo). Só a balança e o doseamento resolvem: pesar 20 gomas acabadas (peso médio e umidade) e dosear creatina e creatinina no produto acabado (a análise MGW existente só tem microbiologia e glúten).",
+  "Se o dono mantiver 3,00 g/goma, a fábrica precisa refazer a receita da base para caber (não há dado para fazê-lo aqui); se aceitar a goma maior, a porção passa a ser \"2 gomas de ≈ 4 g\" e o peso líquido muda — decisão do dono.",
+  "Estudo de estabilidade (creatina/creatinina em 0, 3, 6, 12 e 24 meses) — sem ele o teor declarado não se sustenta na validade de 24 meses (o próprio memorial pede).",
+  "Decisão do RT sobre a base do limite (leitura A × leitura B) — a dose proposta atende às duas.",
+  "Sorbitol: laudo anexado é de pó (98,5 %), o insumo é líquido 70 % — pedir laudo do insumo real; polióis totais mudam conforme a hipótese (2,46–2,98 g).",
+  "Sódio: rótulo diz 10 mg, o memorial só justifica 3,3–3,7 mg (citrato de sódio) — análise no produto acabado ou correção da declaração.",
+  "Gelatina lote 214196 sem espécie declarada (alergênico se peixe; BSE se bovina).",
+  "Sorbato de potássio grau PA em uso — trocar por grau alimentício (laudo válido: Analitic lote 91202, 100,30 %, val. 05/01/2028).",
+  "Tutti-frutti não tem memorial, ficha técnica Lemon Caps nem rótulo próprios; aroma e corante (\"corante rosa\" da OP) sem nome técnico, INS, massa por porção nem laudo — PENDENTE antes de qualquer arte.",
+  "Glúten: ensaio MGW < 10 ppm (RG 005711/03/2026, amostra \"Lemoncaps Creatina em Gummy\", lote G20/1556) permite \"Não contém glúten\" para o lote ensaiado — mas a amostra não identifica o sabor; para o tutti-frutti é PENDENTE.",
+  "Designação de venda: \"Suplemento Alimentar em goma\" (RDC 243 Art. 12) — o rótulo atual traz \"Suplemento alimentar CREATINA em goma\"."
+ ],
+ "veredito": "CONFORME NOS LIMITES (fórmula proposta) · NÃO RESOLVIDO na porção: CONDICIONADO A pesagem da goma acabada, doseamento de creatina/creatinina no produto acabado e estudo de estabilidade; e a documentação própria do sabor tutti-frutti (aroma, corante, laudos)",
+ "_procedencia": {
+  "memorial": "MEM-CALC-CREATGUMMY-rev02 (13/08/2026, sabor frutas vermelhas)",
+  "rotulo": "sem rótulo; OP_Completa_Gummy_Creatina_Tutti_Frutti_130_Potes.pdf (percentuais do lote)",
+  "laudo": "01_laudo_creatina-monoidratada_lote-217949.pdf"
+ }
+}

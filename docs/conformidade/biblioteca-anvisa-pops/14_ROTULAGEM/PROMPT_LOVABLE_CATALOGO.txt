@@ -1,0 +1,159 @@
+Atualize as fórmulas do catálogo. Para cada produto abaixo, substitua a lista de ativos e as quantidades pelas que estão aqui. Não altere layout, textos, imagens nem nenhuma outra parte do site — somente as fórmulas.
+
+
+BIO PRINCESS
+- Vitamina C (ácido ascórbico): 508,91 mg
+- L-Metionina: 110 mg
+- Cloridrato de L-cisteína: 100 mg
+- Metilsulfonilmetano (MSM): 50 mg
+- Hialuronato de sódio: 50 mg
+- Siliciumax (ácido ortosilícico estabilizado): 50 mg
+- Vitamina E (acetato de DL-alfa-tocoferol): 45 mg
+- Niacina (nicotinamida): 35 mg
+- Zinco (de bisglicinato de zinco): 29,59 mg
+- Vitamina B6 (cloridrato de piridoxina): 10 mg
+- Ácido pantotênico (D-pantotenato de cálcio): 5,64 mg
+- Vitamina B2 (riboflavina): 2,74 mg
+- Vitamina A (acetato de retinol): 1.500 mcg
+- Cobre (de cobre aminoácido quelato): 900 mcg
+- Ácido fólico: 400 mcg
+- Iodo (de iodeto de potássio): 150 mcg
+- Selênio (de selênio quelato): 60 mcg
+- Vitamina D (colecalciferol): 50 mcg
+- Biotina (D-biotina): 45 mcg
+- Vitamina B12 (metilcobalamina): 9,94 mcg
+
+ZMA COMPLEX
+- Bisglicinato de magnésio: 673,055 mg
+- L-teanina de folhas de Camellia sinensis: 150 mg
+- Bisglicinato de zinco: 119,02 mg
+- Boro (de quelato de boro): 56,6 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Vitamina D (colecalciferol): 50 mcg
+
+PRÓ ENERGY
+- Feno-grego em pó (Trigonella foenum-graecum L., semente): 250 mg
+- Taurina: 215 mg
+- Guaraná em pó (Paullinia cupana Kunth, semente): 200 mg
+- Cafeína: 140 mg
+- L-carnitina: 90 mg
+- Cloridrato de L-arginina: 75 mg
+- Zinco (de bisglicinato de zinco): 20 mg
+- Vitamina B6 (cloridrato de piridoxina): 10 mg
+
+MULTIVITAMÍNICO
+- Vitamina C (ácido ascórbico): 533,685 mg
+- Magnésio (de bisglicinato de magnésio): 260 mg
+- L-teanina de folhas de Camellia sinensis: 150 mg
+- Niacina (nicotinamida): 16 mg
+- Zinco (de bisglicinato de zinco): 15 mg
+- Vitamina E (acetato de DL-alfa-tocoferol): 10 mg
+- Ácido pantotênico (D-pantotenato de cálcio): 5 mg
+- Boro (de quelato de boro): 3 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Vitamina B2 (riboflavina): 1,3 mg
+- Vitamina A (acetato de retinol): 1.300 mcg
+- Vitamina B1 (cloridrato de tiamina): 1,2 mg
+- Cobre (de cobre aminoácido quelato): 900 mcg
+- Ácido fólico: 750 mcg
+- Cromo (de picolinato de cromo): 250 mcg
+- Vitamina K (menaquinona-7): 149 mcg
+- Selênio (de selênio quelato): 100 mcg
+- Vitamina D (colecalciferol): 50 mcg
+- Vitamina B12 (metilcobalamina): 9,94 mcg
+
+FOCUS COLINA
+- Colina (de bitartarato de colina): 438,1375 mg
+- L-Tirosina: 262,5 mg
+- L-teanina de folhas de Camellia sinensis: 115 mg
+- L-carnitina: 95 mg
+- Magnésio (de bisglicinato de magnésio): 63 mg
+- Inositol (mio-inositol): 25 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Vitamina D (colecalciferol): 50 mcg
+- Vitamina B12 (metilcobalamina): 9,94 mcg
+
+LIDEMA
+- L-carnitina: 354,825 mg
+- Vitamina C (ácido ascórbico): 236 mg
+- Feno-grego em pó (Trigonella foenum-graecum L., semente): 160 mg
+- Magnésio (de bisglicinato de magnésio): 110 mg
+- Extrato de rizomas de cúrcuma (Curcuma longa L.): 84,21 mg
+- Niacina (nicotinamida): 21 mg
+- Zinco (de bisglicinato de zinco): 12 mg
+- Vitamina E (acetato de DL-alfa-tocoferol): 10 mg
+- Inositol (mio-inositol): 10 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Ácido fólico: 400 mcg
+- Cromo (de picolinato de cromo): 250 mcg
+- Vitamina D (colecalciferol): 50 mcg
+
+MORO SLIM
+- Feno-grego em pó (Trigonella foenum-graecum L., semente): 450 mg
+- Extrato de laranja moro (Citrus sinensis L. Osbeck): 340,14 mg
+- Extrato de café verde (Coffea arabica L., semente): 123,86 mg
+- Extrato de rizomas de cúrcuma (Curcuma longa L.): 84,21 mg
+- Vitamina A (acetato de retinol): 1.500 mcg
+- Cromo (de picolinato de cromo): 250 mcg
+
+ARTFLEX
+- Metilsulfonilmetano (MSM): 480,5 mg
+- Sulfato de glucosamina com cloreto de potássio: 200 mg
+- Vitamina C (ácido ascórbico): 140 mg
+- Magnésio (de bisglicinato de magnésio): 100 mg
+- Colágeno tipo II não desnaturado: 40 mg
+- Vitamina E (acetato de DL-alfa-tocoferol): 20 mg
+- Zinco (de bisglicinato de zinco): 10 mg
+- Ferro (de ferro aminoácido quelato): 8 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Selênio (de selênio quelato): 100 mcg
+- Vitamina D (colecalciferol): 50 mcg
+- Vitamina B12 (metilcobalamina): 9,94 mcg
+
+FLORAVEX
+- Magnésio (de bisglicinato de magnésio): 318,47 mg
+- Quercetina: 280 mg
+- Extrato de rizomas de cúrcuma (Curcuma longa L.): 136,84 mg
+- L-Glutamina: 135 mg
+- Vitamina B6 (cloridrato de piridoxina): 98,6 mg
+- Zinco (de bisglicinato de zinco): 29,59 mg
+- Vitamina A (acetato de retinol): 1.500 mcg
+
+SERENA
+- Magnésio (de cloreto de magnésio): 63 mg
+- Inositol (mio-inositol): 50 mg
+- L-teanina de folhas de Camellia sinensis: 50 mg
+- Vitamina B6 (cloridrato de piridoxina): 1,3 mg
+- Melatonina: 0,21 mg
+
+SLIM UP
+- Extrato de café verde (Coffea arabica L., semente): 92,9 mg
+- Extrato de rizomas de cúrcuma (Curcuma longa L.): 33,3 mg
+- Extrato fluido de semente de feno-grego (Trigonella foenum-graecum L.): 33 mg
+- Cromo (de picolinato de cromo): 250 mcg
+- Vitamina D (colecalciferol): 50 mcg
+- Vitamina B12 (metilcobalamina): 9,94 mcg
+
+DETOX (LEMON SHOT)
+- Vitamina C (ácido ascórbico): 1.600 mg
+- Extrato de café verde (Coffea arabica L., semente): 400 mg
+- Extrato de laranja moro (Citrus sinensis L. Osbeck): 100 mg
+- Extrato de rizomas de cúrcuma (Curcuma longa L.): 84,21 mg
+- Zinco (de bisglicinato de zinco): 8,3 mg
+
+BIOGUMMY
+- Vitamina C (ácido ascórbico): 45 mg
+- Vitamina E (acetato de DL-alfa-tocoferol): 16,7 mg
+- Zinco (de bisglicinato de zinco): 12 mg
+- Vitamina A (acetato de retinol): 1.020 mcg
+- Biotina (D-biotina): 45 mcg
+
+CREATINA GUMMY
+- Creatina monoidratada: 3.000 mg
+
+DREAM GUMMY
+- L-Triptofano: 800 mg
+- Melatonina: 0,21 mg
+
+CREATINA EM PÓ
+- Creatina monoidratada: 5.000 mg

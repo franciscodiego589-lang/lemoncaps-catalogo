@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { toast } from "sonner";
 
@@ -34,6 +34,36 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const whatsappInputRef = useRef<HTMLInputElement>(null);
+
+  // Aviso de saída com dado digitado e não enviado (achado da auditoria de
+  // 13/09/2026): nome e WhatsApp só existem no estado deste componente, então
+  // um "voltar" do navegador, um fechamento acidental da aba ou um F5 apagavam
+  // tudo em silêncio, e o cliente tinha de digitar de novo.
+  //
+  // As DUAS condições abaixo são o ponto do achado — um aviso que dispara
+  // sempre é pior que aviso nenhum (o visitante aprende a clicar "sair" sem
+  // ler, e o navegador passa a ignorar o site):
+  //   - só com algo digitado: formulário em branco não tem o que perder;
+  //   - só antes do envio começar: depois que a requisição partiu, o orçamento
+  //     já está sendo gravado no banco e travar a saída não protege nada. É
+  //     também o que deixa o F5 na tela de sucesso passar limpo, sem diálogo.
+  const hasUnsavedInput = name.trim() !== "" || whatsapp.trim() !== "";
+  const shouldWarnBeforeLeaving = hasUnsavedInput && !isSubmitting;
+
+  useEffect(() => {
+    if (!shouldWarnBeforeLeaving) return;
+
+    function handleBeforeUnload(event: BeforeUnloadEvent) {
+      // preventDefault() é a forma atual de pedir a confirmação; o texto é
+      // sempre do navegador, nunca nosso. `returnValue = ""` fica junto só
+      // para os navegadores antigos que ainda exigem a propriedade.
+      event.preventDefault();
+      event.returnValue = "";
+    }
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [shouldWarnBeforeLeaving]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -91,7 +121,7 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
           type="text"
           className={`lc-field-input${errors.name ? " is-invalid" : ""}`}
           autoComplete="name"
-          placeholder="Ex.: Maria Souza"
+          placeholder="Ex.: Maria Souza…"
           value={name}
           onChange={(event) => {
             setName(event.target.value);
@@ -100,8 +130,15 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "cart-customer-name-error" : undefined}
         />
+        {/* `aria-live="polite"`, nunca `role="alert"` (achado da auditoria de
+            13/09/2026): role="alert" equivale a aria-live="assertive" e corta
+            no meio o que o leitor de tela estiver falando — desproporcional
+            para uma mensagem de validação de campo. E o anúncio não depende
+            disso: ao validar, o foco vai para o primeiro campo inválido (ver
+            handleSubmit), e o campo tem aria-invalid + aria-describedby
+            apontando para esta mensagem, então o leitor a lê ao chegar ali. */}
         {errors.name && (
-          <p id="cart-customer-name-error" className="lc-field-error" role="alert">
+          <p id="cart-customer-name-error" className="lc-field-error" aria-live="polite">
             {errors.name}
           </p>
         )}
@@ -119,7 +156,7 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
           inputMode="tel"
           className={`lc-field-input${errors.whatsapp ? " is-invalid" : ""}`}
           autoComplete="tel"
-          placeholder="Ex.: 65999990000"
+          placeholder="Ex.: 65999990000…"
           value={whatsapp}
           onChange={(event) => {
             setWhatsapp(event.target.value);
@@ -128,8 +165,10 @@ export function CustomerForm({ items, totalPotes, totalCents, onSuccess }: Custo
           aria-invalid={Boolean(errors.whatsapp)}
           aria-describedby={errors.whatsapp ? "cart-customer-whatsapp-error" : "cart-customer-whatsapp-hint"}
         />
+        {/* Mesmo motivo do campo acima: validação de campo se anuncia com
+            educação (polite) + foco, nunca interrompendo o leitor de tela. */}
         {errors.whatsapp ? (
-          <p id="cart-customer-whatsapp-error" className="lc-field-error" role="alert">
+          <p id="cart-customer-whatsapp-error" className="lc-field-error" aria-live="polite">
             {errors.whatsapp}
           </p>
         ) : (

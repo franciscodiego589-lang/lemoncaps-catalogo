@@ -4,7 +4,7 @@ import { z } from "zod";
 
 import { requireStaffAction, StaffAuthError } from "@/lib/data/admin";
 import { createClient } from "@/lib/supabase/server";
-import type { TablesUpdate } from "@/lib/supabase/database.types";
+import type { TablesInsert, TablesUpdate } from "@/lib/supabase/database.types";
 import { actionError, actionOk, friendlyDbError, zodIssuesToFieldErrors, type ActionResult } from "@/lib/actions/types";
 import { revalidateCatalogCache } from "@/lib/data/formulas";
 
@@ -18,7 +18,16 @@ import { revalidateCatalogCache } from "@/lib/data/formulas";
 const unitEnum = z.enum(["g", "mg", "mcg", "ml", "l", "ui", "kg"], { message: "Selecione uma unidade válida." });
 
 const compositionLineSchema = z.object({
-  ingredientName: z.string().trim().min(1, "Informe o nome do insumo.").max(300),
+  // Vazio é aceito por pedido do dono (17/09/2026, mesmo afrouxamento
+  // consciente de formulas.ts/sheet-approvals.ts): ingredient_name é NOT NULL
+  // sem default (formula_compositions), então "" nunca é gravado - vira
+  // "PENDENTE", mesmo quando a linha aparece no dossiê público (é dado
+  // temporário e visível de propósito, para ficar óbvio que falta preencher).
+  ingredientName: z
+    .string()
+    .trim()
+    .max(300)
+    .transform((v) => (v === "" ? "PENDENTE" : v)),
   quantity: z.number().positive("Quantidade deve ser maior que zero."),
   unit: unitEnum,
   ingredientId: z.string().uuid().nullable(),
@@ -144,6 +153,28 @@ export async function removeCompositionLine(lineId: string): Promise<ActionResul
 // ordem final desejada - o índice de cada id vira o novo sort_order. Os ids
 // são reconferidos contra o banco (nunca fica assumido que pertencem à
 // fórmula só porque o cliente diz que sim).
+// Achado A4 (auditoria de 14/09/2026): a versão anterior fazia N updates em
+// sequência, um por linha - se falhasse no meio, a ordem ficava pela metade
+// (algumas linhas com sort_order novo, outras com o antigo), podendo gerar
+// posição duplicada ou faltando, sem ninguém perceber. Trocado por UM upsert
+// em lote: uma só chamada ao PostgREST vira um único
+// "INSERT ... ON CONFLICT (id) DO UPDATE" no Postgres - uma única instrução
+// SQL, portanto atômica por natureza (ou grava tudo, ou - rede caiu, RLS
+// negou - não grava nada). Preferido a criar uma RPC nova: regra do projeto
+// é não criar migration/RPC sem autorização do dono, e aqui não precisou -
+// conferido no schema real (supabase/migrations/20260909210000_schema.sql,
+// linha 352) que formula_compositions só tem um ÍNDICE não-único em
+// (formula_id, sort_order) para leitura, nunca uma constraint UNIQUE, então
+// o upsert não esbarra em violação de unicidade ao trocar duas posições
+// entre si.
+//
+// ingredient_name/quantity/unit/ingredient_id do payload de upsert vêm do
+// SELECT feito abaixo (o mesmo que já confere se o conjunto de ids bate),
+// nunca do que o cliente mandou: o upsert do PostgREST monta o INSERT
+// inteiro mesmo quando vai cair no conflito (colunas NOT NULL sem default
+// têm de vir preenchidas para a instrução ser válida), e usar o dado que
+// acabou de sair do banco evita gravar por cima um valor desatualizado que o
+// cliente porventura tivesse em cache - só sort_order muda de verdade.
 export async function reorderCompositionLines(formulaId: string, orderedLineIds: string[]): Promise<ActionResult<undefined>> {
   const authError = await assertStaff();
   if (authError) return authError;
@@ -156,24 +187,31 @@ export async function reorderCompositionLines(formulaId: string, orderedLineIds:
   const supabase = await createClient();
   const { data: existing, error: fetchError } = await supabase
     .from("formula_compositions")
-    .select("id")
+    .select("id, formula_id, ingredient_name, quantity, unit, ingredient_id")
     .eq("formula_id", formulaIdParsed.data)
     .is("deleted_at", null);
   if (fetchError) return actionError(friendlyDbError(fetchError));
 
-  const existingIds = new Set((existing ?? []).map((r) => r.id));
+  const existingById = new Map((existing ?? []).map((row) => [row.id, row]));
   const requestedIds = new Set(idsParsed.data);
-  const sameSet = existingIds.size === requestedIds.size && [...existingIds].every((id) => requestedIds.has(id));
+  const sameSet = existingById.size === requestedIds.size && [...existingById.keys()].every((id) => requestedIds.has(id));
   if (!sameSet) return actionError("A lista de reordenação não confere com as linhas atuais desta fórmula.");
 
-  for (const [index, lineId] of idsParsed.data.entries()) {
-    const { error } = await supabase
-      .from("formula_compositions")
-      .update({ sort_order: index })
-      .eq("id", lineId)
-      .eq("formula_id", formulaIdParsed.data);
-    if (error) return actionError(friendlyDbError(error));
-  }
+  const rows: TablesInsert<"formula_compositions">[] = idsParsed.data.map((id, index) => {
+    const current = existingById.get(id)!;
+    return {
+      id: current.id,
+      formula_id: current.formula_id,
+      ingredient_name: current.ingredient_name,
+      quantity: current.quantity,
+      unit: current.unit,
+      ingredient_id: current.ingredient_id,
+      sort_order: index,
+    };
+  });
+
+  const { error } = await supabase.from("formula_compositions").upsert(rows, { onConflict: "id" });
+  if (error) return actionError(friendlyDbError(error));
 
   revalidateCatalogCache();
   return actionOk(undefined);

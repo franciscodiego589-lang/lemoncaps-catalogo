@@ -6,6 +6,18 @@ interface ProofStatsProps {
   stats: CatalogStats;
 }
 
+// ============================================================================
+// SEM ROTA ATIVA desde 13/09/2026 — não é importado por nenhuma página.
+// Era o "O catálogo hoje" da landing institucional que ficava em /. A raiz
+// passou a ser a apresentação da fábrica, que mostra os mesmos números com mais
+// detalhe e em lugares diferentes: a faixa da primeira dobra
+// (components/manufacturing/KeyFigures.tsx), a divisão por formato
+// (FormatCapabilities) e a lista de segmentos (SegmentsServed).
+// A única informação daqui que não existia lá — a FAIXA DE PREÇO por pote —
+// foi salva e hoje aparece em components/manufacturing/StartingPoint.tsx.
+// Guardado no repositório em vez de apagado por ordem do dono.
+// ============================================================================
+
 // Prova concreta: só números que vieram de getCatalogData() nesta mesma
 // requisição (ver app/page.tsx e catalog-stats.ts) — nenhum aqui é digitado
 // à mão. Conteúdo (fato sobre o catálogo), por isso sempre sólido, nunca

@@ -43,14 +43,27 @@ export function CompositionEditor({ formulaId, initialLines, ingredientOptions }
     const previous = lines;
     setLines(nextLines);
     setReordering(true);
-    const result = await reorderCompositionLines(
-      formulaId,
-      nextLines.map((line) => line.id),
-    );
-    setReordering(false);
-    if (!result.ok) {
-      toast.error(result.error);
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de reorderCompositionLines (rede caiu, RLS negou, sessão
+    // expirou) virava erro não tratado no cliente E deixava a tela mostrando
+    // a ordem nova sem ela ter sido salva de verdade - mentindo pro
+    // operador. No catch, revertemos a lista visível para `previous`, igual
+    // ao que já acontecia no caminho `!result.ok`.
+    try {
+      const result = await reorderCompositionLines(
+        formulaId,
+        nextLines.map((line) => line.id),
+      );
+      if (!result.ok) {
+        toast.error(result.error);
+        setLines(previous);
+      }
+    } catch (caught) {
+      console.error("[CompositionEditor] falha ao reordenar composição:", caught);
+      toast.error("Não foi possível reordenar agora. Tente novamente.");
       setLines(previous);
+    } finally {
+      setReordering(false);
     }
   }
 
@@ -67,10 +80,11 @@ export function CompositionEditor({ formulaId, initialLines, ingredientOptions }
   async function handleAdd(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const quantity = Number(draft.quantityText.replace(",", "."));
-    if (draft.ingredientName.trim() === "") {
-      setAddError("Informe o nome do insumo.");
-      return;
-    }
+    // Nome vazio não trava mais o salvamento (ordem do dono, 17/09/2026): o
+    // mesmo fallback "PENDENTE" que a Server Action aplica (ver
+    // lib/actions/compositions.ts) já é calculado aqui, para o item otimista
+    // abaixo bater com o que o servidor de fato gravou.
+    const ingredientName = draft.ingredientName.trim() === "" ? "PENDENTE" : draft.ingredientName.trim();
     if (!Number.isFinite(quantity) || quantity <= 0) {
       setAddError("Quantidade precisa ser um número maior que zero.");
       return;
@@ -78,32 +92,42 @@ export function CompositionEditor({ formulaId, initialLines, ingredientOptions }
 
     setAddError(null);
     setAdding(true);
-    const result = await addCompositionLine(formulaId, {
-      ingredientName: draft.ingredientName.trim(),
-      quantity,
-      unit: draft.unit,
-      ingredientId: draft.ingredientId === "" ? null : draft.ingredientId,
-    });
-    setAdding(false);
-
-    if (!result.ok) {
-      setAddError(result.error);
-      return;
-    }
-
-    setLines((prev) => [
-      ...prev,
-      {
-        id: result.data.id,
-        ingredientName: draft.ingredientName.trim(),
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de addCompositionLine virava erro não tratado no cliente e
+    // "Adicionando…" ficava travado (o setAdding(false) nunca era
+    // alcançado).
+    try {
+      const result = await addCompositionLine(formulaId, {
+        ingredientName,
         quantity,
         unit: draft.unit,
-        sortOrder: result.data.sortOrder,
         ingredientId: draft.ingredientId === "" ? null : draft.ingredientId,
-      },
-    ]);
-    setDraft(EMPTY_DRAFT);
-    toast.success("Insumo adicionado à composição.");
+      });
+
+      if (!result.ok) {
+        setAddError(result.error);
+        return;
+      }
+
+      setLines((prev) => [
+        ...prev,
+        {
+          id: result.data.id,
+          ingredientName,
+          quantity,
+          unit: draft.unit,
+          sortOrder: result.data.sortOrder,
+          ingredientId: draft.ingredientId === "" ? null : draft.ingredientId,
+        },
+      ]);
+      setDraft(EMPTY_DRAFT);
+      toast.success("Insumo adicionado à composição.");
+    } catch (caught) {
+      console.error("[CompositionEditor] falha ao adicionar insumo:", caught);
+      toast.error("Não foi possível adicionar o insumo agora. Tente novamente.");
+    } finally {
+      setAdding(false);
+    }
   }
 
   return (

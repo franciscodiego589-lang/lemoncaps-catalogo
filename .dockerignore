@@ -1,0 +1,14 @@
+# Nenhum arquivo .env entra na imagem. As variáveis públicas do Supabase são
+# passadas como --build-arg no momento do build; a chave secreta não é usada
+# pela aplicação e não deve existir dentro do container.
+.env
+.env.*
+node_modules
+.next
+.git
+graphify-out
+.claude
+docs
+supabase/.temp
+*.log
+.DS_Store

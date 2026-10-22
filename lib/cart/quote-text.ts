@@ -4,16 +4,35 @@
 // vêm do carrinho (que por sua vez veio do banco), nada calculado além de
 // soma simples de campos que já chegaram prontos.
 import { centsToBRL } from "@/lib/money";
+import type { FormulaDetailDTO } from "@/lib/data/formulas";
+import { PRICE_ON_REQUEST_LABEL } from "@/lib/store/cart";
 import type { QuoteSuccessData } from "./types";
 
-export function buildQuoteOrderText(data: QuoteSuccessData): string {
+// `formulas` é OPCIONAL: quem chama sem fichas carregadas (ou quando a busca
+// delas falhou) continua recebendo um texto correto, só sem a apresentação
+// de cada item — nunca "não informado" no lugar dela (mesma regra de exatidão
+// do PDF). Indexado por slug, igual ao PDF do orçamento (lib/cart/quote-pdf.ts).
+export function buildQuoteOrderText(data: QuoteSuccessData, formulas?: readonly FormulaDetailDTO[]): string {
+  const formulaBySlug = new Map((formulas ?? []).map((formula) => [formula.slug, formula] as const));
+
   const itemLines = data.items.map((item) => {
+    const formula = formulaBySlug.get(item.slug);
+    const presentation = formula ? (formula.poteContentsDescription ?? formula.netWeight ?? null) : null;
+    const presentationSuffix = presentation ? ` (${presentation})` : "";
+    if (item.unitPriceCents === null) {
+      return `- ${item.name}${presentationSuffix}: ${item.quantityPotes} potes, ${PRICE_ON_REQUEST_LABEL.toLowerCase()}`;
+    }
     const subtotalCents = item.unitPriceCents * item.quantityPotes;
-    return `- ${item.name}: ${item.quantityPotes} potes x ${centsToBRL(item.unitPriceCents)} = ${centsToBRL(subtotalCents)}`;
+    return `- ${item.name}${presentationSuffix}: ${item.quantityPotes} potes x ${centsToBRL(item.unitPriceCents)} = ${centsToBRL(subtotalCents)}`;
   });
+  const totalLine = data.items.every((item) => item.unitPriceCents === null)
+    ? "Total: sob consulta"
+    : data.items.some((item) => item.unitPriceCents === null)
+      ? `Total: ${centsToBRL(data.totalCents)} + itens com preço sob consulta`
+      : `Total: ${centsToBRL(data.totalCents)}`;
 
   return [
-    "Pedido - Lemon Caps",
+    "Orçamento - Lemon Caps",
     `Cliente: ${data.customerName}`,
     `WhatsApp: ${data.customerWhatsapp}`,
     `Orçamento nº ${data.quoteNumber}`,
@@ -22,15 +41,11 @@ export function buildQuoteOrderText(data: QuoteSuccessData): string {
     ...itemLines,
     "",
     `Total de potes: ${data.totalPotes}`,
-    `Total: ${centsToBRL(data.totalCents)}`,
+    totalLine,
+    "",
+    // Item 4 da tarefa: nunca encher esta mensagem com a composição inteira
+    // (é texto de WhatsApp, não o documento técnico) — só aponta onde ela
+    // está para quem quiser o detalhe completo de cada fórmula.
+    "Dossiê técnico completo de cada fórmula cotada: veja o PDF do orçamento.",
   ].join("\n");
-}
-
-// Mensagem enviada ao abrir o WhatsApp: um resumo curto (não o pedido inteiro
-// item a item) para não estourar limite de tamanho de URL de links wa.me em
-// carrinhos com muitos itens. O detalhamento completo já está disponível via
-// "Copiar pedido" e "Baixar PDF", que o cliente pode colar/anexar na conversa.
-export function buildWhatsappMessage(data: Pick<QuoteSuccessData, "quoteNumber" | "totalPotes" | "totalCents">): string {
-  const potesLabel = data.totalPotes === 1 ? "pote" : "potes";
-  return `Olá! Gerei o orçamento nº ${data.quoteNumber} no catálogo Lemon Caps (${data.totalPotes} ${potesLabel}, total ${centsToBRL(data.totalCents)}). Podemos conversar sobre ele?`;
 }

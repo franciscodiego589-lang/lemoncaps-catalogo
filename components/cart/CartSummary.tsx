@@ -1,5 +1,5 @@
 import { centsToBRL } from "@/lib/money";
-import { cartTotalCents, type CartItem } from "@/lib/store/cart";
+import { cartTotalCents, hasPriceOnRequest, type CartItem } from "@/lib/store/cart";
 
 interface CartSummaryProps {
   items: readonly CartItem[];
@@ -13,6 +13,8 @@ export function CartSummary({ items }: CartSummaryProps) {
   const totalPotes = items.reduce((sum, item) => sum + item.quantityPotes, 0);
   const totalCents = cartTotalCents(items);
   const potesLabel = totalPotes === 1 ? "pote" : "potes";
+  // Tudo sob consulta: "R$ 0,00" pareceria preço, então o total também fica sob consulta.
+  const allOnRequest = items.length > 0 && items.every((item) => item.unitPriceCents === null);
 
   return (
     <div>
@@ -25,8 +27,11 @@ export function CartSummary({ items }: CartSummaryProps) {
       </div>
       <div className="lc-summary-row lc-summary-total">
         <span>Total</span>
-        <span>{centsToBRL(totalCents)}</span>
+        <span>{allOnRequest ? "Sob consulta" : centsToBRL(totalCents)}</span>
       </div>
+      {hasPriceOnRequest(items) && !allOnRequest && (
+        <p className="lc-min-note">+ itens com preço sob consulta, fora deste total.</p>
+      )}
     </div>
   );
 }

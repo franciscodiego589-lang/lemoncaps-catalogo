@@ -1,0 +1,5237 @@
+[
+ {
+  "slug": "multivitaminico",
+  "nome": "Multivitamínico",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de óxido de magnésio; aquisição de fonte de boro autorizada com laudo; laudos de selenito de sódio e bisglicinato de cobre; laudo vigente da menaquinona-7 do lote em uso; confirmação da potência da vitamina A)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/multivitaminico.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "nenhum insumo com fator no Anexo XXII",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "calculado 3,2 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 1300,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 163
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 267
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina E",
+    "nivel": 0,
+    "quantidade": 10,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 67
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina K",
+    "nivel": 0,
+    "quantidade": 120,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote PURI011426 (Gemini/Purifarma, fabricante 2003D04) — único laudo de MK-7 na máquina, validade 24/03/2022) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 100,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Tiamina",
+    "nivel": 0,
+    "quantidade": 1.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Riboflavina",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 108
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Niacina",
+    "nivel": 0,
+    "quantidade": 16,
+    "unidade": "mg NE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 107
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido pantotênico",
+    "nivel": 0,
+    "quantidade": 5,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido fólico",
+    "nivel": 0,
+    "quantidade": 1000,
+    "unidade": "µg DFE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 250
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 333
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cobre",
+    "nivel": 0,
+    "quantidade": 900,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,9 mg / 0,3002 = 2,998 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Cromo",
+    "nivel": 0,
+    "quantidade": 35,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 260,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 62
+    },
+    "nota": "PROVISÓRIO — teor assumido (260 mg / 0,6030 = 431,15 mg de óxido de magnésio (assumido 60,30%))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Selênio",
+    "nivel": 0,
+    "quantidade": 100,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 167
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,1 mg / 0,4566 = 0,219 mg (assumido) — massa de microdose: exige pré-mistura/trituração definida pela fábrica)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 15,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 136
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Boro",
+    "nivel": 0,
+    "quantidade": 3,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — teor assumido (3 mg / 0,1134 = 26,46 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de óxido de magnésio; aquisição de fonte de boro autorizada com laudo; laudos de selenito de sódio e bisglicinato de cobre; laudo vigente da menaquinona-7 do lote em uso; confirmação da potência da vitamina A)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina A | 1.300 µg RAE | 163%\nVitamina D | 40 µg | 267%\nVitamina E | 10 mg | 67%\nVitamina K | 120 µg | 100%\nVitamina C | 100 mg | 100%\nTiamina | 1,2 mg | 100%\nRiboflavina | 1,3 mg | 108%\nNiacina | 16 mg NE | 107%\nÁcido pantotênico | 5 mg | 100%\nVitamina B6 | 1,3 mg | 100%\nÁcido fólico | 1.000 µg DFE | 250%\nVitamina B12 | 8 µg | 333%\nCobre | 900 µg | 100%\nCromo | 35 µg | 100%\nMagnésio | 260 mg | 62%\nSelênio | 100 µg | 167%\nZinco | 15 mg | 136%\nBoro | 3 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "zma-zinco-magnesio-e-vitamina-d",
+  "nome": "ZMA (Zinco, Magnésio e Vitamina B6)",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo novo do bisglicinato de magnésio; aquisição de tetraborato de sódio decahidratado ou frutoborato de cálcio com laudo)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/zma-zinco-magnesio-e-vitamina-d.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: L-teanina de folhas de Camellia sinensis",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-teanina = 150 mg) não contam como proteína (se contassem: 0,15 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-teanina",
+    "nivel": 1,
+    "quantidade": 150,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "calculado 3,2 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 25,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 167
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 151,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 36
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 90844 (Analitic, fabricante 66342023062230), validade 21/06/2025) — pedir laudo novo e recalcular a massa; valor antes do arredondamento: 151,1 mg → declarado 151 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 15,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 136
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Boro",
+    "nivel": 0,
+    "quantidade": 3,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — teor assumido (3 mg / 0,1134 = 26,46 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo novo do bisglicinato de magnésio; aquisição de tetraborato de sódio decahidratado ou frutoborato de cálcio com laudo)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-teanina | 150 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina D | 25 µg | 167%\nVitamina B6 | 1,3 mg | 100%\nMagnésio | 151 mg | 36%\nZinco | 15 mg | 136%\nBoro | 3 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "biotina-em-capsula",
+  "nome": "Biotina em Cápsula",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudos de selenito de sódio e bisglicinato de cobre; declaração de origem fermentativa do hialuronato de sódio; confirmação da potência da vitamina A)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/biotina-em-capsula.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina (carreador do Siliciumax, 95 %) 0,048 g × 4 = 0,19 kcal; NÃO contados: Cloridrato de L-cisteína, anidro, Hialuronato de sódio, L-Metionina, Metilsulfonilmetano; calculado 0,19 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,048 g; calculado 0,048 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-metionina, L-cisteína = 186,44 mg) não contam como proteína (se contassem: 0,186 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-metionina",
+    "nivel": 1,
+    "quantidade": 110,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-cisteína",
+    "nivel": 1,
+    "quantidade": 76,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 76,44 mg → declarado 76 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "calculado 2,9 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 1500,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 188
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 267
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina E",
+    "nivel": 0,
+    "quantidade": 15,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "valor antes do arredondamento: 15,29 mg → declarado 15 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 250,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 250
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Riboflavina",
+    "nivel": 0,
+    "quantidade": 2.4,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 200
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Niacina",
+    "nivel": 0,
+    "quantidade": 31,
+    "unidade": "mg NE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 207
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido pantotênico",
+    "nivel": 0,
+    "quantidade": 5,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 8.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 631
+    },
+    "nota": "valor antes do arredondamento: 8,22 mg → declarado 8,2 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Biotina",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 133
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido fólico",
+    "nivel": 0,
+    "quantidade": 667,
+    "unidade": "µg DFE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 167
+    },
+    "nota": "valor antes do arredondamento: 666,67 µg DFE → declarado 667 µg DFE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 333
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cobre",
+    "nivel": 0,
+    "quantidade": 900,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,9 mg / 0,3002 = 2,998 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Iodo",
+    "nivel": 0,
+    "quantidade": 150,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Selênio",
+    "nivel": 0,
+    "quantidade": 60,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,06 mg / 0,4566 = 0,131 mg (assumido) — microdose: pré-mistura definida pela fábrica)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 15,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 136
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Metilsulfonilmetano",
+    "nivel": 0,
+    "quantidade": 50,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido hialurônico",
+    "nivel": 0,
+    "quantidade": 50,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "mantido — PENDENTE declaração de origem: dose do rótulo (31,7% do teto). O laudo não declara processo de obtenção nem cepa; a Lemon Caps já reprovou outro lote (225412, parecer PAR-LAU-2026-003) pela mesma lacuna. Fica condicionado à declaração do fabricante.",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Silício",
+    "nivel": 0,
+    "quantidade": 0.72,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 0,71 mg → declarado 0,72 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudos de selenito de sódio e bisglicinato de cobre; declaração de origem fermentativa do hialuronato de sódio; confirmação da potência da vitamina A)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-metionina | 110 mg | \n  L-cisteína | 76 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina A | 1.500 µg RAE | 188%\nVitamina D | 40 µg | 267%\nVitamina E | 15 mg | 100%\nVitamina C | 250 mg | 250%\nRiboflavina | 2,4 mg | 200%\nNiacina | 31 mg NE | 207%\nÁcido pantotênico | 5 mg | 100%\nVitamina B6 | 8,2 mg | 631%\nBiotina | 40 µg | 133%\nÁcido fólico | 667 µg DFE | 167%\nVitamina B12 | 8 µg | 333%\nCobre | 900 µg | 100%\nIodo | 150 µg | 100%\nSelênio | 60 µg | 100%\nZinco | 15 mg | 136%\nMetilsulfonilmetano | 50 mg | \nÁcido hialurônico | 50 mg | \nSilício | 0,72 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "dores-musculares",
+  "nome": "Dores Musculares (Nuviart)",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (ficha do fabricante do colágeno tipo II; identidade do ferro; laudos de óxido de magnésio e selenito de sódio; declaração de origem da glucosamina)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/dores-musculares.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — colágeno tipo II (proteína 67,6 % do laudo) 0,027 g × 4 = 0,108 kcal; NÃO contados: Metilsulfonilmetano, Sulfato de glucosamina com cloreto de potássio; calculado 0,108 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "colágeno tipo II (proteína 67,6 % do laudo) 0,027 g × 4; calculado 0,027 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "calculado 0,06 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 267
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina E",
+    "nivel": 0,
+    "quantidade": 20,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 133
+    },
+    "nota": "valor antes do arredondamento: 20,38 mg → declarado 20 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 140,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 140
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 333
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ferro",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 57
+    },
+    "nota": "PROVISÓRIO — laudo",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 70,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 17
+    },
+    "nota": "PROVISÓRIO — teor assumido (70 mg / 0,6030 = 116,08 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Selênio",
+    "nivel": 0,
+    "quantidade": 100,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 167
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,1 mg / 0,4566 = 0,219 mg (assumido) — microdose: pré-mistura definida pela fábrica)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 10,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 91
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Metilsulfonilmetano",
+    "nivel": 0,
+    "quantidade": 250,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Glucosamina",
+    "nivel": 0,
+    "quantidade": 118,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 118,36 mg → declarado 118 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Colágeno tipo II não desnaturado",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "mantido — PENDENTE identidade: 40 mg (33× o mínimo). O Anexo I autoriza duas coisas distintas: 'Colágeno Tipo II' em Proteínas (mín. 8,4 g) e 'colágeno de frango com colágeno tipo II não desnaturado' (mín. 1,2 mg). O produto só é conforme no segundo enquadramento, e o la",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (ficha do fabricante do colágeno tipo II; identidade do ferro; laudos de óxido de magnésio e selenito de sódio; declaração de origem da glucosamina)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina D | 40 µg | 267%\nVitamina E | 20 mg | 133%\nVitamina C | 140 mg | 140%\nVitamina B6 | 1,3 mg | 100%\nVitamina B12 | 8 µg | 333%\nFerro | 8 mg | 57%\nMagnésio | 70 mg | 17%\nSelênio | 100 µg | 167%\nZinco | 10 mg | 91%\nMetilsulfonilmetano | 250 mg | \nGlucosamina | 118 mg | \nColágeno tipo II não desnaturado | 40 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "focus-colina",
+  "nome": "Focus Colina",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo de óxido de magnésio) — com a decisão do dono sobre a dose de colina (130 mg em 2 cápsulas)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/focus-colina.md`, harmonizado na fase 3 (JSON da fase 2 + 6 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: Bitartarato de colina/Hidrogênio tartarato de colina, Inositol, L-Tirosina, L-teanina de folhas de Camellia sinensis, Levocarnitina/L-carnitina",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-tirosina, L-teanina = 405 mg) não contam como proteína (se contassem: 0,405 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-tirosina",
+    "nivel": 1,
+    "quantidade": 290,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-teanina",
+    "nivel": 1,
+    "quantidade": 115,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 5,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 33
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 2.4,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 70,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 17
+    },
+    "nota": "PROVISÓRIO — teor assumido (70 mg / 0,6030 = 116,08 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Colina",
+    "nivel": 0,
+    "quantidade": 130,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 24
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "L-carnitina",
+    "nivel": 0,
+    "quantidade": 95,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Inositol",
+    "nivel": 0,
+    "quantidade": 25,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo de óxido de magnésio) — com a decisão do dono sobre a dose de colina (130 mg em 2 cápsulas)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-tirosina | 290 mg | \n  L-teanina | 115 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina D | 5 µg | 33%\nVitamina B6 | 1,3 mg | 100%\nVitamina B12 | 2,4 µg | 100%\nMagnésio | 70 mg | 17%\nColina | 130 mg | 24%\nL-carnitina | 95 mg | \nInositol | 25 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+  "nome": "Multi Vitta — Gestante e Lactante em Cápsula",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo novo do bisglicinato de magnésio; laudos de bisglicinato ferroso e bisglicinato de cobre; emissão do memorial de cálculo pelo RT) — e à decisão do dono sobre completar ou não os nutrientes citados sem dose",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/multi-vitta-gestante-e-lactante-em-capsula.md`, harmonizado na fase 3 (JSON da fase 2 + 6 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "gestantes",
+   "lactantes"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": "nenhum insumo com fator no Anexo XXII",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 0,
+     "lactantes": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 267,
+     "lactantes": 267
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina E",
+    "nivel": 0,
+    "quantidade": 5,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 33,
+     "lactantes": 33
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 20,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 24,
+     "lactantes": 17
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Niacina",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "mg NE",
+    "vd_pct": {
+     "gestantes": 44,
+     "lactantes": 47
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido pantotênico",
+    "nivel": 0,
+    "quantidade": 4.5,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 75,
+     "lactantes": 64
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido fólico",
+    "nivel": 0,
+    "quantidade": 833,
+    "unidade": "µg DFE",
+    "vd_pct": {
+     "gestantes": 139,
+     "lactantes": 167
+    },
+    "nota": "valor antes do arredondamento: 833,33 µg DFE → declarado 833 µg DFE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 308,
+     "lactantes": 286
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cálcio",
+    "nivel": 0,
+    "quantidade": 215,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 17,
+     "lactantes": 17
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cobre",
+    "nivel": 0,
+    "quantidade": 900,
+    "unidade": "µg",
+    "vd_pct": {
+     "gestantes": 90,
+     "lactantes": 69
+    },
+    "nota": "PROVISÓRIO — teor assumido (0,9 mg / 0,3002 = 2,998 mg (assumido))",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Ferro",
+    "nivel": 0,
+    "quantidade": 8.1,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 30,
+     "lactantes": 81
+    },
+    "nota": "PROVISÓRIO — laudo NaturalPRO NPT.0525/710 (Fe 20,1 %; identidade química não declarada) — harmonizado na fase 3 com o Dores Musculares",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 66,
+    "unidade": "mg",
+    "vd_pct": {
+     "gestantes": 17,
+     "lactantes": 18
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 90844 (Analitic, fabricante 66342023062230), validade 21/06/2025) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo novo do bisglicinato de magnésio; laudos de bisglicinato ferroso e bisglicinato de cobre; emissão do memorial de cálculo pelo RT) — e à decisão do dono sobre completar ou não os nutrientes citados sem dose",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: gestantes e lactantes — colunas \"Gestantes\" e \"Lactantes\" dos Anexos III e IV, aplicada a mais restritiva das duas a cada constituinte (mínimo = maior dos mínimos; máximo = menor dos máximos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD* gestantes | %VD* lactantes\nValor energético | 0 kcal = 0 kJ | 0% | 0%\nCarboidratos | 0 g | 0% | 0%\n  Açúcares totais | 0 g |  | \n    Açúcares adicionados | 0 g | 0% | 0%\nProteínas | 0 g | 0% | 0%\nGorduras totais | 0 g | 0% | 0%\n  Gorduras saturadas | 0 g | 0% | 0%\n  Gorduras trans | 0 g | 0% | 0%\nFibras alimentares | 0 g | 0% | 0%\nSódio | 0 mg | 0% | 0%\nVitamina D | 40 µg | 267% | 267%\nVitamina E | 5 mg | 33% | 33%\nVitamina C | 20 mg | 24% | 17%\nNiacina | 8 mg NE | 44% | 47%\nÁcido pantotênico | 4,5 mg | 75% | 64%\nÁcido fólico | 833 µg DFE | 139% | 167%\nVitamina B12 | 8 µg | 308% | 286%\nCálcio | 215 mg | 17% | 17%\nCobre | 900 µg | 90% | 69%\nFerro | 8,1 mg | 30% | 81%\nMagnésio | 66 mg | 17% | 18%\n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "melatonina-triptofanos-encapsulados",
+  "nome": "Melatonina + Triptofanos (Encapsulados)",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo vigente de melatonina; laudo novo de bisglicinato de magnésio; laudo de ácido L-aspártico ou sua retirada; laudo de L-triptofano do lote a usar; emissão do memorial de cálculo pelo RT)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/melatonina-triptofanos-encapsulados.md`, harmonizado na fase 3 (JSON da fase 2 + 6 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: L-Glutamina, L-Triptofano, Ácido L-aspártico",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-triptofano, Ácido L-aspártico, L-glutamina = 695 mg) não contam como proteína (se contassem: 0,695 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-triptofano",
+    "nivel": 1,
+    "quantidade": 500,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-glutamina",
+    "nivel": 1,
+    "quantidade": 95,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Ácido L-aspártico",
+    "nivel": 1,
+    "quantidade": 100,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Biotina",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 133
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 70,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 17
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 90844 (Analitic, fabricante 66342023062230), validade 21/06/2025) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 10,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 91
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Melatonina",
+    "nivel": 0,
+    "quantidade": 0.18,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 950151 (Analitic, fabricante MCS211210) — os 5 laudos de melatonina da máquina estão vencidos, validade 09/12/2024) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo vigente de melatonina; laudo novo de bisglicinato de magnésio; laudo de ácido L-aspártico ou sua retirada; laudo de L-triptofano do lote a usar; emissão do memorial de cálculo pelo RT)",
+   "Porção do memorial: 1 g (2 cápsulas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV (a melatonina é 'NA' em todos os outros grupos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-triptofano | 500 mg | \n  L-glutamina | 95 mg | \n  Ácido L-aspártico | 100 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nBiotina | 40 µg | 133%\nMagnésio | 70 mg | 17%\nZinco | 10 mg | 91%\nMelatonina | 0,18 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "serena",
+  "nome": "Serena",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo vigente de melatonina; laudo novo de cloreto de magnésio; massas do veículo e dos aditivos registradas)",
+  "cabecalho_coluna": "1 mL",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/serena.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 mL (20 gotas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: Glicerina vegetal, Inositol, L-teanina de folhas de Camellia sinensis",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-teanina = 60 mg) não contam como proteína (se contassem: 0,06 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-teanina",
+    "nivel": 1,
+    "quantidade": 60,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "calculado 0,32 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 70,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 17
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Melatonina",
+    "nivel": 0,
+    "quantidade": 0.18,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 950151 (Analitic, fabricante MCS211210) — os 5 laudos de melatonina da máquina estão vencidos, validade 09/12/2024) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Inositol",
+    "nivel": 0,
+    "quantidade": 50,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de origem Camellia sinensis da L-teanina nova; laudo vigente de melatonina; laudo novo de cloreto de magnésio; massas do veículo e dos aditivos registradas)",
+   "Porção do memorial: 1 mL (20 gotas); grupo populacional: adultos, coluna \"> 19 anos\" dos Anexos III e IV (a melatonina é 'NA' nos demais grupos).",
+   "Itens com fator no Anexo XXII sem massa no memorial (não entram na conta): Citrato de sódio."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 mL (20 gotas)\n | 1 mL | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-teanina | 60 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina B6 | 1,3 mg | 100%\nMagnésio | 70 mg | 17%\nMelatonina | 0,18 mg | \nInositol | 50 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "detox-matinal-lemon-shot-300g",
+  "nome": "Detox Matinal (Lemon Shot) 300 g",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo válido do lote de café verde efetivamente usado; laudo novo da maltodextrina; identificação do corante; posição do RT sobre a exigência de fabricante do painel para café verde e laranja moro)",
+  "cabecalho_coluna": "10 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/detox-matinal-lemon-shot-300g.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "10 g (1 dose)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 29,
+    "unidade": "kcal",
+    "kj": 121,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina 6,714 g × 4; ácido cítrico 0,67 g × 3 = 28,866 kcal",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 6.7,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 2
+    },
+    "nota": "maltodextrina 6,714 g; valor antes do arredondamento: 6,71 g → declarado 6,7 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — depende do laudo da maltodextrina (teor de mono e dissacarídeos)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 1600,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1600
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 2.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 20
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido clorogênico",
+    "nivel": 0,
+    "quantidade": 256,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 256,2 mg → declarado 256 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Antocianinas da laranja moro",
+    "nivel": 0,
+    "quantidade": 1.5,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 1,47 mg → declarado 1,5 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo válido do lote de café verde efetivamente usado; laudo novo da maltodextrina; identificação do corante; posição do RT sobre a exigência de fabricante do painel para café verde e laranja moro)",
+   "Porção do memorial: 10 g (1 dose) diluída em 200 mL de água, 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 10 g (1 dose)\n | 10 g | %VD*\nValor energético | 29 kcal = 121 kJ | 1%\nCarboidratos | 6,7 g | 2%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina C | 1.600 mg | 1600%\nZinco | 2,2 mg | 20%\nÁcido clorogênico | 256 mg | \nAntocianinas da laranja moro | 1,5 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "saude-intestinal",
+  "nome": "Saúde Intestinal (Floravex)",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudos novos de bisglicinato de magnésio e de quercetina; validade do laudo da vitamina A; definição do excipiente/cápsula pela fábrica)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/saude-intestinal.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina 0,417 g × 4 = 1,668 kcal; NÃO contados: L-glutamina, INLAB ref. A100020, lote interno 950334 Glutamina; calculado 1,668 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,417 g; calculado 0,417 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-glutamina = 135 mg) não contam como proteína (se contassem: 0,135 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-glutamina",
+    "nivel": 1,
+    "quantidade": 135,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 540,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 68
+    },
+    "nota": "valor antes do arredondamento: 540,3 µg RAE → declarado 540 µg RAE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.3,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 100
+    },
+    "nota": "valor antes do arredondamento: 1,26 mg → declarado 1,3 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 90,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 21
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 90844 (fabricante 66342023062230), validade 21/06/2025) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 14,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 127
+    },
+    "nota": "valor antes do arredondamento: 13,5 mg → declarado 14 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Quercetina",
+    "nivel": 0,
+    "quantidade": 69,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 873635 (INLAB), validade 06/2026) — pedir laudo novo e recalcular a massa; valor antes do arredondamento: 69,16 mg → declarado 69 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudos novos de bisglicinato de magnésio e de quercetina; validade do laudo da vitamina A; definição do excipiente/cápsula pela fábrica)",
+   "Porção do memorial: 2 cápsulas (1 g), 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-glutamina | 135 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina A | 540 µg RAE | 68%\nVitamina B6 | 1,3 mg | 100%\nMagnésio | 90 mg | 21%\nZinco | 14 mg | 127%\nQuercetina | 69 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "moro-slim",
+  "nome": "Moro Slim",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo válido do lote de café verde efetivamente usado; confirmação do insumo de laranja moro em estoque; validade do laudo da vitamina A; posição do RT sobre exigência de fabricante do painel; definição do excipiente)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/moro-slim.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina 0,7 g × 4 = 2,798 kcal; calculado 2,798 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0.7,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,7 g; valor antes do arredondamento: 0,7 g → declarado 0,7 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 1500,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 188
+    },
+    "nota": "valor antes do arredondamento: 1.499,8 µg RAE → declarado 1.500 µg RAE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cromo",
+    "nivel": 0,
+    "quantidade": 200,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 571
+    },
+    "nota": "valor antes do arredondamento: 199,9 µg → declarado 200 µg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido clorogênico",
+    "nivel": 0,
+    "quantidade": 70,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 70,45 mg → declarado 70 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Antocianinas da laranja moro",
+    "nivel": 0,
+    "quantidade": 2.6,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 2,57 mg → declarado 2,6 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo válido do lote de café verde efetivamente usado; confirmação do insumo de laranja moro em estoque; validade do laudo da vitamina A; posição do RT sobre exigência de fabricante do painel; definição do excipiente)",
+   "Porção do memorial: 2 cápsulas (1 g), 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0,7 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina A | 1.500 µg RAE | 188%\nCromo | 200 µg | 571%\nÁcido clorogênico | 70 mg | \nAntocianinas da laranja moro | 2,6 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "pro-energy",
+  "nome": "Pro Energy",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de cafeína específica e identificação do fornecedor do guaraná em pó; cópias legíveis/válidas dos laudos de cafeína anidra, taurina e L-carnitina; definição do excipiente)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/pro-energy.md`, harmonizado na fase 3 (JSON da fase 2 + 5 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina 0,25 g × 4 = 1 kcal; NÃO contados: L-arginina HCl, Lepuge, lote AUTO035918, L-carnitina base, lote 26H14-B025-226329, L-taurina, lote 214586 Taurina; calculado 1 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,25 g; calculado 0,25 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (L-arginina = 61,64 mg) não contam como proteína (se contassem: 0,062 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-arginina",
+    "nivel": 1,
+    "quantidade": 62,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 61,64 mg → declarado 62 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 8.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 631
+    },
+    "nota": "valor antes do arredondamento: 8,22 mg → declarado 8,2 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 4,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 36
+    },
+    "nota": "valor antes do arredondamento: 3,98 mg → declarado 4 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Taurina",
+    "nivel": 0,
+    "quantidade": 199,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 198,92 mg → declarado 199 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-carnitina",
+    "nivel": 0,
+    "quantidade": 89,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 89,47 mg → declarado 89 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Cafeína",
+    "nivel": 0,
+    "quantidade": 160,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — cafeína total: anidra 10,22 mg + guaraná em pó ≤ 149,82 mg (metilxantinas totais do laudo, limite superior; o laudo de cafeína específica do guaraná fixa o valor); valor antes do arredondamento: 160,04 mg → declarado 160 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de cafeína específica e identificação do fornecedor do guaraná em pó; cópias legíveis/válidas dos laudos de cafeína anidra, taurina e L-carnitina; definição do excipiente)",
+   "Porção do memorial: 2 cápsulas (1 g), 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\n  L-arginina | 62 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina B6 | 8,2 mg | 631%\nZinco | 4 mg | 36%\nTaurina | 199 mg | \nL-carnitina | 89 mg | \nCafeína | 160 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "emagrecedor-em-capsula",
+  "nome": "Emagrecedor em Cápsula",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (aprovação pelo dono/RT da fórmula reconstruída e emissão de memorial de cálculo pela fábrica; laudo válido do lote de café verde; validade do laudo da vitamina A; posição do RT sobre exigência de fabricante do painel)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/emagrecedor-em-capsula.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 cápsulas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — maltodextrina 0,88 g × 4 = 3,518 kcal; calculado 3,518 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0.9,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,88 g; valor antes do arredondamento: 0,88 g → declarado 0,9 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 1500,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 188
+    },
+    "nota": "valor antes do arredondamento: 1.499,8 µg RAE → declarado 1.500 µg RAE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cromo",
+    "nivel": 0,
+    "quantidade": 200,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 571
+    },
+    "nota": "valor antes do arredondamento: 199,9 µg → declarado 200 µg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido clorogênico",
+    "nivel": 0,
+    "quantidade": 64,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 64,05 mg → declarado 64 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Antocianinas da laranja moro",
+    "nivel": 0,
+    "quantidade": 0.07,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 0,07 mg → declarado 0,07 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (aprovação pelo dono/RT da fórmula reconstruída e emissão de memorial de cálculo pela fábrica; laudo válido do lote de café verde; validade do laudo da vitamina A; posição do RT sobre exigência de fabricante do painel)",
+   "Porção do memorial: 2 cápsulas (1 g), 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 cápsulas)\n | 1 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0,9 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina A | 1.500 µg RAE | 188%\nCromo | 200 µg | 571%\nÁcido clorogênico | 64 mg | \nAntocianinas da laranja moro | 0,07 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "slim-up-emagrecimento-em-gota",
+  "nome": "Slim Up — Emagrecimento em Gota",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (definição da porção pelo dono — 1 mL × 2 mL; viabilidade técnica da colina a 221,62 mg/mL confirmada pela fábrica; laudo válido do lote de café verde; laudo do sorbitol líquido e identidade do espessante; conferência dos aditivos para suplemento líquido)",
+  "cabecalho_coluna": "1 mL",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/slim-up-emagrecimento-em-gota.md`, harmonizado na fase 3 (JSON da fase 2 + 1 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 mL (30 gotas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — sorbitol 0,047 g × 2,6; ácido cítrico 0,007 g × 3 = 0,141 kcal; NÃO contados: DL-bitartarato de colina, Analitic, lote 91442 Colina, Umectante glicerina; calculado 0,141 kcal ≤ 4 kcal → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "poliois 0,047 g; valor antes do arredondamento: 0,05 g → declarado 0 g (Anexo III da IN 75; %VD sobre o valor declarado); sorbitol 0,047 g (poliol) — arredonda a 0 g, linhas de poliois omitidas",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "0,27 mg do benzoato de sódio; ≤ 5 mg → %VD 0; calculado 0,27 mg ≤ 5 mg → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 45,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 300
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 333
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Cromo",
+    "nivel": 0,
+    "quantidade": 31,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 89
+    },
+    "nota": "valor antes do arredondamento: 30,85 µg → declarado 31 µg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Colina",
+    "nivel": 0,
+    "quantidade": 90,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 16
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido clorogênico",
+    "nivel": 0,
+    "quantidade": 32,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 32,02 mg → declarado 32 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (definição da porção pelo dono — 1 mL × 2 mL; viabilidade técnica da colina a 221,62 mg/mL confirmada pela fábrica; laudo válido do lote de café verde; laudo do sorbitol líquido e identidade do espessante; conferência dos aditivos para suplemento líquido)",
+   "Porção do memorial: 1 mL (30 gotas), 1 vez ao dia — porção do memorial rev03; o cadastro diz 2 mL (decisão do dono, ver pendências); grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 mL (30 gotas)\n | 1 mL | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina D | 45 µg | 300%\nVitamina B12 | 8 µg | 333%\nCromo | 31 µg | 89%\nColina | 90 mg | 16%\nÁcido clorogênico | 32 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "shot-colageno-300-gramas",
+  "nome": "Shot + Colágeno 300 g",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo de proteína do lote de colágeno em uso e origem animal; decisão do dono sobre a porção — 10 g com folga estreita ou 12 g; identificação do corante; laudo novo da maltodextrina)",
+  "cabecalho_coluna": "10 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/shot-colageno-300-gramas.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "10 g (1 dose)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 35,
+    "unidade": "kcal",
+    "kj": 147,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 2
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — colágeno hidrolisado (proteína 91 %) 8,599 g × 4; ácido cítrico 0,15 g × 3; maltodextrina 0,048 g × 4 = 35,04 kcal",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "maltodextrina 0,048 g; calculado 0,048 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 8.6,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 17
+    },
+    "nota": "PROVISÓRIO — depende do laudo de proteína do lote de colágeno (91,0 % é o último teor conhecido, de laudo vencido); colágeno hidrolisado (proteína 91 %) 8,599 g × 4; valor antes do arredondamento: 8,6 g → declarado 8,6 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "sódio do colágeno hidrolisado (8,4 g) desconhecido — laudo do insumo",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 200,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 200
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 2.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 20
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo de proteína do lote de colágeno em uso e origem animal; decisão do dono sobre a porção — 10 g com folga estreita ou 12 g; identificação do corante; laudo novo da maltodextrina)",
+   "Porção do memorial: 10 g (1 dose) diluída em 200 mL de água, 1 vez ao dia; grupo populacional: adultos (> 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 10 g (1 dose)\n | 10 g | %VD*\nValor energético | 35 kcal = 147 kJ | 2%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 8,6 g | 17%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | PENDENTE | \nVitamina C | 200 mg | 200%\nZinco | 2,2 mg | 20%\n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "omega-pro-tg",
+  "nome": "Ômega Pró TG",
+  "veredito_auditoria_2026_09_15": "NÃO RESOLVIDO (não existe laudo do óleo de peixe, memorial nem rótulo — a composição do cadastro não tem procedência; e a aplicação do mínimo de 5 g de lipídeos totais ao óleo de peixe depende de posição do RT). Se o laudo confirmar EPA 185,34 + DHA 123,56 mg por 2 softgels e o RT adotar a interpretação 2, a fórmula fica CONFORME (EPA + DHA = 308,9 mg, 15 % do teto)",
+  "cabecalho_coluna": "1 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/omega-pro-tg.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "1 g (2 softgels)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 9,
+    "unidade": "kcal",
+    "kj": 38,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "PROVISÓRIO — 1 g de óleo de peixe × 9 kcal/g; sem laudo do óleo",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 1,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 2
+    },
+    "nota": "PROVISÓRIO — óleo declarado no cadastro, sem laudo; 1 g contra o mínimo de 5 g de lipídeos totais do Anexo III da IN 28 (interpretação pendente do RT/ANVISA — NÃO RESOLVIDO no memorial)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "perfil de ácidos graxos do laudo do óleo",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "laudo do óleo",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras poli-insaturadas",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "laudo do óleo (linha necessária para declarar ômega 3 no 2º nível, Anexo XI)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Ômega 3",
+    "nivel": 2,
+    "quantidade": 317,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 8
+    },
+    "nota": "PROVISÓRIO — 316,5 mg do cadastro (EPA 185,34 + DHA 123,56 + outros 7,6), sem laudo; valor antes do arredondamento: 316,5 mg → declarado 317 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "EPA",
+    "nivel": 3,
+    "quantidade": 185,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — cadastro, sem laudo; valor antes do arredondamento: 185,34 mg → declarado 185 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "DHA",
+    "nivel": 3,
+    "quantidade": 124,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — cadastro, sem laudo; valor antes do arredondamento: 123,56 mg → declarado 124 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Colesterol",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "laudo do óleo",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: NÃO RESOLVIDO (não existe laudo do óleo de peixe, memorial nem rótulo — a composição do cadastro não tem procedência; e a aplicação do mínimo de 5 g de lipídeos totais ao óleo de peixe depende de posição do RT). Se o laudo confirmar EPA 185,34 + DHA 123,56 mg por 2 softgels e o RT adotar a interpretação 2, a fórmula fica CONFORME (EPA + DHA = 308,9 mg, 15 % do teto)",
+   "Porção do memorial: 2 softgels (1 g de óleo), 1 vez ao dia; grupo populacional: adultos (> 19 anos).",
+   "TABELA INTEIRA PROVISÓRIA — montada sobre o cadastro do banco, sem laudo do óleo de peixe, memorial nem rótulo."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 1 g (2 softgels)\n | 1 g | %VD*\nValor energético | 9 kcal = 38 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 1 g | 2%\n  Gorduras saturadas | PENDENTE | \n  Gorduras trans | PENDENTE | \n  Gorduras poli-insaturadas | PENDENTE | \n    Ômega 3 | 317 mg | 8%\n      EPA | 185 mg | \n      DHA | 124 mg | \n  Colesterol | PENDENTE | \nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "bella-gummy-biotina-em-gummy",
+  "nome": "Bella Gummy (Biotina em Gummy)",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo da vitamina A lote 215230 conferido; massas da matriz de goma para fechar a tabela nutricional; laudos vencidos/errados da base renovados)",
+  "cabecalho_coluna": "6 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/bella-gummy-biotina-em-gummy.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "kcal",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "memorial não traz massa dos excipientes; rótulo/memorial imprimem 12 kcal = 50 kJ (não recalculável)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 4,8 g (não recalculável)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "maltodextrina na base: fração de mono/dissacarídeos não quantificada",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "RDC 429 Art. 3 I inclui a fração de mono/dissacarídeos da maltodextrina",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Poliois totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "base da goma sem massa no memorial",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 0,6 g (gelatina; massa não disponível)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "pectina e goma acácia são fibras; massas não disponíveis",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 8 mg (citrato de sódio; massa não disponível)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Vitamina A",
+    "nivel": 0,
+    "quantidade": 1022,
+    "unidade": "µg RAE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 128
+    },
+    "nota": "valor antes do arredondamento: 1.021,9 µg RAE → declarado 1.022 µg RAE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina E",
+    "nivel": 0,
+    "quantidade": 5.7,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 38
+    },
+    "nota": "valor antes do arredondamento: 5,67 mg → declarado 5,7 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "nivel": 0,
+    "quantidade": 45,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 45
+    },
+    "nota": "valor antes do arredondamento: 45 mg → declarado 45 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Biotina",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 133
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Zinco",
+    "nivel": 0,
+    "quantidade": 2.4,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 22
+    },
+    "nota": "valor antes do arredondamento: 2,39 mg → declarado 2,4 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo da vitamina A lote 215230 conferido; massas da matriz de goma para fechar a tabela nutricional; laudos vencidos/errados da base renovados)",
+   "Porção do memorial: 6 g (2 gomas de 3,00 g) — 30 porções por embalagem (60 gomas, 180 g); grupo populacional: adultos (≥ 19 anos).",
+   "Itens com fator no Anexo XXII sem massa no memorial (não entram na conta): Gelatina, Goma acácia, Maltitol, Maltodextrina, Pectina cítrica, Sorbitol líquido 70 %, Ácido cítrico."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 6 g (2 gomas)\n | 6 g | %VD*\nValor energético | PENDENTE | \nCarboidratos | PENDENTE | \n  Açúcares totais | PENDENTE | \n    Açúcares adicionados | PENDENTE | \n  Poliois totais | PENDENTE | \nProteínas | PENDENTE | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | PENDENTE | \nSódio | PENDENTE | \nVitamina A | 1.022 µg RAE | 128%\nVitamina E | 5,7 mg | 38%\nVitamina C | 45 mg | 45%\nBiotina | 40 µg | 133%\nZinco | 2,4 mg | 22%\n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "creatina-monohidratada-150g-soluvel",
+  "nome": "Creatina Monoidratada 150 g Solúvel",
+  "veredito_auditoria_2026_09_15": "CONFORME (com folga) — condicionado à validação gravimétrica do dosador",
+  "cabecalho_coluna": "4 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/creatina-monohidratada-150g-soluvel.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "Cerca de 38",
+  "porcao": "4 g (1 dosador)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: Creatina monoidratada",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 4000,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME (com folga) — condicionado à validação gravimétrica do dosador",
+   "Porção do memorial: 4 g (1 dosador nivelado — validar gravimetricamente) — cerca de 38 porções em 150 g; grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: Cerca de 38\nPorção: 4 g (1 dosador)\n | 4 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nCreatina | 4.000 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "creatina-monohidratada-300g-soluvel",
+  "nome": "Creatina Monoidratada 300 g Solúvel",
+  "veredito_auditoria_2026_09_15": "CONFORME (com folga) — condicionado à validação gravimétrica do dosador e à documentação própria da apresentação de 300 g",
+  "cabecalho_coluna": "4 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/creatina-monohidratada-300g-soluvel.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "75",
+  "porcao": "4 g (1 dosador)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "kcal",
+    "kj": 0,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — nenhum item com fator = 0 kcal; NÃO contados: Creatina monoidratada",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 4000,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME (com folga) — condicionado à validação gravimétrica do dosador e à documentação própria da apresentação de 300 g",
+   "Porção do memorial: 4 g (1 dosador nivelado — validar gravimetricamente) — 75 porções em 300 g; grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 75\nPorção: 4 g (1 dosador)\n | 4 g | %VD*\nValor energético | 0 kcal = 0 kJ | 0%\nCarboidratos | 0 g | 0%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\nProteínas | 0 g | 0%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nCreatina | 4.000 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "creatina-gummy-sabor-frutas-vermelhas",
+  "nome": "Creatina Gummy sabor Frutas Vermelhas",
+  "veredito_auditoria_2026_09_15": "CONFORME NOS LIMITES (fórmula proposta) · NÃO RESOLVIDO na porção: CONDICIONADO A pesagem da goma acabada, doseamento de creatina/creatinina no produto acabado e estudo de estabilidade",
+  "cabecalho_coluna": "6 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/creatina-gummy-sabor-frutas-vermelhas.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 9,
+    "unidade": "kcal",
+    "kj": 39,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — sorbitol 1,225 g × 2,6; maltitol 1,26 g × 2,1; gelatina (N 15,0 % × 6,25) 0,656 g × 4; ácido cítrico 0,168 g × 3; pectina (ácido galacturônico 90 %) 0,126 g × 2 = 9,212 kcal; NÃO contados: Creatina monoidratada, Glicerina vegetal",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 2.5,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "poliois 2,485 g; valor antes do arredondamento: 2,48 g → declarado 2,5 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "sem açúcares na receita (polióis excluídos por definição, RDC 429 Art. 3 II)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Poliois totais",
+    "nivel": 1,
+    "quantidade": 2.5,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 2,48 g → declarado 2,5 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sorbitol",
+    "nivel": 2,
+    "quantidade": 1.2,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 1,22 g → declarado 1,2 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Maltitol",
+    "nivel": 2,
+    "quantidade": 1.3,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 1,26 g → declarado 1,3 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0.7,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "gelatina (N 15,0 % × 6,25) 0,656 g × 4; valor antes do arredondamento: 0,66 g → declarado 0,7 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "pectina cítrica: 0,126 g de fibra (ácido galacturônico 90 %); calculado 0,126 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "citrato de sódio 14 mg → 3,3 a 3,7 mg de sódio conforme a forma do sal (anidro/di-hidratado, não informada no memorial); o rótulo atual imprime 10 mg sem lastro; PENDENTE análise de sódio no produto acabado",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 3500,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME NOS LIMITES (fórmula proposta) · NÃO RESOLVIDO na porção: CONDICIONADO A pesagem da goma acabada, doseamento de creatina/creatinina no produto acabado e estudo de estabilidade",
+   "Porção do memorial: 2 gomas (rótulo: 6 g; massa real da porção PENDENTE de pesagem — os sólidos da receita somam 7.314 mg); grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 6 g (2 gomas)\n | 6 g | %VD*\nValor energético | 9 kcal = 39 kJ | 0%\nCarboidratos | 2,5 g | 1%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\n  Poliois totais | 2,5 g | \n    Sorbitol | 1,2 g | \n    Maltitol | 1,3 g | \nProteínas | 0,7 g | 1%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | PENDENTE | \nCreatina | 3.500 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "creatina-em-gummy-sabor-tutti-frutti",
+  "nome": "Creatina em Gummy sabor Tutti-frutti",
+  "veredito_auditoria_2026_09_15": "CONFORME NOS LIMITES (fórmula proposta) · NÃO RESOLVIDO na porção: CONDICIONADO A pesagem da goma acabada, doseamento de creatina/creatinina no produto acabado e estudo de estabilidade; e a documentação própria do sabor tutti-frutti (aroma, corante, laudos)",
+  "cabecalho_coluna": "6 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/creatina-em-gummy-sabor-tutti-frutti.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 9,
+    "unidade": "kcal",
+    "kj": 39,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — sorbitol 1,225 g × 2,6; maltitol 1,26 g × 2,1; gelatina (N 15,0 % × 6,25) 0,656 g × 4; ácido cítrico 0,168 g × 3; pectina (ácido galacturônico 90 %) 0,126 g × 2 = 9,212 kcal; NÃO contados: Creatina monoidratada, Glicerina vegetal",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 2.5,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "poliois 2,485 g; valor antes do arredondamento: 2,48 g → declarado 2,5 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "sem açúcares na receita (polióis excluídos por definição, RDC 429 Art. 3 II)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Poliois totais",
+    "nivel": 1,
+    "quantidade": 2.5,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 2,48 g → declarado 2,5 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sorbitol",
+    "nivel": 2,
+    "quantidade": 1.2,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 1,22 g → declarado 1,2 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Maltitol",
+    "nivel": 2,
+    "quantidade": 1.3,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 1,26 g → declarado 1,3 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0.7,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "gelatina (N 15,0 % × 6,25) 0,656 g × 4; valor antes do arredondamento: 0,66 g → declarado 0,7 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "pectina cítrica: 0,126 g de fibra (ácido galacturônico 90 %); calculado 0,126 g ≤ 0,5 g → não significativo, expresso como 0 (Anexo IV da IN 75)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "citrato de sódio 14 mg → 3,3 a 3,7 mg de sódio conforme a forma do sal (anidro/di-hidratado, não informada no memorial); o rótulo atual imprime 10 mg sem lastro; PENDENTE análise de sódio no produto acabado",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 3500,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME NOS LIMITES (fórmula proposta) · NÃO RESOLVIDO na porção: CONDICIONADO A pesagem da goma acabada, doseamento de creatina/creatinina no produto acabado e estudo de estabilidade; e a documentação própria do sabor tutti-frutti (aroma, corante, laudos)",
+   "Porção do memorial: 2 gomas (rótulo: 6 g; massa real da porção PENDENTE de pesagem — os sólidos da receita somam 7.262 mg); grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 6 g (2 gomas)\n | 6 g | %VD*\nValor energético | 9 kcal = 39 kJ | 0%\nCarboidratos | 2,5 g | 1%\n  Açúcares totais | 0 g | \n    Açúcares adicionados | 0 g | 0%\n  Poliois totais | 2,5 g | \n    Sorbitol | 1,2 g | \n    Maltitol | 1,3 g | \nProteínas | 0,7 g | 1%\nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | PENDENTE | \nCreatina | 3.500 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "melatonina-em-gummy-sabor-uva",
+  "nome": "Melatonina em Gummy sabor Uva",
+  "veredito_auditoria_2026_09_15": "CONFORME CONDICIONADO A (laudo novo de melatonina; laudo completo/novo de L-triptofano; decisão versão A/B)",
+  "cabecalho_coluna": "6 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/melatonina-em-gummy-sabor-uva.md`, harmonizado na fase 3 (JSON da fase 2 + 0 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "kcal",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "memorial sem massa dos excipientes; rótulo/memorial: 11 kcal = 46 kJ (não recalculável)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 4,5 g",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "maltodextrina na base — fração de mono/dissacarídeos não quantificada",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "base da goma sem massa no memorial",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Poliois totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "base da goma sem massa no memorial",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 0,8 g (gelatina; massa não disponível)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "L-triptofano",
+    "nivel": 1,
+    "quantidade": 750,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "pectina/goma acácia; massas não disponíveis",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": null,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "rótulo/memorial: 8 mg",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Melatonina",
+    "nivel": 0,
+    "quantidade": 0.18,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 950151, validade 09/12/2024) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME CONDICIONADO A (laudo novo de melatonina; laudo completo/novo de L-triptofano; decisão versão A/B)",
+   "Porção do memorial: 6 g (2 gomas de 3,00 g) — 30 porções (60 gomas, 180 g); a ficha \"Suelen\" da versão só-melatonina traz 7,0 g (2 gomas), 210 g; grupo populacional: adultos (≥ 19 anos).",
+   "Itens com fator no Anexo XXII sem massa no memorial (não entram na conta): Gelatina, Goma acácia, Maltitol, Maltodextrina, Pectina cítrica, Sorbitol líquido 70 %, Ácido cítrico."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 6 g (2 gomas)\n | 6 g | %VD*\nValor energético | PENDENTE | \nCarboidratos | PENDENTE | \n  Açúcares totais | PENDENTE | \n    Açúcares adicionados | PENDENTE | \n  Poliois totais | PENDENTE | \nProteínas | PENDENTE | \n  L-triptofano | 750 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | PENDENTE | \nSódio | PENDENTE | \nMelatonina | 0,18 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "pre-treino-300-g",
+  "nome": "Pré-treino 300 g",
+  "veredito_auditoria_2026_09_15": "CONFORME (fórmula proposta, com folga em todos os constituintes) — condicionado a laudo novo de beta-alanina e à regularização do insumo controlado (cafeína)",
+  "cabecalho_coluna": "10 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/pre-treino-300-g.md`, harmonizado na fase 3 (JSON da fase 2 + 6 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "10 g (1 dosador)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 11,
+    "unidade": "kcal",
+    "kj": 44,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — ácido cítrico 1,1 g × 3; maltodextrina 1,825 g × 4 = 10,6 kcal; NÃO contados: Beta-alanina Beta-alanina, Cloridrato de L-arginina Arginina, Creatina monoidratada Creatina, L-tirosina Tirosina, Taurina Taurina",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 1.8,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "maltodextrina 1,825 g; valor antes do arredondamento: 1,82 g → declarado 1,8 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "fração de mono/dissacarídeos da maltodextrina (DE 17,72 %) não quantificada — RDC 429 Art. 3 I/II",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": "idem (maltodextrina conta como açúcar adicionado na fração de mono/dissacarídeos)",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (Beta-alanina, L-arginina, L-tirosina = 1.716,1 mg) não contam como proteína (se contassem: 1,716 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-tirosina",
+    "nivel": 1,
+    "quantidade": 400,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 399,6 mg → declarado 400 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-arginina",
+    "nivel": 1,
+    "quantidade": 1019,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 1.019,2 mg → declarado 1.019 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Beta-alanina",
+    "nivel": 1,
+    "quantidade": 297,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); PROVISÓRIO: teor de laudo VENCIDO (lote AUTO033847, validade 03/08/2026) — pedir laudo novo e recalcular a massa; valor antes do arredondamento: 297,3 mg → declarado 297 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "sem fonte de sódio na receita",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 1.6,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 123
+    },
+    "nota": "valor antes do arredondamento: 1,64 mg → declarado 1,6 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8.5,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 354
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Taurina",
+    "nivel": 0,
+    "quantidade": 895,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 895,1 mg → declarado 895 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 3500,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Cafeína",
+    "nivel": 0,
+    "quantidade": 175,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "valor antes do arredondamento: 174,8 mg → declarado 175 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME (fórmula proposta, com folga em todos os constituintes) — condicionado a laudo novo de beta-alanina e à regularização do insumo controlado (cafeína)",
+   "Porção do memorial: 10 g (1 dosador) diluídos em 200 mL de água, 1 vez ao dia — 30 porções em 300 g; grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 10 g (1 dosador)\n | 10 g | %VD*\nValor energético | 11 kcal = 44 kJ | 1%\nCarboidratos | 1,8 g | 1%\n  Açúcares totais | PENDENTE | \n    Açúcares adicionados | PENDENTE | \nProteínas | 0 g | 0%\n  L-tirosina | 400 mg | \n  L-arginina | 1.019 mg | \n  Beta-alanina | 297 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina B6 | 1,6 mg | 123%\nVitamina B12 | 8,5 µg | 354%\nTaurina | 895 mg | \nCreatina | 3.500 mg | \nCafeína | 175 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ },
+ {
+  "slug": "pre-treino-creatina-sabor-limao-420g",
+  "nome": "Pré-treino + Creatina sabor Limão 420 g (Césio 137)",
+  "veredito_auditoria_2026_09_15": "CONFORME (fórmula proposta: cafeína total 81 % do teto, beta-alanina 300 mg/dose, 13 constituintes com folga, soma 14.000 mg) — condicionado a laudo de cafeína do guaraná, laudo válido de bisglicinato de magnésio e laudo novo de beta-alanina",
+  "cabecalho_coluna": "14 g",
+  "fonte": "memorial de reformulação `docs/conformidade/reformulacao/pre-treino-creatina-sabor-limao-420g.md`, harmonizado na fase 3 (JSON da fase 2 + 19 correção(ões) de harmonização)",
+  "gerado_em": "2026-09-16",
+  "porcoes_por_embalagem": "30",
+  "porcao": "14 g (1 dosador)",
+  "grupos_vd": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "nivel": 0,
+    "quantidade": 12,
+    "unidade": "kcal",
+    "kj": 52,
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "critério único (pendente do RT): só itens com fator no Anexo XXII — ácido cítrico 1,1 g × 3; maltodextrina 2,275 g × 4 = 12,401 kcal; NÃO contados: Beta-alanina Beta-alanina, Cloridrato de L-arginina Arginina, Creatina monoidratada Creatina, L-carnitina base L-Carnitina, L-tirosina Tirosina, Taurina Taurina",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Carboidratos",
+    "nivel": 0,
+    "quantidade": 2.3,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nota": "maltodextrina 2,275 g; valor antes do arredondamento: 2,28 g → declarado 2,3 g (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "nivel": 1,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": null,
+    "nota": "fração de mono/dissacarídeos da maltodextrina não quantificada",
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares adicionados",
+    "nivel": 2,
+    "quantidade": null,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": "PENDENTE"
+    },
+    "nota": null,
+    "pendente": true,
+    "provisorio": true
+   },
+   {
+    "item": "Proteínas",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": "critério único (pendente do RT): aminoácidos livres (Beta-alanina, L-arginina, L-tirosina = 2.315,5 mg) não contam como proteína (se contassem: 2,316 g); Anexo IV da IN 75 (lido em 16/09/2026): a expressão '0' para proteínas só é admitida sem aminoácido declarado com valor diferente de zero — a redação final desta linha depende do critério do RT",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-tirosina",
+    "nivel": 1,
+    "quantidade": 999,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-arginina",
+    "nivel": 1,
+    "quantidade": 1019,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 1.019,2 mg → declarado 1.019 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Beta-alanina",
+    "nivel": 1,
+    "quantidade": 297,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); PROVISÓRIO: teor de laudo VENCIDO (lote AUTO033847, validade 03/08/2026) — pedir laudo novo e recalcular a massa; valor antes do arredondamento: 297,3 mg → declarado 297 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Gorduras totais",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "nivel": 1,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "nivel": 0,
+    "quantidade": 0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina D",
+    "nivel": 0,
+    "quantidade": 40,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 267
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Niacina",
+    "nivel": 0,
+    "quantidade": 30,
+    "unidade": "mg NE",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 200
+    },
+    "nota": "valor antes do arredondamento: 29,73 mg NE → declarado 30 mg NE (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B6",
+    "nivel": 0,
+    "quantidade": 74,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 5692
+    },
+    "nota": "valor antes do arredondamento: 73,97 mg → declarado 74 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina B12",
+    "nivel": 0,
+    "quantidade": 8.5,
+    "unidade": "µg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 354
+    },
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Magnésio",
+    "nivel": 0,
+    "quantidade": 300,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 71
+    },
+    "nota": "PROVISÓRIO: teor de laudo VENCIDO (lote 90844 (Analitic, fabricante 66342023062230), validade 21/06/2025) — pedir laudo novo e recalcular a massa",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Taurina",
+    "nivel": 0,
+    "quantidade": 995,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 994,6 mg → declarado 995 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Creatina",
+    "nivel": 0,
+    "quantidade": 4000,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "massa nominal de creatina monoidratada (lote 217949, teor 100,5 % b.s.; leitura A/B do limite é decisão do RT); declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "L-carnitina",
+    "nivel": 0,
+    "quantidade": 994,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "declarado só nesta linha, em mg; não conta como proteína nem como energia (critério pendente do RT: o Anexo XXII da IN 75 não traz fator para aminoácidos livres, creatina, taurina e L-carnitina); valor antes do arredondamento: 994,1 mg → declarado 994 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Cafeína",
+    "nivel": 0,
+    "quantidade": 163,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nota": "PROVISÓRIO — cafeína total: anidra 149,8 mg + guaraná em pó ≤ 12,78 mg (metilxantinas totais do laudo, limite superior; o laudo de cafeína específica do guaraná fixa o valor); valor antes do arredondamento: 162,58 mg → declarado 163 mg (Anexo III da IN 75; %VD sobre o valor declarado)",
+    "pendente": false,
+    "provisorio": true
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "observacoes": [
+   "Veredito esperado da reformulação: CONFORME (fórmula proposta: cafeína total 81 % do teto, beta-alanina 300 mg/dose, 13 constituintes com folga, soma 14.000 mg) — condicionado a laudo de cafeína do guaraná, laudo válido de bisglicinato de magnésio e laudo novo de beta-alanina",
+   "Porção do memorial: 14 g (1 dosador) diluídos em 200 mL de água, 1 vez ao dia — 30 porções em 420 g; grupo populacional: adultos (≥ 19 anos)."
+  ],
+  "texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 14 g (1 dosador)\n | 14 g | %VD*\nValor energético | 12 kcal = 52 kJ | 1%\nCarboidratos | 2,3 g | 1%\n  Açúcares totais | PENDENTE | \n    Açúcares adicionados | PENDENTE | \nProteínas | 0 g | 0%\n  L-tirosina | 999 mg | \n  L-arginina | 1.019 mg | \n  Beta-alanina | 297 mg | \nGorduras totais | 0 g | 0%\n  Gorduras saturadas | 0 g | 0%\n  Gorduras trans | 0 g | 0%\nFibras alimentares | 0 g | 0%\nSódio | 0 mg | 0%\nVitamina D | 40 µg | 267%\nNiacina | 30 mg NE | 200%\nVitamina B6 | 74 mg | 5692%\nVitamina B12 | 8,5 µg | 354%\nMagnésio | 300 mg | 71%\nTaurina | 995 mg | \nCreatina | 4.000 mg | \nL-carnitina | 994 mg | \nCafeína | 163 mg | \n*Percentual de valores diários fornecidos pela porção",
+  "diferencas_vd_impresso_x_vigente": []
+ }
+]

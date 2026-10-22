@@ -2,9 +2,10 @@
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Star } from "lucide-react";
 
 import { centsToBRL } from "@/lib/money";
+import { ROTULO_DESTAQUE } from "@/lib/catalog/featured";
 import { FORMAT_ICONS, hasContent, lineLabel } from "@/lib/catalog/format-catalog";
 import { formatComplianceDate } from "@/lib/catalog/regulatory-info";
 import { segmentVisual } from "@/lib/catalog/segment-visuals";
@@ -56,7 +57,16 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
           casos (--seg-c1/--seg-c2, definidos acima) - com mockup, o pote
           aparece por cima dele; sem mockup, o ícone de traço continua exatamente
           como antes (produto sem foto nunca fica com buraco). */}
-      <div className={`lc-card-media${hasMockup ? " lc-card-media--mockup" : ""}`}>
+      {/* Clique na foto do pote abre as informações do produto (pedido do dono,
+          23/09/2026) — mesmo destino do título. Fora da ordem de Tab e oculto do
+          leitor de tela: o título logo abaixo já é esse mesmo link com nome, e
+          dois links iguais seguidos só atrapalham quem navega por teclado. */}
+      <Link
+        href={`/catalogo/${formula.slug}`}
+        className={`lc-card-media${hasMockup ? " lc-card-media--mockup" : ""}`}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
         <span className="lc-tier-badge">{lineLabel(formula.line)}</span>
         {hasMockup ? (
           <ProductMockup
@@ -72,8 +82,25 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
           // pequeno demais no meio dela pareceria imagem que não carregou.
           <FormatIcon className="lc-icon" size={48} aria-hidden="true" />
         )}
-      </div>
+      </Link>
       <div className="lc-card-body">
+        {/* Selo de destaque (formulas.featured_at, migration 20260916143000).
+            Conteúdo, logo sólido - nunca vidro. Três decisões deliberadas:
+
+            1. O rótulo é "Destaque", e não "Mais vendido" nem "Recomendado":
+               não existe dado de venda neste sistema que sustente as outras
+               duas frases. "Destaque" descreve o que de fato aconteceu - a
+               fábrica escolheu este produto para a frente da vitrine.
+            2. Nunca é só cor: estrela (forma) + a palavra escrita (texto).
+               Quem não distingue a cor lê o selo do mesmo jeito.
+            3. Produto sem destaque não ganha nada no lugar - nenhum espaço
+               vazio, nenhum "sem destaque". */}
+        {formula.featuredAt !== null && (
+          <div className="lc-featured-badge">
+            <Star className="lc-icon" size={13} aria-hidden="true" fill="currentColor" strokeWidth={1.5} />
+            <span>{ROTULO_DESTAQUE}</span>
+          </div>
+        )}
         {hasContent(segment?.name) && <div className="lc-card-segment">{segment?.name}</div>}
         <h2 className="lc-card-title">
           {/* Navegação de verdade (não div clicável): leva ao dossiê completo
@@ -160,14 +187,14 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
             )}
             {hasDossieContent && (
               <Link href={`/catalogo/${formula.slug}`} className="lc-btn lc-btn-ghost">
-                Dossiê Técnico
+                Dossiê técnico
               </Link>
             )}
-            {formula.listPriceCents != null && (
-              <button type="button" className="lc-btn lc-btn-primary" onClick={() => onQuote(formula)}>
-                Cotar Fórmula
-              </button>
-            )}
+            {/* Em todos os cards, com ou sem preço (pedido do dono, 21/10/2026):
+                sem preço, a cotação sai como "Preço sob consulta". */}
+            <button type="button" className="lc-btn lc-btn-primary" onClick={() => onQuote(formula)}>
+              Cotar fórmula
+            </button>
           </div>
         </div>
       </div>

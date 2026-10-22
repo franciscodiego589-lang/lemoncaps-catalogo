@@ -1,3 +1,13 @@
+// ============================================================================
+// SEM ROTA ATIVA desde 13/09/2026 — computeCatalogStats() não é chamada por
+// nenhuma página. Servia ao ProofStats da landing institucional que ficava em /;
+// a raiz virou a apresentação da fábrica e passou a usar
+// lib/catalog/manufacturing-stats.ts, que faz o mesmo com mais detalhe (e para
+// onde a faixa de preço foi levada). Guardado por ordem do dono.
+// O `export { joinPortugueseList }` no fim do arquivo NÃO está órfão: é um
+// re-export de lib/format.ts, onde a função passou a morar.
+// ============================================================================
+
 // Números reais da landing (/) — sempre derivados do que getCatalogData()
 // devolveu na mesma requisição, nunca digitados à mão. Função pura, testável,
 // separada do componente que exibe (AGENTS.md, "Convenções de código").
@@ -65,10 +75,7 @@ export function computeCatalogStats(formulas: readonly FormulaDTO[], segments: r
   };
 }
 
-// Lista no padrão do português ("a, b e c") — usado para os formatos e para a
-// lista de segmentos exibidos por extenso na seção de números.
-export function joinPortugueseList(items: readonly string[]): string {
-  if (items.length === 0) return "";
-  if (items.length === 1) return items[0];
-  return `${items.slice(0, -1).join(", ")} e ${items[items.length - 1]}`;
-}
+// A implementação mudou de casa para lib/format.ts em 13/09/2026 (a página de
+// apresentação passou a usar a mesma junção). O re-export continua aqui para
+// quem já importava daqui — a função é uma só, em um lugar só.
+export { joinPortugueseList } from "@/lib/format";

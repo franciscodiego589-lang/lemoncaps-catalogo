@@ -1,0 +1,93 @@
+# Stack do catálogo Lemon Caps no Docker Swarm da VPS (177.7.39.163).
+#
+# Segue o mesmo padrão das stacks que já rodam na máquina (lemonlog, seogmc,
+# calculadora): rede overlay "lemon" externa, roteamento por label do Traefik,
+# TLS pelo resolver letsencryptresolver que já emite os certificados dos outros
+# domínios. Nada aqui toca em stack existente — nome, router e service são
+# próprios ("catalogo"), e o domínio catalogo.lemoncapsauto.com não estava em uso.
+#
+# O app não recebe segredo em runtime: a única chave que ele usa é a publishable
+# do Supabase, que por natureza vai para o navegador e é gravada dentro do bundle
+# no build (ver ARG/ENV no Dockerfile). Não existe service_role nesta imagem.
+
+version: "3.8"
+
+services:
+  catalogo:
+    image: catalogo-lemoncaps:latest
+    networks:
+      - lemon
+    environment:
+      NODE_ENV: "production"
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+      update_config:
+        order: start-first
+        failure_action: rollback
+      labels:
+        - "traefik.enable=true"
+
+        # 15/09/2026: acrescentado o host catalogo.lemoncaps.com.br — o domínio
+        # oficial dos clientes, hoje servindo o catálogo antigo (Lovable, atrás de
+        # Cloudflare) — ao lado do host original. Isto SÓ PREPARA o arquivo: a regra
+        # nova só passa a valer no próximo `docker stack deploy`, que não foi
+        # executado a partir desta edição. Até lá o serviço em produção continua
+        # respondendo exatamente como hoje, só por catalogo.lemoncapsauto.com.
+        # Passo a passo da troca (ordem importa) em docs/RUNBOOK-TROCA-DE-DOMINIO.md.
+        #
+        # 16/09/2026 — a regra com os dois hosts foi RECOLHIDA para a linha comentada
+        # abaixo, porque o deploy das tabelas nutricionais sai antes da troca de DNS.
+        # O Traefik pede um único certificado com todos os hosts da regra como SAN:
+        # se catalogo.lemoncaps.com.br ainda apontar para o Lovable, o desafio
+        # HTTP-01 falha para esse nome e o certificado inteiro cai para o
+        # autoassinado — derrubando também o host que hoje funciona. Só trocar
+        # para a linha de dois hosts DEPOIS que o DNS apontar para 177.7.39.163.
+        # - "traefik.http.routers.catalogo.rule=Host(`catalogo.lemoncaps.com.br`) || Host(`catalogo.lemoncapsauto.com`)"
+        - "traefik.http.routers.catalogo.rule=Host(`catalogo.lemoncapsauto.com`)"
+        - "traefik.http.routers.catalogo.entrypoints=websecure"
+        - "traefik.http.routers.catalogo.tls.certresolver=letsencryptresolver"
+        - "traefik.http.services.catalogo.loadbalancer.server.port=3000"
+
+        # Cabeçalhos de segurança (14/09/2026). Middleware com nome próprio, aplicado
+        # SÓ ao router do catálogo — as outras nove stacks da VPS não são afetadas.
+        #
+        # HSTS: sem ele, quem digita "http://" faz a primeira conexão em texto puro
+        # antes do redirecionamento — janela de downgrade em rede insegura. Começa com
+        # 1 dia; depois de alguns dias estável, subir para 31536000 (1 ano).
+        # NÃO incluir "preload" sem decidir: entrar na lista dos navegadores é
+        # praticamente irreversível por meses.
+        - "traefik.http.middlewares.catalogo-headers.headers.stsSeconds=86400"
+        - "traefik.http.middlewares.catalogo-headers.headers.stsIncludeSubdomains=false"
+        - "traefik.http.middlewares.catalogo-headers.headers.contentTypeNosniff=true"
+        - "traefik.http.middlewares.catalogo-headers.headers.browserXssFilter=true"
+        - "traefik.http.middlewares.catalogo-headers.headers.referrerPolicy=strict-origin-when-cross-origin"
+        - "traefik.http.middlewares.catalogo-headers.headers.customFrameOptionsValue=SAMEORIGIN"
+        - "traefik.http.middlewares.catalogo-headers.headers.customResponseHeaders.Permissions-Policy=camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+        # CSP EM VIGOR desde 14/09/2026. Antes de ligar, rodou em modo relato e o site
+        # foi navegado com Chromium em 7 rotas (/, /catalogo, /catalogo/[slug],
+        # /catalogo/[slug]/beneficios, /documentacao, /carrinho, /login): zero violação
+        # de conteúdo no console. A única mensagem era o aviso de que
+        # upgrade-insecure-requests não vale em modo relato — some agora que é enforce.
+        #
+        # Se algum recurso novo passar a ser bloqueado, o sintoma aparece no console do
+        # navegador como "Refused to load...". Voltar ao modo relato é só renomear o
+        # cabeçalho de volta para Content-Security-Policy-Report-Only e republicar.
+        #
+        # 'unsafe-inline' em script-src é concessão consciente: o catálogo é
+        # majoritariamente estático, e a receita de nonce do Next exige renderização
+        # dinâmica — aplicá-la aqui quebraria a hidratação. Mesmo assim a política já
+        # fecha o principal: script, estilo, fonte e imagem só da própria origem, e
+        # conexão de rede só para o Supabase do projeto.
+        - "traefik.http.middlewares.catalogo-headers.headers.customResponseHeaders.Content-Security-Policy=default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://zjryrmqtumvaxdytvbbv.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+        - "traefik.http.routers.catalogo.middlewares=catalogo-headers"
+
+networks:
+  lemon:
+    external: true

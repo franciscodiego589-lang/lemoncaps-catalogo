@@ -15,14 +15,14 @@ const projectDir = process.env.CLAUDE_PROJECT_DIR || process.cwd();
 const LINTABLE = /\.(js|jsx|ts|tsx|mjs|cjs|vue|svelte|php)$/;
 
 let event = {};
-try { event = JSON.parse(fs.readFileSync(0, "utf8") || "{}"); } catch (e) { process.exit(0); }
+try { event = JSON.parse(fs.readFileSync(0, "utf8") || "{}"); } catch { process.exit(0); }
 const sessionId = typeof event?.session_id === "string" ? event.session_id : "nosession";
 
 function flagFile() {
   return path.join(sessionScratchDir(sessionId), "files-changed");
 }
 function clearFlag() {
-  try { fs.rmSync(flagFile(), { force: true }); } catch (e) { /* ignore */ }
+  try { fs.rmSync(flagFile(), { force: true }); } catch { /* ignore */ }
 }
 function approve() {
   process.stdout.write(JSON.stringify({ decision: "approve" }));
@@ -36,7 +36,7 @@ const flag = flagFile();
 if (!fs.existsSync(flag)) approve(); // session changed nothing
 
 let changed = "";
-try { changed = fs.readFileSync(flag, "utf8"); } catch (e) { approve(); }
+try { changed = fs.readFileSync(flag, "utf8"); } catch { approve(); }
 const hasLintable = changed.split("\n").some(function (p) { return LINTABLE.test(p.trim()); });
 if (!hasLintable) { clearFlag(); approve(); }
 

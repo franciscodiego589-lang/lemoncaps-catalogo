@@ -1,0 +1,373 @@
+{
+ "slug": "bella-gummy-biotina-em-gummy",
+ "porcao_mg": 6000,
+ "porcao_descricao": "6 g (2 gomas de 3,00 g) — 30 porções por embalagem (60 gomas, 180 g)",
+ "formato": "gummy",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Vitamina C — Ácido ascórbico/Ácido L-ascórbico (CAS 50-81-7)",
+   "forma_insumo": "Ácido ascórbico 99 %",
+   "massa_insumo_mg": 45.23,
+   "teor_pct": 99.5,
+   "teor_fonte": "laudo lote 950467 (Analitic, val. 05/03/2029)",
+   "ativo_mg": 45.004,
+   "unidade_ativo": "mg",
+   "conta": "45,23 mg × 99,5 % = 45,00 mg",
+   "minimo": 13.5,
+   "maximo": 1916.02,
+   "pct_do_maximo": 2.35,
+   "linha_anexo": "I·Vitamina C·Ácido ascórbico/Ácido L-ascórbico; III·Vitamina C (13,5 mg); IV·Vitamina C (1.916,02 mg)",
+   "laudo": {
+    "lote": "950467",
+    "validade": "05/03/2029",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "dentro da faixa, 2,3 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina E — Acetato de DL-alfa-tocoferol/Acetato de racealfatocoferol/Acetato de DL-alfatocoferila (CAS 7695-91-2)",
+   "forma_insumo": "Vitamina E pó 50 % (acetato de DL-alfa-tocoferila)",
+   "massa_insumo_mg": 16.7,
+   "teor_pct": 50.7,
+   "teor_fonte": "laudo lote 91320 (Analitic, val. 05/04/2028)",
+   "ativo_mg": 5.673,
+   "unidade_ativo": "mg de alfa-tocoferol",
+   "conta": "16,70 mg × 50,7 % = 8,467 mg de acetato; × 0,67 (nota v do Anexo III da IN 28: 1 UI = 1 mg de acetato de rac-α-tocoferil; IN 75 Anexo XXIII: 1 mg de α-tocoferol = 1,49 UI) = 5,673 mg de α-TE",
+   "minimo": 2.25,
+   "maximo": 1000,
+   "pct_do_maximo": 0.57,
+   "linha_anexo": "I·Vitamina E·Acetato de DL-alfa-tocoferol; III·Vitamina E^v (2,25 mg); IV·Vitamina E^iii (1000 mg)",
+   "laudo": {
+    "lote": "91320",
+    "validade": "05/04/2028",
+    "vencido": false
+   },
+   "status": "mantido (declaração corrigida)",
+   "motivo": "massa mantida; o rótulo declarava 16,7 mg de vitamina E (massa do insumo) — o ativo é 5,68 mg de α-TE (38 % VD), como o próprio memorial rev02 aponta"
+  },
+  {
+   "constituinte_anexo_i": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "forma_insumo": "Bisglicinato de zinco 20 %",
+   "massa_insumo_mg": 12.0,
+   "teor_pct": 19.89,
+   "teor_fonte": "laudo lote 055-ZN/25 (Galena, 20,00 % Zn base seca, val. 06/05/2027); 19,89 % tal qual = critério do RT (umidade descontada)",
+   "ativo_mg": 2.387,
+   "unidade_ativo": "mg de zinco",
+   "conta": "12,00 mg × 19,89 % = 2,387 mg de Zn",
+   "minimo": 1.65,
+   "maximo": 29.59,
+   "pct_do_maximo": 8.07,
+   "linha_anexo": "I·Zinco·Bisglicinato de zinco; III·Zinco (1,65 mg); IV·Zinco (29,59 mg)",
+   "laudo": {
+    "lote": "055-ZN/25",
+    "validade": "06/05/2027",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "dentro da faixa, 8,1 % do teto; resultado do laudo (20,00 %) está no piso da especificação (20–23 %)"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "forma_insumo": "Acetato de retinol pó (568.116 UI/g)",
+   "massa_insumo_mg": 5.99,
+   "teor_pct": null,
+   "teor_fonte": "potência 568.116 UI/g lida no memorial (lote 215230); laudo em digitalização, NÃO conferido nesta rodada — PENDENTE",
+   "ativo_mg": 1021.9,
+   "unidade_ativo": "µg RAE",
+   "conta": "5,99 mg × 568.116 UI/g ÷ 1.000 = 3.403 UI; ÷ 3,33 UI/µg RAE (IN 75 Anexo XXIII) = 1.022 µg RAE (memorial: × 0,3 = 1.020,9 µg)",
+   "minimo": 135,
+   "maximo": 2623.61,
+   "pct_do_maximo": 38.95,
+   "linha_anexo": "I·Vitamina A·Acetato de retinol/Acetato de retinila; III·Vitamina A^ii (135 µg); IV·Vitamina A^i (2.623,61 µg)",
+   "laudo": {
+    "lote": "215230",
+    "validade": "PENDENTE (laudo não lido)",
+    "vencido": null
+   },
+   "status": "mantido",
+   "motivo": "dentro da faixa, 39 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Biotina — D-biotina (CAS 58-85-5)",
+   "forma_insumo": "D-biotina",
+   "massa_insumo_mg": 0.04,
+   "teor_pct": 100.0,
+   "teor_fonte": "laudo lote interno 91457 / fabricante BN25121020 (Analitic, val. 19/12/2028) — o laudo fisicamente anexado ao memorial; o memorial usava 97,69 % e lote 25030042, que não existem nesse laudo",
+   "ativo_mg": 0.04,
+   "unidade_ativo": "mg (= 40,0 µg)",
+   "conta": "0,040 mg × 100,0 % = 0,040 mg = 40,0 µg",
+   "minimo": 4.5,
+   "maximo": 45,
+   "pct_do_maximo": 88.89,
+   "linha_anexo": "I·Biotina·D-biotina; III·Biotina (4,5 µg); IV·Biotina (45 µg)",
+   "laudo": {
+    "lote": "91457 (BN25121020)",
+    "validade": "19/12/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "45 µg era o teto exato; 40 µg = 88,9 % do teto (folga de 11 %), como o memorial rev02 já sugeria"
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Sorbitol líquido 70 %",
+   "ins": "420",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE (memorial só traz \"matriz de goma q.s.p. 5.920,03 mg\")"
+  },
+  {
+   "nome": "Maltitol",
+   "ins": "965",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Gelatina",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; espécie animal não declarada no laudo (lote 214196)"
+  },
+  {
+   "nome": "Água purificada",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Glicerina vegetal",
+   "ins": "422",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Maltodextrina",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 210170 VENCIDO 26/07/2026; 6,27 ppm de SO2 no insumo"
+  },
+  {
+   "nome": "Pectina cítrica",
+   "ins": "440",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Goma acácia",
+   "ins": "414",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 105226 com pH 2,84 fora da especificação 4–5"
+  },
+  {
+   "nome": "Ácido cítrico",
+   "ins": "330",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Citrato de sódio",
+   "ins": "331",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Aroma de frutas vermelhas",
+   "ins": null,
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 25051287 VENCIDO 21/05/2026 e da forma errada (pó × líquido)"
+  },
+  {
+   "nome": "Corante vermelho ponceau 4R",
+   "ins": "124",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; laudo lote 108027 válido (85,99 %)"
+  },
+  {
+   "nome": "Sorbato de potássio",
+   "ins": "202",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE; lote em uso é grau PA (reagente) — trocar por grau alimentício (laudo válido disponível: Analitic lote 91202, 100,30 %, val. 05/01/2028)"
+  },
+  {
+   "nome": "Sucralose",
+   "ins": "955",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE"
+  },
+  {
+   "nome": "Matriz de goma — soma (q.s.p.)",
+   "ins": null,
+   "massa_mg": 5920.04,
+   "observacao": "6.000,00 − 79,96 mg de ativos = 5.920,04 mg (memorial Tabela 8: 5.920,03 mg)"
+  }
+ ],
+ "soma_porcao_mg": 6000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "6 g (2 gomas)",
+  "porcao_coluna": "6 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "PENDENTE",
+    "unidade": "kcal",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "memorial não traz massa dos excipientes; rótulo/memorial imprimem 12 kcal = 50 kJ (não recalculável)"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 4,8 g (não recalculável)"
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "maltodextrina na base: fração de mono/dissacarídeos não quantificada"
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": "RDC 429 Art. 3 I inclui a fração de mono/dissacarídeos da maltodextrina"
+   },
+   {
+    "item": "Polióis totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "rótulo/memorial: 3,4 g (sorbitol + maltitol; massas não disponíveis)"
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 0,6 g (gelatina; massa não disponível)"
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "pectina e goma acácia são fibras; massas não disponíveis"
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "PENDENTE",
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "rótulo/memorial: 8 mg (citrato de sódio; massa não disponível)"
+   },
+   {
+    "item": "Vitamina A",
+    "quantidade": "1.022",
+    "quantidade_num": 1022.0,
+    "unidade": "µg",
+    "vd_pct": 128,
+    "nivel": 0,
+    "nota": "µg RAE; 1.022 µg calculado, memorial declara 1.020 µg"
+   },
+   {
+    "item": "Vitamina E",
+    "quantidade": "5,7",
+    "quantidade_num": 5.7,
+    "unidade": "mg",
+    "vd_pct": 38,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina C",
+    "quantidade": "45",
+    "quantidade_num": 45.0,
+    "unidade": "mg",
+    "vd_pct": 45,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina B7",
+    "quantidade": "40",
+    "quantidade_num": 40.0,
+    "unidade": "µg",
+    "vd_pct": 133,
+    "nivel": 0,
+    "nota": "nome do Anexo XI da IN 75 (\"Vitamina B7\", alternativo \"Biotina\")"
+   },
+   {
+    "item": "Zinco",
+    "quantidade": "2,4",
+    "quantidade_num": 2.4,
+    "unidade": "mg",
+    "vd_pct": 22,
+    "nivel": 0,
+    "nota": null
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: IN 75/2020 Anexo III (lido 16/09/2026). %VD: IN 75/2020 Anexo VIII, coluna ≥ 19 anos, sobre a quantidade arredondada (RDC 429 Art. 12). Ordem: IN 75/2020 Anexo XI."
+ },
+ "ingredients_list": "Sorbitol líquido 70 %, maltitol, gelatina, água purificada, glicerina vegetal, maltodextrina, pectina cítrica, goma acácia, ácido cítrico (INS 330), citrato de sódio (INS 331), aroma de frutas vermelhas, vitamina C (ácido ascórbico), vitamina E (acetato de DL-alfa-tocoferila), zinco (bisglicinato de zinco), vitamina A (acetato de retinol), biotina (D-biotina), corante vermelho ponceau 4R (INS 124), conservador sorbato de potássio (INS 202) e edulcorante sucralose (INS 955). [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado] [Alergênicos: \"Contém: peixe\" se a gelatina for de peixe — espécie PENDENTE; sulfitos se o produto atingir 10 mg/kg de SO2 — PENDENTE de cálculo com a massa da maltodextrina]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nO consumo excessivo pode ter efeito laxativo (contém polióis). [base legal a confirmar pelo RT]\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "Massa de cada excipiente da matriz de goma (memorial só traz o q.s.p. 5.920,03 mg) — sem elas, valor energético, carboidratos, polióis, proteínas, fibras e sódio ficam PENDENTES (os valores impressos hoje não são recalculáveis).",
+  "Laudo do acetato de retinol lote 215230: existe só em digitalização, potência 568.116 UI/g lida do memorial — conferir visualmente.",
+  "Biotina: o memorial cita lote 25030042 e teor 97,69 %, que não constam do laudo anexado (lote 91457/BN25121020, 100,0 %). Corrigir o memorial para o laudo real.",
+  "Rótulo declara \"vitamina E (DL-alfa-tocoferol) 16,7 mg (111 % VD)\"; o ativo entregue é 5,68 mg de α-TE (38 % VD). Corrigir a arte e a linha de composição (o insumo é o acetato).",
+  "Laudos vencidos/errados na base: aroma de frutas vermelhas (venc. 21/05/2026, laudo de pó para insumo líquido), maltodextrina (venc. 26/07/2026), sorbitol (laudo de pó para insumo líquido 70 %), goma acácia (pH 2,84 fora de 4–5, sem conclusão), sorbato de potássio grau PA (trocar por grau alimentício — laudo válido Analitic lote 91202).",
+  "Gelatina lote 214196: espécie animal não declarada (se peixe, alergênico obrigatório; se bovina, certificado BSE).",
+  "Glúten: Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\"; não há ensaio deste produto (os ensaios MGW de glúten < 10 ppm são da Creatina Gummy e da Melatonina Gummy).",
+  "A advertência \"Não deve ser consumido por gestantes, lactantes e crianças\", presente hoje no cadastro, NÃO é exigida pelo Anexo VI para vitaminas e minerais — manter ou retirar é decisão do RT.",
+  "A alegação \"PELE · CABELO · UNHA\" do rótulo não é redação autorizada do Anexo V (apontado pelo memorial)."
+ ],
+ "veredito": "CONFORME CONDICIONADO A (laudo da vitamina A lote 215230 conferido; massas da matriz de goma para fechar a tabela nutricional; laudos vencidos/errados da base renovados)",
+ "_procedencia": {
+  "memorial": "MEM-CALC-BIOGUMMY-rev02 (13/08/2026)",
+  "rotulo": "composicoes_rotulo.json/biogummy (BioGummy.pdf)",
+  "anexos": "IN 28/2018 consolidada, lida 16/09/2026",
+  "in75": "IN 75/2020 consolidada, lida 16/09/2026 08:40 UTC-4"
+ }
+}

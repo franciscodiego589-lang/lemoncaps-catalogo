@@ -14,19 +14,27 @@ export async function GET(request: Request) {
   await requireQuoteManagerPage();
 
   const { searchParams } = new URL(request.url);
-  const quotes = await getAdminQuotesForExport({
+  // "rows", não "quotes": desde o enriquecimento de 2026-09-13 o retorno é uma
+  // linha por ITEM de orçamento (repetindo os campos do orçamento em cada
+  // linha), não mais uma linha por orçamento - ver AdminQuoteExportRowDTO.
+  const rows = await getAdminQuotesForExport({
     busca: searchParams.get("busca") ?? undefined,
     status: searchParams.get("status") ?? undefined,
     de: searchParams.get("de") ?? undefined,
     ate: searchParams.get("ate") ?? undefined,
   });
 
-  const csv = buildQuotesCsv(quotes);
+  const csv = buildQuotesCsv(rows);
+
+  // Data de HOJE (geração do arquivo) no nome, não dado de negócio - só para
+  // downloads repetidos no mesmo dia não se sobrescreverem/confundirem na
+  // pasta de downloads do navegador.
+  const geradoEm = new Date().toISOString().slice(0, 10);
 
   return new Response(csv, {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": `attachment; filename="orcamentos.csv"`,
+      "Content-Disposition": `attachment; filename="orcamentos-${geradoEm}.csv"`,
     },
   });
 }

@@ -1,0 +1,1617 @@
+{
+ "54328370-0605-4d10-a068-6890e9ba4c31": {
+  "id": "54328370-0605-4d10-a068-6890e9ba4c31",
+  "nome_formula": "Bio Princess (Cabelo, pele e unha)",
+  "cliente": "Catálogo Lemon",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 250,
+    "custo_calculado": 0.0095,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "09782132-2c9b-4284-bd19-71f1ef26624a",
+    "qtd_informada": 110,
+    "custo_calculado": 0.0041800000000000006,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-metionina"
+   },
+   {
+    "insumo_id": "2a79f709-b5fa-4db0-aea2-9055766e3c13",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0238918,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina E - DL-alfa-tocoferol 50%"
+   },
+   {
+    "insumo_id": "5ea4da4f-ceb6-48f1-b0bb-56608910dc9e",
+    "qtd_informada": 45,
+    "custo_calculado": 0.0024759,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Metilsulfonilmetano (MSM)"
+   },
+   {
+    "insumo_id": "2156f2b0-73e3-4e2d-b201-f1afe1aeeca7",
+    "qtd_informada": 50,
+    "custo_calculado": 0.055,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Ácido Hialurônico oral"
+   },
+   {
+    "insumo_id": "d6456dcd-a6dc-45c2-a113-6234ad6ffd41",
+    "qtd_informada": 50,
+    "custo_calculado": 0.045000000000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Silicio Organico (Silicium Max)"
+   },
+   {
+    "insumo_id": "6b468cb0-cb54-43f6-97e0-65996904d52e",
+    "qtd_informada": 50,
+    "custo_calculado": 0.008568000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B3 - Nicotinamida 99%"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 15,
+    "custo_calculado": 0.0039,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0019500000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "c3ca5ad1-9171-48fa-aeb9-a6c8f2602d38",
+    "qtd_informada": 5.56,
+    "custo_calculado": 0.0006262784,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B5 - D-Pantotenato de Cálcio 98%"
+   },
+   {
+    "insumo_id": "14fb5fba-99b1-4bfb-a747-bd97c57b760c",
+    "qtd_informada": 2.74,
+    "custo_calculado": 0.0008494000000000002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B2 - Riboflavina 100%"
+   },
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 1500,
+    "custo_calculado": 0.00057216,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.3101999999999999,
+    "custo_calculado": 0.0016130399999999996,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "4.7437973520000005",
+  "total_embalagem": "3.075",
+  "custo_total": "7.818797352000001"
+ },
+ "48748c87-8d97-44dd-973f-8b4f1e3e539f": {
+  "id": "48748c87-8d97-44dd-973f-8b4f1e3e539f",
+  "nome_formula": "CREATINA EM GUMMY FRUTAS VERMELHAS",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Gummy",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "e8a81571-c434-4c23-90cc-3aa458f8895e",
+    "qtd_informada": 3,
+    "custo_calculado": 0.09121845,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Creatina Monohidratada"
+   },
+   {
+    "insumo_id": "f1e9aa1e-faf4-4370-bccf-1e24db1550be",
+    "qtd_informada": 2,
+    "custo_calculado": 0.24,
+    "unidade_informada": "unidade",
+    "nome_insumo_snapshot": "Base de Gummy (Creatina)"
+   }
+  ],
+  "total_mp": "9.9365535",
+  "total_embalagem": "3.45",
+  "custo_total": "13.386553500000002"
+ },
+ "74d40dff-e8be-45b1-a911-a87837456a8f": {
+  "id": "74d40dff-e8be-45b1-a911-a87837456a8f",
+  "nome_formula": "CREATINA EM GUMMY SABOR TUTFRUT",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Gummy",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "e8a81571-c434-4c23-90cc-3aa458f8895e",
+    "qtd_informada": 3,
+    "custo_calculado": 0.09121845,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Creatina Monohidratada"
+   },
+   {
+    "insumo_id": "f1e9aa1e-faf4-4370-bccf-1e24db1550be",
+    "qtd_informada": 2,
+    "custo_calculado": 0.24,
+    "unidade_informada": "unidade",
+    "nome_insumo_snapshot": "Base de Gummy (Creatina)"
+   }
+  ],
+  "total_mp": "9.9365535",
+  "total_embalagem": "3.45",
+  "custo_total": "13.386553500000002"
+ },
+ "1d2cba0a-7df8-497a-ae93-0124fdfe3ee2": {
+  "id": "1d2cba0a-7df8-497a-ae93-0124fdfe3ee2",
+  "nome_formula": "Creatina Monohidratada Solúvel - Pote com 150 gramas",
+  "cliente": "LEMON CAPS - FÓRMULAS DO CATÁLOGO.",
+  "tipo_produto": "Solúvel",
+  "quantidade_por_pote": "150000",
+  "unidades_por_dose": "5000",
+  "itens": [
+   {
+    "insumo_id": "e8a81571-c434-4c23-90cc-3aa458f8895e",
+    "qtd_informada": 5000,
+    "custo_calculado": 0.15203075,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Creatina Monohidratada"
+   }
+  ],
+  "total_mp": "4.5609225",
+  "total_embalagem": "5.11",
+  "custo_total": "9.6709225"
+ },
+ "36d481b8-6c8d-4d3b-ab91-50dfd63f099a": {
+  "id": "36d481b8-6c8d-4d3b-ab91-50dfd63f099a",
+  "nome_formula": "Creatina Monohidratada Solúvel - Pote com 300 gramas",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Solúvel",
+  "quantidade_por_pote": "300000",
+  "unidades_por_dose": "5000",
+  "itens": [
+   {
+    "insumo_id": "e8a81571-c434-4c23-90cc-3aa458f8895e",
+    "qtd_informada": 5000,
+    "custo_calculado": 0.15203075,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Creatina Monohidratada"
+   }
+  ],
+  "total_mp": "9.121845",
+  "total_embalagem": "5.11",
+  "custo_total": "14.231845"
+ },
+ "1fc783cc-9681-4d91-8526-67a28fa69d59": {
+  "id": "1fc783cc-9681-4d91-8526-67a28fa69d59",
+  "nome_formula": "Shot Matinal 300 gramas",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Solúvel",
+  "quantidade_por_pote": "300000",
+  "unidades_por_dose": "10000",
+  "itens": [
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 1600,
+    "custo_calculado": 0.0608,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "ccfd3dea-44e6-4f00-8bf0-4f6fc517e564",
+    "qtd_informada": 400,
+    "custo_calculado": 0.042108,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Café Verde (35% ácido clorogênico)"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 130,
+    "custo_calculado": 0.008757412820000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "ce2de769-4108-4843-88a1-924bdff76c89",
+    "qtd_informada": 100,
+    "custo_calculado": 0.060000000000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Citrus sinensis (Laranja Moro 08%)"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 0.29,
+    "custo_calculado": 7.539999999999999e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   }
+  ],
+  "total_mp": "5.1522243846",
+  "total_embalagem": "5.03",
+  "custo_total": "10.182224384600001"
+ },
+ "dd733c54-e7eb-4113-92c5-b6f93ac44cff": {
+  "id": "dd733c54-e7eb-4113-92c5-b6f93ac44cff",
+  "nome_formula": "ArtFlex",
+  "cliente": "LEMONCAPS INDUSTRIA E COMERCIO LTDA",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "36ad534a-8a09-442c-b534-15d41a2f3dce",
+    "qtd_informada": 40,
+    "custo_calculado": 0.032,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Colageno Tipo II"
+   },
+   {
+    "insumo_id": "5ea4da4f-ceb6-48f1-b0bb-56608910dc9e",
+    "qtd_informada": 300,
+    "custo_calculado": 0.016506,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Metilsulfonilmetano (MSM)"
+   },
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 120,
+    "custo_calculado": 0.00456,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "2a79f709-b5fa-4db0-aea2-9055766e3c13",
+    "qtd_informada": 20,
+    "custo_calculado": 0.004778360000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina E - DL-alfa-tocoferol 50%"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 15,
+    "custo_calculado": 0.0039,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "2fae677a-a121-4893-9b3d-45779dc32cc7",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0006766000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Ferroso H 20%"
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 350,
+    "custo_calculado": 0.0301,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "c31e5d04-09aa-4a16-b1cd-31b50d0009e1",
+    "qtd_informada": 60,
+    "custo_calculado": 4.008e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Selenio Quelado 0,2%"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 130,
+    "custo_calculado": 0.008757412820000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.014940000000000064,
+    "custo_calculado": 7.768800000000033e-05,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "3.0418842246000004",
+  "total_embalagem": "3.075",
+  "custo_total": "6.116884224600001"
+ },
+ "da3738cb-7c87-4292-843e-0c0fa3add910": {
+  "id": "da3738cb-7c87-4292-843e-0c0fa3add910",
+  "nome_formula": "Emagrecedor em Cápsula (Linha Standart - 18/05)",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "76104300-7888-4e6c-8536-a25d2c508333",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0045000000000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Spirulina (Arthrospira platensis 72–90%)"
+   },
+   {
+    "insumo_id": "4320b69e-222c-42ab-997a-ac519be82839",
+    "qtd_informada": 70,
+    "custo_calculado": 0.006300000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Psyllium (Plantago ovatae) pó"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 70,
+    "custo_calculado": 0.0037800000000000004,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "ecb0f135-bd40-4c32-9390-767ec8e99f21",
+    "qtd_informada": 50,
+    "custo_calculado": 0.0025,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Quitosana"
+   },
+   {
+    "insumo_id": "450d09c7-b4d6-49ba-bdaf-fce0871c0b9e",
+    "qtd_informada": 35,
+    "custo_calculado": 0.0017500000000000003,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inulina 90%"
+   },
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 30,
+    "custo_calculado": 0.00114,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 30,
+    "custo_calculado": 0.011628,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "27a241c2-7fdf-4cc7-afd9-f332935e9905",
+    "qtd_informada": 15,
+    "custo_calculado": 0.0012749999999999999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Guaraná em Pó"
+   },
+   {
+    "insumo_id": "469415bd-2b31-48fa-bed8-a695c0c77af9",
+    "qtd_informada": 250,
+    "custo_calculado": 8.625e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Picolinato de Cromo 98 - 99%"
+   },
+   {
+    "insumo_id": "ce2de769-4108-4843-88a1-924bdff76c89",
+    "qtd_informada": 0.05,
+    "custo_calculado": 3.0000000000000004e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Citrus sinensis (Laranja Moro 08%)"
+   },
+   {
+    "insumo_id": "2ff82401-fa4a-475c-9506-bd3f5eb3a68b",
+    "qtd_informada": 0.5,
+    "custo_calculado": 3.297e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Feno Grego extrato seco"
+   },
+   {
+    "insumo_id": "ccfd3dea-44e6-4f00-8bf0-4f6fc517e564",
+    "qtd_informada": 0.5,
+    "custo_calculado": 0.0003,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Café Verde (35% ácido clorogênico)"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.5986999999999999,
+    "custo_calculado": 0.0031132399999999993,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "1.0930638000000001",
+  "total_embalagem": "3.215",
+  "custo_total": "4.3080638"
+ },
+ "d2d3277f-adb5-43a5-adf0-c41e3e4c1d13": {
+  "id": "d2d3277f-adb5-43a5-adf0-c41e3e4c1d13",
+  "nome_formula": "FOCO 60 CÁPSULAS - LEMON CAPS  PREMIUM",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "64ba927b-214d-43e1-a77d-20133b7103b5",
+    "qtd_informada": 470,
+    "custo_calculado": 0.03055,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Colina Bitartarato"
+   },
+   {
+    "insumo_id": "47027c90-df4e-4494-b0cb-83e166401d9d",
+    "qtd_informada": 220,
+    "custo_calculado": 0.013640000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Tirosina"
+   },
+   {
+    "insumo_id": "5174037f-d362-4c66-904d-6b32bf36a102",
+    "qtd_informada": 115,
+    "custo_calculado": 0.01725,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Teanina"
+   },
+   {
+    "insumo_id": "1aa429ec-273a-412c-9029-08294eec55c7",
+    "qtd_informada": 95,
+    "custo_calculado": 0.015200000000000002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Carnitina"
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 60,
+    "custo_calculado": 0.00516,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "c0d00bf1-96f9-407a-8708-db9ebcd3d498",
+    "qtd_informada": 25,
+    "custo_calculado": 0.0025,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inositol"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.0002535,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "ee9d4b03-4921-442a-aaa7-0c002b2e5480",
+    "qtd_informada": 5,
+    "custo_calculado": 1.35e-07,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina D3 - Colecalciferol 100%"
+   },
+   {
+    "insumo_id": "cd984ea6-fea9-4778-9ffc-aeab46f4c10f",
+    "qtd_informada": 2.4,
+    "custo_calculado": 3.72e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B12 – Cianocobalamina"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.013692600000000055,
+    "custo_calculado": 7.120152000000028e-05,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "2.5398610956",
+  "total_embalagem": "1.0799999999999998",
+  "custo_total": "3.6198610956"
+ },
+ "3c0a17d8-cae1-49f6-b507-3c2ff41795c6": {
+  "id": "3c0a17d8-cae1-49f6-b507-3c2ff41795c6",
+  "nome_formula": "Sono/Ansiedade - Melatonina+Triptofanos",
+  "cliente": "CATÁLOGO - LEMON CAPS",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "a57317f0-0a35-444f-a61e-c164215e0de7",
+    "qtd_informada": 0.21,
+    "custo_calculado": 0.00021629999999999997,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Melatonina"
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 12.6,
+    "custo_calculado": 0.0010835999999999999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "fc72c997-35ce-4647-983b-ff49f4cb58f1",
+    "qtd_informada": 24,
+    "custo_calculado": 0.00264,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Zinco QUELATO"
+   },
+   {
+    "insumo_id": "90831f0b-6e18-4593-84c7-cae1d79e4ba3",
+    "qtd_informada": 70,
+    "custo_calculado": 0.07,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Fosfatidilserina 50%"
+   },
+   {
+    "insumo_id": "9e401ffd-2e83-41e0-b188-ac7223225978",
+    "qtd_informada": 150,
+    "custo_calculado": 0.00375,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Ácido Aspártico"
+   },
+   {
+    "insumo_id": "e00161c7-85f5-425c-8d6c-d5c4fde91101",
+    "qtd_informada": 94.77,
+    "custo_calculado": 0.007841087557289999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Glutamina"
+   },
+   {
+    "insumo_id": "1441e907-2c75-4b43-8c7c-f1b8f1244895",
+    "qtd_informada": 200,
+    "custo_calculado": 0.0284,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Triptofano"
+   },
+   {
+    "insumo_id": "8cbf517d-dd31-4894-bfea-37e3c40e4b0f",
+    "qtd_informada": 0.44642000000000004,
+    "custo_calculado": 0.0021061109011800004,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Amido de Milho"
+   }
+  ],
+  "total_mp": "0.11603709845847",
+  "total_embalagem": "2.96",
+  "custo_total": "3.07603709845847"
+ },
+ "4fb741c2-f34b-4ff5-a132-9b5b0dd01448": {
+  "id": "4fb741c2-f34b-4ff5-a132-9b5b0dd01448",
+  "nome_formula": "Melatonina em Gummy Sabor Uva",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Gummy",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "a57317f0-0a35-444f-a61e-c164215e0de7",
+    "qtd_informada": 0.21,
+    "custo_calculado": 0.00021629999999999997,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Melatonina"
+   },
+   {
+    "insumo_id": "8ca3a092-9000-451e-9306-21182c73ff13",
+    "qtd_informada": 2,
+    "custo_calculado": 0.282116,
+    "unidade_informada": "unidade",
+    "nome_insumo_snapshot": "Base de Gummy (Melatonina)"
+   },
+   {
+    "insumo_id": "1441e907-2c75-4b43-8c7c-f1b8f1244895",
+    "qtd_informada": 800,
+    "custo_calculado": 0.1136,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Triptofano"
+   }
+  ],
+  "total_mp": "0.3959323",
+  "total_embalagem": "3.45",
+  "custo_total": "3.8459323000000003"
+ },
+ "f2a3ae7f-443a-4eaf-a9d8-8c5c92218444": {
+  "id": "f2a3ae7f-443a-4eaf-a9d8-8c5c92218444",
+  "nome_formula": "Moro Slim (Emagrecimento em Cápsula - Premium)",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "2ff82401-fa4a-475c-9506-bd3f5eb3a68b",
+    "qtd_informada": 200,
+    "custo_calculado": 0.013188,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Feno Grego extrato seco"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 120,
+    "custo_calculado": 0.00648,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "76104300-7888-4e6c-8536-a25d2c508333",
+    "qtd_informada": 110,
+    "custo_calculado": 0.00495,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Spirulina (Arthrospira platensis 72–90%)"
+   },
+   {
+    "insumo_id": "ecb0f135-bd40-4c32-9390-767ec8e99f21",
+    "qtd_informada": 110,
+    "custo_calculado": 0.0055000000000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Quitosana"
+   },
+   {
+    "insumo_id": "27a241c2-7fdf-4cc7-afd9-f332935e9905",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0085,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Guaraná em Pó"
+   },
+   {
+    "insumo_id": "ccfd3dea-44e6-4f00-8bf0-4f6fc517e564",
+    "qtd_informada": 100,
+    "custo_calculado": 0.060000000000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Café Verde (35% ácido clorogênico)"
+   },
+   {
+    "insumo_id": "4320b69e-222c-42ab-997a-ac519be82839",
+    "qtd_informada": 60,
+    "custo_calculado": 0.005399999999999999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Psyllium (Plantago ovatae) pó"
+   },
+   {
+    "insumo_id": "450d09c7-b4d6-49ba-bdaf-fce0871c0b9e",
+    "qtd_informada": 40,
+    "custo_calculado": 0.002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inulina 90%"
+   },
+   {
+    "insumo_id": "ce2de769-4108-4843-88a1-924bdff76c89",
+    "qtd_informada": 158.25,
+    "custo_calculado": 0.09494999999999999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Citrus sinensis (Laranja Moro 08%)"
+   },
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 1500,
+    "custo_calculado": 0.0005814,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "469415bd-2b31-48fa-bed8-a695c0c77af9",
+    "qtd_informada": 250,
+    "custo_calculado": 8.625e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Picolinato de Cromo 98 - 99%"
+   }
+  ],
+  "total_mp": "6.049069500000001",
+  "total_embalagem": "3.115",
+  "custo_total": "9.1640695"
+ },
+ "e5d23dcd-bc5f-4614-96fb-b88d786a8923": {
+  "id": "e5d23dcd-bc5f-4614-96fb-b88d786a8923",
+  "nome_formula": "Multi Vita - GESTANTE E LACTANTE EM CÁPSULA LINHA ECONÔMICA FINAL",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 800,
+    "custo_calculado": 0.00031008000000000007,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "ee9d4b03-4921-442a-aaa7-0c002b2e5480",
+    "qtd_informada": 50,
+    "custo_calculado": 1.3500000000000002e-06,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina D3 - Colecalciferol 100%"
+   },
+   {
+    "insumo_id": "2a79f709-b5fa-4db0-aea2-9055766e3c13",
+    "qtd_informada": 5,
+    "custo_calculado": 0.0009500000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina E - DL-alfa-tocoferol 50%"
+   },
+   {
+    "insumo_id": "c738ff15-7325-4b3a-aa93-fef4e0bcac16",
+    "qtd_informada": 125,
+    "custo_calculado": 0.00031,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina K2 (MK7)"
+   },
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 20,
+    "custo_calculado": 0.00076,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "68a93d38-110a-40bb-8403-eb763c10479b",
+    "qtd_informada": 1.5,
+    "custo_calculado": 0.00042,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B1 – Tiamina"
+   },
+   {
+    "insumo_id": "14fb5fba-99b1-4bfb-a747-bd97c57b760c",
+    "qtd_informada": 1.6,
+    "custo_calculado": 0.000496,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B2 - Riboflavina 100%"
+   },
+   {
+    "insumo_id": "6b468cb0-cb54-43f6-97e0-65996904d52e",
+    "qtd_informada": 8,
+    "custo_calculado": 0.00110288,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B3 - Nicotinamida 99%"
+   },
+   {
+    "insumo_id": "c3ca5ad1-9171-48fa-aeb9-a6c8f2602d38",
+    "qtd_informada": 5,
+    "custo_calculado": 0.0005600000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B5 - D-Pantotenato de Cálcio 98%"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 0.3,
+    "custo_calculado": 5.85e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "0b328342-a2bd-4527-adb8-1ce1fa96ab16",
+    "qtd_informada": 45,
+    "custo_calculado": 6.750000000000001e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Biotina - Vitamina 7 (H)"
+   },
+   {
+    "insumo_id": "5ba7cbef-0070-4690-9126-86b2ab84544b",
+    "qtd_informada": 600,
+    "custo_calculado": 0.000174,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B9 - Ácido Fólico"
+   },
+   {
+    "insumo_id": "163e690e-a953-4b06-bebd-cddc676d37c3",
+    "qtd_informada": 9.9,
+    "custo_calculado": 0.000159704325,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B12 – Metilcobalamina"
+   },
+   {
+    "insumo_id": "98390bcd-b1fb-436e-aa62-7999f817effd",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0009000000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "calcio elementar "
+   },
+   {
+    "insumo_id": "e0ae47c1-da49-4e57-88c9-cc69f7062b66",
+    "qtd_informada": 1000,
+    "custo_calculado": 0.00010654,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Cobre Bios 24%"
+   },
+   {
+    "insumo_id": "469415bd-2b31-48fa-bed8-a695c0c77af9",
+    "qtd_informada": 250,
+    "custo_calculado": 8.625e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Picolinato de Cromo 98 - 99%"
+   },
+   {
+    "insumo_id": "2fae677a-a121-4893-9b3d-45779dc32cc7",
+    "qtd_informada": 7,
+    "custo_calculado": 0.00047361999999999995,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Ferroso H 20%"
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0008600000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "c31e5d04-09aa-4a16-b1cd-31b50d0009e1",
+    "qtd_informada": 10,
+    "custo_calculado": 6.68e-06,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Selenio Quelado 0,2%"
+   },
+   {
+    "insumo_id": "14fb5fba-99b1-4bfb-a747-bd97c57b760c",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0031000000000000003,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B2 - Riboflavina 100%"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.9187101,
+    "custo_calculado": 0.00477729252,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "0.47041190535",
+  "total_embalagem": "3.075",
+  "custo_total": "3.54541190535"
+ },
+ "5a60d852-6cd3-4ed8-89ea-28ad14c74f96": {
+  "id": "5a60d852-6cd3-4ed8-89ea-28ad14c74f96",
+  "nome_formula": "MULTIVITAMINICO",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 260,
+    "custo_calculado": 0.02236,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "5174037f-d362-4c66-904d-6b32bf36a102",
+    "qtd_informada": 150,
+    "custo_calculado": 0.0225,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Teanina"
+   },
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0038,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 15,
+    "custo_calculado": 0.0039,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "6b468cb0-cb54-43f6-97e0-65996904d52e",
+    "qtd_informada": 16,
+    "custo_calculado": 0.00220576,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B3 - Nicotinamida 99%"
+   },
+   {
+    "insumo_id": "2a79f709-b5fa-4db0-aea2-9055766e3c13",
+    "qtd_informada": 10,
+    "custo_calculado": 0.0019000000000000002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina E - DL-alfa-tocoferol 50%"
+   },
+   {
+    "insumo_id": "c3ca5ad1-9171-48fa-aeb9-a6c8f2602d38",
+    "qtd_informada": 5,
+    "custo_calculado": 0.0005600000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B5 - D-Pantotenato de Cálcio 98%"
+   },
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 1300,
+    "custo_calculado": 0.00050388,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "308e6951-fe6f-4f48-bbe5-89b48caf9f90",
+    "qtd_informada": 3,
+    "custo_calculado": 0.000138,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Boro Quelado 55"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.0002535,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "68a93d38-110a-40bb-8403-eb763c10479b",
+    "qtd_informada": 1.2,
+    "custo_calculado": 0.000336,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B1 – Tiamina"
+   },
+   {
+    "insumo_id": "14fb5fba-99b1-4bfb-a747-bd97c57b760c",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.00040299999999999993,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B2 - Riboflavina 100%"
+   },
+   {
+    "insumo_id": "25397e8d-8343-4a0a-8f4f-0612eae96551",
+    "qtd_informada": 800,
+    "custo_calculado": 0.00023200000000000003,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B9 – Ácido Fólico"
+   },
+   {
+    "insumo_id": "c31e5d04-09aa-4a16-b1cd-31b50d0009e1",
+    "qtd_informada": 100,
+    "custo_calculado": 6.680000000000001e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Selenio Quelado 0,2%"
+   },
+   {
+    "insumo_id": "e0ae47c1-da49-4e57-88c9-cc69f7062b66",
+    "qtd_informada": 0.9,
+    "custo_calculado": 9.5886e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Cobre Bios 24%"
+   },
+   {
+    "insumo_id": "469415bd-2b31-48fa-bed8-a695c0c77af9",
+    "qtd_informada": 35,
+    "custo_calculado": 1.2074999999999999e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Picolinato de Cromo 98 - 99%"
+   },
+   {
+    "insumo_id": "c738ff15-7325-4b3a-aa93-fef4e0bcac16",
+    "qtd_informada": 149,
+    "custo_calculado": 0.00036951999999999997,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina K2 (MK7)"
+   },
+   {
+    "insumo_id": "cd984ea6-fea9-4778-9ffc-aeab46f4c10f",
+    "qtd_informada": 9.94,
+    "custo_calculado": 0.00015407,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B12 – Cianocobalamina"
+   },
+   {
+    "insumo_id": "ee9d4b03-4921-442a-aaa7-0c002b2e5480",
+    "qtd_informada": 50,
+    "custo_calculado": 1.3500000000000002e-06,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina D3 - Colecalciferol 100%"
+   },
+   {
+    "insumo_id": "67f72ec0-27c1-4b5d-a9e7-0d105944d4ed",
+    "qtd_informada": 10,
+    "custo_calculado": 0.000212,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Dióxido de Silício"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.4238560600000001,
+    "custo_calculado": 0.0022040515120000004,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "1.8662367753599998",
+  "total_embalagem": "4.1",
+  "custo_total": "5.96623677536"
+ },
+ "9a6d1198-fb18-4c23-b839-3b468b7e68b2": {
+  "id": "9a6d1198-fb18-4c23-b839-3b468b7e68b2",
+  "nome_formula": "PRÉ TREINO",
+  "cliente": "GRA",
+  "tipo_produto": "Solúvel",
+  "quantidade_por_pote": "300",
+  "unidades_por_dose": "10",
+  "itens": [
+   {
+    "insumo_id": "2fc38524-c6f6-44dc-bd34-e29a68cfb117",
+    "qtd_informada": 2000,
+    "custo_calculado": 0.07,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Beta Alanina"
+   },
+   {
+    "insumo_id": "2a14dcae-c637-4d14-aa9e-5ae591021709",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0059,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Citrulina malato"
+   },
+   {
+    "insumo_id": "849c9459-5b58-4a78-a792-4611e0a08a41",
+    "qtd_informada": 100,
+    "custo_calculado": 0.007200000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Aspartato de L-Arginina"
+   },
+   {
+    "insumo_id": "47027c90-df4e-4494-b0cb-83e166401d9d",
+    "qtd_informada": 100,
+    "custo_calculado": 0.006200000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Tirosina"
+   },
+   {
+    "insumo_id": "209879a6-ccc8-48fb-8bff-03f9cef171e5",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0019500000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Taurina"
+   },
+   {
+    "insumo_id": "1aa429ec-273a-412c-9029-08294eec55c7",
+    "qtd_informada": 100,
+    "custo_calculado": 0.016,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Carnitina"
+   },
+   {
+    "insumo_id": "c0d00bf1-96f9-407a-8708-db9ebcd3d498",
+    "qtd_informada": 100,
+    "custo_calculado": 0.01,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inositol"
+   },
+   {
+    "insumo_id": "6b29f265-5d8b-4e44-b063-49df83851e5c",
+    "qtd_informada": 200,
+    "custo_calculado": 0.0176,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Cafeína Anidra 99%"
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 200,
+    "custo_calculado": 0.0172,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "fc72c997-35ce-4647-983b-ff49f4cb58f1",
+    "qtd_informada": 7,
+    "custo_calculado": 0.00077,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Zinco QUELATO"
+   },
+   {
+    "insumo_id": "cd984ea6-fea9-4778-9ffc-aeab46f4c10f",
+    "qtd_informada": 9.9,
+    "custo_calculado": 0.00015345,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina B12 – Cianocobalamina"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.0002535,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   }
+  ],
+  "total_mp": "4.596808499999999",
+  "total_embalagem": "4.11",
+  "custo_total": "8.7068085"
+ },
+ "aa254d22-0c09-496a-81cb-7c4fe7531795": {
+  "id": "aa254d22-0c09-496a-81cb-7c4fe7531795",
+  "nome_formula": "PRO ENERGY (ESTIMULANTE SEXUAL - Encapsulado - PREMIUM)",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "2ff82401-fa4a-475c-9506-bd3f5eb3a68b",
+    "qtd_informada": 250,
+    "custo_calculado": 0.0059875,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Feno Grego extrato seco"
+   },
+   {
+    "insumo_id": "209879a6-ccc8-48fb-8bff-03f9cef171e5",
+    "qtd_informada": 200,
+    "custo_calculado": 0.005099703800000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Taurina"
+   },
+   {
+    "insumo_id": "27a241c2-7fdf-4cc7-afd9-f332935e9905",
+    "qtd_informada": 180,
+    "custo_calculado": 0.017426519999999997,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Guaraná em Pó"
+   },
+   {
+    "insumo_id": "56008ff3-3480-4486-ba79-0d7c5aa68ec3",
+    "qtd_informada": 150,
+    "custo_calculado": 0.0095921625,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Cafeina Anidra"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 20,
+    "custo_calculado": 0.005200000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 9,
+    "custo_calculado": 0.0017549999999999996,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "5174037f-d362-4c66-904d-6b32bf36a102",
+    "qtd_informada": 150,
+    "custo_calculado": 0.0225,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Teanina"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.040999999999999925,
+    "custo_calculado": 0.00021319999999999963,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "2.0332225889999997",
+  "total_embalagem": "3.075",
+  "custo_total": "5.108222589"
+ },
+ "95d4f2aa-25fa-4d14-b11f-2978cd1b0e91": {
+  "id": "95d4f2aa-25fa-4d14-b11f-2978cd1b0e91",
+  "nome_formula": "INTESTINO",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "4320b69e-222c-42ab-997a-ac519be82839",
+    "qtd_informada": 342,
+    "custo_calculado": 0.030780000000000002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Psyllium (Plantago ovatae) pó"
+   },
+   {
+    "insumo_id": "450d09c7-b4d6-49ba-bdaf-fce0871c0b9e",
+    "qtd_informada": 135,
+    "custo_calculado": 0.00675,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inulina 90%"
+   },
+   {
+    "insumo_id": "9ce46356-4e5f-4487-9d44-c89c2d9cae7d",
+    "qtd_informada": 90,
+    "custo_calculado": 0.006659999999999999,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Frutooligossacarídeos FOS"
+   },
+   {
+    "insumo_id": "e00161c7-85f5-425c-8d6c-d5c4fde91101",
+    "qtd_informada": 135,
+    "custo_calculado": 0.007425,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Glutamina"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 117,
+    "custo_calculado": 0.006318000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "520e3791-5200-47e8-a629-c5d64fc616cb",
+    "qtd_informada": 72,
+    "custo_calculado": 0.026999999999999996,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Quercetina "
+   },
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 90,
+    "custo_calculado": 0.0077399999999999995,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 13.5,
+    "custo_calculado": 0.0035099999999999997,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "a0685aff-cc1d-4494-a2ed-55c93ec1e336",
+    "qtd_informada": 540,
+    "custo_calculado": 0.00020930400000000003,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina A - Acetato de Retinol"
+   },
+   {
+    "insumo_id": "bfe971a0-d003-440c-9c68-8fec0cbd5e74",
+    "qtd_informada": 1.26,
+    "custo_calculado": 0.0002457,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 – Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "67f72ec0-27c1-4b5d-a9e7-0d105944d4ed",
+    "qtd_informada": 3,
+    "custo_calculado": 6.36e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Dióxido de Silício"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.0007000000000000339,
+    "custo_calculado": 3.6400000000001765e-06,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "2.9011573199999994",
+  "total_embalagem": "4.79",
+  "custo_total": "7.691157319999999"
+ },
+ "68f203fd-3ef2-4f5f-a9f8-7e4933163843": {
+  "id": "68f203fd-3ef2-4f5f-a9f8-7e4933163843",
+  "nome_formula": "SONO EM LÍQUIDO FRASCO COM 30 MLS",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Líquido",
+  "quantidade_por_pote": "30",
+  "unidades_por_dose": "1",
+  "itens": [
+   {
+    "insumo_id": "a57317f0-0a35-444f-a61e-c164215e0de7",
+    "qtd_informada": 0.21,
+    "custo_calculado": 0.00021629999999999997,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Melatonina"
+   },
+   {
+    "insumo_id": "5174037f-d362-4c66-904d-6b32bf36a102",
+    "qtd_informada": 50,
+    "custo_calculado": 0.007500000000000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Teanina"
+   },
+   {
+    "insumo_id": "e9a3b646-e6d5-4e89-920c-f50c5eb07a0f",
+    "qtd_informada": 50,
+    "custo_calculado": 0.04,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Mio-inositol"
+   },
+   {
+    "insumo_id": "0286e38a-85a9-4a59-bd5d-bced44219770",
+    "qtd_informada": 63,
+    "custo_calculado": 0.05985,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "magnésio quelato"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.0002535,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   }
+  ],
+  "total_mp": "3.2345940000000004",
+  "total_embalagem": "1.79",
+  "custo_total": "5.0245940000000004"
+ },
+ "d2e0ff25-7d9c-4f80-a5ee-35a17a742b81": {
+  "id": "d2e0ff25-7d9c-4f80-a5ee-35a17a742b81",
+  "nome_formula": "SHOT + COLÁGENO",
+  "itens": [
+   {
+    "insumo_id": "b92d7836-e664-4280-8ee9-75a7561766c8",
+    "qtd_informada": 2547,
+    "custo_calculado": 0.03693506580000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Maltodextrina"
+   },
+   {
+    "insumo_id": "8c856aa3-f822-4fdd-9a41-7c1688e56eb2",
+    "qtd_informada": 1100,
+    "custo_calculado": 0.041800000000000004,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina C - Ácido Ascórbico 99%"
+   },
+   {
+    "insumo_id": "cb2f1097-ecf0-4ced-97b1-c63859e13fcf",
+    "qtd_informada": 670,
+    "custo_calculado": 0.014484462000000002,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Acido citrico"
+   },
+   {
+    "insumo_id": "53d290e2-fa75-43ed-9542-e38609fc625d",
+    "qtd_informada": 330,
+    "custo_calculado": 0.02475,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "FRESH DRINK LIMAO"
+   },
+   {
+    "insumo_id": "528c06dc-4168-4e4c-bec9-560f7f648c0d",
+    "qtd_informada": 5000,
+    "custo_calculado": 0.41330750000000005,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Colageno Hidrolisado"
+   },
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 130,
+    "custo_calculado": 0.008757412820000001,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "9f2aec55-6d90-46d0-b335-7a746bce4e99",
+    "qtd_informada": 50,
+    "custo_calculado": 0.0173779,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Sucralose edulcorante"
+   },
+   {
+    "insumo_id": "67f72ec0-27c1-4b5d-a9e7-0d105944d4ed",
+    "qtd_informada": 100,
+    "custo_calculado": 0.0026089765,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Dióxido de Silício"
+   },
+   {
+    "insumo_id": "ccfd3dea-44e6-4f00-8bf0-4f6fc517e564",
+    "qtd_informada": 50,
+    "custo_calculado": 0.0052635,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Café Verde (35% ácido clorogênico)"
+   },
+   {
+    "insumo_id": "ce2de769-4108-4843-88a1-924bdff76c89",
+    "qtd_informada": 5,
+    "custo_calculado": 0.003,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Citrus sinensis (Laranja Moro 08%)"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 0.29,
+    "custo_calculado": 7.539999999999999e-05,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "efcaf5bf-9980-41ff-9722-0a3fcb4f69bd",
+    "qtd_informada": 17,
+    "custo_calculado": 0.001612623859,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Corante Verde Folha pó"
+   }
+  ],
+  "total_mp": "17.099185229369997",
+  "total_embalagem": "5.03",
+  "custo_total": "22.129185229369998",
+  "quantidade_por_pote": "300000",
+  "unidades_por_dose": "10000"
+ },
+ "5da54ed6-d75e-4d72-a556-d04212984918": {
+  "id": "5da54ed6-d75e-4d72-a556-d04212984918",
+  "nome_formula": "Slim Up - EMAGRECIMENTO EM GOTAS LINHA ECONÔMICA FINAL",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Líquido",
+  "quantidade_por_pote": "30",
+  "unidades_por_dose": "1",
+  "itens": [
+   {
+    "insumo_id": "2ef2954c-e64c-4b55-afb9-16da17c20a84",
+    "qtd_informada": 10,
+    "custo_calculado": 0.00054,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Curcuma"
+   },
+   {
+    "insumo_id": "85569c0f-7e30-4319-b7cf-a6ef62711a02",
+    "qtd_informada": 0.01,
+    "custo_calculado": 0.003739,
+    "unidade_informada": "mL",
+    "nome_insumo_snapshot": "FENO GREGO EXT FLUIDO"
+   },
+   {
+    "insumo_id": "ccfd3dea-44e6-4f00-8bf0-4f6fc517e564",
+    "qtd_informada": 4,
+    "custo_calculado": 0.0024,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Café Verde (35% ácido clorogênico)"
+   },
+   {
+    "insumo_id": "64ba927b-214d-43e1-a77d-20133b7103b5",
+    "qtd_informada": 0.01,
+    "custo_calculado": 0.0006500000000000001,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Colina Bitartarato"
+   },
+   {
+    "insumo_id": "450d09c7-b4d6-49ba-bdaf-fce0871c0b9e",
+    "qtd_informada": 5,
+    "custo_calculado": 0.00025,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Inulina 90%"
+   },
+   {
+    "insumo_id": "469415bd-2b31-48fa-bed8-a695c0c77af9",
+    "qtd_informada": 250,
+    "custo_calculado": 8.625e-05,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Picolinato de Cromo 98 - 99%"
+   },
+   {
+    "insumo_id": "ee9d4b03-4921-442a-aaa7-0c002b2e5480",
+    "qtd_informada": 50,
+    "custo_calculado": 1.3500000000000002e-06,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina D3 - Colecalciferol 100%"
+   },
+   {
+    "insumo_id": "163e690e-a953-4b06-bebd-cddc676d37c3",
+    "qtd_informada": 0.072,
+    "custo_calculado": 0.0011614859999999998,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B12 – Metilcobalamina"
+   },
+   {
+    "insumo_id": "9c726f31-c718-4f4d-954a-4be20abad986",
+    "qtd_informada": 0.2,
+    "custo_calculado": 0.0037,
+    "unidade_informada": "mL",
+    "nome_insumo_snapshot": "SORBITOL LIQUIDO 70%"
+   },
+   {
+    "insumo_id": "74ab4ae5-78ad-4b25-8f9d-d49b6fdac0d6",
+    "qtd_informada": 0.05,
+    "custo_calculado": 0.0027,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Goma Xantana"
+   },
+   {
+    "insumo_id": "cb2f1097-ecf0-4ced-97b1-c63859e13fcf",
+    "qtd_informada": 0.2,
+    "custo_calculado": 0.0048000000000000004,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Acido citrico"
+   },
+   {
+    "insumo_id": "bfa58237-8e7f-48c1-b5cc-d7587dedef09",
+    "qtd_informada": 0.05,
+    "custo_calculado": 0.0021000000000000003,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Benzoato sódio"
+   },
+   {
+    "insumo_id": "2508430e-b45a-446b-b079-991ce1f6399c",
+    "qtd_informada": 0.05,
+    "custo_calculado": 0.006,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Sorbato de Potássio"
+   },
+   {
+    "insumo_id": "2b065313-c882-4f02-a14d-e5b2762c3418",
+    "qtd_informada": 0.833,
+    "custo_calculado": 4.26496e-06,
+    "unidade_informada": "mL",
+    "nome_insumo_snapshot": "Agua purificada"
+   }
+  ],
+  "total_mp": "0.8439705288000001",
+  "total_embalagem": "2.19",
+  "custo_total": "3.0339705288000003"
+ },
+ "361db703-011c-4521-9704-0f215d9e22fd": {
+  "id": "361db703-011c-4521-9704-0f215d9e22fd",
+  "nome_formula": "ZMA",
+  "cliente": "LEMON CAPS - CATÁLOGO",
+  "tipo_produto": "Encapsulados",
+  "quantidade_por_pote": "60",
+  "unidades_por_dose": "2",
+  "itens": [
+   {
+    "insumo_id": "1bd7a393-d9e6-4ef2-a99c-e41112ea1409",
+    "qtd_informada": 260,
+    "custo_calculado": 0.02236,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato Magnésio"
+   },
+   {
+    "insumo_id": "e66d1688-fd1d-4b58-9112-8414a9cd7186",
+    "qtd_informada": 15,
+    "custo_calculado": 0.0039,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Bisglicinato de zinco"
+   },
+   {
+    "insumo_id": "5174037f-d362-4c66-904d-6b32bf36a102",
+    "qtd_informada": 150,
+    "custo_calculado": 0.0225,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "L-Teanina"
+   },
+   {
+    "insumo_id": "308e6951-fe6f-4f48-bbe5-89b48caf9f90",
+    "qtd_informada": 3,
+    "custo_calculado": 0.000138,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Boro Quelado 55"
+   },
+   {
+    "insumo_id": "9f25f17c-e40d-4688-b4ce-476d1212b4c8",
+    "qtd_informada": 1.3,
+    "custo_calculado": 0.0002535,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Vitamina B6 - Cloridrato de Piridoxina 99%"
+   },
+   {
+    "insumo_id": "ee9d4b03-4921-442a-aaa7-0c002b2e5480",
+    "qtd_informada": 25,
+    "custo_calculado": 6.750000000000001e-07,
+    "unidade_informada": "mcg",
+    "nome_insumo_snapshot": "Vitamina D3 - Colecalciferol 100%"
+   },
+   {
+    "insumo_id": "67f72ec0-27c1-4b5d-a9e7-0d105944d4ed",
+    "qtd_informada": 20,
+    "custo_calculado": 0.000424,
+    "unidade_informada": "mg",
+    "nome_insumo_snapshot": "Dióxido de Silício"
+   },
+   {
+    "insumo_id": "6baf6df2-de14-4bcb-9425-b313ead72b33",
+    "qtd_informada": 0.5506749999999999,
+    "custo_calculado": 0.0028635099999999997,
+    "unidade_informada": "g",
+    "nome_insumo_snapshot": "Excipiente"
+   }
+  ],
+  "total_mp": "1.5731905499999999",
+  "total_embalagem": "3.115",
+  "custo_total": "4.68819055"
+ }
+}

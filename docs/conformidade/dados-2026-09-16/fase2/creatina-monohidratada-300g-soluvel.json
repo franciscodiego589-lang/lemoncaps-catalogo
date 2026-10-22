@@ -1,0 +1,158 @@
+{
+ "slug": "creatina-monohidratada-300g-soluvel",
+ "porcao_mg": 4000,
+ "porcao_descricao": "4 g (1 dosador nivelado — validar gravimetricamente) — 75 porções em 300 g",
+ "formato": "pó (solúvel)",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "forma_insumo": "Creatina monoidratada (pó)",
+   "massa_insumo_mg": 4000.0,
+   "teor_pct": 100.5,
+   "teor_fonte": "laudo lote interno 26A05-B023-217949 / fabricante 20250913 (SM/Fagron; teor 100,5 % base seca; perda por dessecação 11,5 %; creatinina 95 ppm; val. 22/09/2028)",
+   "ativo_mg": 4020.0,
+   "unidade_ativo": "mg (leitura A: creatina monoidratada × teor)",
+   "conta": "leitura A: 4,000 mg × 100.5 % = 4.020,0 mg (80.4 % do teto; 134 % do mínimo) · leitura B (creatina anidra): 4,000 × (1 − 0.115) × 1.005 = 3.557,7 mg (71.2 % do teto; 118.6 % do mínimo)",
+   "ativo_leitura_b_mg": 3557.7,
+   "minimo": 3000,
+   "maximo": 5000,
+   "pct_do_maximo": 80.4,
+   "pct_do_maximo_leitura_b": 71.15,
+   "linha_anexo": "I·Creatina·Creatina monohidratada; III·Creatina (3.000 mg); IV·Creatina (5.000 mg, IN 373/2025)",
+   "laudo": {
+    "lote": "217949 (26A05-B023-217949)",
+    "validade": "22/09/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "5.000 mg cravava o teto: com o teor do laudo (100,5 %) a entrega calculada é 5.025 mg > 5.000 mg (leitura A). 4.000 mg dá folga nas duas leituras e tolera ±10 % de variação do dosador volumétrico sem sair da faixa 3.000–5.000 mg"
+  }
+ ],
+ "excipientes": [],
+ "soma_porcao_mg": 4000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "75",
+  "porcao": "4 g (1 dosador)",
+  "porcao_coluna": "4 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "0",
+    "unidade": "kcal",
+    "kj": "0",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "creatina não tem fator no Anexo XXII da IN 75 → 0 kcal; ≤ 4 kcal declara-se 0 (Anexo IV)"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "creatina não é proteína (por formulação); Kjeldahl no produto leria o nitrogênio da creatina — critério do RT"
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "mg",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Creatina",
+    "quantidade": "4.000",
+    "quantidade_num": 4000.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "sem VDR: célula de %VD em branco (RDC 429 Art. 12 §1). Declarada a massa nominal de creatina monoidratada; lote 217949 entrega 4.020 mg (leitura A) ou 3.558 mg de creatina anidra (leitura B)"
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: IN 75/2020 Anexo III. Quantidade não significativa: IN 75/2020 Anexo IV (suplementos, por porção). Porções por embalagem: IN 75/2020 Anexo VI."
+ },
+ "ingredients_list": "Creatina monoidratada. [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "Decisão do RT sobre a base do limite de creatina: leitura A (massa de creatina monoidratada, praticada pelo memorial e pela auditoria de 15/09) ou leitura B (creatina anidra, descontando a perda por dessecação de 11,5 % do laudo). A dose de 4.000 mg fica conforme e com folga nas duas.",
+  "Validação gravimétrica do dosador: o certificado do dosador (Part Number 3.41.001.548) é de 8 mL de volume, não de massa; pela densidade aparente do laudo (491–737 g/L) 8 mL pesam 3,9–5,9 g. Definir o dosador/nível que entrega 4,0 g e registrar o ensaio.",
+  "Nova arte de rótulo (porção 4 g; porções por embalagem conforme IN 75 Anexo VI).",
+  "Glúten: Lei 10.674/2003 obriga a frase; não há ensaio deste produto — só grafar \"Não contém glúten\" com laudo (ou declaração formal do RT).",
+  "Apresentação de 300 g sem memorial, rótulo ou laudo de embalagem próprios (o único memorial é o de 150 g). Existe um SVG de arte com \"Porção: 3.000 mg (1 dosador) / 100 porções\" — confirmar qual apresentação vale. Pote PEAD 600 mL: 300 g de pó solto (491 g/L) ocupam ~611 mL — cabe só com o pó assentado."
+ ],
+ "veredito": "CONFORME (com folga) — condicionado à validação gravimétrica do dosador e à documentação própria da apresentação de 300 g",
+ "_procedencia": {
+  "memorial": "MEM-CALC-CREATINAPO-rev02 (13/08/2026, apresentação 150 g)",
+  "rotulo": "sem rótulo (cadastro do banco lido ao vivo em 16/09/2026)",
+  "laudo": "01_laudo_creatina-monoidratada_lote-217949.pdf"
+ }
+}

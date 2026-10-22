@@ -51,19 +51,27 @@ export function CompositionRow({ line, ingredientOptions, isFirst, isLast, disab
     }
     setError(null);
     setSaving(true);
-    const result = await updateCompositionLine(line.id, {
-      ingredientName: draft.ingredientName,
-      quantity,
-      unit: draft.unit,
-      ingredientId: draft.ingredientId === "" ? null : draft.ingredientId,
-    });
-    setSaving(false);
-    if (!result.ok) {
-      setError(result.error);
-      return;
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateCompositionLine virava erro não tratado no cliente.
+    try {
+      const result = await updateCompositionLine(line.id, {
+        ingredientName: draft.ingredientName,
+        quantity,
+        unit: draft.unit,
+        ingredientId: draft.ingredientId === "" ? null : draft.ingredientId,
+      });
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      setSaved(draft);
+      toast.success("Linha de composição salva.");
+    } catch (caught) {
+      console.error("[CompositionRow] falha ao salvar linha de composição:", caught);
+      toast.error("Não foi possível salvar esta linha agora. Tente novamente.");
+    } finally {
+      setSaving(false);
     }
-    setSaved(draft);
-    toast.success("Linha de composição salva.");
   }
 
   return (

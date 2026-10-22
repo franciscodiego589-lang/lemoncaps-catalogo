@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronDown, ShieldCheck } from "lucide-react";
 
-import { CompositionTable } from "@/components/catalog/CompositionTable";
 import { DossiePdfButton } from "@/components/catalog/DossiePdfButton";
 import { DossieTopBar } from "@/components/catalog/DossieTopBar";
+import { NutritionTable } from "@/components/catalog/NutritionTable";
 import { ProductMockup } from "@/components/catalog/ProductMockup";
-import { hasContent, lineLabel } from "@/lib/catalog/format-catalog";
+import { SheetSignature } from "@/components/catalog/SheetSignature";
+import { composicaoEmTexto, hasContent, lineLabel } from "@/lib/catalog/format-catalog";
+import { buildPackagingFacts } from "@/lib/catalog/packaging";
+import { safeExternalUrl } from "@/lib/catalog/safe-url";
 import { getCatalogData, getFormulaBySlug, type FormulaDetailDTO } from "@/lib/data/formulas";
 import { centsToBRL } from "@/lib/money";
 import {
   formatComplianceDate,
   MANUFACTURER_INFO,
+  REGULATORY_CONSOLIDATION_NOTE,
+  REGULATORY_DECLARATION,
   REGULATORY_FRAMEWORK,
+  REGULATORY_INSTRUCTIONS,
+  REGULATORY_RESOLUTIONS,
   REGULATORY_SOURCE,
 } from "@/lib/catalog/regulatory-info";
 
@@ -76,14 +83,23 @@ export default async function DossiePage({ params }: DossiePageProps) {
   if (!formula) notFound();
 
   const identityFacts = buildIdentityFacts(formula);
+  // Mesma função que os dois PDFs usam (lib/catalog/packaging.ts): as linhas de
+  // embalagem e logística saem idênticas na web e no papel. Lista vazia = nenhum
+  // campo do pacote técnico preenchido, e a seção inteira não aparece.
+  const packagingFacts = buildPackagingFacts(formula);
   const hasBenefits = hasContent(formula.generalBenefitsSummary) || formula.benefits.length > 0;
   const subtitle = formula.segment ? `${formula.segment.name} · ${lineLabel(formula.line)}` : lineLabel(formula.line);
 
   // Mesmo padrão usado nas outras seções desta página: monta com "?? ''" pra
   // manter o tipo `string` (não `string | null`) e filtra por hasContent
   // depois. Só entra na lista quem tem conteúdo de verdade.
+  //
+  // "Informação nutricional" saiu desta lista genérica de texto: quando a
+  // fórmula já tem a tabela estruturada (formula.nutritionTable), ela é
+  // renderizada à parte, abaixo, como <NutritionTable> - texto livre
+  // (nutritionalInfo) continua sendo a alternativa só enquanto a fórmula não
+  // tiver a tabela (ver bloco logo após "Composição por dose").
   const textSections: Array<{ title: string; content: string }> = [
-    { title: "Informação nutricional", content: formula.nutritionalInfo ?? "" },
     { title: "Ingredientes", content: formula.ingredientsList ?? "" },
     { title: "Modo de uso", content: formula.usageInstructions ?? "" },
   ].filter((section) => hasContent(section.content));
@@ -91,7 +107,7 @@ export default async function DossiePage({ params }: DossiePageProps) {
   return (
     <>
       <DossieTopBar />
-      <main className="lc-dossie-page">
+      <main className="lc-dossie-page" id="main-content">
         <div className="lc-dossie-head">
           {/* Mockup em destaque - mesmo efeito de inclinação do card do
               catálogo, só que maior (ver ProductMockup e .lc-mockup-dossie em
@@ -139,8 +155,29 @@ export default async function DossiePage({ params }: DossiePageProps) {
 
           <section className="lc-dossie-section">
             <h2>Composição por dose</h2>
-            <CompositionTable compositions={formula.compositions} maxHeightPx={null} />
+            <p className="lc-dossie-text">
+              {composicaoEmTexto(formula.compositions) || "Composição não cadastrada."}
+            </p>
           </section>
+
+          {/* Informação nutricional: tabela de verdade (RDC 429/2020 + IN
+              75/2020) quando a fórmula já tem os dados estruturados em
+              metadata->tabela_nutricional (ver lib/catalog/nutrition-table.ts);
+              texto livre como alternativa enquanto ela não existir. Nunca os
+              dois juntos, e nunca uma seção em branco quando nenhum dos dois
+              tem conteúdo. */}
+          {formula.nutritionTable ? (
+            <section className="lc-dossie-section">
+              <NutritionTable table={formula.nutritionTable} />
+            </section>
+          ) : (
+            hasContent(formula.nutritionalInfo) && (
+              <section className="lc-dossie-section">
+                <h2>Informação nutricional</h2>
+                <p className="lc-dossie-text">{formula.nutritionalInfo}</p>
+              </section>
+            )
+          )}
 
           {textSections.map((section) => (
             <section className="lc-dossie-section" key={section.title}>
@@ -176,6 +213,26 @@ export default async function DossiePage({ params }: DossiePageProps) {
             <section className="lc-dossie-section">
               <h2>Conservação</h2>
               <p className="lc-dossie-text">{formula.storageInstructions}</p>
+            </section>
+          )}
+
+          {/* Especificação de embalagem e logística: EAN-13, DUN-14, validade,
+              peso e dimensões da unidade e da caixa. É o que o comprador
+              profissional precisa para calcular frete, montar palete e
+              dimensionar estoque. Só as linhas com dado real entram
+              (buildPackagingFacts filtra) — fórmula sem EAN não mostra linha de
+              EAN vazia, e fórmula sem nada preenchido não mostra a seção. */}
+          {packagingFacts.length > 0 && (
+            <section className="lc-dossie-section">
+              <h2>Especificação de embalagem e logística</h2>
+              <dl className="lc-dossie-facts">
+                {packagingFacts.map((fact) => (
+                  <div className="lc-dossie-fact" key={fact.label}>
+                    <dt>{fact.label}</dt>
+                    <dd>{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </section>
           )}
 
@@ -216,11 +273,14 @@ export default async function DossiePage({ params }: DossiePageProps) {
                   <dt>Normas conferidas</dt>
                   <dd>{formula.complianceNorms.join(", ")}</dd>
                 </div>
-                {formula.complianceSource && (
+                {safeExternalUrl(formula.complianceSource) && (
                   <div className="lc-dossie-fact">
                     <dt>Fonte consultada</dt>
                     <dd>
-                      <a href={formula.complianceSource} target="_blank" rel="noopener noreferrer">
+                      {/* O endereço vem do banco, digitado no admin. safeExternalUrl
+                          deixa passar só http/https — com javascript: ou data: o
+                          link some, em vez de virar destino executável no clique. */}
+                      <a href={safeExternalUrl(formula.complianceSource)!} target="_blank" rel="noopener noreferrer">
                         Texto consolidado da norma
                       </a>
                     </dd>
@@ -230,28 +290,95 @@ export default async function DossiePage({ params }: DossiePageProps) {
             </section>
           )}
 
-          {/* Marco regulatório aplicável: mesmo texto em TODO produto do
-              catálogo (não é dado de banco, é lei/norma - ver
-              lib/catalog/regulatory-info.ts para a procedência de cada
-              item). Citar a norma que rege esta categoria de produto não é
-              o mesmo que afirmar que ESTA fórmula específica a cumpre -
+          {/* Assinatura da ficha técnica — vem logo depois da Conformidade e com o
+              mesmo destaque verde porque é o complemento dela: uma diz QUANDO a
+              composição foi conferida contra a norma, a outra diz QUEM assumiu a
+              ficha. O componente não renderiza nada quando não há aprovação
+              registrada (ver o comentário de topo dele). */}
+          <SheetSignature approvals={formula.sheetApprovals} />
+
+          {/* Marco regulatório: mesmo texto em TODO produto do catálogo (não é
+              dado de banco, é lei/norma - ver lib/catalog/regulatory-info.ts
+              para a procedência de cada item).
+
+              A seção abre pela DECLARAÇÃO INSTITUCIONAL (o que a fábrica
+              afirma sobre a própria disciplina) e só depois lista as normas,
+              como lastro. Ordem pedida pelo dono em 13/09/2026: o comprador lê
+              a postura primeiro, a base legal depois.
+
+              A fronteira que não se cruza: declarar que a fábrica respeita os
+              limites da norma NÃO é afirmar que ESTA fórmula foi conferida -
               essa afirmação só está na seção "Conformidade" acima, quando
-              existir. */}
-          <section className="lc-dossie-section lc-dossie-legal">
-            <h2>Marco regulatório aplicável</h2>
-            <p className="lc-dossie-text">
-              Suplementos alimentares da Lemon Caps são fabricados sob o seguinte marco regulatório da ANVISA:
-            </p>
-            <ul className="lc-dossie-legal-list">
-              {REGULATORY_FRAMEWORK.map((item) => (
-                <li key={item.norm}>
-                  <b>{item.norm}</b> - {item.description}
+              existir. É o que diz o parágrafo `boundary`, e ele não sai. */}
+          <section className="lc-dossie-section lc-dossie-legal lc-regulatory-block">
+            <h2>{REGULATORY_DECLARATION.headline}</h2>
+            <p className="lc-dossie-text">{REGULATORY_DECLARATION.intro}</p>
+
+            <ul className="lc-regulatory-claims">
+              {REGULATORY_DECLARATION.statements.map((statement) => (
+                <li key={statement.title}>
+                  <b>{statement.title}</b>
+                  <span>{statement.text}</span>
                 </li>
               ))}
             </ul>
-            <p className="lc-dossie-legal-note">
-              Fonte consultada: {REGULATORY_SOURCE.label}, conferida em {REGULATORY_SOURCE.consultedAtLabel}.
-            </p>
+
+            <p className="lc-regulatory-boundary">{REGULATORY_DECLARATION.boundary}</p>
+
+            {/* As normas recolhidas: quem quer conferir abre, quem não quer
+                não é afogado por elas. <details> nativo, acessível por teclado
+                e leitor de tela sem JavaScript. */}
+            <details className="lc-regulatory-norms">
+              <summary className="lc-norms-cta">
+                <span className="lc-norms-cta-icon" aria-hidden="true">
+                  <ShieldCheck size={20} />
+                </span>
+                <span className="lc-norms-cta-text">
+                  <strong>Ver as {REGULATORY_FRAMEWORK.length} normas que a fábrica segue</strong>
+                  <span>
+                    Resoluções e Instruções Normativas da Anvisa, conferidas na fonte oficial em{" "}
+                    {REGULATORY_SOURCE.consultedAtLabel}
+                  </span>
+                </span>
+                <ChevronDown className="lc-norms-cta-chevron" size={20} aria-hidden="true" />
+              </summary>
+              <div className="lc-regulatory-norms-body">
+                <h3>Resoluções (RDC) - estabelecem os requisitos</h3>
+                <dl className="lc-regulatory-list">
+                  {REGULATORY_RESOLUTIONS.map((item) => (
+                    <div key={item.norm}>
+                      <dt>
+                        {/* Número da norma como link para o texto oficial no
+                            AnvisaLegis (pedido do dono, 14/09/2026). Mesma
+                            âncora .lc-norm-link da página /documentacao e da
+                            seção RegulatoryRigor da home - título/aria-label
+                            porque o texto visível é só o número da norma. */}
+                        <a className="lc-norm-link" href={item.url} target="_blank" rel="noreferrer noopener" title={`Abre o texto oficial de ${item.norm} no AnvisaLegis, em nova guia`} aria-label={`Abre o texto oficial de ${item.norm} no AnvisaLegis, em nova guia`}>{item.norm}</a> <span>de {item.date}</span>
+                      </dt>
+                      <dd>{item.summary}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <h3>Instruções Normativas (IN) - detalham as Resoluções</h3>
+                <dl className="lc-regulatory-list">
+                  {REGULATORY_INSTRUCTIONS.map((item) => (
+                    <div key={item.norm}>
+                      <dt>
+                        <a className="lc-norm-link" href={item.url} target="_blank" rel="noreferrer noopener" title={`Abre o texto oficial de ${item.norm} no AnvisaLegis, em nova guia`} aria-label={`Abre o texto oficial de ${item.norm} no AnvisaLegis, em nova guia`}>{item.norm}</a> <span>de {item.date}</span>
+                      </dt>
+                      <dd>{item.summary}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <p className="lc-dossie-legal-note">{REGULATORY_CONSOLIDATION_NOTE}</p>
+                <p className="lc-dossie-legal-note">
+                  Fonte: {REGULATORY_SOURCE.label}, consultada em {REGULATORY_SOURCE.consultedAtLabel}.{" "}
+                  <Link href="/documentacao">Ver a documentação regulatória completa</Link>.
+                </p>
+              </div>
+            </details>
           </section>
 
           {/* Rodapé institucional: mesmo dado de fabricante em TODO produto,

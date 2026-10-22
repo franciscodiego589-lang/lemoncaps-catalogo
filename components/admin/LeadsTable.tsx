@@ -59,7 +59,8 @@ export function LeadsTable({ leads }: LeadsTableProps) {
                   <ul className="lc-admin-panel-list">
                     {lead.cartSnapshot.map((item, index) => (
                       <li key={`${lead.id}-${index}`} className="lc-admin-panel-row-meta">
-                        {item.quantityPotes}× {item.name} ({centsToBRL(item.unitPriceCents)}/pote)
+                        {item.quantityPotes}× {item.name} (
+                        {item.unitPriceCents === null ? "sob consulta" : `${centsToBRL(item.unitPriceCents)}/pote`})
                       </li>
                     ))}
                   </ul>

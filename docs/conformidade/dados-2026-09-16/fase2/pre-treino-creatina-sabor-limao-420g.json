@@ -1,0 +1,548 @@
+{
+ "slug": "pre-treino-creatina-sabor-limao-420g",
+ "porcao_mg": 14000,
+ "porcao_descricao": "14 g (1 dosador) diluídos em 200 mL de água, 1 vez ao dia — 30 porções em 420 g",
+ "formato": "pó (solúvel)",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "forma_insumo": "Creatina monoidratada",
+   "massa_insumo_mg": 4000.0,
+   "teor_pct": 100.5,
+   "teor_fonte": "laudo lote 26A05-B023-217949 (val. 22/09/2028)",
+   "ativo_mg": 4020.0,
+   "unidade_ativo": "mg (leitura A)",
+   "ativo_leitura_b_mg": 3557.7,
+   "conta": "A: 4.000 × 1,005 = 4.020 mg (80,4 % do teto) · B: 4.000 × 0,885 × 1,005 = 3.557,7 mg (71,2 %)",
+   "minimo": 3000,
+   "maximo": 5000,
+   "pct_do_maximo": 80.4,
+   "linha_anexo": "I·Creatina monohidratada; III·Creatina 3.000; IV·Creatina 5.000",
+   "laudo": {
+    "lote": "217949",
+    "validade": "22/09/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "5.000 cravava o teto (5.025 com o teor)"
+  },
+  {
+   "constituinte_anexo_i": "Beta-alanina (CAS 107-95-9)",
+   "forma_insumo": "Beta-alanina",
+   "massa_insumo_mg": 300.0,
+   "teor_pct": 99.1,
+   "teor_fonte": "laudo Lepuge AUTO033847 VENCIDO 03/08/2026 — último teor conhecido",
+   "ativo_mg": 297.3,
+   "unidade_ativo": "mg",
+   "conta": "300 × 99,1 % = 297,3 mg",
+   "minimo": null,
+   "maximo": 2000,
+   "pct_do_maximo": 14.87,
+   "linha_anexo": "I·Beta-alanina; IV·Beta-alanina 2 g; VI·Beta-alanina",
+   "laudo": {
+    "lote": "AUTO033847",
+    "validade": "03/08/2026",
+    "vencido": true
+   },
+   "status": "dose ajustada",
+   "motivo": "2.000 mg em dose única contraria o Anexo VI (doses de no máximo 300 mg, 2 h de intervalo)"
+  },
+  {
+   "constituinte_anexo_i": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "forma_insumo": "Cloridrato de L-arginina",
+   "massa_insumo_mg": 1240.0,
+   "teor_pct": 82.2,
+   "teor_fonte": "laudo Lepuge AUTO035918 (99,40 %, val. 12/11/2026); 174,20/210,66 = 82,69 %",
+   "ativo_mg": 1019.2,
+   "unidade_ativo": "mg de L-arginina",
+   "conta": "1.240 × 99,40 % × 82,69 % = 1.019,2 mg",
+   "minimo": null,
+   "maximo": 3810,
+   "pct_do_maximo": 26.75,
+   "linha_anexo": "I·Cloridrato de L-arginina; IV·Arginina 3.810",
+   "laudo": {
+    "lote": "AUTO035918",
+    "validade": "12/11/2026",
+    "vencido": false
+   },
+   "status": "forma trocada / dose ajustada",
+   "motivo": "rótulo/cadastro: 3.810 mg de \"L-arginina\" (teto exato); FRM Rev.02: 1.000 mg sem forma. Usa-se a forma com laudo válido em disco (cloridrato), entregando 1.019 mg de arginina"
+  },
+  {
+   "constituinte_anexo_i": "Taurina (CAS 107-35-7)",
+   "forma_insumo": "Taurina",
+   "massa_insumo_mg": 1000.0,
+   "teor_pct": 99.46,
+   "teor_fonte": "laudo lote 214586 (val. 10/05/2028)",
+   "ativo_mg": 994.6,
+   "unidade_ativo": "mg",
+   "conta": "1.000 × 99,46 % = 994,6 mg",
+   "minimo": null,
+   "maximo": 2000,
+   "pct_do_maximo": 49.73,
+   "linha_anexo": "I·Taurina; IV·Taurina 2.000",
+   "laudo": {
+    "lote": "214586",
+    "validade": "10/05/2028",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "49,7 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Tirosina — L-Tirosina (CAS 60-18-4)",
+   "forma_insumo": "L-tirosina",
+   "massa_insumo_mg": 1000.0,
+   "teor_pct": 99.9,
+   "teor_fonte": "laudo lote 91382 (val. 07/05/2028)",
+   "ativo_mg": 999.0,
+   "unidade_ativo": "mg",
+   "conta": "1.000 × 99,9 % = 999 mg",
+   "minimo": 262.5,
+   "maximo": 2750,
+   "pct_do_maximo": 36.33,
+   "linha_anexo": "I·L-Tirosina; III·Tirosina 262,5; IV·Tirosina 2.750",
+   "laudo": {
+    "lote": "91382",
+    "validade": "07/05/2028",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "36,3 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Carnitina — Levocarnitina/L-carnitina (CAS 541-15-1)",
+   "forma_insumo": "L-carnitina base",
+   "massa_insumo_mg": 1000.0,
+   "teor_pct": 99.41,
+   "teor_fonte": "laudo SM lote 26H14-B025-226329 (99,41 %, val. 20/05/2028)",
+   "ativo_mg": 994.1,
+   "unidade_ativo": "mg",
+   "conta": "1.000 × 99,41 % = 994,1 mg",
+   "minimo": null,
+   "maximo": 2000,
+   "pct_do_maximo": 49.7,
+   "linha_anexo": "I·Carnitina·Levocarnitina/L-carnitina; III·L-Carnitina (NE); IV·L-Carnitina 2.000",
+   "laudo": {
+    "lote": "26H14-B025-226329",
+    "validade": "20/05/2028",
+    "vencido": false
+   },
+   "status": "mantido",
+   "motivo": "49,7 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Magnésio — Bisglicinato de magnésio (CAS 14783-68-7)",
+   "forma_insumo": "Bisglicinato de magnésio 30 %",
+   "massa_insumo_mg": 992.72,
+   "teor_pct": 30.22,
+   "teor_fonte": "laudo lote 90844 (Analitic, 30,38 % base seca × (1 − 0,53 % umidade) = 30,22 % tal qual) — VENCIDO em 21/06/2025: pedir laudo novo. HARMONIZADO NA FASE 3 (16/09/2026): mesmo lote de referência e mesmo teor dos 4 outros produtos com bisglicinato de magnésio (a fase 2 usava 30,0 % do lote 088629, vencido em 12/01/2024). Alternativa com laudo válido: Lepuge bisglicinato 18 % lote AUTO039968 (val. 29/04/2027) → 1.667 mg",
+   "ativo_mg": 300.0,
+   "unidade_ativo": "mg de magnésio",
+   "conta": "300 mg ÷ 0,3022 = 992,72 mg de bisglicinato de magnésio (fase 3; antes: 1.000 × 30,0 % = 300 mg)",
+   "minimo": 63,
+   "maximo": 350,
+   "pct_do_maximo": 85.71,
+   "linha_anexo": "I·Magnésio·Bisglicinato de magnésio; III·Magnésio (63 mg); IV·Magnésio (350 mg)",
+   "laudo": {
+    "lote": "90844 (Analitic, fabricante 66342023062230)",
+    "validade": "21/06/2025",
+    "vencido": true
+   },
+   "status": "dose ajustada",
+   "motivo": "350 mg cravava o teto (se elemento); 300 mg = 85,7 %"
+  },
+  {
+   "constituinte_anexo_i": "Cafeína — Cafeína/1,3,7-Trimethylxanthine (CAS 58-08-2)",
+   "forma_insumo": "Cafeína anidra",
+   "massa_insumo_mg": 150.0,
+   "teor_pct": 99.88,
+   "teor_fonte": "laudo lote 214171 (val. 02/12/2029)",
+   "ativo_mg": 149.8,
+   "unidade_ativo": "mg",
+   "conta": "150 × 99,88 % = 149,8 mg",
+   "minimo": 75,
+   "maximo": 200,
+   "pct_do_maximo": 81.3,
+   "linha_anexo": "I·Cafeína; III·Cafeína 75; IV·Cafeína^vi 200 (total, incluindo o guaraná)",
+   "laudo": {
+    "lote": "214171",
+    "validade": "02/12/2029",
+    "vencido": false
+   },
+   "status": "dose ajustada (rótulo 200 → FRM 150, mantido)",
+   "motivo": "cafeína TOTAL (anidra + guaraná) = 162,6 mg = 81,3 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Cafeína — Guaraná em pó (Paullinia cupana)",
+   "forma_insumo": "Guaraná em pó (semente)",
+   "massa_insumo_mg": 250.0,
+   "teor_pct": 5.11,
+   "teor_fonte": "laudo lote interno 25H26-B028-213428 / AUTO9J0E (metilxantinas 5,11 %, taninos 4,12 %, val. 28/04/2028; fornecedor não identificado no documento). Metilxantinas totais usadas como LIMITE SUPERIOR da cafeína — laudo com doseamento específico de cafeína é PENDENTE",
+   "ativo_mg": 12.78,
+   "unidade_ativo": "mg de cafeína (máximo)",
+   "conta": "250 × 5,11 % = 12,78 mg",
+   "minimo": null,
+   "maximo": null,
+   "pct_do_maximo": null,
+   "linha_anexo": "I·Cafeína·Guaraná em pó (Paullinia cupana); IV·Cafeína^vi 200 (total)",
+   "laudo": {
+    "lote": "25H26-B028-213428",
+    "validade": "28/04/2028",
+    "vencido": false
+   },
+   "status": "forma trocada / dose ajustada",
+   "motivo": "\"extrato de guaraná\" (rótulo, 515 mg) e \"guaraná extrato seco\" (FRM, 224,5 mg) não são formas do Anexo I; guaraná em pó é, e tem laudo válido"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "forma_insumo": "Cloridrato de piridoxina",
+   "massa_insumo_mg": 90.0,
+   "teor_pct": 82.19,
+   "teor_fonte": "laudo lote 91188 (99,9 %, val. 28/12/2027); 169,18/205,64 = 82,27 %",
+   "ativo_mg": 73.97,
+   "unidade_ativo": "mg de piridoxina",
+   "conta": "90 × 99,9 % × 82,27 % = 73,97 mg",
+   "minimo": 0.26,
+   "maximo": 98.6,
+   "pct_do_maximo": 75.02,
+   "linha_anexo": "I·Cloridrato de piridoxina; III·Vitamina B6 0,26; IV·Vitamina B6 98,60",
+   "laudo": {
+    "lote": "91188",
+    "validade": "28/12/2027",
+    "vencido": false
+   },
+   "status": "mantido (massa do sal) / declaração corrigida",
+   "motivo": "rótulo declarava 90 mg como se fosse B6 (6.923 % VD); 90 mg do sal entregam 74,0 mg de piridoxina = 75,0 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Niacina — Nicotinamida/Niacinamida (CAS 98-92-0)",
+   "forma_insumo": "Niacinamida",
+   "massa_insumo_mg": 30.0,
+   "teor_pct": 99.09,
+   "teor_fonte": "laudo INLAB lote 872226 (99,5 % base seca, val. 09/2027) — teor tal qual 99,09 % (umidade descontada, conta do memorial rev02 usada nos 3 outros produtos com nicotinamida); HARMONIZADO NA FASE 3 (a fase 2 usava a base seca, 99,5 %)",
+   "ativo_mg": 29.73,
+   "unidade_ativo": "mg NE",
+   "conta": "30 × 99,09 % = 29,73 mg NE (fase 3; antes: 30 × 99,5 % = 29,85 mg)",
+   "minimo": 2.4,
+   "maximo": 35,
+   "pct_do_maximo": 84.94,
+   "linha_anexo": "I·Niacina·Nicotinamida/Niacinamida; III·Niacina^iv 2,4; IV·Niacina^ix 35",
+   "laudo": {
+    "lote": "872226",
+    "validade": "09/2027",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "35 mg cravava o teto; 30 mg = 85,3 %"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina D — Vitamina D3 (Colecalciferol) (CAS 67-97-0)",
+   "forma_insumo": "Vitamina D3 pó 100.000 UI/g",
+   "massa_insumo_mg": 13.913,
+   "teor_pct": null,
+   "teor_fonte": "laudo lote 91408 (Analitic, 115.000 UI/g, val. 15/11/2028) — massa harmonizada na fase 3 com os outros 6 produtos que usam o mesmo lote na mesma dose (13,913 mg; a fase 2 arredondava 13,9 mg = 39,96 µg)",
+   "ativo_mg": 0.04,
+   "unidade_ativo": "mg (= 40,0 µg = 1.600 UI)",
+   "conta": "40 µg × 40 UI/µg = 1.600 UI; 1.600 ÷ 115 UI/mg = 13,913 mg (IN 75 An. XXIII; nota ii An. IV IN 28)",
+   "minimo": 3,
+   "maximo": 50,
+   "pct_do_maximo": 79.92,
+   "linha_anexo": "I·Vitamina D·Vitamina D3 (Colecalciferol); III·Vitamina D^iii 3 µg; IV·Vitamina D^ii 50 µg",
+   "laudo": {
+    "lote": "91408",
+    "validade": "15/11/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "50 µg cravava o teto; 40 µg = 80 %"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+   "forma_insumo": "Metilcobalamina",
+   "massa_insumo_mg": 0.009522,
+   "teor_pct": 89.27,
+   "teor_fonte": "laudo lote 219376 (Fagron/SM, 98,17 % base anidra lido em texto; 89,27 % tal qual pela umidade de 9,07 % do memorial rev03 do Slim Up; val. 14/11/2030) — HARMONIZADO NA FASE 3 (16/09/2026): mesmo lote de referência dos outros 6 produtos com metilcobalamina; a fase 2 usava o lote 90955 (94,54 %, val. 28/12/2026)",
+   "ativo_mg": 0.0085,
+   "unidade_ativo": "mg (= 8,5 µg)",
+   "conta": "8,5 µg ÷ 0,8927 = 9,52 µg = 0,009522 mg de metilcobalamina (fase 3; antes: 0,00899 × 94,54 % = 8,5 µg)",
+   "minimo": 0.00036,
+   "maximo": 0.00994,
+   "pct_do_maximo": 85.5,
+   "linha_anexo": "I·Metilcobalamina; III·Vitamina B12 0,36 µg; IV·Vitamina B12 9,94 µg",
+   "laudo": {
+    "lote": "219376 (26B20-B032-219376, Fagron/SM, fabricante 032511057)",
+    "validade": "14/11/2030",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "9,94 µg cravava o teto; 8,5 µg = 85,5 %"
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Ácido cítrico",
+   "ins": "330",
+   "massa_mg": 1100.0,
+   "observacao": "acidulante; laudo lote GE2844AFG"
+  },
+  {
+   "nome": "Aromatizante idêntico ao natural de limão",
+   "ins": null,
+   "massa_mg": 350.0,
+   "observacao": "laudo lote 19504 vence em 25/09/2026"
+  },
+  {
+   "nome": "Dióxido de silício",
+   "ins": "551",
+   "massa_mg": 118.0,
+   "observacao": "antiumectante"
+  },
+  {
+   "nome": "Sucralose",
+   "ins": "955",
+   "massa_mg": 90.0,
+   "observacao": "99,74 % (lote 91233)"
+  },
+  {
+   "nome": "Corante tartrazina",
+   "ins": "102",
+   "massa_mg": null,
+   "observacao": "massa PENDENTE — a FRM Rev.02 não quantifica; rótulo/cadastro listam. Limite IN 211/2023 cat. 14.2: 300 mg/kg → ≤ 4,2 mg em 14 g"
+  },
+  {
+   "nome": "Maltodextrina",
+   "ins": null,
+   "massa_mg": 2275.3575,
+   "observacao": "veículo q.s.p. 14.000 mg; laudo lote 210170 VENCIDO. Recalculado na fase 3 (era 2.268,091) após as massas harmonizadas de bisglicinato de magnésio (992,72 mg), vitamina D3 (13,913 mg) e metilcobalamina (0,009522 mg): 14.000 − 10.066,6425 − 1.658"
+  }
+ ],
+ "soma_porcao_mg": 14000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "14 g (1 dosador)",
+  "porcao_coluna": "14 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "22",
+    "unidade": "kcal",
+    "kj": "91",
+    "quantidade_num": 22.0,
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "maltodextrina 2,268 g × 4 + ácido cítrico 1,1 g × 3 + aminoácidos (arginina 1,019 + tirosina 0,999 + beta-alanina 0,297 g) × 4 = 21,63 kcal; taurina, carnitina e creatina sem fator no Anexo XXII → 0"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "2,3",
+    "quantidade_num": 2.3,
+    "unidade": "g",
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "maltodextrina (veículo)"
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "fração de mono/dissacarídeos da maltodextrina não quantificada"
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": null
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "L-arginina",
+    "quantidade": "1.019",
+    "quantidade_num": 1019.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "L-tirosina",
+    "quantidade": "999",
+    "quantidade_num": 999.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Beta-alanina",
+    "quantidade": "297",
+    "quantidade_num": 297.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "mg",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina D",
+    "quantidade": "40",
+    "quantidade_num": 40.0,
+    "unidade": "µg",
+    "vd_pct": 267,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina B3",
+    "quantidade": "30",
+    "quantidade_num": 30.0,
+    "unidade": "mg",
+    "vd_pct": 200,
+    "nivel": 0,
+    "nota": "mg NE"
+   },
+   {
+    "item": "Vitamina B6",
+    "quantidade": "74",
+    "quantidade_num": 74.0,
+    "unidade": "mg",
+    "vd_pct": 5692,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina B12",
+    "quantidade": "8,5",
+    "quantidade_num": 8.5,
+    "unidade": "µg",
+    "vd_pct": 354,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Magnésio",
+    "quantidade": "300",
+    "quantidade_num": 300.0,
+    "unidade": "mg",
+    "vd_pct": 71,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Taurina",
+    "quantidade": "995",
+    "quantidade_num": 995.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "L-carnitina",
+    "quantidade": "994",
+    "quantidade_num": 994.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Cafeína",
+    "quantidade": "163",
+    "quantidade_num": 163.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "cafeína anidra 149,8 mg + guaraná em pó 12,8 mg (máximo, por metilxantinas)"
+   },
+   {
+    "item": "Creatina",
+    "quantidade": "4.000",
+    "quantidade_num": 4000.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "massa nominal de creatina monoidratada (lote 217949: 4.020 mg A / 3.558 mg B)"
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "IN 75/2020 Anexos III, IV, VIII, XI e XXII (lidos 16/09/2026)."
+ },
+ "ingredients_list": "Creatina monoidratada, maltodextrina, cloridrato de L-arginina, acidulante ácido cítrico (INS 330), taurina, L-tirosina, L-carnitina, bisglicinato de magnésio, aromatizante idêntico ao natural de limão, beta-alanina, guaraná em pó (Paullinia cupana), cafeína anidra, antiumectante dióxido de silício (INS 551), vitamina B6 (cloridrato de piridoxina), edulcorante sucralose (INS 955), vitamina B3 (niacinamida), vitamina D3 (colecalciferol), vitamina B12 (metilcobalamina) e corante tartrazina (INS 102) [massa PENDENTE]. [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nQuantidade diária máxima de 2 g com doses divididas de, no máximo, 300 mg, com intervalo de duas horas entre as doses.\nContém cafeína (163 mg por porção, incluindo a do guaraná).\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "Confirmar com a fábrica qual fórmula está em produção (rótulo/cadastro de 28/05 ou FRM Rev.02 de 20/08/2026) — a proposta parte da FRM Rev.02 (parecer de 15/09/2026, NC7).",
+  "Guaraná: laudo do lote 25H26-B028-213428 dá metilxantinas totais (5,11 %), não cafeína isolada, e não identifica o fornecedor — pedir laudo com doseamento de cafeína e razão social; até lá a cafeína do guaraná foi computada pelo teto (12,8 mg).",
+  "Magnésio: sem laudo válido de bisglicinato 30 % (os dois em disco estão vencidos) — pedir laudo novo ou usar o Lepuge 18 % (AUTO039968, válido), ajustando a massa para 1.667 mg.",
+  "Beta-alanina: laudo novo (Lepuge AUTO033847 vencido em 03/08/2026).",
+  "Cafeína anidra: insumo controlado pela Polícia Federal — licença da Lemoncaps PENDENTE.",
+  "Tartrazina: massa por porção não consta de nenhum documento — quantificar (≤ 4,2 mg/14 g pela IN 211/2023).",
+  "Laudos a vencer: aroma de limão 25/09/2026; arginina HCl 12/11/2026; B12 90955 28/12/2026; maltodextrina 210170 já vencida.",
+  "Nova arte de rótulo (a atual imprime 15.000 mg de ativos em 14 g, B6 \"6.923 % VD\", \"extrato de guaraná\" e advertência mais fraca que o Anexo VI); a versão sabor Maracujá precisa da mesma correção.",
+  "Decisão do RT sobre a base do limite de creatina (leitura A/B) e sobre o critério de energia dos aminoácidos livres; perfil de açúcares da maltodextrina."
+ ],
+ "veredito": "CONFORME (fórmula proposta: cafeína total 81 % do teto, beta-alanina 300 mg/dose, 13 constituintes com folga, soma 14.000 mg) — condicionado a laudo de cafeína do guaraná, laudo válido de bisglicinato de magnésio e laudo novo de beta-alanina",
+ "_procedencia": {
+  "ficha": "FRM-PRETREINO-14G-001 / MC-PRD-PRETREINO-14G-001 Rev.02 (20/08/2026)",
+  "rotulo": "PRÉ TREINO_CÉSIO 137_420g.pdf (= cadastro, 13 linhas)",
+  "parecer": "PARECER-PRE-TREINO-CESIO-137-2026-09-15.md"
+ }
+}

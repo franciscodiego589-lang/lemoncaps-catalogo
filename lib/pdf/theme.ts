@@ -36,6 +36,14 @@ export const COLOR_WARNING_BORDER: RgbColor = [231, 189, 194]; // rgba(179,31,46
 export const COLOR_ACCENT_TINT: RgbColor = [237, 246, 219]; // rgba(111,163,0,.08) sobre branco
 export const COLOR_ACCENT_BORDER: RgbColor = [199, 224, 158]; // rgba(111,163,0,.3) sobre branco
 
+// Preto/branco FIXOS (nunca COLOR_INK/COLOR_LIME acima) - só para a tabela de
+// Informação Nutricional no modelo vertical da Anvisa (addNutritionTableSection,
+// em formula-sections.ts) e o par equivalente .lc-nutri-* em app/globals.css:
+// é rotulagem regulatória, não a identidade visual do documento - continua
+// preto sobre branco mesmo que a marca mude de cor um dia.
+export const COLOR_LABEL_BLACK: RgbColor = [0, 0, 0];
+export const COLOR_LABEL_WHITE: RgbColor = [255, 255, 255];
+
 // ---------------------------------------------------------------------------
 // Métrica de página (mm, papel A4 padrão do jsPDF)
 // ---------------------------------------------------------------------------

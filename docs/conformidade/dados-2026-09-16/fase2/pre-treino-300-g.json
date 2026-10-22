@@ -1,0 +1,398 @@
+{
+ "slug": "pre-treino-300-g",
+ "porcao_mg": 10000,
+ "porcao_descricao": "10 g (1 dosador) diluídos em 200 mL de água, 1 vez ao dia — 30 porções em 300 g",
+ "formato": "pó (solúvel)",
+ "grupo_populacional": "adultos (≥ 19 anos)",
+ "insumos": [
+  {
+   "constituinte_anexo_i": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "forma_insumo": "Creatina monoidratada",
+   "massa_insumo_mg": 3500.0,
+   "teor_pct": 100.5,
+   "teor_fonte": "laudo lote 26A05-B023-217949 (val. 22/09/2028)",
+   "ativo_mg": 3517.5,
+   "unidade_ativo": "mg (leitura A)",
+   "ativo_leitura_b_mg": 3113.0,
+   "conta": "A: 3.500 × 1,005 = 3.517,5 mg (70,4 % do teto) · B: 3.500 × 0,885 × 1,005 = 3.112,9 mg (103,8 % do mínimo)",
+   "minimo": 3000,
+   "maximo": 5000,
+   "pct_do_maximo": 70.35,
+   "linha_anexo": "I·Creatina monohidratada; III·Creatina 3.000; IV·Creatina 5.000",
+   "laudo": {
+    "lote": "217949",
+    "validade": "22/09/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "memorial 3.000 (piso) e cadastro 5.000 (teto): 3.500 dá folga nas duas leituras"
+  },
+  {
+   "constituinte_anexo_i": "Beta-alanina (CAS 107-95-9, IN 102/2021)",
+   "forma_insumo": "Beta-alanina",
+   "massa_insumo_mg": 300.0,
+   "teor_pct": 99.1,
+   "teor_fonte": "laudo Lepuge lote AUTO033847 (99,1 %) — VENCIDO em 03/08/2026: último teor conhecido, pedir laudo novo (o memorial não tinha laudo nenhum)",
+   "ativo_mg": 297.3,
+   "unidade_ativo": "mg",
+   "conta": "300 × 99,1 % = 297,3 mg",
+   "minimo": null,
+   "maximo": 2000,
+   "pct_do_maximo": 14.87,
+   "linha_anexo": "I·Beta-alanina; IV·Beta-alanina (2 g); VI·Beta-alanina (doses de no máximo 300 mg com 2 h de intervalo)",
+   "laudo": {
+    "lote": "AUTO033847",
+    "validade": "03/08/2026",
+    "vencido": true
+   },
+   "status": "dose ajustada",
+   "motivo": "memorial pesa 2.000 mg em dose única — contraria a condição do Anexo VI; 300 mg em 1 dose/dia atende (cadastro já trazia 300)"
+  },
+  {
+   "constituinte_anexo_i": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "forma_insumo": "Cloridrato de L-arginina",
+   "massa_insumo_mg": 1240.0,
+   "teor_pct": 82.2,
+   "teor_fonte": "laudo Lepuge lote AUTO035918 (doseamento 99,40 %, val. 12/11/2026); conversão sal→base 174,20/210,66 = 82,69 %",
+   "ativo_mg": 1019.2,
+   "unidade_ativo": "mg de L-arginina",
+   "conta": "1.240 × 99,40 % × 82,69 % = 1.019,2 mg",
+   "minimo": null,
+   "maximo": 3810,
+   "pct_do_maximo": 26.75,
+   "linha_anexo": "I·Arginina·Cloridrato de L-arginina; III·Arginina (NE); IV·Arginina (3.810 mg)",
+   "laudo": {
+    "lote": "AUTO035918",
+    "validade": "12/11/2026",
+    "vencido": false
+   },
+   "status": "mantido (memorial) / novo no cadastro",
+   "motivo": "substitui a L-citrulina malato (não consta do Anexo I); o memorial já fez essa troca em 14/08/2026"
+  },
+  {
+   "constituinte_anexo_i": "Taurina (CAS 107-35-7)",
+   "forma_insumo": "Taurina",
+   "massa_insumo_mg": 900.0,
+   "teor_pct": 99.46,
+   "teor_fonte": "laudo lote 25H04-B053-214586 (99,5 % b.s. × 0,9996; val. 10/05/2028) — dados do memorial (digitalização não relida)",
+   "ativo_mg": 895.1,
+   "unidade_ativo": "mg",
+   "conta": "900 × 99,46 % = 895,1 mg",
+   "minimo": null,
+   "maximo": 2000,
+   "pct_do_maximo": 44.76,
+   "linha_anexo": "I·Taurina; IV·Taurina (2.000 mg)",
+   "laudo": {
+    "lote": "214586",
+    "validade": "10/05/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada (cadastro 2.000 → memorial 900)",
+   "motivo": "cadastro cravava o teto; a fábrica pesa 900"
+  },
+  {
+   "constituinte_anexo_i": "Tirosina — L-Tirosina (CAS 60-18-4)",
+   "forma_insumo": "L-tirosina",
+   "massa_insumo_mg": 400.0,
+   "teor_pct": 99.9,
+   "teor_fonte": "laudo lote 91382 (Analitic, val. 07/05/2028)",
+   "ativo_mg": 399.6,
+   "unidade_ativo": "mg",
+   "conta": "400 × 99,9 % = 399,6 mg",
+   "minimo": 262.5,
+   "maximo": 2750,
+   "pct_do_maximo": 14.53,
+   "linha_anexo": "I·L-Tirosina; III·Tirosina^viii (262,5 mg); IV·Tirosina (2.750 mg)",
+   "laudo": {
+    "lote": "91382",
+    "validade": "07/05/2028",
+    "vencido": false
+   },
+   "status": "dose ajustada (cadastro 500 → memorial 400)",
+   "motivo": "152 % do mínimo; 14,5 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Cafeína — Cafeína/1,3,7-Trimethylxanthine (CAS 58-08-2)",
+   "forma_insumo": "Cafeína anidra",
+   "massa_insumo_mg": 175.0,
+   "teor_pct": 99.88,
+   "teor_fonte": "laudo lote 25I01-B062-214171 (100,11 % anidra × 0,9977; val. 02/12/2029) — dados do memorial",
+   "ativo_mg": 174.8,
+   "unidade_ativo": "mg",
+   "conta": "175 × 99,88 % = 174,8 mg",
+   "minimo": 75,
+   "maximo": 200,
+   "pct_do_maximo": 87.39,
+   "linha_anexo": "I·Cafeína; III·Cafeína (75 mg); IV·Cafeína^vi (200 mg)",
+   "laudo": {
+    "lote": "214171",
+    "validade": "02/12/2029",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "200 mg cravava o teto (199,76 mg = 99,9 %); 175 mg = 87,4 %. Insumo controlado (Polícia Federal): situação da licença PENDENTE"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "forma_insumo": "Cloridrato de piridoxina",
+   "massa_insumo_mg": 2.0,
+   "teor_pct": 82.19,
+   "teor_fonte": "laudo lote 91188 (Analitic, 99,9 %, val. 28/12/2027); conversão 169,18/205,64 = 82,27 %",
+   "ativo_mg": 1.644,
+   "unidade_ativo": "mg de piridoxina",
+   "conta": "2,00 × 99,9 % × 82,27 % = 1,644 mg",
+   "minimo": 0.26,
+   "maximo": 98.6,
+   "pct_do_maximo": 1.67,
+   "linha_anexo": "I·Vitamina B6·Cloridrato de piridoxina; III·Vitamina B6 (0,26 mg); IV·Vitamina B6 (98,60 mg)",
+   "laudo": {
+    "lote": "91188",
+    "validade": "28/12/2027",
+    "vencido": false
+   },
+   "status": "mantido (memorial) / novo no cadastro",
+   "motivo": "126 % VD; 1,7 % do teto"
+  },
+  {
+   "constituinte_anexo_i": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+   "forma_insumo": "Metilcobalamina",
+   "massa_insumo_mg": 0.009522,
+   "teor_pct": 89.27,
+   "teor_fonte": "laudo lote 219376 (Fagron/SM, 98,17 % base anidra lido em texto; 89,27 % tal qual pela umidade de 9,07 % do memorial rev03 do Slim Up; val. 14/11/2030) — HARMONIZADO NA FASE 3 (16/09/2026): mesmo lote de referência dos outros 6 produtos com metilcobalamina; o lote 90955 (94,54 %, val. 28/12/2026) era o do memorial deste produto",
+   "ativo_mg": 0.0085,
+   "unidade_ativo": "mg (= 8,5 µg)",
+   "conta": "8,5 µg ÷ 0,8927 = 9,52 µg = 0,009522 mg de metilcobalamina (fase 3; antes: 0,00899 × 94,54 % = 8,5 µg com o lote 90955)",
+   "minimo": 0.00036,
+   "maximo": 0.00994,
+   "pct_do_maximo": 85.5,
+   "linha_anexo": "I·Vitamina B12·Metilcobalamina; III·Vitamina B12 (0,36 µg); IV·Vitamina B12 (9,94 µg)",
+   "laudo": {
+    "lote": "219376 (26B20-B032-219376, Fagron/SM, fabricante 032511057)",
+    "validade": "14/11/2030",
+    "vencido": false
+   },
+   "status": "dose ajustada",
+   "motivo": "memorial entrega 9,40 µg = 94,6 % do teto; 8,5 µg = 85,5 %. Lote de referência trocado para 219376 na fase 3 (harmonização entre grupos)."
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Ácido cítrico",
+   "ins": "330",
+   "massa_mg": 1100.0,
+   "observacao": "acidulante; laudo lote GE2844AFG (100,1 %, val. 28/05/2030)"
+  },
+  {
+   "nome": "Aromatizante idêntico ao natural de limão",
+   "ins": null,
+   "massa_mg": 350.0,
+   "observacao": "laudo lote 19504 (Alphataste) vence em 25/09/2026"
+  },
+  {
+   "nome": "Dióxido de silício",
+   "ins": "551",
+   "massa_mg": 118.0,
+   "observacao": "antiumectante; laudo lote 876013 sem teor (val. 01/2027)"
+  },
+  {
+   "nome": "Sucralose",
+   "ins": "955",
+   "massa_mg": 90.0,
+   "observacao": "99,74 % (laudo lote 91233, val. 22/12/2026)"
+  },
+  {
+   "nome": "Maltodextrina",
+   "ins": null,
+   "massa_mg": 1824.991,
+   "observacao": "veículo q.s.p. 10.000 mg (Art. 6 § único RDC 243); laudo lote 210170 VENCIDO 26/07/2026 — lote novo antes de fabricar; DE 17,72 %"
+  }
+ ],
+ "soma_porcao_mg": 10000.0,
+ "cabe": true,
+ "tabela_nutricional": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "10 g (1 dosador)",
+  "porcao_coluna": "10 g",
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": "17",
+    "unidade": "kcal",
+    "kj": "73",
+    "quantidade_num": 17.0,
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "maltodextrina 1,825 g × 4 + ácido cítrico 1,1 g × 3 + aminoácidos (arginina 1,019 + tirosina 0,400 + beta-alanina 0,297 g) × 4 = 17,46 kcal; taurina e creatina sem fator no Anexo XXII → 0 (critério do RT)"
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": "1,8",
+    "quantidade_num": 1.8,
+    "unidade": "g",
+    "vd_pct": 1,
+    "nivel": 0,
+    "nota": "maltodextrina (veículo)"
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "fração de mono/dissacarídeos da maltodextrina (DE 17,72 %) não quantificada — RDC 429 Art. 3 I/II"
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": "PENDENTE",
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 2,
+    "nota": "idem (maltodextrina conta como açúcar adicionado na fração de mono/dissacarídeos)"
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "sem fonte proteica; aminoácidos livres declarados abaixo"
+   },
+   {
+    "item": "L-arginina",
+    "quantidade": "1.019",
+    "quantidade_num": 1019.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "L-tirosina",
+    "quantidade": "400",
+    "quantidade_num": 400.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Beta-alanina",
+    "quantidade": "297",
+    "quantidade_num": 297.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 1,
+    "nota": null
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "g",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Sódio",
+    "quantidade": "0",
+    "quantidade_num": 0.0,
+    "unidade": "mg",
+    "vd_pct": 0,
+    "nivel": 0,
+    "nota": "sem fonte de sódio na receita"
+   },
+   {
+    "item": "Vitamina B6",
+    "quantidade": "1,6",
+    "quantidade_num": 1.6,
+    "unidade": "mg",
+    "vd_pct": 123,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Vitamina B12",
+    "quantidade": "8,5",
+    "quantidade_num": 8.5,
+    "unidade": "µg",
+    "vd_pct": 354,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Taurina",
+    "quantidade": "895",
+    "quantidade_num": 895.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Cafeína",
+    "quantidade": "175",
+    "quantidade_num": 175.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null
+   },
+   {
+    "item": "Creatina",
+    "quantidade": "3.500",
+    "quantidade_num": 3500.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": "massa nominal de creatina monoidratada (lote 217949: 3.517,5 mg A / 3.113 mg B)"
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "IN 75/2020 Anexos III, IV, VIII, XI e XXII (lidos 16/09/2026)."
+ },
+ "ingredients_list": "Creatina monoidratada, maltodextrina, cloridrato de L-arginina, acidulante ácido cítrico (INS 330), taurina, L-tirosina, aromatizante idêntico ao natural de limão, beta-alanina, cafeína anidra, antiumectante dióxido de silício (INS 551), edulcorante sucralose (INS 955), vitamina B6 (cloridrato de piridoxina) e vitamina B12 (metilcobalamina). [PENDENTE — Lei 10.674/2003 obriga \"Contém Glúten\" ou \"Não contém Glúten\": só grafar \"Não contém glúten\" com laudo do produto acabado]",
+ "warnings": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos a partir de 19 anos.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nQuantidade diária máxima de 2 g com doses divididas de, no máximo, 300 mg, com intervalo de duas horas entre as doses.\nContém cafeína (175 mg por porção).\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado.",
+ "pendencias": [
+  "Laudo novo de beta-alanina (o de disco, Lepuge AUTO033847, venceu em 03/08/2026; o memorial não tinha nenhum).",
+  "Cafeína anidra é insumo controlado pela Polícia Federal (\"Controlado P.F.\" no laudo) — situação da licença da Lemoncaps não esclarecida em nenhum documento (memorial, seção 16).",
+  "Maltodextrina lote 210170 vencido (26/07/2026); aroma de limão lote 19504 vence em 25/09/2026; cloridrato de L-arginina AUTO035918 vence em 12/11/2026; B12 lote 90955 vence em 28/12/2026.",
+  "Perfil de açúcares da maltodextrina (DE 17,72 %) para fechar açúcares totais/adicionados.",
+  "Corante: o cadastro listava \"corante artificial (INS)\" sem nome, INS ou massa; o memorial da fábrica não tem corante — a lista proposta segue o memorial. Se a fábrica usar corante, informar nome, INS e massa (IN 211/2023).",
+  "Decisão do RT sobre a base do limite de creatina (leitura A/B) e sobre o critério de energia dos aminoácidos livres.",
+  "Nova arte de rótulo (não existe rótulo deste produto em disco)."
+ ],
+ "veredito": "CONFORME (fórmula proposta, com folga em todos os constituintes) — condicionado a laudo novo de beta-alanina e à regularização do insumo controlado (cafeína)",
+ "_procedencia": {
+  "memorial": "MEMORIAL-CALCULO-PRE-TREINO.docx MC-PRD-PRETREINO-001 Rev.01 (14/08/2026)",
+  "cadastro": "banco lido ao vivo 16/09/2026 (10 linhas, com citrulina na lista de ingredientes)"
+ }
+}

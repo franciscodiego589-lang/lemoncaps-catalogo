@@ -55,8 +55,8 @@ export function CompositionTable({ compositions, maxHeightPx = 212, limit, viewA
         <table className="lc-comp-table">
           <thead>
             <tr>
-              <th>Insumo</th>
-              <th>Dose</th>
+              <th scope="col">Insumo</th>
+              <th scope="col">Dose</th>
             </tr>
           </thead>
           <tbody>

@@ -1,0 +1,2715 @@
+{
+ "divergencias": [
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina E",
+   "check": "a",
+   "esperado": "14,9254 mg (massa × teor_pct)",
+   "encontrado": "10 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (50,7 %) é o doseamento do insumo; o ativo aplica o fator 0,67 (α-tocoferol/acetato de rac-α-tocoferil (nota v Anexo III: 1 UI = 1 mg de acetato; 0,67)) declarado na conta → teor efetivo 33,97 %"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido pantotênico",
+   "check": "a",
+   "esperado": "5,434 mg (massa × teor_pct)",
+   "encontrado": "5 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (98,2 %) é o doseamento do insumo; o ativo aplica o fator 0,9201 (ácido pantotênico/D-pantotenato de cálcio) declarado na conta → teor efetivo 90,35 %"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "1,5801 mg (massa × teor_pct)",
+   "encontrado": "1,3 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Tiamina",
+   "check": "a",
+   "esperado": "1,5251 mg (massa × teor_pct)",
+   "encontrado": "1,2 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,8 %) é o doseamento do insumo; o ativo aplica o fator 0,7868 (tiamina/cloridrato de tiamina 265,35/337,27) declarado na conta → teor efetivo 78,52 %"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido fólico",
+   "check": "a",
+   "esperado": "0,6 mg (massa × teor_pct)",
+   "encontrado": "1 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (90,67 %) é o doseamento do insumo; o ativo aplica o fator 1,6667 (µg DFE = µg de ácido fólico ÷ 0,6 (nota vi Anexo III)) declarado na conta → teor efetivo 151,12 % (conversão de unidade, não perda de massa)"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "1,5801 mg (massa × teor_pct)",
+   "encontrado": "1,3 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "a",
+   "esperado": "22,815 mg (massa × teor_pct)",
+   "encontrado": "15,2861 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (50,7 %) é o doseamento do insumo; o ativo aplica o fator 0,67 (α-tocoferol/acetato de rac-α-tocoferil (nota v Anexo III: 1 UI = 1 mg de acetato; 0,67)) declarado na conta → teor efetivo 33,97 %"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "9,99 mg (massa × teor_pct)",
+   "encontrado": "8,2189 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "a",
+   "esperado": "5,434 mg (massa × teor_pct)",
+   "encontrado": "5 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (98,2 %) é o doseamento do insumo; o ativo aplica o fator 0,9201 (ácido pantotênico/D-pantotenato de cálcio) declarado na conta → teor efetivo 90,35 %"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "a",
+   "esperado": "0,4 mg (massa × teor_pct)",
+   "encontrado": "0,6667 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (90,67 %) é o doseamento do insumo; o ativo aplica o fator 1,6667 (µg DFE = µg de ácido fólico ÷ 0,6 (nota vi Anexo III)) declarado na conta → teor efetivo 151,12 % (conversão de unidade, não perda de massa)"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "d",
+   "esperado": "%VD 100 % sobre a quantidade declarada (15 mg ÷ VD 15 [adultos_19_anos_ou_mais])",
+   "encontrado": "101,9 % (sobre o ativo exato 15,286 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B6",
+   "check": "d",
+   "esperado": "%VD 630,8 % sobre a quantidade declarada (8,2 mg ÷ VD 1.3 [adultos_19_anos_ou_mais])",
+   "encontrado": "632,2 % (sobre o ativo exato 8,219 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Glucosamina",
+   "check": "a",
+   "esperado": "200 mg (massa × teor_pct)",
+   "encontrado": "118,3607 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (101,3 %) é o doseamento do insumo; o ativo aplica o fator 0,5918 (glucosamina/sulfato de glucosamina·2KCl) declarado na conta → teor efetivo 59,95 %"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina E",
+   "check": "a",
+   "esperado": "30,42 mg (massa × teor_pct)",
+   "encontrado": "20,3814 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (50,7 %) é o doseamento do insumo; o ativo aplica o fator 0,67 (α-tocoferol/acetato de rac-α-tocoferil (nota v Anexo III: 1 UI = 1 mg de acetato; 0,67)) declarado na conta → teor efetivo 33,97 %"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "1,5801 mg (massa × teor_pct)",
+   "encontrado": "1,3 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina E",
+   "check": "d",
+   "esperado": "%VD 133,3 % sobre a quantidade declarada (20 mg ÷ VD 15 [adultos_19_anos_ou_mais])",
+   "encontrado": "135,9 % (sobre o ativo exato 20,381 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "1,5801 mg (massa × teor_pct)",
+   "encontrado": "1,3 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Valor energético",
+   "check": "e",
+   "esperado": "kJ = kcal × 4,184 → 7 kJ",
+   "encontrado": "7,3 kJ (fatores 17/37/13 kJ/g)",
+   "gravidade": "critério",
+   "nota": "memorial usou fatores em kJ/g (17 carboidrato e proteína, 37 gordura, 13 ácido orgânico), que NÃO constam do Anexo XXII da IN 75 (só kcal/g) — a consolidação adota kJ = kcal × 4,184; diferença ≤ 2 kJ"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "a",
+   "esperado": "4,8907 mg (massa × teor_pct)",
+   "encontrado": "4,5 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (98,2 %) é o doseamento do insumo; o ativo aplica o fator 0,9201 (ácido pantotênico/D-pantotenato de cálcio) declarado na conta → teor efetivo 90,35 %"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "a",
+   "esperado": "7,4627 mg (massa × teor_pct)",
+   "encontrado": "5 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (50,7 %) é o doseamento do insumo; o ativo aplica o fator 0,67 (α-tocoferol/acetato de rac-α-tocoferil (nota v Anexo III: 1 UI = 1 mg de acetato; 0,67)) declarado na conta → teor efetivo 33,97 %"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "a",
+   "esperado": "0,5 mg (massa × teor_pct)",
+   "encontrado": "0,8333 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (90,67 %) é o doseamento do insumo; o ativo aplica o fator 1,6667 (µg DFE = µg de ácido fólico ÷ 0,6 (nota vi Anexo III)) declarado na conta → teor efetivo 151,12 % (conversão de unidade, não perda de massa)"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Vitamina B6",
+   "check": "a",
+   "esperado": "1,5801 mg (massa × teor_pct)",
+   "encontrado": "1,3 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "esperado": "kJ = kcal × 4,184 → 121 kJ",
+   "encontrado": "123 kJ (fatores 17/37/13 kJ/g)",
+   "gravidade": "critério",
+   "nota": "memorial usou fatores em kJ/g (17 carboidrato e proteína, 37 gordura, 13 ácido orgânico), que NÃO constam do Anexo XXII da IN 75 (só kcal/g) — a consolidação adota kJ = kcal × 4,184; diferença ≤ 2 kJ"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "a",
+   "esperado": "1,5285 mg (massa × teor_pct)",
+   "encontrado": "1,26 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina B6",
+   "check": "d",
+   "esperado": "%VD 100 % sobre a quantidade declarada (1,3 mg ÷ VD 1.3 [adultos_19_anos_ou_mais])",
+   "encontrado": "97 % (sobre o ativo exato 1,26 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Zinco",
+   "check": "d",
+   "esperado": "%VD 127,3 % sobre a quantidade declarada (14 mg ÷ VD 11 [adultos_19_anos_ou_mais])",
+   "encontrado": "123 % (sobre o ativo exato 13,5 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Valor energético",
+   "check": "e",
+   "esperado": "kJ = kcal × 4,184 → 9,2 kJ",
+   "encontrado": "9,4 kJ (fatores 17/37/13 kJ/g)",
+   "gravidade": "critério",
+   "nota": "memorial usou fatores em kJ/g (17 carboidrato e proteína, 37 gordura, 13 ácido orgânico), que NÃO constam do Anexo XXII da IN 75 (só kcal/g) — a consolidação adota kJ = kcal × 4,184; diferença ≤ 2 kJ"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "check": "a",
+   "esperado": "74,55 mg (massa × teor_pct)",
+   "encontrado": "61,64 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,4 %) é o doseamento do insumo; o ativo aplica o fator 0,8269 (arginina/cloridrato de L-arginina 174,20/210,66) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "a",
+   "esperado": "9,99 mg (massa × teor_pct)",
+   "encontrado": "8,22 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (99,9 %) é o doseamento do insumo; o ativo aplica o fator 0,8227 (piridoxina/cloridrato de piridoxina 169,18/205,64) declarado na conta → teor efetivo 82,19 %"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Cafeína (soma de 2 linhas: 10,22 mg + 149,82 mg)",
+   "check": "b",
+   "esperado": "pct_do_maximo recalculado 80,02 % (soma ÷ máximo)",
+   "encontrado": "74,9 % no JSON",
+   "gravidade": "baixa",
+   "nota": "pct_do_maximo do JSON difere do recálculo — o JSON traz o pct de uma linha só; a soma do constituinte é o que vale"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Vitamina B6",
+   "check": "d",
+   "esperado": "%VD 630,8 % sobre a quantidade declarada (8,2 mg ÷ VD 1.3 [adultos_19_anos_ou_mais])",
+   "encontrado": "632 % (sobre o ativo exato 8,22 mg)",
+   "gravidade": "critério",
+   "nota": "o memorial calculou o %VD sobre o ativo exato; a consolidação recalcula sobre a quantidade declarada (o número impresso) — diferença ≤ 3 pontos"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Valor energético",
+   "check": "e",
+   "esperado": "kJ = kcal × 4,184 → 147 kJ",
+   "encontrado": "149 kJ (fatores 17/37/13 kJ/g)",
+   "gravidade": "critério",
+   "nota": "memorial usou fatores em kJ/g (17 carboidrato e proteína, 37 gordura, 13 ácido orgânico), que NÃO constam do Anexo XXII da IN 75 (só kcal/g) — a consolidação adota kJ = kcal × 4,184; diferença ≤ 2 kJ"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Lipídeos totais",
+   "check": "b",
+   "esperado": "≥ mínimo 5 g",
+   "encontrado": "1 g",
+   "gravidade": "alta",
+   "nota": "abaixo do mínimo do Anexo III — LEITURA LITERAL: o Anexo I põe 'Óleo de peixe' no grupo Lipídeos; o Anexo III fixa 'Lipídeos totais' mínimo 5 g para > 19 anos (máximo NE no Anexo IV). INTERPRETAÇÃO 1 (por grupo): o mínimo de 5 g se aplica a qualquer co"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Valor energético",
+   "check": "e",
+   "esperado": "kJ = kcal × 4,184 → 38 kJ",
+   "encontrado": "37 kJ (fatores 17/37/13 kJ/g)",
+   "gravidade": "critério",
+   "nota": "memorial usou fatores em kJ/g (17 carboidrato e proteína, 37 gordura, 13 ácido orgânico), que NÃO constam do Anexo XXII da IN 75 (só kcal/g) — a consolidação adota kJ = kcal × 4,184; diferença ≤ 2 kJ"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina E — Acetato de DL-alfa-tocoferol/Acetato de racealfatocoferol/Acetato de DL-alfatocoferila (CAS 7695-91-2)",
+   "check": "a",
+   "esperado": "8,4669 mg (massa × teor_pct)",
+   "encontrado": "5,673 mg",
+   "gravidade": "representação",
+   "nota": "teor_pct (50,7 %) é o doseamento do insumo; o ativo aplica o fator 0,67 (α-tocoferol/acetato de rac-α-tocoferil (nota v Anexo III: 1 UI = 1 mg de acetato; 0,67)) declarado na conta → teor efetivo 33,97 %"
+  }
+ ],
+ "observacoes": [
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina A",
+   "check": "a",
+   "texto": "vitamina A conferida: 7,6199 mg × 568116 UI/g = 4329 UI → 1300 µg RAE (critério ÷ 3,33 (nota ii do Anexo III); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 13,913 mg × 115 UI/mg ÷ 40 = 40 µg"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 260 mg = 74,3 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 100 mg = 5,2 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 15 mg = 50,7 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Niacina",
+   "check": "b",
+   "texto": "conforme: 16 mg = 45,7 % do teto 35 mg; mínimo 2,4"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina E",
+   "check": "b",
+   "texto": "conforme: 10 mg = 1 % do teto 1000 mg; mínimo 2,25"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido pantotênico",
+   "check": "b",
+   "texto": "conforme: 5 mg = 88,7 % do teto 5,64 mg; mínimo 0,75"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Boro",
+   "check": "b",
+   "texto": "conforme: 3 mg = 33,8 % do teto 8,866 mg; mínimo NE"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Tiamina",
+   "check": "b",
+   "texto": "conforme: 1,2 mg = 59,4 % do teto 2,02 mg; mínimo 0,18"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Riboflavina",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 47,4 % do teto 2,74 mg; mínimo 0,2"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 1300 µg = 49,6 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido fólico",
+   "check": "b",
+   "texto": "conforme: 1000 µg = 78 % do teto 1281,5 µg; mínimo 60"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Cobre",
+   "check": "b",
+   "texto": "conforme: 900 µg = 10 % do teto 8975,52 µg; mínimo 135"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Selênio",
+   "check": "b",
+   "texto": "conforme: 100 µg = 31,3 % do teto 319,75 µg; mínimo 8,25"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina K",
+   "check": "b",
+   "texto": "conforme: 120 µg = 80,5 % do teto 149,06 µg; mínimo 18"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 40 µg = 80 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Cromo",
+   "check": "b",
+   "texto": "conforme: 35 µg = 14 % do teto 250 µg; mínimo 5,25"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8 µg = 80,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 722,864 + excipientes 277,136 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0 kcal — uma combinação que reproduz o declarado: fixos 0 [—] = 0 kcal"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 0 = kcal × 4,184 (0)"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Óxido de magnésio'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina C",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Zinco",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Niacina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Nicotinamida'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina E",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de DL-alfa-tocoferol'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido pantotênico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-pantotenato de cálcio'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Boro",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Tetraborato de sódio decahidratado'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Tiamina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de tiamina'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Riboflavina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Riboflavina'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina A",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Ácido fólico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido fólico'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Cobre",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de cobre'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Selênio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Selenito de sódio'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina K",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Menaquinona-7'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Cromo",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Picolinato de cromo'"
+  },
+  {
+   "slug": "multivitaminico",
+   "insumo": "Vitamina B12",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 8,6957 mg × 115 UI/mg ÷ 40 = 25 µg"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 151,1 mg = 43,2 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Teanina",
+   "check": "b",
+   "texto": "conforme: 150 mg = 60 % do teto 250 mg; mínimo 50"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 15 mg = 50,7 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Boro",
+   "check": "b",
+   "texto": "conforme: 3 mg = 33,8 % do teto 8,866 mg; mínimo NE"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 25 µg = 50 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 762,151 + excipientes 237,849 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0,6 kcal — uma combinação que reproduz o declarado: fixos 0 [—] + a 4 kcal/g: teanina = 0,6 kcal"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 2,6 = kcal × 4,184 (2,51)"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de magnésio'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Teanina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-teanina de folhas de Camellia sinensis'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Zinco",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Boro",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Tetraborato de sódio decahidratado'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "zma-zinco-magnesio-e-vitamina-d",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina A",
+   "check": "a",
+   "texto": "vitamina A conferida: 8,7922 mg × 568116 UI/g = 4995 UI → 1500 µg RAE (critério ÷ 3,33 (nota ii do Anexo III); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 13,913 mg × 115 UI/mg ÷ 40 = 40 µg"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 250 mg = 13 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Metionina",
+   "check": "b",
+   "texto": "conforme: 110 mg = 7,2 % do teto 1530 mg; mínimo 105"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Cisteína",
+   "check": "b",
+   "texto": "conforme: 76,4367 mg = 9,2 % do teto 830 mg; mínimo 42"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "b",
+   "texto": "conforme: 15,2861 mg = 1,5 % do teto 1000 mg; mínimo 2,25"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Metilsulfonilmetano",
+   "check": "b",
+   "texto": "conforme: 50 mg = 5,6 % do teto 900 mg; mínimo NE"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido hialurônico",
+   "check": "b",
+   "texto": "conforme: 50 mg = 31,7 % do teto 157,7 mg; mínimo 3,5"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Silício",
+   "check": "b",
+   "texto": "conforme: 0,715 mg = 4,6 % do teto 15,67 mg; mínimo NE"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Niacina",
+   "check": "b",
+   "texto": "conforme: 31 mg = 88,6 % do teto 35 mg; mínimo 2,4"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 15 mg = 50,7 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 8,2189 mg = 8,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 1500 µg = 57,2 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "b",
+   "texto": "conforme: 5 mg = 88,7 % do teto 5,64 mg; mínimo 0,75"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Cobre",
+   "check": "b",
+   "texto": "conforme: 900 µg = 10 % do teto 8975,52 µg; mínimo 135"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Riboflavina",
+   "check": "b",
+   "texto": "conforme: 2,4 mg = 87,6 % do teto 2,74 mg; mínimo 0,2"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "b",
+   "texto": "conforme: 666,67 µg = 52 % do teto 1281,5 µg; mínimo 60"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Iodo",
+   "check": "b",
+   "texto": "conforme: 150 µg = 16,3 % do teto 919,02 µg; mínimo 22,5"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Biotina",
+   "check": "b",
+   "texto": "conforme: 40 µg = 88,9 % do teto 45 µg; mínimo 4,5"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Selênio",
+   "check": "b",
+   "texto": "conforme: 60 µg = 18,8 % do teto 319,75 µg; mínimo 8,25"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 40 µg = 80 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8 µg = 80,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 810,466 + excipientes 189,534 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "1,1 kcal — uma combinação que reproduz o declarado: fixos 0,19 [maltodextrina do Siliciumax (95 %) 0,048 g × 4.0 = 0,19] + a 4 kcal/g: metionina, cisteina, metilsulfonilmetano | NÃO contados: hialuronato = 1,14 kcal"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 4,8 = kcal × 4,184 (4,75)"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina C",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Metionina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Metionina'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Cisteína",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de L-cisteína'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de DL-alfa-tocoferol'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Metilsulfonilmetano",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilsulfonilmetano'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido hialurônico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Hialuronato de Sódio obtido pela fermentação de Streptococcus zooepidemicus'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Silício",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido orto-silícico estabilizado com maltodextrina'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Niacina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Nicotinamida'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Zinco",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina A",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-pantotenato de cálcio'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Cobre",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de cobre'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Riboflavina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Riboflavina'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido fólico'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Iodo",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Iodeto de potássio'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Biotina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-biotina'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Selênio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Selenito de sódio'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "biotina-em-capsula",
+   "insumo": "Vitamina B12",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Colágeno tipo II não desnaturado",
+   "check": "a",
+   "texto": "teor_pct nulo: ativo declarado 40 mg para massa 40 mg — não verificável (teor PENDENTE/nominal no memorial)"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 13,913 mg × 115 UI/mg ÷ 40 = 40 µg"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Metilsulfonilmetano",
+   "check": "b",
+   "texto": "conforme: 250 mg = 27,8 % do teto 900 mg; mínimo NE"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Glucosamina",
+   "check": "b",
+   "texto": "conforme: 118,3607 mg = 15,8 % do teto 750 mg; mínimo NE"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 140 mg = 7,3 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 70 mg = 20 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina E",
+   "check": "b",
+   "texto": "conforme: 20,3814 mg = 2 % do teto 1000 mg; mínimo 2,25"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 10 mg = 33,8 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Colágeno tipo II não desnaturado",
+   "check": "b",
+   "texto": "conforme: 40 mg ≥ mínimo 1,2 mg (máximo NE)"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Ferro",
+   "check": "b",
+   "texto": "conforme: 8 mg = 23,3 % do teto 34,31 mg; mínimo 2,7"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 40 µg = 80 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Selênio",
+   "check": "b",
+   "texto": "conforme: 100 µg = 31,3 % do teto 319,75 µg; mínimo 8,25"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8 µg = 80,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 910,19 + excipientes 89,81 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0,1 kcal — uma combinação que reproduz o declarado: fixos 0,11 [colágeno tipo II (proteína 67,6 % do laudo) 0,027 g × 4.0 = 0,11] | NÃO contados: metilsulfonilmetano, glucosamina = 0,11 kcal"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 0,5 = kcal × 4,184 (0,45)"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Metilsulfonilmetano",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilsulfonilmetano'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Glucosamina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Sulfato de glucosamina com cloreto de potássio'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina C",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Óxido de magnésio'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina E",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de DL-alfa-tocoferol'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Zinco",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Colágeno tipo II não desnaturado",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Colágeno de frango com colágeno tipo II não desnaturado'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Ferro",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato ferroso'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Selênio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Selenito de sódio'"
+  },
+  {
+   "slug": "dores-musculares",
+   "insumo": "Vitamina B12",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 1,7391 mg × 115 UI/mg ÷ 40 = 5 µg"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Colina",
+   "check": "b",
+   "texto": "conforme: 130 mg = 4 % do teto 3235,15 mg; mínimo 82,5"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Tirosina",
+   "check": "b",
+   "texto": "conforme: 290 mg = 10,5 % do teto 2750 mg; mínimo 262,5"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Teanina",
+   "check": "b",
+   "texto": "conforme: 115 mg = 46 % do teto 250 mg; mínimo 50"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "L-Carnitina",
+   "check": "b",
+   "texto": "conforme: 95 mg = 4,8 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 70 mg = 20 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Inositol",
+   "check": "b",
+   "texto": "conforme: 0,025 g = 1,2 % do teto 2 g; mínimo NE"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 5 µg = 10 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 2,4 µg = 24,1 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 968,855 + excipientes 31,145 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "1,7 kcal — uma combinação que reproduz o declarado: fixos 0 [—] + a 4 kcal/g: colina, tirosina | NÃO contados: teanina, carnitina, inositol = 1,68 kcal"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Colina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bitartarato de colina'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Tirosina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Tirosina'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Teanina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-teanina de folhas de Camellia sinensis'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "L-Carnitina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Levocarnitina'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Óxido de magnésio'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Inositol",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Inositol (Mio-inositol/Meso-inositol)'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "focus-colina",
+   "insumo": "Vitamina B12",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 13,913 mg × 115 UI/mg ÷ 40 = 40 µg"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Cálcio",
+   "check": "b",
+   "texto": "conforme: 215 mg = 10,7 % do teto 2015,51 mg; mínimo 195"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 66 mg = 18,9 % do teto 350 mg; mínimo 60"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 20 mg = 1,2 % do teto 1723,43 mg; mínimo 18"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ferro",
+   "check": "b",
+   "texto": "conforme: 8,1 mg = 23,3 % do teto 34,71 mg; mínimo 4,05"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Niacina",
+   "check": "b",
+   "texto": "conforme: 8 mg = 26,7 % do teto 30 mg; mínimo 2,7"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "b",
+   "texto": "conforme: 4,5 mg = 82 % do teto 5,49 mg; mínimo 1,05"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "b",
+   "texto": "conforme: 5 mg = 0,6 % do teto 800 mg; mínimo 2,85"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Cobre",
+   "check": "b",
+   "texto": "conforme: 900 µg = 13 % do teto 6935,01 µg; mínimo 195"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "b",
+   "texto": "conforme: 833,33 µg = 73,2 % do teto 1138,3 µg; mínimo 666,6"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 40 µg = 80 % do teto 50 µg; mínimo 2,25"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8 µg = 79,4 % do teto 10,07 µg; mínimo 0,42"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 890,707 + excipientes 109,293 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0 kcal — uma combinação que reproduz o declarado: fixos 0 [—] = 0 kcal"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 0 = kcal × 4,184 (0)"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Cálcio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Carbonato de cálcio'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de magnésio'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina C",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ferro",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato ferroso'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Niacina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Nicotinamida'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido pantotênico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-pantotenato de cálcio'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina E",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de DL-alfa-tocoferol'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Cobre",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de cobre'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Ácido fólico",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido fólico'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina D",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "multi-vitta-gestante-e-lactante-em-capsula",
+   "insumo": "Vitamina B12",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Triptofano",
+   "check": "b",
+   "texto": "conforme: 500 mg = 58,1 % do teto 860 mg; mínimo 42"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Aspartato",
+   "check": "b",
+   "texto": "conforme: 100 mg = 1,9 % do teto 5320 mg; mínimo NE"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Glutamina",
+   "check": "b",
+   "texto": "conforme: 95 mg = 1,9 % do teto 5000 mg; mínimo NE"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 70 mg = 20 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 10 mg = 33,8 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Melatonina",
+   "check": "b",
+   "texto": "conforme: 0,18 mg = 85,7 % do teto 0,21 mg; mínimo NE"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Biotina",
+   "check": "b",
+   "texto": "conforme: 40 µg = 88,9 % do teto 45 µg; mínimo 4,5"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 979,106 + excipientes 20,894 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "2,8 kcal — uma combinação que reproduz o declarado: fixos 0 [—] + a 4 kcal/g: triptofano, aspartico, glutamina = 2,78 kcal"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 12 = kcal × 4,184 (11,63)"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Triptofano",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Triptofano'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Aspartato",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido L-aspártico'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Glutamina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Glutamina'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de magnésio'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Zinco",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Melatonina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Melatonina'"
+  },
+  {
+   "slug": "melatonina-triptofanos-encapsulados",
+   "insumo": "Biotina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-biotina'"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 70 mg = 20 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Teanina",
+   "check": "b",
+   "texto": "conforme: 60 mg = 24 % do teto 250 mg; mínimo 50"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Inositol",
+   "check": "b",
+   "texto": "conforme: 0,05 g = 2,5 % do teto 2 g; mínimo NE"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,3 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Melatonina",
+   "check": "b",
+   "texto": "conforme: 0,18 mg = 85,7 % do teto 0,21 mg; mínimo NE"
+  },
+  {
+   "slug": "serena",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 387,685 + excipientes 612,315 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "serena",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "massas PENDENTES não somadas: Citrato de sódio (regulador de acidez) e ácido cítrico (acidulante); Aromatizante idêntico ao natural"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "1 kcal — uma combinação que reproduz o declarado: fixos 0 [—] + a 4 kcal/g: teanina, inositol, glicerina = 0,97 kcal"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 4,1 = kcal × 4,184 (4,07)"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Magnésio",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloreto de magnésio'"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Teanina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-teanina de folhas de Camellia sinensis'"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Inositol",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Inositol (Mio-inositol/Meso-inositol)'"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Vitamina B6",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "serena",
+   "insumo": "Melatonina",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Melatonina'"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 1600 mg = 83,5 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Ácido clorogênico",
+   "check": "b",
+   "texto": "conforme: 256,2 mg = 64 % do teto 400 mg; mínimo NE"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Antocianinas da laranja moro",
+   "check": "b",
+   "texto": "conforme: 1,47 mg = 29,4 % do teto 5 mg; mínimo NE"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 2,2 mg = 7,4 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 2119,1 + excipientes 7880,9 = 10000 mg (porção 10000 mg; cabe=True)"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "29 kcal — uma combinação que reproduz o declarado: fixos 28,87 [maltodextrina 6,714 g × 4.0 = 26,86; ácido cítrico 0,67 g × 3.0 = 2,01] = 28,87 kcal"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Vitamina C — Ácido ascórbico/Ácido L-ascórbico (CAS 50-81-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Ácido clorogênico — Extrato de café verde (IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de café verde'"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Antocianinas da laranja moro — Extrato de laranja moro (Citrus sinensis (L.) Osbeck) (IN 336/2024)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de laranja moro (Citrus sinensis (L.) Osbeck)'"
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "insumo": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "a",
+   "texto": "vitamina A conferida: 3,17 mg × 568116 UI/g = 1800,9 UI → 540,3 µg RAE (critério × 0,3 (memorial); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Glutamina",
+   "check": "b",
+   "texto": "conforme: 135 mg = 2,7 % do teto 5000 mg; mínimo NE"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 90 mg = 25,7 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Quercetina",
+   "check": "b",
+   "texto": "conforme: 69,16 mg = 24,7 % do teto 280 mg; mínimo NE"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 13,5 mg = 45,6 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 540,3 µg = 20,6 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,26 mg = 1,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 577,92 + excipientes 422,08 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "2,2 kcal — uma combinação que reproduz o declarado: fixos 1,67 [maltodextrina 0,417 g × 4.0 = 1,67] + a 4 kcal/g: glutamina = 2,21 kcal"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Glutamina — L-Glutamina (CAS 56-85-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Glutamina'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Magnésio — Bisglicinato de magnésio (CAS 14783-68-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de magnésio'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Quercetina — Quercetina (IN 418/2025; linha do Anexo I sem CAS)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Quercetina'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "saude-intestinal",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "a",
+   "texto": "vitamina A conferida: 8,8 mg × 568116 UI/g = 4999,4 UI → 1499,8 µg RAE (critério × 0,3 (memorial); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Antocianinas da laranja moro",
+   "check": "b",
+   "texto": "conforme: 2,57 mg = 51,4 % do teto 5 mg; mínimo NE"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Ácido clorogênico",
+   "check": "b",
+   "texto": "conforme: 70,45 mg = 17,6 % do teto 400 mg; mínimo NE"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 1499,8 µg = 57,2 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Cromo",
+   "check": "b",
+   "texto": "conforme: 199,9 µg = 80 % do teto 250 µg; mínimo 5,25"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 295,42 + excipientes 704,58 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "2,8 kcal — uma combinação que reproduz o declarado: fixos 2,8 [maltodextrina 0,7 g × 4.0 = 2,8] = 2,8 kcal"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 12 = kcal × 4,184 (11,71)"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Antocianinas da laranja moro — Extrato de laranja moro (Citrus sinensis (L.) Osbeck) (IN 336/2024)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de laranja moro (Citrus sinensis (L.) Osbeck)'"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Ácido clorogênico — Extrato de café verde (IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de café verde'"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "moro-slim",
+   "insumo": "Cromo — Picolinato de cromo (CAS 14639-25-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Picolinato de cromo'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Taurina",
+   "check": "b",
+   "texto": "conforme: 198,92 mg = 9,9 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "L-Carnitina",
+   "check": "b",
+   "texto": "conforme: 86,36 mg = 4,3 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Arginina",
+   "check": "b",
+   "texto": "conforme: 61,64 mg = 1,6 % do teto 3810 mg; mínimo NE"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 3,98 mg = 13,5 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 8,22 mg = 8,3 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 745 + excipientes 255 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "1 kcal — uma combinação que reproduz o declarado: fixos 1 [maltodextrina 0,25 g × 4.0 = 1] | NÃO contados: taurina, carnitina, aspartato = 1 kcal"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 4,3 = kcal × 4,184 (4,18)"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Taurina — Taurina (CAS 107-35-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Taurina'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Cafeína — Guaraná em pó (Paullinia cupana)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Guaraná em pó (Paullinia cupana)'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Cafeína — Cafeína/1,3,7-Trimethylxanthine (CAS 58-08-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cafeína'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "L-Carnitina — Levocarnitina/L-carnitina (CAS 541-15-1)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Levocarnitina'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de L-arginina'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "pro-energy",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "a",
+   "texto": "vitamina A conferida: 8,8 mg × 568116 UI/g = 4999,4 UI → 1499,8 µg RAE (critério × 0,3 (memorial); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Ácido clorogênico",
+   "check": "b",
+   "texto": "conforme: 64,05 mg = 16 % do teto 400 mg; mínimo NE"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Antocianinas da laranja moro",
+   "check": "b",
+   "texto": "conforme: 0,0735 mg = 1,5 % do teto 5 mg; mínimo NE"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Cromo",
+   "check": "b",
+   "texto": "conforme: 199,9 µg = 80 % do teto 250 µg; mínimo 5,25"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 1499,8 µg = 57,2 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 115,42 + excipientes 884,58 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "3,5 kcal — uma combinação que reproduz o declarado: fixos 3,52 [maltodextrina 0,88 g × 4.0 = 3,52] = 3,52 kcal"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 15 = kcal × 4,184 (14,72)"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Ácido clorogênico — Extrato de café verde (IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de café verde'"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Antocianinas da laranja moro — Extrato de laranja moro (Citrus sinensis (L.) Osbeck) (IN 336/2024)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de laranja moro (Citrus sinensis (L.) Osbeck)'"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Cromo — Picolinato de cromo (CAS 14639-25-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Picolinato de cromo'"
+  },
+  {
+   "slug": "emagrecedor-em-capsula",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina D — Vitamina D_3 (Colecalciferol) (CAS 67-97-0)",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 15,652 mg × 115 UI/mg ÷ 40 = 45 µg"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "exatamente 90,0 % do teto — no limite da regra de folga (memorial registra alternativa com mais folga)"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 45 µg = 90 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8 µg = 80,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Cromo",
+   "check": "b",
+   "texto": "conforme: 30,85 µg = 12,3 % do teto 250 µg; mínimo 5,25"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Ácido clorogênico",
+   "check": "b",
+   "texto": "conforme: 32,02 mg = 8 % do teto 400 mg; mínimo NE"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Colina",
+   "check": "b",
+   "texto": "conforme: 90 mg = 2,8 % do teto 3235,15 mg; mínimo 82,5"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 287,531 + excipientes 712,469 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0,67 kcal — uma combinação que reproduz o declarado: fixos 0,14 [sorbitol (líquido 70 %) 0,047 g × 2.6 = 0,12; ácido cítrico 0,007 g × 3.0 = 0,02; fibra solúvel 0,001 g × 2.0 = 0] + a 4 kcal/g: glicerina | NÃO contados: colina = 0,68 kcal"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 2,8 = kcal × 4,184 (2,83)"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina D — Vitamina D_3 (Colecalciferol) (CAS 67-97-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Cromo — Picolinato de cromo (CAS 14639-25-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Picolinato de cromo'"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Ácido clorogênico — Extrato de café verde (IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Extrato de café verde'"
+  },
+  {
+   "slug": "slim-up-emagrecimento-em-gota",
+   "insumo": "Colina — Bitartarato de colina/Hidrogênio tartarato de colina (CAS 87-67-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bitartarato de colina'"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Proteínas",
+   "check": "b",
+   "texto": "conforme: 8,5995 g ≥ mínimo 8,4 g (máximo NE)"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 200 mg = 10,4 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 2,2 mg = 7,4 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 9662,07 + excipientes 337,93 = 10000 mg (porção 10000 mg; cabe=True)"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "35 kcal — uma combinação que reproduz o declarado: fixos 35,04 [colágeno hidrolisado (× % de proteína) 9,45 g × 91 % × 4 = 34,4; ácido cítrico 0,15 g × 3.0 = 0,45; maltodextrina 0,048 g × 4.0 = 0,19] = 35,04 kcal"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Proteínas — Gelatina hidrolisada/Colágeno hidrolisado",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Gelatina hidrolisada'"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Vitamina C — Ácido ascórbico/Ácido L-ascórbico (CAS 50-81-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "shot-colageno-300-gramas",
+   "insumo": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Lipídeos — Óleo de peixe (grupo 'Lipídeos' do Anexo I, redação IN 431/2026; linha 'Óleo de peixe', CAS '-')",
+   "check": "a",
+   "texto": "teor_pct nulo: ativo declarado 1000 mg para massa 1000 mg — não verificável (teor PENDENTE/nominal no memorial)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "EPA e DHA — (componentes do óleo de peixe; linha 'EPA e DHA' dos Anexos III e IV)",
+   "check": "a",
+   "texto": "teor_pct nulo: ativo declarado 185,34 mg para massa 185,34 mg — não verificável (teor PENDENTE/nominal no memorial)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "EPA e DHA — DHA (componente do óleo de peixe)",
+   "check": "a",
+   "texto": "teor_pct nulo: ativo declarado 123,56 mg para massa 123,56 mg — não verificável (teor PENDENTE/nominal no memorial)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "(componente) outros ácidos graxos ômega-3",
+   "check": "a",
+   "texto": "teor_pct nulo: ativo declarado 7,6 mg para massa 7,6 mg — não verificável (teor PENDENTE/nominal no memorial)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "(componente) outros ácidos graxos ômega-3",
+   "check": "g",
+   "texto": "constituinte não mapeado para linha dos Anexos III/IV (linha informativa)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Lipídeos totais",
+   "check": "b",
+   "texto": "conforme: 1 g ≥ mínimo 5 g (máximo NE)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "EPA e DHA (soma de 2 linhas: 185,34 mg + 123,56 mg)",
+   "check": "b",
+   "texto": "conforme: 308,9 mg = 15,4 % do teto 2000 mg; mínimo 37,5"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 1000 + excipientes 0 = 1000 mg (porção 1000 mg; cabe=True)"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "9 kcal — uma combinação que reproduz o declarado: fixos 9 [óleo 1 g × 9.0 = 9] = 9 kcal"
+  },
+  {
+   "slug": "omega-pro-tg",
+   "insumo": "Lipídeos — Óleo de peixe (grupo 'Lipídeos' do Anexo I, redação IN 431/2026; linha 'Óleo de peixe', CAS '-')",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Óleo de peixe'"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "a",
+   "texto": "vitamina A conferida: 5,99 mg × 568116 UI/g = 3403 UI → 1021,9 µg RAE (critério ÷ 3,33 (nota ii do Anexo III); 1/3,33 e 0,3 diferem 0,1 %)"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina C",
+   "check": "b",
+   "texto": "conforme: 45,004 mg = 2,3 % do teto 1916,02 mg; mínimo 13,5"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina E",
+   "check": "b",
+   "texto": "conforme: 5,673 mg = 0,6 % do teto 1000 mg; mínimo 2,25"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Zinco",
+   "check": "b",
+   "texto": "conforme: 2,387 mg = 8,1 % do teto 29,59 mg; mínimo 1,65"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina A",
+   "check": "b",
+   "texto": "conforme: 1021,9 µg = 39 % do teto 2623,61 µg; mínimo 135"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Biotina",
+   "check": "b",
+   "texto": "conforme: 40 µg = 88,9 % do teto 45 µg; mínimo 4,5"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 79,96 + excipientes 5920,04 = 6000 mg (porção 6000 mg; cabe=True)"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "massas PENDENTES não somadas: Sorbitol líquido 70 %; Maltitol; Gelatina; Água purificada; Glicerina vegetal; Maltodextrina; Pectina cítrica; Goma acácia; Ácido cítrico; Citrato de sódio; Aroma de frutas vermelhas; Corante vermelho ponceau 4R; Sorbato de potássio; Sucralose"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "PENDENTE no JSON (memorial não traz massa dos excipientes; rótulo/memorial imprimem 12 kcal = 50 kJ (não recalculável))"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina C — Ácido ascórbico/Ácido L-ascórbico (CAS 50-81-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Ácido ascórbico'"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina E — Acetato de DL-alfa-tocoferol/Acetato de racealfatocoferol/Acetato de DL-alfatocoferila (CAS 7695-91-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de DL-alfa-tocoferol'"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Zinco — Bisglicinato de zinco (CAS 14281-83-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de zinco'"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Vitamina A — Acetato de retinol/Acetato de retinila (CAS 127-47-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Acetato de retinol'"
+  },
+  {
+   "slug": "bella-gummy-biotina-em-gummy",
+   "insumo": "Biotina — D-biotina (CAS 58-85-5)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'D-biotina'"
+  },
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 4020 mg = 80,4 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 4000 + excipientes 0 = 4000 mg (porção 4000 mg; cabe=True)"
+  },
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0 kcal — uma combinação que reproduz o declarado: fixos 0 [—] | NÃO contados: creatina = 0 kcal"
+  },
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 0 = kcal × 4,184 (0)"
+  },
+  {
+   "slug": "creatina-monohidratada-150g-soluvel",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "creatina-monohidratada-300g-soluvel",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 4020 mg = 80,4 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "creatina-monohidratada-300g-soluvel",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 4000 + excipientes 0 = 4000 mg (porção 4000 mg; cabe=True)"
+  },
+  {
+   "slug": "creatina-monohidratada-300g-soluvel",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "0 kcal — uma combinação que reproduz o declarado: fixos 0 [—] | NÃO contados: creatina = 0 kcal"
+  },
+  {
+   "slug": "creatina-monohidratada-300g-soluvel",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 0 = kcal × 4,184 (0)"
+  },
+  {
+   "slug": "creatina-monohidratada-300g-soluvel",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "creatina-gummy-sabor-frutas-vermelhas",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 3517,5 mg = 70,3 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "creatina-gummy-sabor-frutas-vermelhas",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 3500 + excipientes 4662,3 = 8162,3 mg (porção 6000 mg; cabe=False)"
+  },
+  {
+   "slug": "creatina-gummy-sabor-frutas-vermelhas",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "9 kcal — uma combinação que reproduz o declarado: fixos 9,2 [sorbitol (líquido 70 %) 1,225 g × 2.6 = 3,18; maltitol 1,256 g × 2.1 = 2,64; gelatina (N 15,0 % × 6,25) 0,656 g × 4.0 = 2,62; ácido cítrico 0,168 g × 3.0 = 0,5; pectina (ácido galacturônico 90 %) 0,126 g × 2.0 = 0,25] | NÃO contados: creatina, glicerina = 9,2 kcal"
+  },
+  {
+   "slug": "creatina-gummy-sabor-frutas-vermelhas",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 39 = kcal × 4,184 (38,51)"
+  },
+  {
+   "slug": "creatina-gummy-sabor-frutas-vermelhas",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 3517,5 mg = 70,3 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 3500 + excipientes 4609,97 = 8109,97 mg (porção 6000 mg; cabe=False)"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "massas PENDENTES não somadas: Aroma de tutti-frutti; Corante [rosa — nome técnico e INS PENDENTES]"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "9 kcal — uma combinação que reproduz o declarado: fixos 9,2 [sorbitol (líquido 70 %) 1,225 g × 2.6 = 3,18; maltitol 1,256 g × 2.1 = 2,64; gelatina (N 15,0 % × 6,25) 0,656 g × 4.0 = 2,62; ácido cítrico 0,168 g × 3.0 = 0,5; pectina (ácido galacturônico 90 %) 0,126 g × 2.0 = 0,25] | NÃO contados: creatina, glicerina = 9,2 kcal"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 39 = kcal × 4,184 (38,51)"
+  },
+  {
+   "slug": "creatina-em-gummy-sabor-tutti-frutti",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "Triptofano",
+   "check": "b",
+   "texto": "conforme: 750 mg = 87,2 % do teto 860 mg; mínimo 42"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "Melatonina",
+   "check": "b",
+   "texto": "conforme: 0,18 mg = 85,7 % do teto 0,21 mg; mínimo NE"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 750,931 + excipientes 5249,07 = 6000,001 mg (porção 6000 mg; cabe=True)"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "massas PENDENTES não somadas: Sorbitol líquido 70 %; Maltitol; Gelatina; Água purificada; Glicerina vegetal; Maltodextrina; Pectina cítrica; Goma acácia; Ácido cítrico; Aroma de uva; Citrato de sódio; Sorbato de potássio; Sucralose; Corante vermelho 40; Corante azul brilhante FCF"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "PENDENTE no JSON (memorial sem massa dos excipientes; rótulo/memorial: 11 kcal = 46 kJ (não recalculável))"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "Triptofano — L-Triptofano (CAS 73-22-3)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Triptofano'"
+  },
+  {
+   "slug": "melatonina-em-gummy-sabor-uva",
+   "insumo": "Melatonina — Melatonina (CAS 73-31-4, IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Melatonina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 3517,5 mg = 70,3 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Beta-alanina",
+   "check": "b",
+   "texto": "conforme: 0,2973 g = 14,9 % do teto 2 g; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Arginina",
+   "check": "b",
+   "texto": "conforme: 1019,2 mg = 26,8 % do teto 3810 mg; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Taurina",
+   "check": "b",
+   "texto": "conforme: 895,1 mg = 44,8 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Tirosina",
+   "check": "b",
+   "texto": "conforme: 399,6 mg = 14,5 % do teto 2750 mg; mínimo 262,5"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Cafeína",
+   "check": "b",
+   "texto": "conforme: 174,8 mg = 87,4 % do teto 200 mg; mínimo 75"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 1,644 mg = 1,7 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8,5 µg = 85,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 6517,009 + excipientes 3482,991 = 10000 mg (porção 10000 mg; cabe=True)"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "17 kcal — uma combinação que reproduz o declarado: fixos 10,6 [ácido cítrico 1,1 g × 3.0 = 3,3; maltodextrina 1,825 g × 4.0 = 7,3] + a 4 kcal/g: beta-alanina, arginina, tirosina | NÃO contados: creatina, taurina = 17,46 kcal"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 73 = kcal × 4,184 (73,07)"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Beta-alanina (CAS 107-95-9, IN 102/2021)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Beta-alanina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de L-arginina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Taurina (CAS 107-35-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Taurina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Tirosina — L-Tirosina (CAS 60-18-4)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Tirosina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Cafeína — Cafeína/1,3,7-Trimethylxanthine (CAS 58-08-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cafeína'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "pre-treino-300-g",
+   "insumo": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina D — Vitamina D3 (Colecalciferol) (CAS 67-97-0)",
+   "check": "a",
+   "texto": "vitamina D3 conferida: 13,9 mg × 115 UI/mg ÷ 40 = 39,96 µg"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Cafeína — Guaraná em pó (Paullinia cupana)",
+   "check": "g",
+   "texto": "mínimo Cafeína não informado nesta linha (anexo: 75 mg); conferido pela soma do constituinte"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Cafeína — Guaraná em pó (Paullinia cupana)",
+   "check": "g",
+   "texto": "máximo Cafeína não informado nesta linha (anexo: 200 mg); conferido pela soma do constituinte"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Creatina",
+   "check": "b",
+   "texto": "conforme: 4020 mg = 80,4 % do teto 5000 mg; mínimo 3000"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Beta-alanina",
+   "check": "b",
+   "texto": "conforme: 0,2973 g = 14,9 % do teto 2 g; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Arginina",
+   "check": "b",
+   "texto": "conforme: 1019,2 mg = 26,8 % do teto 3810 mg; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Taurina",
+   "check": "b",
+   "texto": "conforme: 994,6 mg = 49,7 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Tirosina",
+   "check": "b",
+   "texto": "conforme: 999 mg = 36,3 % do teto 2750 mg; mínimo 262,5"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "L-Carnitina",
+   "check": "b",
+   "texto": "conforme: 994,1 mg = 49,7 % do teto 2000 mg; mínimo NE"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Magnésio",
+   "check": "b",
+   "texto": "conforme: 300 mg = 85,7 % do teto 350 mg; mínimo 63"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Cafeína (soma de 2 linhas: 149,8 mg + 12,78 mg)",
+   "check": "b",
+   "texto": "conforme: 162,58 mg = 81,3 % do teto 200 mg; mínimo 75"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina B6",
+   "check": "b",
+   "texto": "conforme: 73,97 mg = 75 % do teto 98,6 mg; mínimo 0,26"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Niacina",
+   "check": "b",
+   "texto": "conforme: 29,85 mg = 85,3 % do teto 35 mg; mínimo 2,4"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina D",
+   "check": "b",
+   "texto": "conforme: 39,96 µg = 79,9 % do teto 50 µg; mínimo 3"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina B12",
+   "check": "b",
+   "texto": "conforme: 8,5 µg = 85,5 % do teto 9,94 µg; mínimo 0,36"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "soma confere: insumos 10073,909 + excipientes 3926,091 = 14000 mg (porção 14000 mg; cabe=True)"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "(porção)",
+   "check": "c",
+   "texto": "massas PENDENTES não somadas: Corante tartrazina"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "22 kcal — uma combinação que reproduz o declarado: fixos 12,37 [ácido cítrico 1,1 g × 3.0 = 3,3; maltodextrina 2,268 g × 4.0 = 9,07] + a 4 kcal/g: beta-alanina, arginina, tirosina | NÃO contados: creatina, taurina, carnitina = 21,63 kcal"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Valor energético",
+   "check": "e",
+   "texto": "kJ 91 = kcal × 4,184 (90,52)"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Creatina — Creatina monohidratada (CAS 6020-87-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Creatina monohidratada'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Beta-alanina (CAS 107-95-9)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Beta-alanina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Arginina — Cloridrato de L-arginina (CAS 1119-34-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de L-arginina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Taurina (CAS 107-35-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Taurina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Tirosina — L-Tirosina (CAS 60-18-4)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'L-Tirosina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Carnitina — Levocarnitina/L-carnitina (CAS 541-15-1)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Levocarnitina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Magnésio — Bisglicinato de magnésio (CAS 14783-68-7)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Bisglicinato de magnésio'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Cafeína — Cafeína/1,3,7-Trimethylxanthine (CAS 58-08-2)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cafeína'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Cafeína — Guaraná em pó (Paullinia cupana)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Guaraná em pó (Paullinia cupana)'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina B6 — Cloridrato de piridoxina (CAS 58-56-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Cloridrato de piridoxina'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Niacina — Nicotinamida/Niacinamida (CAS 98-92-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Nicotinamida'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina D — Vitamina D3 (Colecalciferol) (CAS 67-97-0)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Vitamina D3 (Colecalciferol)'"
+  },
+  {
+   "slug": "pre-treino-creatina-sabor-limao-420g",
+   "insumo": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+   "check": "f",
+   "texto": "forma encontrada literalmente no Anexo I: 'Metilcobalamina'"
+  }
+ ]
+}

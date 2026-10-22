@@ -24,7 +24,11 @@ try {
 }
 
 const ti = event?.tool_input ?? {};
-const text = [ti.content, ti.new_string, ti.command]
+// MultiEdit não traz o texto em new_string: cada alteração vem em
+// edits[].new_string. Sem isto, o único scanner de segredo do harness ficava
+// cego justamente para a ferramenta que grava vários trechos de uma vez.
+const text = [ti.content, ti.new_string, ti.command,
+  ...(Array.isArray(ti.edits) ? ti.edits.map((e) => e?.new_string) : [])]
   .filter((v) => typeof v === "string")
   .join("\n");
 

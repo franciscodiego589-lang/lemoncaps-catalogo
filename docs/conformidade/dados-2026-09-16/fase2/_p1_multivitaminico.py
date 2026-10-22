@@ -1,0 +1,221 @@
+# -*- coding: utf-8 -*-
+from _gerador_base import *
+from _laudos_ref import L
+
+
+# --- massas calculadas -------------------------------------------------------------
+mgo = 260 / FRAC["MgO"]                          # 431,18 mg
+vitc = 100 / 0.995                                # 100,50
+zn = 15 / 0.1989                                  # 75,41
+b3 = 16 / 0.9909                                  # 16,15
+e_ativo = 10.0; e_po = e_ativo / (0.507 * 0.67)   # 29,44 mg de pó para 10 mg de alfa-TE
+b5_ativo = 5.0; b5 = b5_ativo / (0.982 * FRAC["pantotenico/Ca"])   # 5,53
+borax = 3 / FRAC["Borax"]                         # 26,46
+b6_ativo = 1.3; b6 = b6_ativo / (0.999 * FRAC["piridoxina/HCl"])   # 1,58
+b1 = 1.2 / (0.998 * FRAC["tiamina/HCl"])          # 1,528
+b2 = 1.3 / 1.001                                  # 1,299
+vita = 1300 * 3.33 / 568.116                      # 7,62 mg (UI/mg = 568,116)
+b9 = 0.600 / 0.9067                               # 0,662 mg  -> 600 µg = 1000 µg DFE
+cu = 0.9 / FRAC["Cu-bisglicinato"]                # 2,998 mg
+se = 0.100 / FRAC["Na2SeO3"]                      # 0,219 mg
+k2 = 0.120 / 0.0148                               # 8,11 mg (provisório)
+d3 = 40 * 40 / 115000 * 1000                      # 13,91 mg
+cr = 0.035 / 0.1234                               # 0,284
+b12 = 0.008 / 0.8927                              # 0,00896
+
+INSUMOS = [
+    I("Magnésio", "Óxido de magnésio (MgO, CAS 1309-48-4) — insumo a adquirir", mgo, 60.30,
+      "60,30% Mg — assumido (estequiométrico, MgO puro: 24,305/40,304); sem laudo", "assumido",
+      260, "mg", "I·Óxido de magnésio; III/IV·Magnésio", L["NENHUM"], "forma trocada",
+      "bisglicinato de magnésio a 30,22% exige 860,36 mg para 260 mg de Mg e a fórmula soma 1.365,77 mg (memorial rev02, Tabela 7) — não cabe em 1 g; o óxido entrega os mesmos 260 mg em " + fmt(mgo,2) + " mg (o documento POPS da própria fábrica já adota 433,33 mg de óxido a 60%). Laudo do lote de bisglicinato em uso (90844) está vencido desde 21/06/2025.",
+      "Magnésio (óxido de magnésio)", f"260 mg / 0,6030 = {fmt(mgo,2)} mg de óxido de magnésio (assumido 60,30%)"),
+    I("Vitamina C", "Ácido ascórbico (CAS 50-81-7)", vitc, 99.5, "99,5% — laudo lote 950467", "laudo",
+      100, "mg", "I·Ácido ascórbico/Ácido L-ascórbico; III/IV·Vitamina C", L["VITC"], "mantido",
+      "dose do rótulo (5,2% do teto), forma autorizada, laudo válido.", "Vitamina C (ácido ascórbico)",
+      f"100 mg / 0,995 = {fmt(vitc,2)} mg"),
+    I("Zinco", "Bisglicinato de zinco (CAS 14281-83-5)", zn, 19.89,
+      "19,89% Zn tal qual — laudo lote 055-ZN/25 (20,00% base seca × (1 − 0,54% de perda por secagem))", "laudo",
+      15, "mg", "I·Bisglicinato de zinco; III/IV·Zinco", L["ZN"], "mantido",
+      "dose do rótulo (50,7% do teto), forma autorizada, laudo válido.", "Zinco (bisglicinato de zinco)",
+      f"15 mg / 0,1989 = {fmt(zn,2)} mg"),
+    I("Niacina", "Nicotinamida/Niacinamida (CAS 98-92-0)", b3, 99.09,
+      "99,09% tal qual — laudo lote 872226 (99,5% b.s.; umidade 0,41% conforme memorial)", "laudo",
+      16, "mg NE", "I·Nicotinamida/Niacinamida; III/IV·Niacina (nota ix: 1 mg NE = 1 mg de niacina)", L["B3"], "mantido",
+      "dose do rótulo (45,7% do teto).", "Vitamina B3 (nicotinamida)", f"16 mg / 0,9909 = {fmt(b3,2)} mg"),
+    I("Vitamina E", "Acetato de DL-alfa-tocoferol, pó 50% (CAS 7695-91-2)", e_po, 50.7,
+      "50,7% de acetato — laudo lote 91320; × 0,67 (nota v do Anexo III / nota iii do Anexo IV: 1 UI = 1 mg de acetato de rac-α-tocoferil, atividade 0,67 × RRR; coincide com 1 mg de α-tocoferol = 1,49 UI do Anexo XXIII da IN 75)", "laudo",
+      e_ativo, "mg", "I·Acetato de DL-alfa-tocoferol; III/IV·Vitamina E (como α-tocoferol)", L["E"], "mantido",
+      "dose do rótulo (10 mg; 1,0% do teto); massa recalculada para entregar exatamente 10 mg (o memorial pesa 30,00 mg → 10,19 mg).", "Vitamina E (acetato de DL-alfa-tocoferol)",
+      f"10 mg / (0,507 × 0,67) = {fmt(e_po,2)} mg de pó (o memorial rev02 pesa 30,00 mg, que entregam 10,19 mg)"),
+    I("Ácido pantotênico", "D-pantotenato de cálcio (CAS 137-08-6)", b5, 98.2,
+      "98,2% — laudo lote 91186; × 92,01% (fração de ácido pantotênico no sal de cálcio, estequiométrica)", "laudo",
+      b5_ativo, "mg", "I·D-pantotenato de cálcio; III/IV·Ácido pantotênico", L["B5"], "mantido",
+      "5,0 mg = 88,7% do teto (5,64) — dentro da folga de 90%; massa do memorial rev02.", "Vitamina B5 (D-pantotenato de cálcio)",
+      f"5,0 mg / (0,982 × 0,9201) = {fmt(b5,3)} mg de D-pantotenato de cálcio"),
+    I("Boro", "Tetraborato de sódio decahidratado (CAS 1303-96-4) — insumo a adquirir", borax, 11.34,
+      "11,34% B — assumido (estequiométrico, Na2B4O7·10H2O puro); sem laudo", "assumido",
+      3, "mg", "I·Tetraborato de sódio decahidratado (IN 76/2020); III·Boro NE; IV·Boro 8,866 mg", L["NENHUM"], "forma trocada",
+      "'quelato de boro (glicinato de boro)' não consta do Anexo I (só frutoborato de cálcio e tetraborato de sódio decahidratado); o laudo do lote 044951 (lido por imagem em 16/09) confirma glicinato de boro sintético. Nenhum laudo de frutoborato ou tetraborato existe na máquina.",
+      "Boro (tetraborato de sódio decahidratado)", f"3 mg / 0,1134 = {fmt(borax,2)} mg (assumido)",
+      na_mg=borax * FRAC["Na_em_Borax"]),
+    I("Vitamina B6", "Cloridrato de piridoxina (CAS 58-56-0)", b6, 99.9,
+      "99,9% — laudo lote 91188; × 82,27% (piridoxina/cloridrato, estequiométrico)", "laudo",
+      b6_ativo, "mg", "I·Cloridrato de piridoxina; III/IV·Vitamina B6", L["B6"], "mantido",
+      "dose do rótulo (1,3% do teto); massa do memorial rev02.", "Vitamina B6 (cloridrato de piridoxina)",
+      f"1,3 mg / (0,999 × 0,8227) = {fmt(b6,3)} mg de cloridrato de piridoxina"),
+    I("Tiamina", "Cloridrato de tiamina (CAS 67-03-8)", b1, 99.8,
+      "99,8% — laudo lote 91454; × 78,68% (tiamina/cloridrato, estequiométrico)", "laudo",
+      1.2, "mg", "I·Cloridrato de tiamina; III/IV·Tiamina", L["B1"], "dose ajustada",
+      "o rótulo declara 1,2 mg e o memorial rev02 pesa 2,400 mg para '2,0 mg' com teor 'a confirmar' — com o teor real (99,8%) essa massa entregaria 2,395 mg, acima do teto de 2,02 mg. Fixa-se 1,2 mg (59,4% do teto) e recalcula-se a massa com o fator sal→base.",
+      "Vitamina B1 (cloridrato de tiamina)", f"1,2 mg / (0,998 × 0,7868) = {fmt(b1,3)} mg de cloridrato de tiamina"),
+    I("Riboflavina", "Riboflavina (CAS 83-88-5)", b2, 100.1, "100,1% — laudo lote 91068", "laudo",
+      1.3, "mg", "I·Riboflavina; III/IV·Riboflavina", L["B2"], "mantido",
+      "dose do rótulo (47,4% do teto).", "Vitamina B2 (riboflavina)", f"1,3 mg / 1,001 = {fmt(b2,3)} mg"),
+    I("Vitamina A", "Acetato de retinol, pó (CAS 127-47-9)", vita, None,
+      "568.116 UI/g — potência lida no memorial rev02 (laudo lote 215230, digitalização não relida); 1 µg RAE = 3,33 UI (nota ii do Anexo III)", "memorial",
+      1300, "µg RAE", "I·Acetato de retinol/Acetato de retinila; III/IV·Vitamina A", L["A"], "mantido",
+      "dose do rótulo (49,6% do teto).", "Vitamina A (acetato de retinol)",
+      f"1.300 µg RAE × 3,33 = 4.329 UI; 4.329 / 568,116 UI/mg = {fmt(vita,2)} mg"),
+    I("Ácido fólico", "Ácido fólico/Ácido N-pteroil-L-glutâmico (CAS 59-30-3)", b9, 90.67,
+      "90,67% tal qual — laudo lote AUTO039613 (98,95% b.a.; água 8,36% conforme memorial)", "laudo",
+      1000, "µg DFE", "I·Ácido fólico; III/IV·Ácido fólico (nota iv/vi: 1 DFE = 0,6 µg de ácido fólico de suplemento)", L["B9"], "dose ajustada",
+      "800 µg de ácido fólico = 1.333,3 µg DFE, acima do teto de 1.281,5 µg DFE (4,0% acima). Nova dose: 600 µg de ácido fólico = 1.000 µg DFE (78,0% do teto; 250% do VD de 400 µg DFE).",
+      "Ácido fólico", f"600 µg / 0,9067 = {fmt(b9*1000,1)} µg = {fmt(b9,3)} mg de insumo; 600 / 0,6 = 1.000 µg DFE", cadastro_qtd=600, cadastro_unid="mcg"),
+    I("Cobre", "Bisglicinato de cobre (CAS 13479-54-4) — insumo a adquirir", cu, 30.02,
+      "30,02% Cu — assumido (estequiométrico); sem laudo", "assumido",
+      900, "µg", "I·Bisglicinato de cobre; III/IV·Cobre", L["NENHUM"], "forma trocada",
+      "o insumo pesado hoje é 'Cobre Quelato 24% – Cobre Aminoácido quelato' (NaturalPRO, lote NPT.0325/404, laudo lido por imagem em 16/09: teor de cobre 24%, sem CAS, sem nome da forma) — 'aminoácido quelato' não é nenhuma das 5 formas do Anexo I. O rótulo já imprime 'bisglicinato de cobre'; a fórmula passa a usar o insumo que o rótulo diz.",
+      "Cobre (bisglicinato de cobre)", f"0,9 mg / 0,3002 = {fmt(cu,3)} mg (assumido)"),
+    I("Selênio", "Selenito de sódio (CAS 10102-18-8) — insumo a adquirir", se, 45.66,
+      "45,66% Se — assumido (estequiométrico); sem laudo", "assumido",
+      100, "µg", "I·Selenito de sódio; III/IV·Selênio", L["NENHUM"], "forma trocada",
+      "o insumo pesado hoje é glicinato de selênio sintético (lote 044152, laudo lido por imagem em 16/09), forma não autorizada; o rótulo já imprime 'selenito de sódio'. O arquivo SELENIOMETIONINA.pdf (EXSELEN PLUS) não declara DCB/DCI/CAS e venceu em 30/04/2023 — não serve como L-selenometionina.",
+      "Selênio (selenito de sódio)", f"0,1 mg / 0,4566 = {fmt(se,3)} mg (assumido) — massa de microdose: exige pré-mistura/trituração definida pela fábrica",
+      na_mg=se * (2 * M["Na"] / mw(Na=2, Se=1, O=3))),
+    I("Vitamina K", "Menaquinona-7 (CAS 2124-57-4), pré-mistura em carreador", k2, 1.48,
+      "1,48% de MK-7 — último teor conhecido (laudo lote PURI011426, VENCIDO em 24/03/2022) — PROVISÓRIO", "laudo vencido",
+      120, "µg", "I·Menaquinona-7; III/IV·Vitamina K", L["K2"], "dose ajustada",
+      "149 µg = 99,96% do teto (149,06) — sem folga; nova dose 120 µg (80,5%). O memorial rev02 pesa 0,150 mg tratando o insumo como ~100% puro, sem lote nem laudo; o único laudo de MK-7 da máquina mostra um pré-mix a 1,48% (subdose de ~67× se pesado como puro). Massa provisória até laudo do lote em uso.",
+      "Vitamina K2 (menaquinona-7)", f"120 µg / 1,48% = {fmt(k2,2)} mg de pré-mistura (PROVISÓRIO)"),
+    I("Vitamina D", "Vitamina D3 (colecalciferol), pó 100.000 UI/g (CAS 67-97-0)", d3, None,
+      "115.000 UI/g — laudo lote 91408 (potência ensaiada; nominal 100.000); 1 µg = 40 UI (nota iii do Anexo III)", "laudo",
+      40, "µg", "I·Vitamina D3 (Colecalciferol); III/IV·Vitamina D", L["D3"], "dose ajustada",
+      "50 µg era o teto exato; nova dose 40 µg (80,0% do teto; 267% do VD de 15 µg).",
+      "Vitamina D3 (colecalciferol)", f"40 µg × 40 = 1.600 UI; 1.600 / 115 UI/mg = {fmt(d3,2)} mg"),
+    I("Cromo", "Picolinato de cromo (CAS 14639-25-9)", cr, 12.34, "12,34% Cr — laudo lote 91190", "laudo",
+      35, "µg", "I·Picolinato de cromo; III/IV·Cromo", L["CR"], "mantido",
+      "dose do rótulo (14,0% do teto).", "Cromo (picolinato de cromo)", f"35 µg / 0,1234 = {fmt(cr*1000,1)} µg = {fmt(cr,3)} mg"),
+    I("Vitamina B12", "Metilcobalamina (CAS 13422-55-4)", b12, 89.27,
+      "89,27% tal qual — laudo lote 219376 (98,17% b.a., HPLC; umidade 9,07% conforme Tabela 18 do memorial rev02)", "laudo",
+      8, "µg", "I·Metilcobalamina; III/IV·Vitamina B12", L["B12"], "dose ajustada",
+      "9,94 µg era o teto exato; nova dose 8 µg (80,5%; 333% do VD). O rótulo imprime 'cianocobalamina', mas a fábrica pesa metilcobalamina (lote 219376) — a fórmula fica com o insumo real e o rótulo deve ser corrigido.",
+      "Vitamina B12 (metilcobalamina)", f"8 µg / 0,8927 = {fmt(b12*1000,2)} µg = {fmt(b12,5)} mg — microdose: exige pré-mistura definida pela fábrica"),
+]
+
+
+ANTES = [
+    ("Magnésio (de bisglicinato de magnésio)", "260 mg (62% VD)", "CONFORME (63–350). Memorial: 860,36 mg de sal a 30,22% — laudo lote 90844 VENCIDO (21/06/2025); é o insumo que faz a fórmula somar 1.365,77 mg."),
+    ("L-teanina", "150 mg", "NÃO VERIFICADO (origem). Memorial: lote AUTO039250, laudo lido em 16/09: 'SÍNTESE QUÍMICA' — forma não autorizada."),
+    ("Vitamina C (ácido ascórbico)", "100 mg (100% VD)", "CONFORME. Memorial: 100,50 mg a 99,5% (lote 950467)."),
+    ("Zinco (de bisglicinato de zinco)", "15 mg (136% VD)", "CONFORME. Memorial: 75,41 mg a 19,89% (lote 055-ZN/25)."),
+    ("Vitamina B3 (nicotinamida)", "16 mg (100% VD)", "CONFORME. Memorial: 16,14 mg a 99,09% (lote 872226)."),
+    ("Vitamina E (acetato de tocoferol)", "10 mg (67% VD)", "CONFORME. Memorial: 30 mg de pó 50,7% × 0,67 = 10,19 mg (lote 91320)."),
+    ("Vitamina B5 (pantotenato de cálcio)", "5 mg (100% VD)", "CONFORME (88,7% do teto). Memorial: 5,00 mg pesados entregam 4,51 mg pelo fator 92% — o rótulo declara 5 mg; aqui a massa sobe para 5,53 mg para entregar 5,0."),
+    ("Boro (de quelato de boro)", "3 mg", "FORMA NÃO AUTORIZADA. Memorial: 57,36 mg de glicinato de boro 5,23% (lote 044951, laudo lido por imagem: sintético, CAS 'NA')."),
+    ("Vitamina B6 (cloridrato de piridoxina)", "1,3 mg (100% VD)", "CONFORME. Memorial: 1,58 mg (lote 91188)."),
+    ("Vitamina B1 (cloridrato de tiamina)", "1,2 mg (100% VD)", "CONFORME no rótulo. Memorial: pesa 2,400 mg para '2,0 mg' com teor 'a confirmar' — com o teor real (99,8%, lote 91454) entregaria 2,395 mg > teto 2,02."),
+    ("Vitamina B2 (riboflavina)", "1,3 mg (100% VD)", "CONFORME. Memorial: 1,30 mg a 100,1% (lote 91068)."),
+    ("Vitamina A (acetato de retinol)", "1.300 mcg (217% VD)", "CONFORME. Memorial: 7,63 mg a 568.116 UI/g (lote 215230)."),
+    ("Vitamina B9 (ácido fólico)", "800 mcg (200% VD)", "ACIMA DO MÁXIMO: 800 µg = 1.333,3 µg DFE > 1.281,5. Memorial: 0,882 mg a 90,67% (lote AUTO039613); o documento POPS já baixara para 750 µg."),
+    ("Cobre (de bisglicinato de cobre)", "0,9 mg (100% VD)", "CONFORME pelo rótulo; MAS o memorial pesa 'cobre aminoácido quelato 24%' (NaturalPRO NPT.0325/404) — forma não identificada no Anexo I."),
+    ("Selênio (de selenito de sódio)", "100 mcg (167% VD)", "CONFORME pelo rótulo; MAS o memorial pesa glicinato de selênio 0,2794% (lote 044152) — forma não autorizada."),
+    ("Vitamina K2 (menaquinona-7)", "149 mcg", "CONFORME (99,96% do teto — sem folga). Memorial: 0,150 mg tratados como MK-7 ~100% pura, sem lote nem laudo; único laudo de MK-7 na máquina é um pré-mix a 1,48%, vencido em 2022."),
+    ("Vitamina D3 (colecalciferol)", "50 mcg (333% VD)", "CONFORME — igual ao máximo. Memorial: 17,39 mg de pó a 115.000 UI/g (lote 91408)."),
+    ("Cromo (de picolinato de cromo)", "35 mcg (100% VD)", "CONFORME. Memorial: 0,284 mg a 12,34% (lote 91190)."),
+    ("Vitamina B12 (cianocobalamina)", "9,94 mcg (414% VD)", "CONFORME — igual ao máximo. Memorial pesa METILCOBALAMINA (lote 219376), não cianocobalamina."),
+    ("Dióxido de silício (INS 551)", "10 mg", "aditivo, quantum satis (IN 211/2023, 14.2). Memorial: 0,00 mg de espaço para excipiente."),
+]
+
+soma_ins = sum(i["massa"] for i in INSUMOS)
+sio2 = 1000 - soma_ins
+
+P = dict(
+    slug="multivitaminico", nome="Multivitamínico", nome_rotulo="Multi vitamínico (arte multivitaminico.pdf)",
+    formato="cápsula gelatinosa dura, tamanho 0 (memorial rev02)", porcao_mg=1000.0, porcao_desc="1 g (2 cápsulas)",
+    porcoes=30, grupo="adulto", publico="adultos, coluna \"> 19 anos\" dos Anexos III e IV",
+    porcao_obs=" (o memorial rev02 registra 500 mg de pó por cápsula; a cápsula vazia, 98,45 mg, não entra na porção)",
+    insumos=INSUMOS, antes=ANTES,
+    excipientes=[dict(nome="Dióxido de silício (antiumectante)", ins="551", massa=sio2, sql_slug="dioxido-de-silicio", nome_cadastro="Dióxido de silício (INS 551)",
+                      obs="q.s.p. 1.000 mg — quantum satis na categoria 14.2 da IN 211/2023 (auditoria de 15/09). Fração alta de excipiente (ver pendência 7): o RT pode preferir um agente de massa e deixar o antiumectante em 1–2%."),
+                 dict(nome="Cápsula: gelatina, água purificada e corante dióxido de titânio", ins="171", massa=None,
+                      obs="invólucro, 98,45 mg por cápsula (Qualicaps/Genix, lote 2505380SA, val. 02/04/2030, conforme memorial); não conta na porção")],
+    removidos=["**L-teanina 150 mg — retirada (rota A).** O Anexo I só autoriza \"L-teanina de folhas de Camellia sinensis\" (IN 318/2024). O laudo do lote em uso (AUTO039250, Lepuge) diz literalmente \"Forma de Obtenção: SÍNTESE QUÍMICA\" (lido em 16/09/2026); os outros 4 laudos de L-teanina da máquina também são sintéticos ou sem origem declarada. Num multivitamínico a teanina é acessória e sua saída libera 149,76 mg da cápsula. Rota B (manter como \"L-teanina de folhas de Camellia sinensis — insumo a adquirir\") está registrada na seção 8.",
+              "**Glicinato de boro 57,36 mg** (substituído por tetraborato de sódio decahidratado) e **glicinato de selênio 35,79 mg** (substituído por selenito de sódio) e **cobre aminoácido quelato 3,82 mg** (substituído por bisglicinato de cobre) — formas não autorizadas, ver tabela."],
+    removidos_json=[{"constituinte": "Teanina", "quantidade_mg": 150, "motivo": "origem não comprovada (laudo: síntese química); só 'L-teanina de folhas de Camellia sinensis' é autorizada — rota A"}],
+    mudancas=[
+        "Magnésio: bisglicinato de magnésio (860,36 mg, laudo vencido) → óxido de magnésio " + fmt(mgo,2) + " mg, mesma dose de 260 mg — motivo: a porção de 1 g não comporta 860 mg de sal (Anexo I autoriza \"Óxido de magnésio\", CAS 1309-48-4). Insumo a adquirir, laudo pendente.",
+        "Boro: 'quelato de boro (glicinato)' → tetraborato de sódio decahidratado, 3 mg de boro — motivo: forma não listada no Anexo I (linhas \"Frutoborato de cálcio\" e \"Tetraborato de sódio decahidratado\" são as únicas). Insumo a adquirir.",
+        "Selênio: glicinato de selênio (pesado) → selenito de sódio (que o rótulo já imprime), 100 µg — motivo: forma não listada no Anexo I (linha \"Selenito de sódio\"). Insumo a adquirir.",
+        "Cobre: 'cobre aminoácido quelato 24%' → bisglicinato de cobre (que o rótulo já imprime), 900 µg — motivo: forma não identificada entre as 5 do Anexo I. Insumo a adquirir.",
+        "Ácido fólico: 800 → 600 µg (1.333 → 1.000 µg DFE) — motivo: Anexo IV, teto 1.281,5 µg DFE (nota iv), com folga de 22%.",
+        "Vitamina K2: 149 → 120 µg — motivo: 149 µg cravava o teto de 149,06 µg; e a massa passa a considerar o teor real do pré-mix (1,48%), não 100%.",
+        "Vitamina D3: 50 → 40 µg — motivo: teto exato de 50 µg sem folga de fabricação.",
+        "Vitamina B12: 9,94 → 8 µg — motivo: teto exato de 9,94 µg; insumo real é metilcobalamina (rótulo diz cianocobalamina — corrigir).",
+        "Vitamina B1: fixada em 1,2 mg (rótulo) com massa recalculada pelo teor real do laudo 91454 (99,8%) e fator sal→base — motivo: o memorial rev02 pesava 2,4 mg com teor 'a confirmar', o que entregaria 2,395 mg, acima do teto de 2,02 mg.",
+        "L-teanina: retirada (rota A) — motivo: só a de folhas de Camellia sinensis é autorizada e o laudo do lote em uso prova síntese química.",
+        "Vitamina C, zinco, niacina, vitamina E, ácido pantotênico, B6, B2, vitamina A e cromo: mantidos nas doses do rótulo (todos entre o mínimo e 90% do teto; laudos válidos, exceto vitamina A cujo laudo é digitalização lida só pelo memorial).",
+    ],
+    ingredients_list="Óxido de magnésio, antiumectante dióxido de silício (INS 551), ácido ascórbico (vitamina C), bisglicinato de zinco, acetato de DL-alfa-tocoferol (vitamina E), tetraborato de sódio decahidratado, nicotinamida (vitamina B3), colecalciferol (vitamina D3), menaquinona-7 (vitamina K2), acetato de retinol (vitamina A), D-pantotenato de cálcio (vitamina B5), bisglicinato de cobre, cloridrato de piridoxina (vitamina B6), cloridrato de tiamina (vitamina B1), riboflavina (vitamina B2), ácido fólico, picolinato de cromo, selenito de sódio, metilcobalamina (vitamina B12) e cápsula: gelatina, água purificada e corante dióxido de titânio (INS 171). NÃO CONTÉM GLÚTEN (declaração condicionada a laudo de glúten do produto acabado — ver pendência 9).",
+    alergenicos_obs="Nenhum dos insumos propostos deriva dos alergênicos da RDC 26/2015 (leite, ovos, peixes, crustáceos, soja, trigo, amendoim, castanhas, látex). A frase \"Não contém glúten\" só pode ir ao rótulo com laudo de glúten do produto acabado (Lei 10.674/2003; conferir método com o RT).",
+    warnings="\n".join(RDC243 + ["Público indicado: adultos (19 anos ou mais). Ingerir 2 cápsulas ao dia.",
+                                 ADV_GENERICA, CONSERVACAO]),
+    advertencias_base=[
+        "\"Este produto não é um medicamento\" / \"Não exceder a recomendação diária de consumo indicada na embalagem\" / \"Mantenha fora do alcance de crianças\" — RDC 243/2018, art. 14, I, c/d/e (texto literal, gabarito de 16/09/2026).",
+        "Grupo populacional e quantidade/frequência de consumo — RDC 243/2018, art. 14, I, a/b.",
+        f"\"{ADV_GENERICA}\" — IN 28/2018, Anexo VI, linha \"Ácido hialurônico / Boro / Colágeno tipo II não desnaturado / Hidroximetilbutirato / Metilsulfonilmetano / Palmitoiletanolamida / Silício\" (IN 76/2020): exigida pelo boro. Com a L-teanina retirada, a linha \"Aminoácidos\" deixa de se aplicar, mas a frase continua obrigatória pelo boro.",
+        "Conservação, inclusive após aberta — RDC 243/2018, art. 14, II.",
+    ],
+    advertencias_faltam="o campo `warnings` do banco já traz as três frases do art. 14 e a frase genérica do Anexo VI; nada falta em texto. O que muda é o lastro: hoje a frase genérica se apoia em boro e teanina, depois só em boro.",
+    pendencias=[
+        "Comprar **óxido de magnésio** (grau alimentício/USP) e obter laudo com teor de Mg antes de pesar — a massa de " + fmt(mgo,2) + " mg foi calculada com 60,30% (MgO puro) e deve ser recalculada pelo teor do laudo.",
+        "Comprar a **fonte de boro** autorizada: tetraborato de sódio decahidratado (massa estequiométrica 26,46 mg para 3 mg de B) ou frutoborato de cálcio (massa a definir pelo teor do laudo do fabricante). Nenhum laudo de nenhuma das duas existe na máquina. Decisão do dono: a alternativa é retirar o boro (o Multivitamínico não depende dele).",
+        "Comprar **selenito de sódio** e **bisglicinato de cobre** com laudo (ou ficha do fabricante NaturalPRO declarando que o 'cobre aminoácido quelato' é bisglicinato de cobre, CAS 13479-54-4 — sem isso não serve). Microdoses de selenito (0,22 mg) exigem pré-mistura definida pela fábrica.",
+        "Obter **laudo vigente da menaquinona-7** realmente em uso (lote não identificado no memorial rev02). A massa de 8,11 mg é provisória, calculada com o único teor conhecido (1,48%, laudo vencido). Sem laudo, a vitamina K2 não pode ser declarada.",
+        "**L-teanina — decisão do dono:** rota A (retirar, proposta principal deste memorial) ou rota B (manter 150 mg comprando \"L-teanina de folhas de Camellia sinensis\" — especificação aprovada: fabricante Blue California, segundo o painel da ANVISA lido em 15/09 — como insumo a adquirir). O lote AUTO039250 em estoque não pode ser usado em nenhuma das rotas.",
+        "**Vitamina A:** o laudo do lote 215230 é digitalização; a potência de 568.116 UI/g vem do memorial rev02 e é 13,6% acima do nominal (500.000 UI/g) — confirmar com o fornecedor antes de fixar a massa.",
+        "**Excipiente:** com a teanina fora e o óxido no lugar do bisglicinato, o dióxido de silício q.s.p. chega a " + fmt(sio2,0) + " mg (" + fmt(sio2/10,1) + "% da porção). Decisão do RT: manter (quantum satis) ou usar agente de massa (ex.: celulose microcristalina, já declarada no rótulo do Focus Colina) com antiumectante em 1–2% — a conferência do agente de massa na IN 211/2023 não foi feita nesta etapa.",
+        "**Rótulo:** trocar 'bisglicinato de magnésio' por 'óxido de magnésio' (inclusive na chamada principal da arte, que hoje diz 'magnésio bisglicinato'); trocar 'quelato de boro' por 'tetraborato de sódio decahidratado'; 'cianocobalamina' por 'metilcobalamina'; retirar 'L-teanina'; atualizar ácido fólico (600 µg), K2 (120 µg), D3 (40 µg) e B12 (8 µg); refazer a tabela nutricional conforme a seção 5.",
+        "\"Não contém glúten\": manter só com laudo de glúten do produto acabado.",
+        "Vitamina B1: confirmar com o RT a convenção de declaração (tiamina base, como proposto, ou como cloridrato); as duas leituras ficam dentro da faixa 0,18–2,02 mg.",
+    ],
+    alternativas=[
+        "**Magnésio via bisglicinato, dose reduzida:** manter bisglicinato de magnésio 30% (laudo novo do lote em estoque ou lote novo) e baixar o Mg para 150 mg (496,4 mg de sal a 30,22%); a fórmula fecha em ~787 mg + excipiente. Mantém a chamada 'bisglicinato' do rótulo, mas muda o número de 260 para 150 mg.",
+        "**Rota B da L-teanina:** manter 150 mg como \"L-teanina de folhas de Camellia sinensis\" (insumo a adquirir); a soma sobe para ~872 mg + excipiente e a advertência genérica ganha o lastro adicional da linha \"Aminoácidos\" do Anexo VI. Veredito ficaria condicionado também a esse laudo de origem.",
+        "**Retirar o boro** em vez de comprar a fonte autorizada: elimina uma aquisição e a advertência do Anexo VI passaria a não ser exigida por nenhum constituinte (a frase poderia sair do rótulo).",
+    ],
+    veredito="CONFORME CONDICIONADO A (laudo de óxido de magnésio; aquisição de fonte de boro autorizada com laudo; laudos de selenito de sódio e bisglicinato de cobre; laudo vigente da menaquinona-7 do lote em uso; confirmação da potência da vitamina A)",
+    veredito_texto="Com a composição da seção 3, nenhum constituinte fica em forma não autorizada, nenhum fica abaixo do mínimo nem acima do máximo do grupo \"> 19 anos\", nenhum crava o teto (o mais alto é o ácido pantotênico, a 88,7%) e a porção fecha em 1.000 mg com " + fmt(sio2/10,1) + "% de excipiente. O veredito só passa a CONFORME quando os cinco insumos sem laudo válido (óxido de magnésio, fonte de boro, selenito de sódio, bisglicinato de cobre e menaquinona-7) tiverem certificado lido e as massas forem recalculadas pelo teor de cada laudo. Se o dono escolher a rota B da L-teanina, soma-se a condição do laudo de origem Camellia sinensis.",
+    fontes=[
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/IN28-2018-ANEXO-I-LITERAL.md",
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/IN28-2018-ANEXO-III-LITERAL.md",
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/IN28-2018-ANEXOS-IV-V-VI-LITERAL.md",
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/AUDITORIA-ROTULO-VS-ANVISA-2026-09-15.md (seção 4.11)",
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/composicoes_rotulo.json (chave multivitaminico)",
+        "/private/tmp/claude-501/-Users-diegofrancisco-Downloads-erp-espa-o/c5ed6b00-4553-4992-b469-c649af084651/scratchpad/fase1/memoriais-formulacoes.json (chave multivitaminico — MEMORIAL-CALCULO-MULTIVITAMINICO-rev02.docx)",
+        "/private/tmp/claude-501/-Users-diegofrancisco-Downloads-erp-espa-o/c5ed6b00-4553-4992-b469-c649af084651/scratchpad/fase1/laudos.json (índices 21, 50, 191, 192, 193, 196, 197, 201, 203, 204, 208, 210, 212, 213, 176)",
+        "/Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/04_MULTIVITAMINICO/ARQUIVOS-PDF/13_laudo_cobre-quelato-24_lote-NPT0325-404.pdf (lido por imagem em 16/09/2026)",
+        "/Users/diegofrancisco/Documents/LAUDOS/SELENIOMETIONINA.pdf (texto extraído em 16/09/2026: EXSELEN PLUS, DCB/DCI/CAS em branco, teor de selênio 0,97%, validade 30/04/2023)",
+        "/Users/diegofrancisco/Desktop/LAUDOS/VITAMINA D3 COLECALCIFEROL.pdf (compilação Lepuge; bloco L-TEANINA lote AUTO039250, 'Forma de Obtenção: SÍNTESE QUÍMICA', doseamento 100,16% b.a.)",
+        "/Users/diegofrancisco/Downloads/lemoncaps-catalogo/docs/conformidade/PADRAO-ANVISA-TABELA-NUTRICIONAL-2026-09-16.md e scratchpad/padrao-anvisa/vd.json",
+        "cadastro vivo: https://zjryrmqtumvaxdytvbbv.supabase.co/rest/v1/formulas?slug=eq.multivitaminico e formula_compositions (19 linhas ativas, lidas em 16/09/2026)",
+    ],
+    prosa=dict(
+        identificacao_extra="O produto tem três fontes de composição que não batem entre si: o rótulo impresso (20 itens, lido em 13/09), o cadastro do catálogo (19 linhas, com vitamina C 533,685 mg e cromo 250 µg no teto — padrão de cadastro fictício já provado) e o memorial de cálculo rev02 da fábrica (13/08/2026), que é o que a fábrica pesa. Esta reformulação parte do **rótulo** para as doses e do **memorial rev02** para as massas e os laudos, e registra cada divergência.",
+        antes_intro="Fonte da tabela: composição impressa no rótulo (`composicoes_rotulo.json`, chave `multivitaminico`, 20 itens), com o veredito da auditoria de 15/09/2026 (seção 4.11) e a observação do memorial rev02 quando o insumo pesado difere do impresso.",
+        antes_extra="Soma dos itens impressos: 576,14 mg; convertendo os elementos em sais, a auditoria estimou mais de 1.400 mg — e o memorial rev02 confirma: 1.365,77 mg de insumos para uma porção de 1.000 mg (136,6%), sem nenhum espaço para excipiente. Além do que a auditoria viu, o memorial mostra que a fábrica pesa **glicinato de selênio** (rótulo diz selenito de sódio), **cobre aminoácido quelato** (rótulo diz bisglicinato), **metilcobalamina** (rótulo diz cianocobalamina), e que a vitamina K2 é pesada como se fosse MK-7 pura (0,150 mg), sem laudo.",
+        depois_intro="Grupo populacional \"> 19 anos\". Alvo de cada dose: entre o mínimo e 90% do máximo. Massa do insumo = ativo ÷ teor (laudo do lote nomeado, ou estequiométrico assumido quando não há laudo). A ordem da tabela é a ordem de massa decrescente dos insumos, que é a ordem da lista de ingredientes.",
+        soma_comentario="Cabe, com " + fmt(sio2/10,1) + "% de excipiente — folga bem acima dos 2% mínimos. Sem os 149,76 mg de L-teanina (rota A) e com o óxido no lugar do bisglicinato, a fórmula passou de 136,6% para " + fmt(soma_ins/10,1) + "% da porção em ativos.",
+        tabela_intro="Coluna \"> 19 anos\" (adultos) do Anexo VIII da IN 75/2020 para o %VD. Vitamina E declarada como α-tocoferol (30 mg de pó × 50,7% × 0,67); vitamina A em µg RAE; ácido fólico em µg DFE; niacina em mg NE. Boro e vitamina K2 têm VDR (K: 120 µg) — o boro não tem VDR e fica com a célula vazia.",
+        tabela_energia_obs="Nenhum insumo proposto aporta proteína, carboidrato ou gordura em quantidade mensurável (o ácido ascórbico não é contado como fonte de energia; a glicina dos bisglicinatos de zinco e cobre não foi contada — assunção registrada). O sódio vem do tetraborato (12,06% de Na) e do selenito (26,6% de Na): 3,25 mg, abaixo do limiar de 5 mg — %VD zero.",
+    ),
+)

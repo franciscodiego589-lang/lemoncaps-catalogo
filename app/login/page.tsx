@@ -26,7 +26,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   const params = await searchParams;
 
   return (
-    <main className="lc-admin-auth-page">
+    <main id="main-content" className="lc-admin-auth-page">
       {/* Canto superior esquerdo, FORA do cartão. Esta tela não tem o menu
           lateral do admin (ele só existe depois de entrar), então o botão que
           vive lá não ajudava aqui: quem clicava em "Admin" no catálogo caía

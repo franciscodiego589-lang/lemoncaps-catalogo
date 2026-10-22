@@ -17,8 +17,17 @@ import { actionError, actionOk, friendlyDbError, zodIssuesToFieldErrors, type Ac
 // checada aqui de novo por dentro da action (defesa em profundidade: a página
 // já barra quem não tem a permissão, mas a action nunca confia só nisso).
 
+// Vazio na tela (QuoteItemRow) chega aqui como 0 - pedido do dono
+// (17/09/2026: "desbloqueie qualquer alteração no admin", mesmo padrão já
+// usado em lib/actions/sheet-approvals.ts e lib/actions/formulas.ts): 0
+// nunca é um "número que parece real", é o jeito mais honesto de dizer
+// "ainda não preenchido". O trigger private.tg_enforce_minimum_order
+// (mínimo de potes por fórmula) continua como backstop do banco - 0 (ou
+// qualquer quantidade abaixo do mínimo da fórmula) ainda é recusado lá, com
+// mensagem em português repassada por friendlyDbError; esta validação aqui
+// só impede negativo e fração de pote.
 const quoteItemPatchSchema = z.object({
-  quantityPotes: z.number().int("Quantidade deve ser um número inteiro de potes.").positive("Quantidade deve ser maior que zero.").optional(),
+  quantityPotes: z.number().int("Quantidade deve ser um número inteiro de potes.").min(0, "Quantidade não pode ser negativa.").optional(),
   unitPriceCents: z.number().int("Preço deve ser um valor inteiro em centavos.").min(0, "Preço não pode ser negativo.").optional(),
 });
 
@@ -74,8 +83,18 @@ export async function updateQuoteItem(
 // (node_modules/next/dist/docs/.../revalidatePath.md, conferido para esta
 // tarefa: diferente de revalidateTag, que no Next 16 passou a exigir um
 // segundo argumento sempre - ver revalidateCatalogCache em lib/data/formulas.ts).
+// "" (sem seleção) vira "aberto" - o estado inicial de todo orçamento antes
+// de qualquer decisão, o mais neutro dos quatro valores do enum (mesmo
+// pedido do dono de 17/09/2026: nenhum campo trava o salvar por estar
+// incompleto). Na prática o <select> de QuoteStatusEditor.tsx sempre chega
+// com um valor - STATUS_OPTIONS cobre o enum inteiro e não recebe
+// `placeholder`, então não existe opção em branco na tela; isto é defesa
+// para qualquer chamada futura que monte o patch de outro jeito.
 const quoteStatusPatchSchema = z.object({
-  status: z.enum(["aberto", "aprovado", "recusado", "expirado"], { message: "Selecione um status válido." }).optional(),
+  status: z.preprocess(
+    (v) => (v === "" ? "aberto" : v),
+    z.enum(["aberto", "aprovado", "recusado", "expirado"], { message: "Selecione um status válido." }).optional(),
+  ),
   internalNote: z.string().max(2000, "Observação muito longa (máximo 2000 caracteres).").optional(),
 });
 

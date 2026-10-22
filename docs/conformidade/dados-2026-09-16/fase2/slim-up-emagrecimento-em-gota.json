@@ -1,0 +1,399 @@
+{
+  "slug": "slim-up-emagrecimento-em-gota",
+  "nome": "Slim Up - EMAGRECIMENTO EM GOTA",
+  "porcao_mg": 1000.0,
+  "porcao_descricao": "1 mL (30 gotas), 1 vez ao dia — porção do memorial rev03; o cadastro diz 2 mL (decisão do dono, ver pendências)",
+  "porcoes_por_embalagem": 30,
+  "formato": "líquido — solução oral em gotas, frasco de 30 mL",
+  "grupo_populacional": "adultos (> 19 anos)",
+  "fonte_antes": "memorial de cálculo rev03 (14/09/2026, rascunho não assinado, MEM-CALC-SLIMUP-rev03 .xlsx) — porção 1 mL, 30 porções por frasco; o cadastro do banco (5 linhas, 'Ingerir 2 mL ao dia') e a ficha técnica antiga divergem",
+  "insumos": [
+    {
+      "constituinte_anexo_i": "Vitamina D — Vitamina D_3 (Colecalciferol) (CAS 67-97-0)",
+      "forma_insumo": "vitamina D3 pó 100.000 UI/g, Analitic, lote 91408",
+      "nome_composicao": "Vitamina D3 (colecalciferol)",
+      "ingredient_slug": "vitamina-d",
+      "ingredient_nome": "Vitamina D",
+      "massa_insumo_mg": 15.652,
+      "teor_pct": null,
+      "teor_fonte": "potência 115.000 UI/g — lida no laudo 91408; 15,652 mg × 115.000 UI/g = 1.800 UI ÷ 40 UI/µg = 45,0 µg (nota iii do Anexo III: 1 µg = 40 UI)",
+      "ativo_mg": 45.0,
+      "unidade_ativo": "µg",
+      "minimo": 3,
+      "maximo": 50.0,
+      "pct_do_maximo": 90.0,
+      "linha_anexo": "III·Vitamina D^iii (3) / IV·Vitamina D^ii (50,0)",
+      "laudo": {
+        "lote": "91408 (fabricante 2025111601)",
+        "validade": "15/11/2028",
+        "vencido": false
+      },
+      "status": "mantido",
+      "motivo": "45 µg = 90,0 % do teto (limite do princípio 3 — o rev03 já baixou de 50 para 45) e 300 % do VD. Alternativa com mais folga: 40 µg (80 %) = 13,913 mg do pó."
+    },
+    {
+      "constituinte_anexo_i": "Vitamina B12 — Metilcobalamina (CAS 13422-55-4)",
+      "forma_insumo": "metilcobalamina, SM/Fagron, lote 219376",
+      "nome_composicao": "Metilcobalamina (vitamina B12)",
+      "ingredient_slug": "vitamina-b12",
+      "ingredient_nome": "Vitamina B12",
+      "massa_insumo_mg": 0.00896,
+      "massa_sql_valor": 8.96,
+      "massa_sql_unidade": "mcg",
+      "massa_sql_obs": "gravado em mcg porque quantity é numeric(12,4) e 0,00896 mg perderia precisão",
+      "teor_pct": 89.27,
+      "teor_fonte": "teor tal qual 89,27 % — lido no memorial rev03 (o inventário de laudos registra 98,17 % em BASE ANIDRA para o mesmo lote; a diferença é a umidade descontada — divergência registrada, usado o t.q. do rev03)",
+      "ativo_mg": 8.0,
+      "unidade_ativo": "µg",
+      "minimo": 0.36,
+      "maximo": 9.94,
+      "pct_do_maximo": 80.5,
+      "linha_anexo": "III·Vitamina B_12 (0,36) / IV·Vitamina B_12 (9,94)",
+      "laudo": {
+        "lote": "219376 (interno 26B20-B032-219376)",
+        "validade": "14/11/2030",
+        "vencido": false
+      },
+      "status": "dose ajustada",
+      "motivo": "rev02: 9,94 µg (teto exato); rev03: 9,0 µg (90,5 % do teto — acima dos 90 % do princípio 3). Proposta: 8,0 µg = 80,5 % do teto, 333 % do VD. Massa: 8,0 ÷ 0,8927 = 8,96 µg = 0,00896 mg de metilcobalamina. Qualquer valor ≤ 8,9 µg atende."
+    },
+    {
+      "constituinte_anexo_i": "Cromo — Picolinato de cromo (CAS 14639-25-9)",
+      "forma_insumo": "picolinato de cromo, Analitic, lote 91190",
+      "nome_composicao": "Picolinato de cromo (equivalente a 30,85 µg de cromo)",
+      "ingredient_slug": "cromo",
+      "ingredient_nome": "Cromo",
+      "e_sal": true,
+      "massa_insumo_mg": 0.25,
+      "teor_pct": 12.34,
+      "teor_fonte": "laudo lote 91190 (Cr 12,34 %); 0,25 × 12,34 % = 30,85 µg",
+      "ativo_mg": 30.85,
+      "unidade_ativo": "µg de cromo",
+      "minimo": 5.25,
+      "maximo": 250,
+      "pct_do_maximo": 12.3,
+      "linha_anexo": "III·Cromo (5,25) / IV·Cromo (250)",
+      "laudo": {
+        "lote": "91190",
+        "validade": "24/12/2027",
+        "vencido": false
+      },
+      "status": "mantido",
+      "motivo": "30,85 µg = 12,3 % do teto, 88 % do VD. O cadastro declara '250 mcg' — é a massa do sal (0,25 mg), não o elemento; corrigir."
+    },
+    {
+      "constituinte_anexo_i": "Ácido clorogênico — Extrato de café verde (IN 102/2021)",
+      "forma_insumo": "café verde solúvel IDNLABS, lote 10269 (laudo válido legível); em uso: HERBALTEC 10841 (53,86 %, Coffea robusta, irradiado, microbiologia ND, validade não confirmada)",
+      "nome_composicao": "Extrato de café verde",
+      "ingredient_slug": "extrato-de-cafe-verde",
+      "ingredient_nome": "Extrato de café verde",
+      "massa_insumo_mg": 50.0,
+      "teor_pct": 64.05,
+      "teor_fonte": "laudo lote 10269 (64,05 %; metilxantinas 1,56 %) — lido no inventário",
+      "ativo_mg": 32.02,
+      "unidade_ativo": "mg de ácido clorogênico",
+      "minimo": "NE",
+      "maximo": 400,
+      "pct_do_maximo": 8.0,
+      "linha_anexo": "III·Ácido clorogênico (NE) / IV·Ácido clorogênico (400, redação IN 102/2021)",
+      "laudo": {
+        "lote": "10269 (IDNLABS)",
+        "validade": "08/2027",
+        "vencido": false
+      },
+      "status": "mantido (laudo regularizado)",
+      "motivo": "50 × 64,05 % = 32,03 mg (8 % do teto). O rev03 diz 'abaixo do mínimo de 50 mg' citando o painel; o Anexo III literal diz NE — pelo texto da norma não há mínimo. Com o lote 10841 (53,86 %) seriam 26,93 mg. Cafeína ≤ 0,78 mg: não é fonte de cafeína. Solubilidade: 'solúvel' é adequado a gotas."
+    },
+    {
+      "constituinte_anexo_i": "Colina — Bitartarato de colina/Hidrogênio tartarato de colina (CAS 87-67-2)",
+      "forma_insumo": "DL-bitartarato de colina, Analitic, lote 91442",
+      "nome_composicao": "Bitartarato de colina (equivalente a 90 mg de colina)",
+      "ingredient_slug": "colina",
+      "ingredient_nome": "Colina",
+      "e_sal": true,
+      "massa_insumo_mg": 221.62,
+      "teor_pct": 40.61,
+      "teor_fonte": "laudo lote 91442: colina 40,61 % (lido no inventário); 90 ÷ 0,4061 = 221,62 mg; 221,62 × 0,4061 = 90,00 mg",
+      "ativo_mg": 90.0,
+      "unidade_ativo": "mg de colina",
+      "minimo": 82.5,
+      "maximo": 3235.15,
+      "pct_do_maximo": 2.8,
+      "linha_anexo": "III·Colina (82,5) / IV·Colina (3.235,15)",
+      "laudo": {
+        "lote": "91442 (fabricante CA26010402USPS)",
+        "validade": "03/01/2029",
+        "vencido": false
+      },
+      "status": "dose ajustada",
+      "motivo": "rev03: 33,3 mg de bitartarato = 13,52 mg de colina (16 % do mínimo de 82,5 mg — ABAIXO DO MÍNIMO). Proposta: 90 mg de colina (109 % do mínimo, 2,8 % do teto, 16 % do VD) = 221,62 mg de bitartarato por mL. PENDÊNCIA DE FÁBRICA: confirmar solubilidade/estabilidade de 221,62 mg de bitartarato em 1 mL (os sólidos por mL sobem de 444,6 para 498,2 mg). Alternativa: retirar a colina."
+    },
+    {
+      "constituinte_anexo_i": "Curcumina — Extrato de rizomas de cúrcuma (Curcuma longa L.)",
+      "forma_insumo": "extrato NaturalPRO NPT.0425/580 (0,42 %)",
+      "nome_composicao": "Extrato seco de rizoma de cúrcuma (Curcuma longa L.)",
+      "ingredient_slug": "extrato-de-rizomas-de-curcuma",
+      "ingredient_nome": "Extrato de rizomas de cúrcuma",
+      "massa_insumo_mg": 80.0,
+      "teor_pct": 0.42,
+      "teor_fonte": "laudo lote NPT.0425/580 (0,42 %), lido no rev03",
+      "ativo_mg": 0.336,
+      "unidade_ativo": "mg de curcuminoides",
+      "minimo": 80,
+      "maximo": 130,
+      "pct_do_maximo": 0.3,
+      "linha_anexo": "III·Curcumina (80^xv) / IV·Curcumina (130^x) — curcuminoides totais, IN 438/2026",
+      "laudo": {
+        "lote": "NPT.0425/580",
+        "validade": "não confirmada",
+        "vencido": null
+      },
+      "status": "retirado",
+      "motivo": "0,336 mg = 0,4 % do mínimo. Volta com extrato padronizado e laudo (105,3 mg a 95 % = 100 mg) — e, em gotas, com solubilidade a validar."
+    },
+    {
+      "constituinte_anexo_i": "Saponinas de glicosídeos de furostanol — Extrato de semente de feno-grego (Trigonella foenum-graecum L.)",
+      "forma_insumo": "rótulo/rev03 dizem 'extrato fluido'; o laudo do lote AUTO9IVT é de feno-grego PÓ (Santosflora), sem doseamento",
+      "nome_composicao": "Extrato fluido de semente de feno-grego",
+      "ingredient_slug": "extrato-fluido-de-semente-de-feno-grego",
+      "ingredient_nome": "Extrato fluido de semente de feno-grego",
+      "massa_insumo_mg": 33.0,
+      "teor_pct": null,
+      "teor_fonte": "laudo sem doseamento de ativo (rev03, lido diretamente pela frente dos memoriais)",
+      "ativo_mg": null,
+      "unidade_ativo": "mg de saponinas",
+      "minimo": "NE",
+      "maximo": 450,
+      "pct_do_maximo": null,
+      "linha_anexo": "III·Saponinas de glicosídeos de furostanol (NE) / IV·(450), IN 304/2024",
+      "laudo": {
+        "lote": "AUTO9IVT",
+        "validade": "não confirmada",
+        "vencido": null
+      },
+      "status": "retirado",
+      "motivo": "Sem laudo de saponinas e nomenclatura incoerente (laudo de pó para um 'extrato fluido'). Volta com extrato + laudo + fornecedor aceito pelo RT; dose conforme: ≤ 405 mg de saponinas."
+    },
+    {
+      "constituinte_anexo_i": "Fibras alimentares — Inulina (CAS 9005-80-5)",
+      "forma_insumo": "inulina SM/Fagron lote 206486 (91,0 %)",
+      "nome_composicao": "Inulina",
+      "ingredient_slug": "inulina-de-cichorium-intybus",
+      "ingredient_nome": "Inulina de Cichorium intybus",
+      "massa_insumo_mg": 21.7,
+      "teor_pct": 91.0,
+      "teor_fonte": "laudo lote 206486 (rev03)",
+      "ativo_mg": 19.75,
+      "unidade_ativo": "mg",
+      "minimo": 5700,
+      "maximo": "NE",
+      "pct_do_maximo": null,
+      "linha_anexo": "III·Fibras alimentares (5,7) / IV·Fibras alimentares (NE)",
+      "laudo": {
+        "lote": "206486",
+        "validade": "não confirmada (scan)",
+        "vencido": null
+      },
+      "status": "retirado",
+      "motivo": "Fibras: mínimo 5,7 g; 19,75 mg em 1 mL — princípio 6; sem função tecnológica declarada que a enquadre no Art. 6, § único."
+    }
+  ],
+  "excipientes": [
+    {
+      "nome": "Água purificada (q.s.p. 1 mL)",
+      "ins": null,
+      "massa_mg": 501.759,
+      "ingredient_slug": "agua-purificada",
+      "ingredient_nome": "Água purificada",
+      "papel": "veiculo",
+      "laudo_lote": "sem certificado no dossiê",
+      "observacao": "calculada: 1.000 − 498,24 mg de sólidos (densidade 1 g/mL assumida, como no rev03)."
+    },
+    {
+      "nome": "Umectante glicerina",
+      "ins": "INS 422",
+      "massa_mg": 133.3,
+      "ingredient_slug": "glicerina-vegetal",
+      "ingredient_nome": "Glicerina vegetal",
+      "papel": "aditivo",
+      "laudo_lote": "não informado",
+      "observacao": "igual ao rev03 e ao rótulo. Limites da IN 211/2023 para suplemento LÍQUIDO não conferidos nesta tarefa (a auditoria de 15/09 só conferiu a categoria 14.2, sólidos) — PENDENTE."
+    },
+    {
+      "nome": "Umectante sorbitol líquido 70 %",
+      "ins": "INS 420",
+      "massa_mg": 66.7,
+      "ingredient_slug": "sorbitol-liquido",
+      "ingredient_nome": "Sorbitol líquido",
+      "papel": "aditivo",
+      "laudo_lote": "106371 (Adicel) — laudo é de sorbitol EM PÓ, fórmula usa líquido 70 %: divergência aberta",
+      "observacao": "46,69 mg de sorbitol (poliol) por porção."
+    },
+    {
+      "nome": "Acidulante ácido cítrico",
+      "ins": "INS 330",
+      "massa_mg": 6.7,
+      "ingredient_slug": "acido-citrico",
+      "ingredient_nome": "Ácido cítrico",
+      "papel": "aditivo",
+      "laudo_lote": "GE2844AFG",
+      "observacao": "igual ao rev03."
+    },
+    {
+      "nome": "Conservador benzoato de sódio",
+      "ins": "INS 211",
+      "massa_mg": 1.67,
+      "ingredient_slug": "benzoato-de-sodio",
+      "ingredient_nome": "Benzoato de sódio",
+      "papel": "aditivo",
+      "laudo_lote": "950430 (99,77 %, validade 25/04/2028)",
+      "observacao": "sódio: 1,67 × 99,77 % × 15,95 % = 0.266 mg (estequiometria 22,99/144,1)."
+    },
+    {
+      "nome": "Conservador sorbato de potássio",
+      "ins": "INS 202",
+      "massa_mg": 1.67,
+      "ingredient_slug": "sorbato-de-potassio",
+      "ingredient_nome": "Sorbato de potássio",
+      "papel": "aditivo",
+      "laudo_lote": "91202 (100,30 %, validade 05/01/2028)",
+      "observacao": "igual ao rev03."
+    },
+    {
+      "nome": "Espessante goma xantana",
+      "ins": "INS 415",
+      "massa_mg": 0.67,
+      "ingredient_slug": "goma-xantana",
+      "ingredient_nome": "Goma xantana",
+      "papel": "aditivo",
+      "laudo_lote": "sem certificado no dossiê",
+      "observacao": "rev03 = 0,67 mg (rótulo); rev02 usava 0,070 mg; a ficha técnica antiga chama de 'goma arábica' (INS 414) — identidade a confirmar."
+    }
+  ],
+  "soma_porcao_mg": 1000.0,
+  "cabe": true,
+  "solidos_por_ml_mg": 498.241,
+  "tabela_nutricional": {
+    "porcoes_por_embalagem": 30,
+    "porcao": "1 mL (30 gotas)",
+    "linhas": [
+      {
+        "item": "Valor energético",
+        "quantidade": 0.67,
+        "unidade": "kcal",
+        "vd_pct": 0,
+        "kj": 2.8,
+        "nota": "glicerina 4 kcal/g e sorbitol 2,4 kcal/g — fatores PROVISÓRIOS (Anexo XXII não relido)"
+      },
+      {
+        "item": "Carboidratos",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0,
+        "nota": "sorbitol (poliol) 0,047 g → 0 g; ≤ 0,5 g"
+      },
+      {
+        "item": "Açúcares totais",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Açúcares adicionados",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Proteínas",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Gorduras totais",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Gorduras saturadas",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Gorduras trans",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Fibras alimentares",
+        "quantidade": 0.0,
+        "unidade": "g",
+        "vd_pct": 0
+      },
+      {
+        "item": "Sódio",
+        "quantidade": 0.27,
+        "unidade": "mg",
+        "vd_pct": 0,
+        "nota": "0,27 mg do benzoato de sódio; ≤ 5 mg → %VD 0"
+      },
+      {
+        "item": "Vitamina D",
+        "quantidade": 45,
+        "unidade": "µg",
+        "vd_pct": 300
+      },
+      {
+        "item": "Vitamina B12",
+        "quantidade": 8,
+        "unidade": "µg",
+        "vd_pct": 333
+      },
+      {
+        "item": "Cromo",
+        "quantidade": 31,
+        "unidade": "µg",
+        "vd_pct": 88
+      },
+      {
+        "item": "Colina",
+        "quantidade": 90,
+        "unidade": "mg",
+        "vd_pct": 16
+      },
+      {
+        "item": "Ácido clorogênico",
+        "quantidade": 32,
+        "unidade": "mg",
+        "vd_pct": null
+      }
+    ],
+    "rodape": "*Percentual de valores diários fornecidos pela porção",
+    "regras": "Arredondamento: Anexo III IN 75/2020 (paráfrase). %VD: Anexo VIII (adultos); macros: Anexo II. Não significativo: %VD 0. Sem VDR: em branco. Colina em linha própria (Anexo XI, item 9)."
+  },
+  "ingredients_list": "Água purificada, bitartarato de colina, umectante glicerina (INS 422), umectante sorbitol (INS 420), extrato de café verde (Coffea canephora — espécie conforme laudo do lote), vitamina D3 (colecalciferol), acidulante ácido cítrico (INS 330), conservadores benzoato de sódio (INS 211) e sorbato de potássio (INS 202), espessante goma xantana (INS 415), picolinato de cromo, metilcobalamina (vitamina B12).",
+  "warnings": "Este produto não é um medicamento.\nPúblico indicado: adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nConservar em local seco, fresco e ao abrigo da luz. Após aberto, manter a embalagem bem fechada e seguir as orientações do rótulo.",
+  "pendencias": [
+    "Dono: porção — o rev03 (14/09) define 1 mL = 30 gotas (30 porções/frasco de 30 mL); o cadastro diz 2 mL. A proposta é por dose diária de 1 mL; se a porção ficar em 2 mL, as concentrações por mL caem pela metade (mesma dose diária) e o frasco rende 15 porções.",
+    "Fábrica: viabilidade de 221,62 mg de bitartarato de colina em 1 mL (solubilidade, estabilidade, sabor); sólidos por mL sobem para 498,24 mg. Se inviável, alternativa é retirar a colina (não há como atingir 82,5 mg com menos massa).",
+    "Café verde: lote com laudo válido (IDNLABS 10269 — 'solúvel', adequado a gotas) ou laudo completo do HERBALTEC 10841; espécie do rótulo = espécie do laudo.",
+    "Sorbitol: o laudo em disco (lote 106371) é de sorbitol em pó; a fórmula usa líquido 70 % — obter laudo do insumo real.",
+    "Goma xantana (INS 415) × goma arábica (INS 414): confirmar a identidade do espessante e obter certificado.",
+    "Aditivos em suplemento LÍQUIDO: limites da IN 211/2023 para a categoria de líquidos não foram conferidos nesta tarefa (a auditoria de 15/09 só cobriu a 14.2, sólidos) — conferir glicerina, sorbitol, benzoato, sorbato e goma xantana.",
+    "Vitamina B12: divergência de teor entre rev03 (89,27 % tal qual) e inventário de laudos (98,17 % base anidra) para o mesmo lote 219376 — a fábrica confirma qual base usa na pesagem.",
+    "Vitamina D3: manter 45 µg (90 % do teto) ou baixar para 40 µg (13,913 mg do pó) para folga maior — decisão do RT.",
+    "Assinar o memorial rev03 (hoje rascunho) e atualizar a ficha técnica (ainda com D 50 µg, B12 9,94 µg e 'goma arábica')."
+  ],
+  "veredito": "CONFORME CONDICIONADO A (definição da porção pelo dono — 1 mL × 2 mL; viabilidade técnica da colina a 221,62 mg/mL confirmada pela fábrica; laudo válido do lote de café verde; laudo do sorbitol líquido e identidade do espessante; conferência dos aditivos para suplemento líquido)",
+  "ingredientes_categoria": {
+    "vitamina-d": "vitamina",
+    "vitamina-b12": "vitamina",
+    "cromo": "mineral",
+    "extrato-de-cafe-verde": "extrato_vegetal",
+    "colina": "outro"
+  }
+}

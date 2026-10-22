@@ -1,0 +1,22 @@
+{
+ "documento": null,
+ "revisao": null,
+ "data": null,
+ "procedencia": "NÃO ENCONTRADO — ver observações (busca ampla registrada)",
+ "porcao": null,
+ "formato": "cápsula (segundo o cadastro do catálogo — \"multi-vitta-gestante-e-lactante-em-capsula\")",
+ "capsula": {
+  "tamanho": null,
+  "massa_mg": null
+ },
+ "insumos": [],
+ "excipientes": [],
+ "massa_total_mg": null,
+ "soma_fecha": null,
+ "observacoes": [
+  "NÃO ENCONTRADO — busca ampla, sem resultado, nas seguintes localizações: /Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/ (16 memoriais, nenhum com esse nome); /Users/diegofrancisco/Desktop/POPS/03_FICHAS_TECNICAS/ (38 arquivos, nenhum sobre \"gestante\"/\"lactante\"/\"vitta\" pré-natal); /Users/diegofrancisco/Desktop/POPS/04_MEMORIAIS_CALCULO/; busca por nome de arquivo em todo /Users/diegofrancisco/Downloads e /Users/diegofrancisco/Desktop/POPS por \"vitta\", \"gestante\", \"lactante\", \"prenatal\" — os únicos resultados são artefatos do PRÓPRIO site (imagem .webp do produto e arquivos de build .next), não um documento de composição/fabricação. NENHUM memorial, ficha técnica ou dossiê técnico existe para este produto em nenhuma pasta consultada.",
+  "O produto É REAL e ATIVO no catálogo (confirmado no cross-check de ontem contra supabase/migrations/20260909210002_seed_catalogo.sql: preço R$13,80, active=true) — ou seja, é vendido sem que exista, no acervo de documentos consultado, QUALQUER registro de qual é a sua composição, de onde vêm os insumos ou se as quantidades foram calculadas a partir de laudo. Isto é o achado, não uma falha de busca: a busca foi ampla e repetida (nomes de arquivo, pastas por conteúdo, e o próprio seed do catálogo).",
+  "ACHADO BÔNUS (do CADASTRO do catálogo, não de um memorial — que não existe): o texto do rótulo cadastrado cita vitamina A, K2, cromo, selênio e biotina, mas NENHUM tem linha de quantidade cadastrada (gap já registrado no cross-check de ontem contra o seed). Além disso, o dióxido de silício está cadastrado com 592,14mg — cerca de 59% de uma cápsula de ~1g — o que é implausível para um antiumectante (nunca é o componente majoritário de uma fórmula). Como não existe memorial, não é possível confirmar se isso é erro de cadastro ou reflete a fórmula real.",
+  "Sendo suplemento para GESTANTES E LACTANTES — público de maior sensibilidade regulatória e de saúde — a ausência total de memorial de cálculo ou ficha técnica é o achado mais grave associado a este produto específico."
+ ]
+}

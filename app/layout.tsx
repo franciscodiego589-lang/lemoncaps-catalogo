@@ -34,6 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <a href="#main-content" className="lc-skip-link">
+          Pular para o conteúdo
+        </a>
         {children}
         <Toaster richColors position="bottom-center" />
       </body>

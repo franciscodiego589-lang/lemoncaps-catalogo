@@ -83,3 +83,33 @@ Nenhuma imagem com licenca aceitavel e representacao honesta do insumo foi encon
 
 - `beta-alanina`: nenhum candidato com licença aceitável encontrado
 - `corante-verde`: nenhum candidato com licença aceitável encontrado
+
+## Acréscimo de 2026-10-21
+
+Fotos baixadas e processadas em 2026-10-21 para os insumos que apareciam sem imagem nas páginas de benefícios (pedido do dono). Mesmo critério: só Wikimedia Commons, com licença de uso comercial.
+
+| Insumo | Arquivo | Fonte | Autor | Licenca | Pagina de origem |
+|---|---|---|---|---|---|
+| coenzima-q10 | `coenzima-q10.jpg` | Wikimedia Commons | Awkwafaba | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | https://commons.wikimedia.org/wiki/File:Coenzyme_Q10_powder.jpg |
+| trans-resveratrol | `trans-resveratrol.jpg` | Wikimedia Commons | Famartin | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | https://commons.wikimedia.org/wiki/File:2019-10-11_00_15_02_A_bunch_of_Dayka_Hackett_Flavor_Grown_Fresh_and_Delicious_Red_Seedless_Table_Grapes_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg |
+| cloreto-de-potassio | `cloreto-de-potassio.jpg` | Wikimedia Commons | Benjah-bmm27 | Public domain | https://commons.wikimedia.org/wiki/File:Potassium-chloride-3D-ionic.png |
+| cloreto-de-sodio | `cloreto-de-sodio.jpg` | Wikimedia Commons | Petar Milošević | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | https://commons.wikimedia.org/wiki/File:Dead_Sea_salt_crystals.jpg |
+| oleo-de-semente-de-abobora | `oleo-de-semente-de-abobora.jpg` | Wikimedia Commons | kernoel.cc | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | https://commons.wikimedia.org/wiki/File:R%C3%B6tlich_schimmerndes_K%C3%BCrbiskern%C3%B6l_ausgiessen.jpg |
+| sorbato-de-potassio | `sorbato-de-potassio.jpg` | Wikimedia Commons | MarinaVladivostok | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | https://commons.wikimedia.org/wiki/File:Potassium_sorbate_ball-and-stick.png |
+| glicerina-vegetal | `glicerina-vegetal.jpg` | Wikimedia Commons | Benjah-bmm27 | Public domain | https://commons.wikimedia.org/wiki/File:Glycerol-3D-balls.png |
+| benzoato-de-sodio | `benzoato-de-sodio.jpg` | Wikimedia Commons | Chemik10 at Polish Wikipedia | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | https://commons.wikimedia.org/wiki/File:Sodium_benzoate-substance.jpg |
+| beta-alanina | `beta-alanina.jpg` | Wikimedia Commons | Jynto (talk) | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | https://commons.wikimedia.org/wiki/File:Beta-Alanine-3D-balls.png |
+| corante-verde | `corante-verde.jpg` | Wikimedia Commons | NASA/Donald Pettit | Public domain | https://commons.wikimedia.org/wiki/File:Food_coloring.jpg |
+| goma-xantana | `goma-xantana.jpg` | Wikimedia Commons | Mhgunning | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | https://commons.wikimedia.org/wiki/File:Xanthan_gum.png |
+| sorbitol-liquido | `sorbitol-liquido.jpg` | Wikimedia Commons | Kemikungen | Public domain | https://commons.wikimedia.org/wiki/File:Sorbitol-3D-balls.png |
+| agua-purificada | `agua-purificada.jpg` | Wikimedia Commons | Derek Jensen (Tysto) | Public domain | https://commons.wikimedia.org/wiki/File:Glass-of-water.jpg |
+| celulose-microcristalina | `celulose-microcristalina.jpg` | Wikimedia Commons | Alabama Extension | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | https://commons.wikimedia.org/wiki/File:COTTON_open_boll_bloom_(48948371196).jpg |
+
+Insumos novos que reaproveitam uma foto já listada acima (mesma procedência e licença):
+
+- `cafe-verde-soluvel` usa `extrato-de-cafe-verde.jpg`
+- `extrato-de-semente-de-feno-grego` usa `extrato-fluido-de-semente-de-feno-grego.jpg`
+- `extrato-seco-de-guarana` usa `guarana-em-po.jpg`
+- `l-aspartato-de-l-arginina` usa `l-arginina.jpg`
+- `n-acetil-l-cisteina` usa `l-cisteina.jpg`
+- `acido-ortossilicico-estabilizado-em-maltodextrina` usa `silicio-organico.jpg`

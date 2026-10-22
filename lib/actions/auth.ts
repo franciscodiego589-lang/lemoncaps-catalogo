@@ -36,6 +36,12 @@ export async function signIn(formData: FormData): Promise<ActionResult<undefined
     password: parsed.data.password,
   });
 
+  if (error) {
+    // A mensagem ao usuário continua genérica de propósito (não revela se o e-mail
+    // existe), mas o operador precisa distinguir "senha errada" de "Supabase fora
+    // do ar" — sem este log, os dois casos eram indistinguíveis.
+    console.error("[signIn] falha na autenticação:", error.message);
+  }
   if (error || !data.user) {
     return actionError(INVALID_CREDENTIALS_MESSAGE);
   }
@@ -50,6 +56,9 @@ export async function signIn(formData: FormData): Promise<ActionResult<undefined
     .eq("user_id", data.user.id)
     .maybeSingle();
 
+  if (profileError) {
+    console.error("[signIn] falha ao consultar staff_profiles:", profileError.message);
+  }
   if (profileError || !profile || !profile.active) {
     await supabase.auth.signOut();
     return actionError(NOT_STAFF_MESSAGE);

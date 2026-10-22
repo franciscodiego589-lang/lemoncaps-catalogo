@@ -49,3 +49,11 @@ next-env.d.ts
 .claude/.aia-harness-pending/
 graphify-out/cost.json
 graphify-out/cache/
+
+# Worktrees criados pelo harness. O .worktreeinclude copia .env, .env.local e
+# .claude/settings.local.json para dentro de cada um — as regras acima que
+# protegem esses arquivos são ancoradas na raiz e não alcançam esta profundidade.
+.claude/worktrees/
+
+# arquivos .env fora da raiz (ex.: docs/conformidade/dados-*/banco-novo-publico.env)
+*.env

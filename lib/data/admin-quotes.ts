@@ -179,10 +179,63 @@ export async function getAdminQuotes(filters: QuoteFilters = {}): Promise<AdminQ
   };
 }
 
+// Uma linha por ITEM do orçamento, não por orçamento inteiro - decisão
+// explícita do pedido de enriquecer o CSV (2026-09-13): é o formato que dá
+// para somar/filtrar numa planilha de verdade (potes e subtotal por
+// fórmula), em vez de amontoar os itens numa única célula ilegível para o
+// Excel agregar. Os campos do orçamento (número, data, cliente, WhatsApp,
+// status, totais) por isso se repetem em cada linha de item do mesmo
+// orçamento - é o preço de deixar a planilha somável.
+export interface AdminQuoteExportRowDTO {
+  quoteNumber: number;
+  customerName: string;
+  customerWhatsapp: string;
+  createdAt: string;
+  status: QuoteStatus;
+  // Agregados do ORÇAMENTO inteiro (repetidos em toda linha de item dele).
+  // quoteTotalCents/quoteTotalProfitCents vêm prontos de quote_summaries -
+  // mesma soma que a tela já mostra, nunca recalculada aqui. quoteTotalPotes
+  // não existe na view, por isso é somado abaixo a partir dos próprios itens
+  // já carregados para o CSV.
+  quoteTotalPotes: number;
+  quoteTotalCents: number;
+  quoteTotalProfitCents: number | null;
+  // Do ITEM. Só ficam null na linha de segurança de um orçamento sem item
+  // vivo (ver comentário mais abaixo) - hoje nunca visto em produção.
+  itemFormulaName: string | null;
+  itemPresentation: string | null;
+  itemQuantityPotes: number | null;
+  itemUnitPriceCents: number | null;
+  itemLineTotalCents: number | null;
+}
+
+type QuoteExportItemRow = Pick<
+  Tables<"quote_items">,
+  "quote_id" | "formula_id" | "formula_name_snapshot" | "quantity_potes" | "unit_price_cents" | "line_total_cents"
+>;
+
+// Mesma técnica de QUOTE_SUMMARY_COLUMNS acima: literal de string sem
+// anotação de tipo, para o supabase-js tipar a consulta só com estas colunas.
+const QUOTE_EXPORT_ITEM_COLUMNS = "quote_id, formula_id, formula_name_snapshot, quantity_potes, unit_price_cents, line_total_cents";
+
+// Só a apresentação/peso da fórmula, para o join manual em JS logo abaixo -
+// nunca list_price_cents nem qualquer outra coluna que esta exportação não
+// pediu.
+type FormulaPresentationRow = Pick<Tables<"formulas">, "id" | "pote_contents_description">;
+
 // Mesmo filtro da lista, sem paginação - para o botão "Exportar planilha"
-// baixar TODAS as cotações do filtro atual (item 4 da tarefa), não só a
-// página visível.
-export async function getAdminQuotesForExport(filters: Omit<QuoteFilters, "pagina"> = {}): Promise<AdminQuoteListItemDTO[]> {
+// baixar TODAS as cotações do filtro atual (item 4 da tarefa original desta
+// aba), não só a página visível.
+//
+// Três consultas (quote_summaries para o cabeçalho de cada orçamento,
+// quote_items para os itens, formulas só pela apresentação) em vez de um
+// select aninhado do PostgREST (`quote_items(*, formulas(...))`): nenhum
+// outro lugar deste arquivo usa embed, o tipo que o supabase-js infere para
+// select aninhado é frágil de anotar à mão, e Promise.all/junção em JS é o
+// mesmo padrão já usado acima em getAdminQuoteById.
+export async function getAdminQuotesForExport(
+  filters: Omit<QuoteFilters, "pagina"> = {},
+): Promise<AdminQuoteExportRowDTO[]> {
   const supabase = await createClient();
   const query = applyQuoteFilters(baseQuoteSummaryQuery(supabase), filters)
     .order("created_at", { ascending: false })
@@ -191,7 +244,108 @@ export async function getAdminQuotesForExport(filters: Omit<QuoteFilters, "pagin
   const { data, error } = await query;
   if (error) throw new Error(`Falha ao exportar orçamentos: ${error.message}`);
 
-  return (data ?? []).map(mapQuoteSummaryRow).filter((row): row is AdminQuoteListItemDTO => row !== null);
+  const quotes = (data ?? []).map(mapQuoteSummaryRow).filter((row): row is AdminQuoteListItemDTO => row !== null);
+  if (quotes.length === 0) return [];
+
+  // .in() com todos os IDs filtrados de uma vez. QUOTES_EXPORT_MAX_ROWS (5000)
+  // já era, antes desta função existir, uma defesa contra volume futuro - bem
+  // acima da quantidade real de orçamentos hoje. Perto desse teto, esta
+  // chamada .in() pode esbarrar em limite de tamanho de URL do PostgREST
+  // antes de qualquer outro problema; não paginada em lotes aqui de
+  // propósito (YAGNI - sem uso real hoje que justifique a complexidade).
+  const quoteIds = quotes.map((quote) => quote.id);
+  const { data: itemRows, error: itemsError } = await supabase
+    .from("quote_items")
+    .select(QUOTE_EXPORT_ITEM_COLUMNS)
+    .in("quote_id", quoteIds)
+    .is("deleted_at", null)
+    .order("quote_id", { ascending: true })
+    .order("sort_order", { ascending: true });
+  if (itemsError) throw new Error(`Falha ao exportar itens dos orçamentos: ${itemsError.message}`);
+
+  const items = itemRows ?? [];
+
+  // Apresentação/peso NÃO é um dado "congelado" no item (ao contrário de
+  // formula_name_snapshot) - vem AO VIVO da fórmula atual, porque
+  // quote_items nunca guardou esse snapshot no schema. Se a fórmula for
+  // editada depois do orçamento, o CSV mostra a apresentação de HOJE, não a
+  // de quando o orçamento foi gerado - limitação do schema, não desta
+  // função. pote_contents_description (não net_weight) é o campo certo aqui:
+  // conferido linha a linha no seed real (supabase/migrations/20260909210002_seed_catalogo.sql)
+  // - net_weight vem vazio em praticamente todo formula real (documentado no
+  // próprio schema.sql), pote_contents_description é quem carrega "60
+  // Cápsulas"/"150g"/etc.
+  const formulaIds = Array.from(new Set(items.map((item) => item.formula_id)));
+  const presentationByFormulaId = new Map<string, string | null>();
+  if (formulaIds.length > 0) {
+    const { data: formulaRows, error: formulaError } = await supabase
+      .from("formulas")
+      .select("id, pote_contents_description")
+      .in("id", formulaIds);
+    if (formulaError) throw new Error(`Falha ao exportar apresentação das fórmulas: ${formulaError.message}`);
+    for (const formula of (formulaRows ?? []) as FormulaPresentationRow[]) {
+      presentationByFormulaId.set(formula.id, formula.pote_contents_description);
+    }
+  }
+
+  const itemsByQuoteId = new Map<string, QuoteExportItemRow[]>();
+  for (const item of items) {
+    const existing = itemsByQuoteId.get(item.quote_id);
+    if (existing) existing.push(item);
+    else itemsByQuoteId.set(item.quote_id, [item]);
+  }
+
+  const rows: AdminQuoteExportRowDTO[] = [];
+  for (const quote of quotes) {
+    const quoteItems = itemsByQuoteId.get(quote.id) ?? [];
+
+    // fn_generate_quote (schema.sql) exige ao menos 1 item para criar o
+    // orçamento, e não existe ação de remover item depois de criado (ver
+    // lib/actions/quotes.ts: só updateQuoteItem e updateQuoteStatus) - este
+    // ramo nunca deve disparar em produção hoje. Mesmo assim, um orçamento
+    // sem item vivo continua indo para o CSV numa linha própria, em vez de
+    // desaparecer em silêncio da exportação.
+    if (quoteItems.length === 0) {
+      rows.push({
+        quoteNumber: quote.quoteNumber,
+        customerName: quote.customerName,
+        customerWhatsapp: quote.customerWhatsapp,
+        createdAt: quote.createdAt,
+        status: quote.status,
+        quoteTotalPotes: 0,
+        quoteTotalCents: quote.totalCents,
+        quoteTotalProfitCents: quote.totalProfitCents,
+        itemFormulaName: null,
+        itemPresentation: null,
+        itemQuantityPotes: null,
+        itemUnitPriceCents: null,
+        itemLineTotalCents: null,
+      });
+      continue;
+    }
+
+    const quoteTotalPotes = quoteItems.reduce((total, item) => total + item.quantity_potes, 0);
+
+    for (const item of quoteItems) {
+      rows.push({
+        quoteNumber: quote.quoteNumber,
+        customerName: quote.customerName,
+        customerWhatsapp: quote.customerWhatsapp,
+        createdAt: quote.createdAt,
+        status: quote.status,
+        quoteTotalPotes,
+        quoteTotalCents: quote.totalCents,
+        quoteTotalProfitCents: quote.totalProfitCents,
+        itemFormulaName: item.formula_name_snapshot,
+        itemPresentation: presentationByFormulaId.get(item.formula_id) ?? null,
+        itemQuantityPotes: item.quantity_potes,
+        itemUnitPriceCents: item.unit_price_cents,
+        itemLineTotalCents: item.line_total_cents,
+      });
+    }
+  }
+
+  return rows;
 }
 
 export interface AdminQuoteItemDTO {
@@ -200,8 +354,9 @@ export interface AdminQuoteItemDTO {
   formulaNameSnapshot: string;
   quantityPotes: number;
   unitCostCents: number | null;
-  unitPriceCents: number;
-  lineTotalCents: number;
+  /** null = preço sob consulta (fórmula sem preço na hora da cotação). */
+  unitPriceCents: number | null;
+  lineTotalCents: number | null;
   lineCostCents: number | null;
   profitCents: number | null;
   profitMarginPct: number | null;
@@ -260,10 +415,9 @@ export async function getAdminQuoteById(id: string): Promise<AdminQuoteDetailDTO
       unitCostCents: item.unit_cost_cents,
       unitPriceCents: item.unit_price_cents,
       // line_total_cents é coluna GERADA como quantity_potes * unit_price_cents
-      // (schema.sql) - as duas entradas são NOT NULL, então o produto nunca é
-      // nulo de verdade; o tipo gerado marca "number | null" de forma
-      // conservadora (é bigint). ?? 0 nunca é alcançado na prática.
-      lineTotalCents: item.line_total_cents ?? 0,
+      // (schema.sql). Desde 20261021170000_cotacao_sem_preco.sql o preço pode
+      // ser nulo (sob consulta), e aí o total da linha também é nulo.
+      lineTotalCents: item.line_total_cents,
       lineCostCents: item.line_cost_cents,
       profitCents: item.profit_cents,
       profitMarginPct: item.profit_margin_pct,

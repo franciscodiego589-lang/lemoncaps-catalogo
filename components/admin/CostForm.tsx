@@ -38,14 +38,23 @@ export function CostForm({ formulaId, initialUnitCostCents, initialInternalNotes
     }
 
     setPending(true);
-    const result = await updateFormulaCost(formulaId, { unitCostCents, internalNotes: notes.trim() === "" ? null : notes });
-    setPending(false);
-
-    if (!result.ok) {
-      setError(result.error);
-      return;
+    // try/catch (achado A2 da auditoria de 14/09/2026): sem isto, uma
+    // rejeição de updateFormulaCost virava erro não tratado no cliente e o
+    // botão ficava travado em "Salvando…" (o setPending(false) nunca era
+    // alcançado).
+    try {
+      const result = await updateFormulaCost(formulaId, { unitCostCents, internalNotes: notes.trim() === "" ? null : notes });
+      if (!result.ok) {
+        setError(result.error);
+        return;
+      }
+      toast.success("Custo salvo.");
+    } catch (caught) {
+      console.error("[CostForm] falha ao salvar custo:", caught);
+      toast.error("Não foi possível salvar o custo agora. Tente novamente.");
+    } finally {
+      setPending(false);
     }
-    toast.success("Custo salvo.");
   }
 
   return (

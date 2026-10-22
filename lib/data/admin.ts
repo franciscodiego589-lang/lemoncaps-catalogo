@@ -4,6 +4,9 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import type { Enums } from "@/lib/supabase/database.types";
+import type { PackagingSpec } from "@/lib/catalog/packaging";
+import { readNutritionTable, type NutritionTable } from "@/lib/catalog/nutrition-table";
+import { TOGGLEABLE_LINES, type ToggleableLine } from "@/lib/catalog/catalog-lines";
 import { sanitizarTermoBusca } from "./postgrest-filtro";
 
 // =============================================================================
@@ -131,6 +134,46 @@ export async function getAdminSegments(): Promise<AdminSegmentDTO[]> {
 }
 
 // =============================================================================
+// LINHAS DO CATÁLOGO - liga/desliga das abas Premium, Econômica e Lemon Caps.
+// =============================================================================
+
+export interface AdminCatalogLineDTO {
+  line: ToggleableLine;
+  enabled: boolean;
+  /** Fórmulas ativas da linha (as que aparecem quando a linha está ligada). */
+  activeCount: number;
+}
+
+export async function getAdminCatalogLines(): Promise<AdminCatalogLineDTO[]> {
+  const supabase = await createClient();
+  const [linesResult, formulasResult] = await Promise.all([
+    supabase.from("catalog_lines").select("line, enabled"),
+    supabase.from("formulas").select("line").eq("active", true).is("deleted_at", null),
+  ]);
+
+  // Tabela ainda inexistente ou leitura falhou: o painel mostra as duas linhas
+  // como ligadas (o que o site público também faz nesse caso) em vez de quebrar a
+  // página inteira do Catálogo.
+  if (linesResult.error) {
+    console.error("[getAdminCatalogLines] falha ao consultar public.catalog_lines:", {
+      message: linesResult.error.message,
+      code: linesResult.error.code,
+    });
+  }
+  if (formulasResult.error) throw new Error(`Falha ao contar fórmulas por linha: ${formulasResult.error.message}`);
+
+  const enabledByLine = new Map((linesResult.data ?? []).map((row) => [row.line, row.enabled] as const));
+  const countByLine = new Map<string, number>();
+  for (const row of formulasResult.data ?? []) countByLine.set(row.line, (countByLine.get(row.line) ?? 0) + 1);
+
+  return TOGGLEABLE_LINES.map((line) => ({
+    line,
+    enabled: enabledByLine.get(line) ?? true,
+    activeCount: countByLine.get(line) ?? 0,
+  }));
+}
+
+// =============================================================================
 // FÓRMULAS - lista e detalhe (para /admin/catalogo).
 // =============================================================================
 
@@ -150,6 +193,26 @@ export interface AdminFormulaListItemDTO {
   listPriceCents: number | null;
   sortOrder: number;
   updatedAt: string;
+  /** Destaque do catálogo (migration 20260916143000). null = não é destaque. */
+  featuredAt: string | null;
+  /** Foto real do pote. null = a vitrine cai para a faixa colorida do segmento. */
+  mockupPath: string | null;
+  /** Selo de conformidade Anvisa. null = composição ainda não conferida. */
+  complianceVerifiedAt: string | null;
+  // Os dois campos de rótulo entram na lista como SIM/NÃO, e não como texto: a
+  // tela só precisa saber se a pendência existe, e trafegar o texto inteiro das
+  // advertências e da lista de ingredientes de 27 fórmulas para depois jogá-lo
+  // fora seria carregar quilobytes à toa. Texto em branco conta como ausente
+  // tanto quanto NULL - é a mesma régua do painel de visão geral
+  // (lib/data/admin-dashboard.ts), para as duas telas nunca discordarem sobre
+  // o que é uma pendência.
+  hasIngredientsList: boolean;
+  hasWarnings: boolean;
+}
+
+/** Texto de banco só conta como preenchido quando tem conteúdo de verdade. */
+function isFilled(value: string | null): boolean {
+  return value !== null && value.trim() !== "";
 }
 
 export interface AdminFormulaFilters {
@@ -162,9 +225,17 @@ export async function getAdminFormulas(filters: AdminFormulaFilters = {}): Promi
   const supabase = await createClient();
   let query = supabase
     .from("formulas")
-    .select("id, slug, name, segment_id, line, format, active, list_price_cents, sort_order, updated_at, segments(name)")
+    .select(
+      "id, slug, name, segment_id, line, format, active, list_price_cents, sort_order, updated_at, featured_at, mockup_path, compliance_verified_at, ingredients_list, warnings, segments(name)",
+    )
     .is("deleted_at", null)
-    .order("sort_order", { ascending: true });
+    // Exatamente a mesma cascata da vitrine (ver lib/data/formulas.ts): destaque
+    // primeiro, mais recente na frente; depois a ordenação manual; e o nome como
+    // desempate estável. A lista do admin mostrar uma ordem e o cliente ver outra
+    // seria a receita para "mas eu destaquei e não subiu".
+    .order("featured_at", { ascending: false, nullsFirst: false })
+    .order("sort_order", { ascending: true })
+    .order("name", { ascending: true });
 
   if (filters.activeFilter === "active") query = query.eq("active", true);
   if (filters.activeFilter === "inactive") query = query.eq("active", false);
@@ -188,7 +259,44 @@ export async function getAdminFormulas(filters: AdminFormulaFilters = {}): Promi
     listPriceCents: row.list_price_cents,
     sortOrder: row.sort_order,
     updatedAt: row.updated_at,
+    featuredAt: row.featured_at,
+    mockupPath: row.mockup_path,
+    complianceVerifiedAt: row.compliance_verified_at,
+    hasIngredientsList: isFilled(row.ingredients_list),
+    hasWarnings: isFilled(row.warnings),
   }));
+}
+
+// Quantos destaques existem hoje, e sobre que universo. Consulta separada de
+// getAdminFormulas de propósito: o aviso de "destaque demais" fala do CATÁLOGO
+// inteiro, não da página filtrada. Contar as linhas que o filtro deixou na tela
+// diria "1 destaque" logo depois de buscar por um nome - e o dono acharia que
+// apagou os outros.
+export interface AdminFeaturedSummaryDTO {
+  /** Fórmulas ativas marcadas como destaque - as que o cliente realmente vê na frente. */
+  featuredCount: number;
+  /** Universo em que isso é medido: fórmulas ativas. */
+  activeCount: number;
+}
+
+export async function getAdminFeaturedSummary(): Promise<AdminFeaturedSummaryDTO> {
+  const supabase = await createClient();
+  // head: true - o PostgREST devolve só o Content-Range, sem trafegar linha
+  // nenhuma (mesma técnica das contagens do painel de visão geral).
+  const [featuredResult, activeResult] = await Promise.all([
+    supabase
+      .from("formulas")
+      .select("id", { count: "exact", head: true })
+      .eq("active", true)
+      .is("deleted_at", null)
+      .not("featured_at", "is", null),
+    supabase.from("formulas").select("id", { count: "exact", head: true }).eq("active", true).is("deleted_at", null),
+  ]);
+
+  if (featuredResult.error) throw new Error(`Falha ao contar destaques: ${featuredResult.error.message}`);
+  if (activeResult.error) throw new Error(`Falha ao contar fórmulas ativas: ${activeResult.error.message}`);
+
+  return { featuredCount: featuredResult.count ?? 0, activeCount: activeResult.count ?? 0 };
 }
 
 export interface AdminCompositionLineDTO {
@@ -208,7 +316,11 @@ export interface AdminCompositionLineDTO {
 // geridos por auditoria documentada à parte (ver comentário da migration) e
 // nunca são reescritos por esta camada - nenhuma função abaixo lê nem grava
 // essas 3 colunas, então uma edição feita aqui nunca as apaga por acidente.
-export interface AdminFormulaDetailDTO {
+//
+// Os 12 campos de embalagem e logística vêm de PackagingSpec
+// (lib/catalog/packaging.ts) - o MESMO tipo que o catálogo público usa, para o
+// editor e a vitrine nunca divergirem sobre quais campos existem.
+export interface AdminFormulaDetailDTO extends PackagingSpec {
   id: string;
   slug: string;
   name: string;
@@ -233,12 +345,21 @@ export interface AdminFormulaDetailDTO {
   sortOrder: number;
   active: boolean;
   version: number;
+  technicalSheetVersion: number;
   compositions: AdminCompositionLineDTO[];
   cost: { unitCostCents: number | null; internalNotes: string | null } | null;
+  // Tabela de Informação Nutricional estruturada (formulas.metadata->tabela_nutricional),
+  // lida com a MESMA função que o dossiê público usa (readNutritionTable, em
+  // lib/catalog/nutrition-table.ts) - null quando a fórmula ainda não tem a
+  // tabela estruturada (só o texto livre em nutritionalInfo, acima). O editor
+  // (NutritionTableEditor) usa isto para semear o formulário; a Server Action
+  // que grava (updateNutritionTable, lib/actions/formulas.ts) é quem decide o
+  // que entra em metadata a partir daqui em diante.
+  nutritionTable: NutritionTable | null;
 }
 
 const ADMIN_FORMULA_COLUMNS =
-  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, net_weight, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order, active, version";
+  "id, slug, name, segment_id, line, format, regulatory_product_type, pote_contents_description, net_weight, description, nutritional_info, ingredients_list, usage_instructions, benefits, general_benefits_summary, warnings, target_audience, storage_instructions, technical_sheet_title, list_price_cents, minimum_order_potes, sort_order, active, version, technical_sheet_version, ean13, dun14, shelf_life_months, gross_weight_g, package_height_mm, package_width_mm, package_depth_mm, units_per_box, box_height_mm, box_width_mm, box_depth_mm, box_gross_weight_g, metadata";
 
 export async function getAdminFormulaById(id: string): Promise<AdminFormulaDetailDTO | null> {
   const supabase = await createClient();
@@ -284,6 +405,19 @@ export async function getAdminFormulaById(id: string): Promise<AdminFormulaDetai
     sortOrder: row.sort_order,
     active: row.active,
     version: row.version,
+    technicalSheetVersion: row.technical_sheet_version,
+    ean13: row.ean13,
+    dun14: row.dun14,
+    shelfLifeMonths: row.shelf_life_months,
+    grossWeightG: row.gross_weight_g,
+    packageHeightMm: row.package_height_mm,
+    packageWidthMm: row.package_width_mm,
+    packageDepthMm: row.package_depth_mm,
+    unitsPerBox: row.units_per_box,
+    boxHeightMm: row.box_height_mm,
+    boxWidthMm: row.box_width_mm,
+    boxDepthMm: row.box_depth_mm,
+    boxGrossWeightG: row.box_gross_weight_g,
     compositions: (compositionsResult.data ?? []).map((c) => ({
       id: c.id,
       ingredientName: c.ingredient_name,
@@ -293,7 +427,50 @@ export async function getAdminFormulaById(id: string): Promise<AdminFormulaDetai
       ingredientId: c.ingredient_id,
     })),
     cost: costResult.data ? { unitCostCents: costResult.data.unit_cost_cents, internalNotes: costResult.data.internal_notes } : null,
+    nutritionTable: readNutritionTable(row.metadata),
   };
+}
+
+// =============================================================================
+// ASSINATURA DA FICHA TÉCNICA - histórico de aprovações do responsável técnico
+// (public.formula_sheet_approvals, migration 20260916000000).
+// =============================================================================
+
+export interface AdminSheetApprovalDTO {
+  id: string;
+  sheetVersion: number;
+  approvedByName: string;
+  approvedByLicense: string;
+  approvedAt: string;
+  // Observação interna da aprovação: o staff logado lê, o público NÃO (o papel
+  // anon não tem privilégio de SELECT nesta coluna - grant por coluna na migration).
+  notes: string | null;
+}
+
+// Histórico completo de uma fórmula, da aprovação mais recente para a mais antiga.
+// Não há função de editar nem de apagar aprovação nesta camada, e isso é o desenho:
+// aprovação é registro histórico, aprovar de novo cria linha nova. A trava não é a
+// ausência de código - é o banco (o papel authenticated só tem SELECT e INSERT nesta
+// tabela, e não existe policy de UPDATE nem de DELETE).
+export async function getFormulaSheetApprovals(formulaId: string): Promise<AdminSheetApprovalDTO[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("formula_sheet_approvals")
+    .select("id, sheet_version, approved_by_name, approved_by_license, approved_at, notes")
+    .eq("formula_id", formulaId)
+    .is("deleted_at", null)
+    .order("approved_at", { ascending: false });
+
+  if (error) throw new Error(`Falha ao carregar aprovações da ficha: ${error.message}`);
+
+  return (data ?? []).map((row) => ({
+    id: row.id,
+    sheetVersion: row.sheet_version,
+    approvedByName: row.approved_by_name,
+    approvedByLicense: row.approved_by_license,
+    approvedAt: row.approved_at,
+    notes: row.notes,
+  }));
 }
 
 // =============================================================================
@@ -306,26 +483,38 @@ export interface AdminFormulaCostListItemDTO {
   formulaName: string;
   listPriceCents: number | null;
   unitCostCents: number | null;
+  internalNotes: string | null;
 }
 
+// internalNotes entrou aqui (26/09) para a tela em lote (custos/page.tsx +
+// CostsBatchTable) poder editar a nota interna linha a linha sem precisar
+// abrir o formulário individual - antes só getAdminFormulaById trazia esse
+// campo. Mesma tabela 100% privada de sempre (formula_costs); nenhuma
+// exposição nova, só mais uma coluna da MESMA consulta que já existia.
 export async function getAdminFormulaCostsList(): Promise<AdminFormulaCostListItemDTO[]> {
   const supabase = await createClient();
   const [formulasResult, costsResult] = await Promise.all([
     supabase.from("formulas").select("id, name, list_price_cents").is("deleted_at", null).order("sort_order", { ascending: true }),
-    supabase.from("formula_costs").select("formula_id, unit_cost_cents").is("deleted_at", null),
+    supabase.from("formula_costs").select("formula_id, unit_cost_cents, internal_notes").is("deleted_at", null),
   ]);
 
   if (formulasResult.error) throw new Error(`Falha ao carregar fórmulas: ${formulasResult.error.message}`);
   if (costsResult.error) throw new Error(`Falha ao carregar custos: ${costsResult.error.message}`);
 
-  const costByFormula = new Map((costsResult.data ?? []).map((row) => [row.formula_id, row.unit_cost_cents]));
+  const costByFormula = new Map(
+    (costsResult.data ?? []).map((row) => [row.formula_id, { unitCostCents: row.unit_cost_cents, internalNotes: row.internal_notes }]),
+  );
 
-  return (formulasResult.data ?? []).map((row) => ({
-    formulaId: row.id,
-    formulaName: row.name,
-    listPriceCents: row.list_price_cents,
-    unitCostCents: costByFormula.get(row.id) ?? null,
-  }));
+  return (formulasResult.data ?? []).map((row) => {
+    const cost = costByFormula.get(row.id);
+    return {
+      formulaId: row.id,
+      formulaName: row.name,
+      listPriceCents: row.list_price_cents,
+      unitCostCents: cost?.unitCostCents ?? null,
+      internalNotes: cost?.internalNotes ?? null,
+    };
+  });
 }
 
 // =============================================================================
@@ -451,7 +640,8 @@ export interface AdminLeadCartItemSnapshot {
   formulaId: string;
   name: string;
   quantityPotes: number;
-  unitPriceCents: number;
+  /** null = preço sob consulta. */
+  unitPriceCents: number | null;
 }
 
 export interface AdminLeadDTO {
@@ -476,7 +666,7 @@ function parseCartSnapshot(raw: unknown): AdminLeadCartItemSnapshot[] {
       typeof item.formula_id === "string" &&
       typeof item.name === "string" &&
       typeof item.quantity_potes === "number" &&
-      typeof item.unit_price_cents === "number"
+      (typeof item.unit_price_cents === "number" || item.unit_price_cents === null)
     ) {
       items.push({
         formulaId: item.formula_id,
@@ -529,6 +719,7 @@ export async function getAdminLeads(search?: string): Promise<AdminLeadDTO[]> {
 
 export type {
   AdminQuoteDetailDTO,
+  AdminQuoteExportRowDTO,
   AdminQuoteItemDTO,
   AdminQuoteListItemDTO,
   AdminQuotesPage,
@@ -538,56 +729,11 @@ export type {
 export { getAdminQuoteById, getAdminQuotes, getAdminQuotesForExport } from "@/lib/data/admin-quotes";
 
 // =============================================================================
-// DASHBOARD - /admin.
+// DASHBOARD - /admin. Extraído para lib/data/admin-dashboard.ts quando deixou
+// de ser "duas contagens" e virou métricas + pendências do catálogo - mesma
+// razão e mesmo padrão do bloco de orçamentos acima. Reexportado aqui para
+// nenhum import existente (`@/lib/data/admin`) precisar mudar.
 // =============================================================================
 
-export interface AdminDashboardDTO {
-  activeFormulasCount: number;
-  inactiveFormulasCount: number;
-  recentLeads: Array<{ id: string; name: string; whatsapp: string; createdAt: string }>;
-  recentQuotes: Array<{ id: string; quoteNumber: number; customerName: string; totalCents: number; createdAt: string }> | null;
-}
-
-export async function getAdminDashboard(session: StaffSession): Promise<AdminDashboardDTO> {
-  const supabase = await createClient();
-
-  const [activeCount, inactiveCount, recentLeadsResult, recentQuotesResult] = await Promise.all([
-    supabase.from("formulas").select("id", { count: "exact", head: true }).eq("active", true).is("deleted_at", null),
-    supabase.from("formulas").select("id", { count: "exact", head: true }).eq("active", false).is("deleted_at", null),
-    supabase.from("leads").select("id, name, whatsapp, created_at").is("deleted_at", null).order("created_at", { ascending: false }).limit(5),
-    session.canManageQuotes
-      ? supabase
-          .from("quote_summaries")
-          .select("quote_id, quote_number, customer_name, total_cents, created_at")
-          .order("created_at", { ascending: false })
-          .limit(5)
-      : Promise.resolve({ data: null, error: null }),
-  ]);
-
-  if (activeCount.error) throw new Error(`Falha ao contar fórmulas ativas: ${activeCount.error.message}`);
-  if (inactiveCount.error) throw new Error(`Falha ao contar fórmulas inativas: ${inactiveCount.error.message}`);
-  if (recentLeadsResult.error) throw new Error(`Falha ao carregar leads recentes: ${recentLeadsResult.error.message}`);
-  if (recentQuotesResult.error) throw new Error(`Falha ao carregar orçamentos recentes: ${recentQuotesResult.error.message}`);
-
-  return {
-    activeFormulasCount: activeCount.count ?? 0,
-    inactiveFormulasCount: inactiveCount.count ?? 0,
-    recentLeads: (recentLeadsResult.data ?? []).map((row) => ({
-      id: row.id,
-      name: row.name,
-      whatsapp: row.whatsapp,
-      createdAt: row.created_at,
-    })),
-    recentQuotes: recentQuotesResult.data
-      ? recentQuotesResult.data
-          .filter((row): row is typeof row & { quote_id: string; quote_number: number } => row.quote_id !== null && row.quote_number !== null)
-          .map((row) => ({
-            id: row.quote_id,
-            quoteNumber: row.quote_number,
-            customerName: row.customer_name ?? "",
-            totalCents: row.total_cents ?? 0,
-            createdAt: row.created_at ?? "",
-          }))
-      : null,
-  };
-}
+export type { AdminDashboardDTO, AdminDashboardPendenciaDTO, PendenciaSeveridade } from "@/lib/data/admin-dashboard";
+export { getAdminDashboard } from "@/lib/data/admin-dashboard";

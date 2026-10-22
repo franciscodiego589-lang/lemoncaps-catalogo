@@ -1,0 +1,298 @@
+{
+  "_leia_isto_primeiro": "Gabarito de Valores Diários (VD) de referência para suplemento alimentar, lido diretamente do AnvisaLegis (texto consolidado vigente) em 16/09/2026. Valores marcados com 'alerta' ou listados em 'pendencias' NÃO devem ser usados sem conferência adicional. Nada aqui foi preenchido por estimativa.",
+  "fonte": {
+    "portal": "AnvisaLegis - portal de legislação consolidada da Anvisa",
+    "url_portal": "https://anvisalegis.datalegis.net/",
+    "data_consulta": "16/09/2026",
+    "metodo": "WebFetch direto de cada URL abaixo; releitura repetida de dispositivos que pareceram inconsistentes na primeira leitura",
+    "normas": [
+      {
+        "norma": "RDC Anvisa nº 429/2020",
+        "assunto": "Rotulagem nutricional dos alimentos embalados",
+        "status_vigencia_lido_em_16_09_2026": "Vigente com Alterações",
+        "atos_alteradores_lidos": ["RDC 460/2020", "RDC 604/2022", "RDC 714/2022", "RDC 715/2022", "RDC 717/2022", "RDC 729/2022", "RDC 819/2023", "RDC 976/2025"],
+        "url": "https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&tipo=RDC&numeroAto=00000429&seqAto=000&valorAno=2020&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_menu=9434&cod_modulo=310&pesquisa=true"
+      },
+      {
+        "norma": "IN Anvisa nº 75/2020",
+        "assunto": "Requisitos técnicos para declaração da rotulagem nutricional (VDR, arredondamento, conversões, modelos de tabela)",
+        "status_vigencia_lido_em_16_09_2026": "Vigente com Alterações",
+        "atos_alteradores_lidos": ["RDC 460/2020 (incluiu item 19 no Anexo XVI)", "Retificação de 13/10/2022 (Anexos IX, XII, XIII, XIV)", "Retificação de 17/05/2024 (Anexos XII, XIII, XIV)"],
+        "url": "https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&tipo=INM&numeroAto=00000075&seqAto=000&valorAno=2020&orgao=DC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_menu=9434&cod_modulo=310&pesquisa=true"
+      },
+      {
+        "norma": "RDC Anvisa nº 243/2018",
+        "assunto": "Requisitos sanitários dos suplementos alimentares (norma-mãe da categoria)",
+        "status_vigencia_lido_em_16_09_2026": "Vigente com Alterações",
+        "atos_alteradores_lidos": ["RDC 466/2021 (art. 5º)", "RDC 429/2020 (art. 15)", "RDC 839/2023 (art. 20)", "RDC 843/2024 (revogou §único do art. 11; alterou art. 21)"],
+        "url": "https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&tipo=RDC&numeroAto=00000243&seqAto=000&valorAno=2018&orgao=RDC%2FDC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_menu=9434&cod_modulo=310&pesquisa=true"
+      },
+      {
+        "norma": "IN Anvisa nº 28/2018",
+        "assunto": "Listas de constituintes, limites de uso, alegações e rotulagem complementar dos suplementos alimentares",
+        "status_vigencia_lido_em_16_09_2026": "Vigente com Alterações",
+        "atos_alteradores": "NÃO reconferidos um a um nesta tarefa. Lista de 13 atos (IN 76/2020 até IN 450/2026) herdada de lib/catalog/regulatory-info.ts, onde consta conferida individualmente em 13/09/2026 (3 dias antes desta consulta) - ver REGULATORY_AMENDMENTS naquele arquivo.",
+        "confirma": "Esta norma NÃO traz Valores Diários (VD). Traz limites MÍNIMO (Anexo III) e MÁXIMO (Anexo IV) por dose diária recomendada. O VD usado para %VD vem da IN 75/2020.",
+        "url": "https://anvisalegis.datalegis.net/action/ActionDatalegis.php?acao=abrirTextoAto&tipo=INM&numeroAto=00000028&seqAto=000&valorAno=2018&orgao=DC%2FANVISA%2FMS&codTipo=&desItem=&desItemFim=&cod_menu=9434&cod_modulo=310&pesquisa=true"
+      }
+    ]
+  },
+  "qual_tabela_de_vd_usar_para_suplemento": {
+    "regra_literal": "RDC 429/2020, Art. 12, §4º: 'No caso dos alimentos para fins especiais não contemplados no §6º do art. 8º desta Resolução que tenham indicação para grupos populacionais específicos no seu rótulo e dos suplementos alimentares, o %VD deve ser determinado com base nos VDR definidos no Anexo VIII da Instrução Normativa IN nº 75, de 2020, para cada um dos grupos populacionais específicos indicados no rótulo.'",
+    "conclusao": "Suplemento alimentar usa o grupo 'grupos_populacionais' (Anexo VIII) abaixo, escolhendo a coluna do grupo indicado no rótulo do produto - NÃO o grupo 'adultos_geral_anexo_ii' (que é a VDR genérica de 2.000 kcal usada por alimentos comuns, Art. 12 caput)."
+  },
+  "grupos_populacionais_anexo_viii_in75": {
+    "base_legal": "IN 75/2020, Art. 9º, Anexo VIII - título lido: 'VDR PARA FINS DE ROTULAGEM NUTRICIONAL DOS ALIMENTOS PARA FINS ESPECIAIS NÃO CONTEMPLADOS NO § 6º DO ART. 8º DA RESOLUÇÃO - RDC Nº 429, DE 2020, QUE TENHAM INDICAÇÃO PARA GRUPOS POPULACIONAIS ESPECÍFICOS NO SEU RÓTULO E DOS SUPLEMENTOS ALIMENTARES'",
+    "cobertura": "28 nutrientes levantados nesta consulta, nos 8 grupos. Macronutrientes (carboidratos, proteínas, gorduras, fibras, valor energético) NÃO foram verificados neste anexo - ver pendencias.",
+    "grupos": {
+      "criancas_0_a_6_meses": {
+        "vitamina_a_mcg_rae": 400, "vitamina_d_mcg": 10, "vitamina_e_mg": 4, "vitamina_k_mcg": 2,
+        "vitamina_c_mg": 40, "tiamina_b1_mg": 0.2, "riboflavina_b2_mg": 0.3, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 0.1, "biotina_mcg": 5, "acido_folico_mcg_dfe": 65, "acido_pantotenico_b5_mg": 1.7,
+        "vitamina_b12_mcg": 0.4, "calcio_mg": 200, "cloreto_mg": 180, "cobre_mcg": 200,
+        "cromo_mcg": 0.2, "ferro_mg": 0.27, "fluor_mg": 0.01, "fosforo_mg": 100,
+        "iodo_mcg": 110, "magnesio_mg": 30, "manganes_mg": 0.003, "molibdenio_mcg": 2,
+        "potassio_mg": 400, "selenio_mcg": 15, "sodio_mg": 120, "zinco_mg": 2, "colina_mg": 125
+      },
+      "criancas_7_a_11_meses": {
+        "vitamina_a_mcg_rae": 500, "vitamina_d_mcg": 10, "vitamina_e_mg": 5, "vitamina_k_mcg": 2.5,
+        "vitamina_c_mg": 50, "tiamina_b1_mg": 0.3, "riboflavina_b2_mg": 0.4, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 0.3, "biotina_mcg": 6, "acido_folico_mcg_dfe": 80, "acido_pantotenico_b5_mg": 1.8,
+        "vitamina_b12_mcg": 0.5, "calcio_mg": 260, "cloreto_mg": 570, "cobre_mcg": 220,
+        "cromo_mcg": 5.5, "ferro_mg": 11, "fluor_mg": 0.5, "fosforo_mg": 275,
+        "iodo_mcg": 130, "magnesio_mg": 75, "manganes_mg": 0.6, "molibdenio_mcg": 3,
+        "potassio_mg": 700, "selenio_mcg": 20, "sodio_mg": 370, "zinco_mg": 3, "colina_mg": 150
+      },
+      "criancas_1_a_3_anos": {
+        "vitamina_a_mcg_rae": 300, "vitamina_d_mcg": 15, "vitamina_e_mg": 6, "vitamina_k_mcg": 30,
+        "vitamina_c_mg": 15, "tiamina_b1_mg": 0.5, "riboflavina_b2_mg": 0.5, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 0.5, "biotina_mcg": 8, "acido_folico_mcg_dfe": 150, "acido_pantotenico_b5_mg": 2,
+        "vitamina_b12_mcg": 0.9, "calcio_mg": 700, "cloreto_mg": 1500, "cobre_mcg": 340,
+        "cromo_mcg": 11, "ferro_mg": 7, "fluor_mg": 0.7, "fosforo_mg": 460,
+        "iodo_mcg": 90, "magnesio_mg": 80, "manganes_mg": 1.2, "molibdenio_mcg": 17,
+        "potassio_mg": 3000, "selenio_mcg": 20, "sodio_mg": 1000, "zinco_mg": 3, "colina_mg": 200
+      },
+      "criancas_4_a_8_anos": {
+        "vitamina_a_mcg_rae": 400, "vitamina_d_mcg": 15, "vitamina_e_mg": 7, "vitamina_k_mcg": 55,
+        "vitamina_c_mg": 25, "tiamina_b1_mg": 0.6, "riboflavina_b2_mg": 0.6, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 0.6, "biotina_mcg": 12, "acido_folico_mcg_dfe": 200, "acido_pantotenico_b5_mg": 3,
+        "vitamina_b12_mcg": 1.2, "calcio_mg": 1000, "cloreto_mg": 1900, "cobre_mcg": 440,
+        "cromo_mcg": 15, "ferro_mg": 10, "fluor_mg": 1, "fosforo_mg": 500,
+        "iodo_mcg": 90, "magnesio_mg": 130, "manganes_mg": 1.5, "molibdenio_mcg": 22,
+        "potassio_mg": 3500, "selenio_mcg": 30, "sodio_mg": 2000, "zinco_mg": 5, "colina_mg": 250
+      },
+      "criancas_9_a_18_anos": {
+        "vitamina_a_mcg_rae": 900, "vitamina_d_mcg": 15, "vitamina_e_mg": 15, "vitamina_k_mcg": 75,
+        "vitamina_c_mg": 75, "tiamina_b1_mg": 1.2, "riboflavina_b2_mg": 1.3, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 1.3, "biotina_mcg": 25, "acido_folico_mcg_dfe": 400, "acido_pantotenico_b5_mg": 5,
+        "vitamina_b12_mcg": 2.4, "calcio_mg": 1300, "cloreto_mg": 2300, "cobre_mcg": 890,
+        "cromo_mcg": 35, "ferro_mg": 15, "fluor_mg": 3, "fosforo_mg": 1250,
+        "iodo_mcg": 150, "magnesio_mg": 410, "manganes_mg": 2.2, "molibdenio_mcg": 43,
+        "potassio_mg": 3500, "selenio_mcg": 55, "sodio_mg": 2000, "zinco_mg": 11, "colina_mg": 550
+      },
+      "adultos_19_anos_ou_mais": {
+        "vitamina_a_mcg_rae": 800, "vitamina_d_mcg": 15, "vitamina_e_mg": 15, "vitamina_k_mcg": 120,
+        "vitamina_c_mg": 100, "tiamina_b1_mg": 1.2, "riboflavina_b2_mg": 1.2, "niacina_mg_ne": 15,
+        "vitamina_b6_mg": 1.3, "biotina_mcg": 30, "acido_folico_mcg_dfe": 400, "acido_pantotenico_b5_mg": 5,
+        "vitamina_b12_mcg": 2.4, "calcio_mg": 1000, "cloreto_mg": 2300, "cobre_mcg": 900,
+        "cromo_mcg": 35, "ferro_mg": 14, "fluor_mg": 4, "fosforo_mg": 700,
+        "iodo_mcg": 150, "magnesio_mg": 420, "manganes_mg": 3, "molibdenio_mcg": 45,
+        "potassio_mg": 3500, "selenio_mcg": 60, "sodio_mg": 2000, "zinco_mg": 11, "colina_mg": 550,
+        "obs": "Idêntico, em todos os 28 itens conferidos, ao grupo 'adultos_geral_anexo_ii' abaixo."
+      },
+      "gestantes": {
+        "vitamina_a_mcg_rae": 770, "vitamina_d_mcg": 15, "vitamina_e_mg": 15, "vitamina_k_mcg": 90,
+        "vitamina_c_mg": 85, "tiamina_b1_mg": 1.4, "riboflavina_b2_mg": 1.4, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 1.9, "biotina_mcg": 30, "acido_folico_mcg_dfe": 600, "acido_pantotenico_b5_mg": 6,
+        "vitamina_b12_mcg": 2.6, "calcio_mg": 1300, "cloreto_mg": 2300, "cobre_mcg": 1000,
+        "cromo_mcg": 30, "ferro_mg": 27, "fluor_mg": 3, "fosforo_mg": 1250,
+        "iodo_mcg": 220, "magnesio_mg": 400, "manganes_mg": 2, "molibdenio_mcg": 5,
+        "potassio_mg": 3500, "selenio_mcg": 60, "sodio_mg": 2000, "zinco_mg": 12, "colina_mg": 450,
+        "alerta_molibdenio": "Valor lido = 5 µg, CONFIRMADO em duas leituras idênticas da fonte. Destoa da progressão da própria linha (43 µg aos 9-18 anos, 45 µg em adultos, 50 µg em lactantes) - um valor de gestante mais BAIXO que o de adultos não-gestantes é atípico para molibdênio. NÃO CORRIGIDO por mim (a regra de exatidão proíbe substituir por valor plausível). Recomendo conferência visual direta na página do AnvisaLegis antes de usar em rótulo impresso."
+      },
+      "lactantes": {
+        "vitamina_a_mcg_rae": 1300, "vitamina_d_mcg": 15, "vitamina_e_mg": 15, "vitamina_k_mcg": 90,
+        "vitamina_c_mg": 120, "tiamina_b1_mg": 1.4, "riboflavina_b2_mg": 1.6, "niacina_mg_ne": null,
+        "vitamina_b6_mg": 2, "biotina_mcg": 35, "acido_folico_mcg_dfe": 500, "acido_pantotenico_b5_mg": 7,
+        "vitamina_b12_mcg": 2.8, "calcio_mg": 1300, "cloreto_mg": 2300, "cobre_mcg": 1300,
+        "cromo_mcg": 45, "ferro_mg": 10, "fluor_mg": 3, "fosforo_mg": 1250,
+        "iodo_mcg": 290, "magnesio_mg": 360, "manganes_mg": 2.6, "molibdenio_mcg": 50,
+        "potassio_mg": 3500, "selenio_mcg": 70, "sodio_mg": 2000, "zinco_mg": 13, "colina_mg": 550
+      }
+    },
+    "niacina_nota": "Niacina (mg NE) só foi lida com valor explícito para a coluna 'adultos_19_anos_ou_mais' (15 mg NE, igual ao Anexo II). Para os demais grupos, o valor não foi extraído nesta consulta - campos 'niacina_mg_ne: null' são PENDENTE, não zero."
+  },
+  "adultos_geral_anexo_ii_in75_base_2000kcal": {
+    "base_legal": "IN 75/2020, Art. 3º, Anexo II - VDR geral para rotulagem nutricional de alimentos em geral (base 2.000 kcal). NÃO é o que rege %VD de suplemento alimentar (ver 'qual_tabela_de_vd_usar_para_suplemento').",
+    "valor_energetico_kcal": 2000,
+    "carboidratos_g": 300,
+    "acucares_adicionados_g": 50,
+    "proteinas_g": 50,
+    "gorduras_totais_g": 65,
+    "gorduras_saturadas_g": 20,
+    "gorduras_trans_g": 2,
+    "gorduras_monoinsaturadas_g": 20,
+    "gorduras_poliinsaturadas_g": 20,
+    "omega_6_g": 18,
+    "omega_3_mg": 4000,
+    "colesterol_mg": 300,
+    "fibras_alimentares_g": 25,
+    "sodio_mg": 2000,
+    "vitamina_a_mcg_rae": 800,
+    "vitamina_d_mcg": 15,
+    "vitamina_e_mg": 15,
+    "vitamina_k_mcg": 120,
+    "vitamina_c_mg": 100,
+    "tiamina_b1_mg": 1.2,
+    "riboflavina_b2_mg": 1.2,
+    "niacina_mg_ne": 15,
+    "vitamina_b6_mg": 1.3,
+    "biotina_mcg": 30,
+    "acido_folico_mcg_dfe": 400,
+    "acido_pantotenico_b5_mg": 5,
+    "vitamina_b12_mcg": 2.4,
+    "calcio_mg": 1000,
+    "cloreto_mg": 2300,
+    "cobre_mcg": 900,
+    "cromo_mcg": 35,
+    "ferro_mg": 14,
+    "fluor_mg": 4,
+    "fosforo_mg": 700,
+    "iodo_mcg": 150,
+    "magnesio_mg": 420,
+    "manganes_mg": 3,
+    "molibdenio_mcg": 45,
+    "potassio_mg": 3500,
+    "selenio_mcg": 60,
+    "zinco_mg": 11,
+    "colina_mg": 550
+  },
+  "conversoes": {
+    "base_legal_geral": "IN 75/2020, Art. 22 (energia, Anexo XXII) e Art. 23 (nutrientes, Anexo XXIII)",
+    "acido_folico_dfe": {
+      "texto_lido_literal": "1 µg de folato dietético equivalente (DFE) = 1 mg de folato naturalmente presente no alimento = 0,6 µg de ácido fólico = 0,6 µg de L-metilfolato de suplemento.",
+      "alerta": "O segundo termo da equivalência aparece em 'mg' enquanto os demais termos (DFE, ácido fólico, L-metilfolato) aparecem em 'µg'. Isso não fecha dimensionalmente. CONFIRMADO por duas leituras independentes da fonte, ambas trazendo exatamente o mesmo texto com essa aparente troca de unidade - pode ser erro de digitação/OCR do próprio texto consolidado no AnvisaLegis, não uma falha da minha leitura. NÃO CORRIGI o número: reporto exatamente o que está na fonte. Necessário conferir visualmente a página antes de usar este fator em qualquer cálculo ou documento."
+    },
+    "vitamina_a_rae": {
+      "texto_lido_literal": "1 µg de equivalente de atividade de retinol (RAE) = 3,33 UI de vitamina A = 1 µg de retinol = 12 µg de betacaroteno = 24 µg de outros carotenoides provitamina A."
+    },
+    "vitamina_e_alfatocoferol": {
+      "texto_lido_literal": "1 mg de alfa-tocoferol = 1 mg de d-alfa tocoferol (natural) = 2 mg de alfa tocoferol sintético = 1,49 UI."
+    },
+    "niacina_ne": {
+      "texto_lido_literal": "1 mg de niacina equivalente (NE) = 1 mg de niacina = 60 mg de triptofano."
+    },
+    "vitamina_d": {
+      "texto_lido_literal": "1 µg de colecalciferol = 40 UI de vitamina D."
+    },
+    "vitamina_k_e_colina": "PENDENTE - o Anexo XXIII, como retornado pela ferramenta de leitura, não trouxe fator de conversão específico para vitamina K nem para colina. Não confirmado se é porque de fato não existe conversão para esses dois (não há forma alternativa de expressão em uso corrente) ou se a extração não alcançou a linha correspondente."
+  },
+  "arredondamento_anexo_iii_in75": {
+    "alerta_geral": "Conteúdo obtido por PARÁFRASE (duas leituras concordantes da ferramenta), NÃO é transcrição literal célula-a-célula do texto do Anexo III. A lógica e as faixas de corte batem nas duas leituras, mas a redação exata (ex.: se o texto usa 'maior ou igual' ou apenas 'igual ou superior', formatação da tabela) não foi confirmada literalmente. Recomenda-se conferência do texto exato antes de citar como norma no documento final de cada produto.",
+    "faixas": [
+      {
+        "faixa_lida": "valores maiores ou iguais a 10",
+        "regra": "olhar a 1ª casa decimal: se menor que 5, mantém o valor inteiro; se maior ou igual a 5, soma 1 ao inteiro",
+        "forma_de_expressao": "número inteiro, sem casas decimais"
+      },
+      {
+        "faixa_lida": "valores menores que 10 e maiores ou iguais a 1",
+        "regra": "olhar a 2ª casa decimal: se menor que 5, mantém a 1ª casa decimal; se maior ou igual a 5, soma 1 à 1ª casa decimal",
+        "forma_de_expressao": "se a 1ª casa decimal resultante for 0, declarar como número inteiro; senão, declarar com 1 dígito decimal"
+      },
+      {
+        "faixa_lida": "valores menores que 1, expressos em gramas (g)",
+        "regra": "olhar a 2ª casa decimal: se menor que 5, mantém a 1ª casa decimal; se maior ou igual a 5, soma 1 à 1ª casa decimal",
+        "forma_de_expressao": "1 dígito decimal"
+      },
+      {
+        "faixa_lida": "valores menores que 1, expressos em miligramas (mg) ou microgramas (µg)",
+        "regra": "olhar a 3ª casa decimal: se menor que 5, mantém a 2ª casa decimal; se maior ou igual a 5, soma 1 à 2ª casa decimal",
+        "forma_de_expressao": "se a 2ª casa decimal resultante for 0, declarar com 1 dígito; senão, declarar com 2 dígitos decimais"
+      }
+    ],
+    "valor_energetico_kcal_kj": "Segundo a leitura obtida, NÃO há linha separada para valor energético - segue as mesmas 4 faixas acima. Não confirmado com transcrição literal."
+  },
+  "quantidade_nao_significativa_anexo_iv_in75": {
+    "base_legal": "IN 75/2020, Anexo IV. Regra de declaração: RDC 429/2020, Art. 12, §2º - 'Quando a quantidade de valor energético ou de nutrientes for não significativa, conforme Anexo IV da Instrução Normativa - IN nº 75, de 2020, o %VD deve ser declarado como zero.'",
+    "cobertura": "PARCIAL - só valor energético e macronutrientes convencionais. Limiares de vitaminas e minerais individuais (o núcleo dos produtos Lemon Caps) NÃO foram extraídos nesta consulta.",
+    "limiares_lidos": {
+      "valor_energetico_kcal": "<= 4 kcal",
+      "carboidratos_g": "<= 0,5 g",
+      "acucares_totais_g": "<= 0,5 g",
+      "proteinas_g": "<= 0,5 g",
+      "gorduras_totais_g": "<= 0,5 g",
+      "gorduras_saturadas_g": "<= 0,1 g",
+      "gorduras_trans_g": "<= 0,1 g",
+      "colesterol_mg": "<= 5 mg",
+      "sodio_mg": "<= 5 mg"
+    },
+    "obs": "A fonte mencionou haver condições diferenciadas para suplementos e para alimentos que exigem preparo, não totalmente reproduzidas nesta consulta."
+  },
+  "designacao_no_rotulo": {
+    "regra_literal": "RDC 243/2018, Art. 12, caput: 'Os produtos de que trata esta Resolução devem ser designados como \"Suplemento Alimentar\" acrescido da sua forma farmacêutica.'",
+    "complemento_permitido_art12_par1": "Pode ser complementada com: nomes individuais dos nutrientes/substâncias bioativas/enzimas; nome de categoria desses constituintes; nome da fonte; ou identificação da linhagem do micro-organismo (no caso de probióticos).",
+    "posicao_e_destaque_art13": "Próxima à marca do produto, com caracteres legíveis: caixa alta, negrito, cor contrastante, tamanho mínimo de 1/3 do tamanho da maior fonte usada na marca.",
+    "remissao_art12_par2": "Remete aos Anexos V ou VI da IN 28/2018 para requisitos adicionais (alegações e rotulagem complementar).",
+    "correcao_de_premissa_importante": "A tarefa original presumia uma regra codificada do tipo 'SUPLEMENTO ALIMENTAR DE ...' vs 'SUPLEMENTO ALIMENTAR EM ...'. Não encontrei esse binômio como regra expressa em nenhum dispositivo lido (Art. 12 da RDC 243/2018, na íntegra, não usa essa formulação). O que a norma exige literalmente é apenas 'Suplemento Alimentar' + forma farmacêutica. 'De' (ligando a um nutriente/fonte, ex.: 'de Vitamina C') e 'em' (ligando à forma farmacêutica, ex.: 'em cápsulas') parecem ser convenção de redação em português corrente ao combinar os elementos do §1º, não uma regra binária codificada à parte. Isto é uma CORREÇÃO à premissa do pedido, não uma confirmação dela."
+  },
+  "simbolo_para_constituinte_sem_vd": {
+    "regra_literal": "RDC 429/2020, Art. 12, §1º: 'Para os nutrientes sem VDR definidos, o espaço para declaração do respectivo %VD deve ser deixado vazio.'",
+    "correcao_de_premissa_importante": "A tarefa original presumia uso do símbolo '**' (dois asteriscos) para marcar constituinte sem VD. O texto vigente manda deixar o ESPAÇO EM BRANCO, não usar nenhum símbolo. Não encontrei o símbolo '**' associado a 'sem VD' em nenhuma das quatro normas, na parte que consegui abrir de cada uma (RDC 429/2020 completa; IN 75/2020 até onde a ferramenta alcançou; RDC 243/2018 completa; IN 28/2018 até o meio do Anexo III). Isto é uma CORREÇÃO à premissa do pedido - se esse símbolo aparecer em rótulos reais de mercado, é herança de norma anterior revogada (RDC 360/2003), não da norma vigente."
+  },
+  "nota_de_rodape_percentual_vd": {
+    "texto_vigente_lido": "*Percentual de valores diários fornecidos pela porção",
+    "base_legal": "RDC 429/2020, Art. 12, §5º (texto completo do parágrafo: 'A declaração de que trata o caput deve ser acompanhada da seguinte nota de rodapé: \"*Percentual de valores diários fornecidos pela porção\".')",
+    "correcao_de_premissa_importante": "A tarefa original presumia o texto '*% Valores Diários de referência com base em uma dieta de 2.000 kcal ou 8.400 kJ'. Esse é o texto da norma ANTERIOR, já revogada (RDC 360/2003). O texto vigente hoje, lido literalmente na RDC 429/2020 (Art. 12 §5º), é mais curto e NÃO menciona 2.000 kcal nem 8.400 kJ. Isto é uma CORREÇÃO à premissa do pedido - usar o texto antigo nas 24 tabelas seria citar norma revogada."
+  },
+  "frases_obrigatorias_rdc243_art14": {
+    "base_legal": "RDC 243/2018, Art. 14, inciso I, alíneas c, d, e - todas exigidas 'em destaque e negrito'",
+    "frases": [
+      "Este produto não é um medicamento",
+      "Não exceder a recomendação diária de consumo indicada na embalagem",
+      "Mantenha fora do alcance de crianças"
+    ],
+    "outros_itens_do_art14": {
+      "grupo_populacional_alinea_a": "Declarar o(s) grupo(s) populacional(is) do(s) Anexo(s) III e IV da IN 28/2018 a que o produto se destina, incluindo faixa etária no caso de crianças.",
+      "quantidade_e_frequencia_alinea_b": "Declarar a quantidade e a frequência de consumo recomendadas para cada grupo populacional indicado.",
+      "conservacao_inciso_ii": "Instruções de conservação, inclusive após a abertura da embalagem.",
+      "probioticos_inciso_iii": "Identificação da espécie de cada linhagem de probiótico, por nomenclatura binomial atual, na lista de ingredientes.",
+      "requisitos_complementares_par2": "Remete ao Anexo VI da IN 28/2018 para requisitos complementares de rotulagem - conteúdo literal PENDENTE (ver pendencias)."
+    }
+  },
+  "modelo_de_tabela_elementos_confirmados": {
+    "titulo_da_tabela": "INFORMAÇÃO NUTRICIONAL (negrito, caixa alta, centralizado) - confirmado com razoável confiança, base legal: IN 75/2020, Anexo XII (modelos/formatação)",
+    "coluna_percentual": "%VD* - confirmado com razoável confiança",
+    "coluna_quantidade": "Não confirmei a redação EXATA do cabeçalho (a extração não trouxe certeza entre 'Quantidade por porção' e outras variações) - marcar como PENDENTE de conferência literal final, embora o conceito ('quantidade por porção') esteja confirmado no Art. 9º, inciso VI da RDC 429/2020.",
+    "ordem_dos_nutrientes_anexo_xi_in75": [
+      "1. Valor energético",
+      "2. Carboidratos (com açúcares totais -> açúcares adicionados e mono/dissacarídeos específicos; poliois totais; outros carboidratos)",
+      "3. Proteínas (+ aminoácidos específicos quando declarados)",
+      "4. Gorduras totais (saturadas, trans, monoinsaturadas/ômega 9, poli-insaturadas/ômega 6 e ômega 3, colesterol)",
+      "5. Fibras alimentares (+ fibras específicas quando declaradas)",
+      "6. Sódio",
+      "7. Vitaminas, na ordem A, D, E, K, C, B1 a B12",
+      "8. Minerais, na ordem Cálcio, Cloreto, Cobre, Cromo, Ferro, Flúor, Fósforo, Iodo, Magnésio, Manganês, Molibdênio, Potássio, Selênio, Zinco",
+      "9. Colina",
+      "10. Taurina",
+      "11. Nucleotídeos",
+      "12. Substâncias bioativas nomeadas especificamente"
+    ],
+    "ordem_alerta": "Lista obtida por paráfrase de uma única leitura do Anexo XI, não transcrição literal item a item numerado como no original. Recomenda-se conferência antes de fixar como padrão definitivo para as 24 tabelas.",
+    "suplemento_declara_tudo_que_foi_adicionado": "RDC 429/2020, Art. 5º, §3º: 'No caso dos suplementos alimentares, a tabela de informação nutricional deve conter a declaração das quantidades de valor energético e de todos nutrientes, substâncias bioativas e enzimas adicionados aos produtos.' - ou seja, a lista de nutrientes de um suplemento NÃO é a lista padrão fixa de um alimento comum: é 'valor energético + tudo que foi adicionado à fórmula'.",
+    "porcao_suplemento": "RDC 429/2020, Art. 9º, inciso VI: a porção declarada deve corresponder à quantidade diária recomendada pelo fabricante, para cada grupo populacional específico indicado no rótulo.",
+    "isento_de_100g_100ml": "RDC 429/2020, Art. 8º, §1º: suplementos NÃO precisam declarar por '100 gramas ou 100 mililitros' (essa exigência vale só para sólidos/semissólidos e líquidos convencionais)."
+  },
+  "pendencias": [
+    "Anexo VI da IN 28/2018 (requisitos de rotulagem complementar / frases obrigatórias específicas de suplemento) - texto literal NÃO alcançado. A página do AnvisaLegis abriu com HTTP 200, mas o conteúdo entregue pela ferramenta de leitura truncou antes de chegar ao Anexo VI, em DUAS tentativas com prompts diferentes (a segunda pedindo explicitamente para pular os Anexos I-V). Uma busca por fonte alternativa achou só um PDF do domínio legado 'antigo.anvisa.gov.br', que rejeitei por estar desatualizado: o próprio Anexo VI foi alterado por IN 418/2025 e IN 438/2026, ambas posteriores a esse PDF. PENDENTE - depende de nova tentativa de acesso direto (ex.: abrir a página num navegador real) ou de um PDF oficial mais recente.",
+    "Confirmação literal célula-a-célula (não parafraseada) do Anexo III da IN 75/2020 (arredondamento) e do Anexo XI (ordem dos nutrientes).",
+    "Confirmação se o Anexo VIII da IN 75/2020 também traz VDR por grupo populacional para macronutrientes (carboidratos, proteínas, gorduras, fibras, valor energético) - não verificado nesta consulta; só há o valor geral de adultos (Anexo II, base 2.000 kcal).",
+    "Niacina (mg NE) por grupo populacional no Anexo VIII - só a coluna de adultos (≥19 anos) foi confirmada com valor explícito (15 mg NE); os demais grupos ficaram como PENDENTE (null no JSON acima), não zero.",
+    "Molibdênio, valor de gestantes = 5 µg (Anexo VIII) - CONFIRMADO por duas leituras idênticas da fonte, mas destoa da progressão da própria linha (45 µg em adultos não-gestantes, 50 µg em lactantes). Não corrigido por mim. Recomendo conferência visual direta na página oficial antes de usar em rótulo impresso.",
+    "Fator de conversão do ácido fólico (DFE) tem aparente mistura de µg/mg no segundo termo da equivalência, confirmada em duas leituras idênticas da fonte - ver alerta em 'conversoes.acido_folico_dfe'.",
+    "Fatores de conversão de vitamina K e colina - não localizados no Anexo XXIII pela ferramenta de leitura; não confirmado se de fato não existem ou se não foram alcançados.",
+    "Cabeçalho literal exato da coluna de quantidade por porção - não confirmado com transcrição literal.",
+    "Quantidade não significativa (Anexo IV IN75) para vitaminas e minerais individuais isoladamente (o núcleo dos produtos Lemon Caps) - só temos os limiares de energia e macronutrientes convencionais.",
+    "Lista completa e reconferida (nesta tarefa) dos 13 atos que alteraram a IN 28/2018 - usei a lista já conferida no arquivo do próprio projeto (lib/catalog/regulatory-info.ts), datada de 13/09/2026, sem reconferir cada ato individualmente agora; só confirmei o status geral 'Vigente com Alterações' diretamente nesta consulta."
+  ]
+}

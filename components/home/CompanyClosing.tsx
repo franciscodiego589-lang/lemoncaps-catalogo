@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { MANUFACTURER_INFO } from "@/lib/catalog/regulatory-info";
+import { DeveloperCredit } from "@/components/common/DeveloperCredit";
 
 // Rodapé institucional da landing: mesmos dados de fabricante já usados em
 // todo dossiê técnico (lib/catalog/regulatory-info.ts — procedência conferida
@@ -45,6 +46,7 @@ export function CompanyClosing() {
       <p>
         © 2026 <span translate="no">Lemon Caps</span> - Indústria de Suplementos e Nutracêuticos
       </p>
+      <DeveloperCredit />
     </footer>
   );
 }

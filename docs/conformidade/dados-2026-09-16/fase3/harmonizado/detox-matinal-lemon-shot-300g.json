@@ -1,0 +1,743 @@
+{
+ "slug": "detox-matinal-lemon-shot-300g",
+ "nome": "Detox Matinal (Lemon Shot) 300 g",
+ "grupo_trabalho": "G2",
+ "porcao_mg": 10000.0,
+ "porcao_descricao": "10 g (1 dose) diluída em 200 mL de água, 1 vez ao dia",
+ "formato": "pó para diluição (solúvel)",
+ "grupo_populacional": "adultos (> 19 anos)",
+ "grupos_vd": [
+  "adultos_19_anos_ou_mais"
+ ],
+ "porcoes_por_embalagem": "30",
+ "porcao_tabela": "10 g (1 dose = 1 medida rasa, diluída em 200 mL de água)",
+ "veredito": "CONFORME CONDICIONADO A (laudo válido do lote de café verde efetivamente usado; laudo novo da maltodextrina; identificação do corante; posição do RT sobre a exigência de fabricante do painel para café verde e laranja moro)",
+ "pendencias": [
+  "Café verde: decidir o lote — o laudo válido e legível em disco é do café verde solúvel IDNLABS 10269 (64,05%); o lote em uso no memorial (HERBALTEC 10841, 53,86%) está em scan não lido, sem validade confirmada, espécie Coffea robusta (rótulo diz arabica), irradiado a 10 kGy e microbiologia 'ND'. Qualquer que seja o lote, a espécie do rótulo tem de ser a do laudo.",
+  "RT: confirmar se a 'especificação do fabricante' que o painel da ANVISA associa a café verde e laranja moro é exigível — o Anexo I literal (IN 28/2018 consolidada até a IN 450/2026) não condiciona essas formas a fabricante.",
+  "Maltodextrina: laudo do lote 210170 vencido em 26/07/2026 — pedir laudo novo (e, nele, o teor de açúcares para fechar a linha 'açúcares totais').",
+  "Corante: o único certificado (lote 250301, 'corante verde folha') não identifica os corantes nem os INS; confirmar tartrazina + azul brilhante FCF e, se confirmado, manter a frase 'Contém TARTRAZINA (INS 102)' (RDC 340/2002 — norma não relida em disco nesta tarefa, PROVISÓRIO).",
+  "Rótulo: retirar toda menção a RESVERATROL e a cúrcuma do texto de apresentação (resveratrol nunca esteve na composição; cúrcuma sai).",
+  "Excluir a cúrcuma do texto de apresentação até haver extrato padronizado com laudo (ver linha 'retirado')."
+ ],
+ "alternativas": [],
+ "mudancas": [],
+ "removidos": [],
+ "cabe": true,
+ "insumos": [
+  {
+   "chave": "vitc",
+   "status": "mantido",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Vitamina C",
+   "forma_anexo_i": "Ácido ascórbico",
+   "forma_insumo": "Ácido ascórbico 99% (Analitic, lote interno 950467)",
+   "classe": "vitamina",
+   "ingredient_slug": "vitamina-c",
+   "massa_insumo_mg": 1608.04,
+   "teor_laudo_pct": 99.5,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 99.5,
+   "fator_conversao": null,
+   "teor_fonte": "laudo lote 950467 (teor 99,5%, lido no inventário de laudos; memorial rev02 usa o mesmo)",
+   "conta": null,
+   "ativo_mg": 1600.0,
+   "ativo": 1600.0,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": 13.5,
+   "maximo": 1916.02,
+   "unidade_limite": null,
+   "pct_do_maximo": 83.5,
+   "linha_anexo": "III·Vitamina C (13,5) / IV·Vitamina C (1.916,02)",
+   "laudo": {
+    "lote": "950467 (fabricante 250306-C01)",
+    "validade": "05/03/2029",
+    "vencido": false
+   },
+   "motivo": "Dentro da faixa (83,5% do teto), forma autorizada, laudo válido — mantido como está no memorial rev02.",
+   "tab": "Vitamina C",
+   "ordem": 105,
+   "vit": "vitamina C"
+  },
+  {
+   "chave": "cafe-verde",
+   "status": "mantido (laudo regularizado)",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Ácido clorogênico",
+   "forma_anexo_i": "Extrato de café verde",
+   "forma_insumo": "Café verde solúvel (extrato solúvel em pó), IDNLABS lote 10269 — laudo válido legível; o lote em uso no memorial (HERBALTEC 10841, 53,86%) tem laudo em scan não lido, validade não confirmada, espécie Coffea robusta e microbiologia 'ND'",
+   "classe": "extrato_vegetal",
+   "ingredient_slug": "extrato-de-cafe-verde",
+   "massa_insumo_mg": 400.0,
+   "teor_laudo_pct": 64.05,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 64.05,
+   "fator_conversao": null,
+   "teor_fonte": "laudo lote 10269 (ácido clorogênico 64,05% calc. ác. cafeoilquínicos; metilxantinas 1,56% informativo) — lido no inventário de laudos",
+   "conta": null,
+   "ativo_mg": 256.2,
+   "ativo": 256.2,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": null,
+   "maximo": 400.0,
+   "unidade_limite": null,
+   "pct_do_maximo": 64.0,
+   "linha_anexo": "III·Ácido clorogênico (NE) / IV·Ácido clorogênico (400, redação IN 102/2021)",
+   "laudo": {
+    "lote": "10269 (IDNLABS)",
+    "validade": "08/2027",
+    "vencido": false
+   },
+   "motivo": "Massa mantida (400 mg). Dose passa a ser demonstrada pelo marcador com laudo válido: 400 × 64,05% = 256,20 mg de ácido clorogênico (64% do teto de 400 mg; mínimo NE). Metilxantinas do laudo (1,56%) dão no máximo 6,24 mg de cafeína — o produto não é fonte de cafeína. Se a fábrica mantiver o lote 10841, pedir laudo completo (validade, cafeína, microbiologia) e corrigir a espécie no rótulo.",
+   "tab": "Ácido clorogênico",
+   "ordem": 412,
+   "vit": null
+  },
+  {
+   "chave": "laranja-moro",
+   "status": "mantido",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Antocianinas da laranja moro",
+   "forma_anexo_i": "Extrato de laranja moro (Citrus sinensis (L.) Osbeck)",
+   "forma_insumo": "Laranja Moro extrato (AllPremium, lote interno 17624 / original 1289)",
+   "classe": "extrato_vegetal",
+   "ingredient_slug": "extrato-de-laranja-moro",
+   "massa_insumo_mg": 100.0,
+   "teor_laudo_pct": 1.47,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 1.47,
+   "fator_conversao": null,
+   "teor_fonte": "laudo lote 17624 (antocianinas como cianidina-3-glucosídeos 1,47%) — lido no inventário de laudos e no memorial rev02",
+   "conta": null,
+   "ativo_mg": 1.47,
+   "ativo": 1.47,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": null,
+   "maximo": 5.0,
+   "unidade_limite": null,
+   "pct_do_maximo": 29.4,
+   "linha_anexo": "III·Antocianinas da laranja moro (NE, IN 336/2024) / IV·Antocianinas da laranja moro (5)",
+   "laudo": {
+    "lote": "17624 (AllPremium; original 1289)",
+    "validade": "09/04/2027",
+    "vencido": false
+   },
+   "motivo": "100 × 1,47% = 1,47 mg de antocianinas (29% do teto de 5 mg). Forma e dose conformes pelo Anexo I/IV literal. A exigência de fabricante (BIONAP) citada no memorial vem do painel, não do texto do Anexo I — confirmar com o RT.",
+   "tab": "Antocianinas da laranja moro",
+   "ordem": 413,
+   "vit": null
+  },
+  {
+   "chave": null,
+   "status": "retirado",
+   "retirado": true,
+   "componente": false,
+   "constituinte": "Curcumina",
+   "forma_anexo_i": "Extrato de cúrcuma NaturalPRO lote NPT.0425/580 (0,42% de curcumina)",
+   "forma_insumo": "Extrato de cúrcuma NaturalPRO lote NPT.0425/580 (0,42% de curcumina)",
+   "classe": null,
+   "ingredient_slug": "extrato-de-rizomas-de-curcuma",
+   "massa_insumo_mg": 130.0,
+   "teor_laudo_pct": 0.42,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 0.4231,
+   "fator_conversao": 1.0073,
+   "teor_fonte": "laudo lote NPT.0425/580 citado no memorial rev02 (0,42% de curcumina); o PDF do laudo é scan não lido no inventário",
+   "conta": null,
+   "ativo_mg": 0.55,
+   "ativo": 0.55,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": 80.0,
+   "maximo": 130.0,
+   "unidade_limite": null,
+   "pct_do_maximo": 0.4,
+   "linha_anexo": "III·Curcumina (80^xv) / IV·Curcumina (130^x) — curcuminoides totais, IN 438/2026",
+   "laudo": {
+    "lote": "NPT.0425/580 (NaturalPRO)",
+    "validade": "não confirmada em disco",
+    "vencido": null
+   },
+   "motivo": "130 × 0,42% = 0,55 mg de curcuminoides = 0,7% do mínimo de 80 mg; atingir o mínimo com esse extrato exigiria 19.048 mg — impossível na porção. Volta quando houver extrato de RIZOMA padronizado com laudo de curcuminoides totais: dose conforme = 100 mg de curcuminoides (77% do teto de 130 mg), ou seja, 105,3 mg de um extrato a 95%. Com a cúrcuma fora, a advertência específica da IN 438/2026 deixa de ser exigida.",
+   "tab": null,
+   "ordem": 999,
+   "vit": null
+  },
+  {
+   "chave": "zinco",
+   "status": "dose ajustada",
+   "retirado": false,
+   "componente": false,
+   "constituinte": "Zinco",
+   "forma_anexo_i": "Bisglicinato de zinco",
+   "forma_insumo": "Zinco quelato 20% (bisglicinato), Galena lote 055-ZN/25",
+   "classe": "mineral",
+   "ingredient_slug": "zinco",
+   "massa_insumo_mg": 11.06,
+   "teor_laudo_pct": 19.89,
+   "potencia_ui_por_mg": null,
+   "teor_efetivo_pct": 19.8915,
+   "fator_conversao": null,
+   "teor_fonte": "laudo lote 055-ZN/25: 20,00% de zinco base seca × (100 − 0,54% umidade) = 19,89% tal qual (conta do memorial rev02, reconferida)",
+   "conta": null,
+   "ativo_mg": 2.2,
+   "ativo": 2.2,
+   "unidade_ativo": "mg",
+   "acido_folico_ug": null,
+   "minimo": 1.65,
+   "maximo": 29.59,
+   "unidade_limite": null,
+   "pct_do_maximo": 7.4,
+   "linha_anexo": "III·Zinco (1,65) / IV·Zinco (29,59)",
+   "laudo": {
+    "lote": "055-ZN/25 (Galena CIQ 2505027507)",
+    "validade": "06/05/2027",
+    "vencido": false
+   },
+   "motivo": "Antes: 1,45 mg de sal = 0,29 mg de zinco (17,6% do mínimo de 1,65 mg — ABAIXO DO MÍNIMO). Depois: 2,2 mg de zinco (133% do mínimo, 7,4% do teto, 20% do VD) = 2,2 ÷ 0,1989 = 11,06 mg de bisglicinato.",
+   "tab": "Zinco",
+   "ordem": 214,
+   "vit": null
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Maltodextrina (veículo, q.s.p.)",
+   "ins": null,
+   "massa_mg": 6713.9,
+   "obs": "Ingrediente do Art. 6, § único, da RDC 243/2018 (veículo) — não recebe alegação de fonte de carboidrato. Recalculada para fechar 10.000 mg. Pedir laudo novo.",
+   "papel": "veiculo",
+   "laudo_lote": "210170 (Fagron) — VENCIDO em 26/07/2026",
+   "capsula": false,
+   "agregado": false,
+   "slug": "maltodextrina",
+   "nome_catalogo": "Maltodextrina"
+  },
+  {
+   "nome": "Acidulante ácido cítrico",
+   "ins": "INS 330",
+   "massa_mg": 670.0,
+   "obs": "IN 211/2023, cat. 14.2: quantum satis.",
+   "papel": "aditivo",
+   "laudo_lote": "GE2844AFG (100,10%, memorial rev02)",
+   "capsula": false,
+   "agregado": false,
+   "slug": "acido-citrico",
+   "nome_catalogo": "Ácido cítrico (INS 330)"
+  },
+  {
+   "nome": "Aromatizante idêntico ao natural de limão",
+   "ins": null,
+   "massa_mg": 330.0,
+   "obs": "quantum satis (idêntico ao natural); composição do aroma não conhecida — não contabilizado na energia.",
+   "papel": "aditivo",
+   "laudo_lote": "19934 (Alphataste/AllPremium, validade 12/01/2027 segundo o memorial)",
+   "capsula": false,
+   "agregado": false,
+   "slug": "aromatizante-identico-ao-natural-de-limao",
+   "nome_catalogo": "Aromatizante idêntico ao natural de limão"
+  },
+  {
+   "nome": "Antiumectante dióxido de silício",
+   "ins": "INS 551",
+   "massa_mg": 100.0,
+   "obs": "quantum satis.",
+   "papel": "aditivo",
+   "laudo_lote": "sem lote individualizado no memorial",
+   "capsula": false,
+   "agregado": false,
+   "slug": "dioxido-de-silicio",
+   "nome_catalogo": "Dióxido de silício (INS 551)"
+  },
+  {
+   "nome": "Edulcorante sucralose",
+   "ins": "INS 955",
+   "massa_mg": 50.0,
+   "obs": "50 mg em 210 g de produto pronto = 238,1 mg/kg (limite 2.400 mg/kg, IN 211/2023 cat. 14.2).",
+   "papel": "aditivo",
+   "laudo_lote": "91233 (99,74%, memorial rev02)",
+   "capsula": false,
+   "agregado": false,
+   "slug": "edulcorante-sucralose",
+   "nome_catalogo": "Edulcorante sucralose (INS 955)"
+  },
+  {
+   "nome": "Corantes tartrazina e azul brilhante FCF",
+   "ins": "INS 102, INS 133",
+   "massa_mg": 17.0,
+   "obs": "17 mg em 210 g = 81,0 mg/kg somados (limite 300 mg/kg cada). PENDENTE: o laudo não identifica os corantes; se a tartrazina se confirmar, exige a frase 'Contém TARTRAZINA (INS 102)'.",
+   "papel": "aditivo",
+   "laudo_lote": "250301 ('corante verde folha', Adicel) — sem INS nem doseamento",
+   "capsula": false,
+   "agregado": false,
+   "slug": "corante-verde",
+   "nome_catalogo": "Corantes tartrazina (INS 102) e azul brilhante FCF (INS 133)"
+  }
+ ],
+ "soma_insumos_mg": 2119.1,
+ "soma_excipientes_mg": 7880.9,
+ "soma_porcao_mg": 10000.0,
+ "energia_modelo": {
+  "kcal_decl": 29.0,
+  "fixos": 28.8656,
+  "partes_fixas": [
+   "maltodextrina 6,714 g × 4.0 = 26,86",
+   "ácido cítrico 0,67 g × 3.0 = 2,01"
+  ],
+  "tot": 28.8656,
+  "incluidos": [],
+  "excluidos": []
+ },
+ "tabela": {
+  "porcoes_por_embalagem": "30",
+  "porcao": "10 g (1 dose = 1 medida rasa, diluída em 200 mL de água)",
+  "grupos": [
+   "adultos_19_anos_ou_mais"
+  ],
+  "linhas": [
+   {
+    "item": "Valor energético",
+    "quantidade": 29.0,
+    "unidade": "kcal",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false,
+    "kj": 121.0,
+    "kcal_exato": 28.8656
+   },
+   {
+    "item": "Carboidratos",
+    "quantidade": 6.7,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 2
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Açúcares totais",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": null,
+    "nivel": 1,
+    "nota": "PROVISÓRIO — depende do laudo da maltodextrina (teor de mono e dissacarídeos)",
+    "pendente": false,
+    "provisorio": true
+   },
+   {
+    "item": "Açúcares adicionados",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 2,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Proteínas",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras totais",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras saturadas",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Gorduras trans",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 1,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Fibras alimentares",
+    "quantidade": 0.0,
+    "unidade": "g",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Sódio",
+    "quantidade": 0.0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 0
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Vitamina C",
+    "quantidade": 1600.0,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 1600
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Zinco",
+    "quantidade": 2.2,
+    "unidade": "mg",
+    "vd_pct": {
+     "adultos_19_anos_ou_mais": 20
+    },
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Ácido clorogênico",
+    "quantidade": 256.0,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   },
+   {
+    "item": "Antocianinas da laranja moro",
+    "quantidade": 1.5,
+    "unidade": "mg",
+    "vd_pct": null,
+    "nivel": 0,
+    "nota": null,
+    "pendente": false,
+    "provisorio": false
+   }
+  ],
+  "rodape": "*Percentual de valores diários fornecidos pela porção",
+  "regras": "Arredondamento: Anexo III da IN 75/2020 (paráfrase do gabarito de 16/09/2026). %VD: Anexo VIII da IN 75/2020 para o grupo do rótulo (macronutrientes: Anexo II), calculado sobre a quantidade declarada. Quantidade não significativa (Anexo IV): %VD 0. Sem VDR: célula em branco (RDC 429/2020, art. 12, §1º). Energia: fatores do Anexo XXII da IN 75 (kcal/g); kJ = kcal × 4,184."
+ },
+ "ingredients_list": "Maltodextrina, ácido ascórbico (vitamina C), acidulante ácido cítrico (INS 330), extrato de café verde (Coffea canephora — espécie conforme laudo do lote; conferir antes de imprimir), aromatizante idêntico ao natural de limão, extrato de laranja moro (Citrus sinensis (L.) Osbeck), antiumectante dióxido de silício (INS 551), edulcorante sucralose (INS 955), corantes tartrazina (INS 102) e azul brilhante FCF (INS 133), bisglicinato de zinco.",
+ "warnings_memorial": "Este produto não é um medicamento.\nPúblico indicado: adultos (19 anos ou mais).\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nContém TARTRAZINA (INS 102).\nConservar o produto em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C.\nApós aberto, consumir em até 60 dias.\nNão consumir se o lacre de segurança estiver violado.",
+ "advertencias_anexo_vi": [
+  [
+   "Antocianinas; Ácido clorogênico",
+   "Este produto não deve ser consumido por gestantes, lactantes e crianças."
+  ]
+ ],
+ "warnings": [
+  "Este produto não é um medicamento.",
+  "Não exceder a recomendação diária de consumo indicada na embalagem.",
+  "Mantenha fora do alcance de crianças.",
+  "Público indicado: adultos (19 anos ou mais).",
+  "Ingerir 1 dose (10 g) diluída em 200 mL de água, 1 vez ao dia.",
+  "Este produto não deve ser consumido por gestantes, lactantes e crianças.",
+  "Contém TARTRAZINA (INS 102) — se o corante se confirmar (identificação PENDENTE).",
+  "Conservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+ ],
+ "metadata_extra": {
+  "fonte_antes": "memorial de cálculo rev02 (13/08/2026) — coincide com a arte do rótulo (composicoes_rotulo.json, Detox.pdf), exceto maltodextrina 6.593,51 (memorial) × 6.603 (rótulo)"
+ },
+ "composicao": [
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 0,
+   "ingredient_name": "Ácido ascórbico (vitamina C)",
+   "quantity": 1608.04,
+   "unit": "mg",
+   "ingredient_slug": "vitamina-c",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "constituinte",
+    "constituinte": "Vitamina C",
+    "forma_anexo_i": "Ácido ascórbico",
+    "forma_insumo": "Ácido ascórbico 99% (Analitic, lote interno 950467)",
+    "massa_insumo_mg": 1608.04,
+    "teor_laudo_pct": 99.5,
+    "potencia_ui_por_g": null,
+    "fator_conversao": null,
+    "teor_efetivo_pct": 99.5,
+    "teor_fonte": "laudo lote 950467 (teor 99,5%, lido no inventário de laudos; memorial rev02 usa o mesmo)",
+    "conta": null,
+    "ativo": 1600.0,
+    "unidade_ativo": "mg",
+    "ativo_mg": 1600.0,
+    "minimo": 13.5,
+    "maximo": 1916.02,
+    "unidade_limite": "mg",
+    "pct_do_maximo": 83.5,
+    "linha_anexo": "III·Vitamina C (13,5) / IV·Vitamina C (1.916,02)",
+    "laudo_lote": "950467 (fabricante 250306-C01)",
+    "laudo_validade": "05/03/2029",
+    "laudo_vencido": false,
+    "status": "mantido",
+    "e_sal": false,
+    "elemento_equivalente": null
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 1,
+   "ingredient_name": "Extrato de café verde (64,05 % de ácido clorogênico — 256 mg por porção)",
+   "quantity": 400.0,
+   "unit": "mg",
+   "ingredient_slug": "extrato-de-cafe-verde",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "constituinte",
+    "constituinte": "Ácido clorogênico",
+    "forma_anexo_i": "Extrato de café verde",
+    "forma_insumo": "Café verde solúvel (extrato solúvel em pó), IDNLABS lote 10269 — laudo válido legível; o lote em uso no memorial (HERBALTEC 10841, 53,86%) tem laudo em scan não lido, validade não confirmada, espécie Coffea robusta e microbiologia 'ND'",
+    "massa_insumo_mg": 400.0,
+    "teor_laudo_pct": 64.05,
+    "potencia_ui_por_g": null,
+    "fator_conversao": null,
+    "teor_efetivo_pct": 64.05,
+    "teor_fonte": "laudo lote 10269 (ácido clorogênico 64,05% calc. ác. cafeoilquínicos; metilxantinas 1,56% informativo) — lido no inventário de laudos",
+    "conta": null,
+    "ativo": 256.2,
+    "unidade_ativo": "mg",
+    "ativo_mg": 256.2,
+    "minimo": null,
+    "maximo": 400.0,
+    "unidade_limite": "mg",
+    "pct_do_maximo": 64.0,
+    "linha_anexo": "III·Ácido clorogênico (NE) / IV·Ácido clorogênico (400, redação IN 102/2021)",
+    "laudo_lote": "10269 (IDNLABS)",
+    "laudo_validade": "08/2027",
+    "laudo_vencido": false,
+    "status": "mantido (laudo regularizado)",
+    "e_sal": true,
+    "elemento_equivalente": "256 mg de Ácido clorogênico"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 2,
+   "ingredient_name": "Extrato de laranja moro (Citrus sinensis (L.) Osbeck) (1,47 % de antocianinas — 1,5 mg por porção)",
+   "quantity": 100.0,
+   "unit": "mg",
+   "ingredient_slug": "extrato-de-laranja-moro",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "constituinte",
+    "constituinte": "Antocianinas da laranja moro",
+    "forma_anexo_i": "Extrato de laranja moro (Citrus sinensis (L.) Osbeck)",
+    "forma_insumo": "Laranja Moro extrato (AllPremium, lote interno 17624 / original 1289)",
+    "massa_insumo_mg": 100.0,
+    "teor_laudo_pct": 1.47,
+    "potencia_ui_por_g": null,
+    "fator_conversao": null,
+    "teor_efetivo_pct": 1.47,
+    "teor_fonte": "laudo lote 17624 (antocianinas como cianidina-3-glucosídeos 1,47%) — lido no inventário de laudos e no memorial rev02",
+    "conta": null,
+    "ativo": 1.47,
+    "unidade_ativo": "mg",
+    "ativo_mg": 1.47,
+    "minimo": null,
+    "maximo": 5.0,
+    "unidade_limite": "mg",
+    "pct_do_maximo": 29.4,
+    "linha_anexo": "III·Antocianinas da laranja moro (NE, IN 336/2024) / IV·Antocianinas da laranja moro (5)",
+    "laudo_lote": "17624 (AllPremium; original 1289)",
+    "laudo_validade": "09/04/2027",
+    "laudo_vencido": false,
+    "status": "mantido",
+    "e_sal": true,
+    "elemento_equivalente": "1,5 mg de Antocianinas da laranja moro"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 3,
+   "ingredient_name": "Bisglicinato de zinco (equivalente a 2,2 mg de zinco)",
+   "quantity": 11.06,
+   "unit": "mg",
+   "ingredient_slug": "zinco",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "constituinte",
+    "constituinte": "Zinco",
+    "forma_anexo_i": "Bisglicinato de zinco",
+    "forma_insumo": "Zinco quelato 20% (bisglicinato), Galena lote 055-ZN/25",
+    "massa_insumo_mg": 11.06,
+    "teor_laudo_pct": 19.89,
+    "potencia_ui_por_g": null,
+    "fator_conversao": null,
+    "teor_efetivo_pct": 19.8915,
+    "teor_fonte": "laudo lote 055-ZN/25: 20,00% de zinco base seca × (100 − 0,54% umidade) = 19,89% tal qual (conta do memorial rev02, reconferida)",
+    "conta": null,
+    "ativo": 2.2,
+    "unidade_ativo": "mg",
+    "ativo_mg": 2.2,
+    "minimo": 1.65,
+    "maximo": 29.59,
+    "unidade_limite": "mg",
+    "pct_do_maximo": 7.4,
+    "linha_anexo": "III·Zinco (1,65) / IV·Zinco (29,59)",
+    "laudo_lote": "055-ZN/25 (Galena CIQ 2505027507)",
+    "laudo_validade": "06/05/2027",
+    "laudo_vencido": false,
+    "status": "dose ajustada",
+    "e_sal": true,
+    "elemento_equivalente": "2,2 mg de Zinco"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 4,
+   "ingredient_name": "Maltodextrina",
+   "quantity": 6713.9,
+   "unit": "mg",
+   "ingredient_slug": "maltodextrina",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "veiculo",
+    "ins": null,
+    "massa_mg": 6713.9,
+    "laudo_lote": "210170 (Fagron) — VENCIDO em 26/07/2026",
+    "observacao": "Ingrediente do Art. 6, § único, da RDC 243/2018 (veículo) — não recebe alegação de fonte de carboidrato. Recalculada para fechar 10.000 mg. Pedir laudo novo.",
+    "nome_no_memorial": "Maltodextrina (veículo, q.s.p.)"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 5,
+   "ingredient_name": "Ácido cítrico (INS 330)",
+   "quantity": 670.0,
+   "unit": "mg",
+   "ingredient_slug": "acido-citrico",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "aditivo",
+    "ins": "INS 330",
+    "massa_mg": 670.0,
+    "laudo_lote": "GE2844AFG (100,10%, memorial rev02)",
+    "observacao": "IN 211/2023, cat. 14.2: quantum satis.",
+    "nome_no_memorial": "Acidulante ácido cítrico"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 6,
+   "ingredient_name": "Aromatizante idêntico ao natural de limão",
+   "quantity": 330.0,
+   "unit": "mg",
+   "ingredient_slug": "aromatizante-identico-ao-natural-de-limao",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "aditivo",
+    "ins": null,
+    "massa_mg": 330.0,
+    "laudo_lote": "19934 (Alphataste/AllPremium, validade 12/01/2027 segundo o memorial)",
+    "observacao": "quantum satis (idêntico ao natural); composição do aroma não conhecida — não contabilizado na energia.",
+    "nome_no_memorial": "Aromatizante idêntico ao natural de limão"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 7,
+   "ingredient_name": "Dióxido de silício (INS 551)",
+   "quantity": 100.0,
+   "unit": "mg",
+   "ingredient_slug": "dioxido-de-silicio",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "aditivo",
+    "ins": "INS 551",
+    "massa_mg": 100.0,
+    "laudo_lote": "sem lote individualizado no memorial",
+    "observacao": "quantum satis.",
+    "nome_no_memorial": "Antiumectante dióxido de silício"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 8,
+   "ingredient_name": "Edulcorante sucralose (INS 955)",
+   "quantity": 50.0,
+   "unit": "mg",
+   "ingredient_slug": "edulcorante-sucralose",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "aditivo",
+    "ins": "INS 955",
+    "massa_mg": 50.0,
+    "laudo_lote": "91233 (99,74%, memorial rev02)",
+    "observacao": "50 mg em 210 g de produto pronto = 238,1 mg/kg (limite 2.400 mg/kg, IN 211/2023 cat. 14.2).",
+    "nome_no_memorial": "Edulcorante sucralose"
+   }
+  },
+  {
+   "slug": "detox-matinal-lemon-shot-300g",
+   "sort_order": 9,
+   "ingredient_name": "Corantes tartrazina (INS 102) e azul brilhante FCF (INS 133)",
+   "quantity": 17.0,
+   "unit": "mg",
+   "ingredient_slug": "corante-verde",
+   "metadata": {
+    "fonte": "reformulacao_2026-09-16",
+    "papel": "aditivo",
+    "ins": "INS 102, INS 133",
+    "massa_mg": 17.0,
+    "laudo_lote": "250301 ('corante verde folha', Adicel) — sem INS nem doseamento",
+    "observacao": "17 mg em 210 g = 81,0 mg/kg somados (limite 300 mg/kg cada). PENDENTE: o laudo não identifica os corantes; se a tartrazina se confirmar, exige a frase 'Contém TARTRAZINA (INS 102)'.",
+    "nome_no_memorial": "Corantes tartrazina e azul brilhante FCF"
+   }
+  }
+ ],
+ "nutritional_info_texto": "INFORMAÇÃO NUTRICIONAL\nPorções por embalagem: 30\nPorção: 10 g (1 dose = 1 medida rasa, diluída em 200 mL de água)\nQuantidade por porção | %VD*\nValor energético 29 kcal = 121 kJ | 1%\nCarboidratos 6,7 g | 2%\n  Açúcares totais 0 g | \n    Açúcares adicionados 0 g | 0%\nProteínas 0 g | 0%\nGorduras totais 0 g | 0%\n  Gorduras saturadas 0 g | 0%\n  Gorduras trans 0 g | 0%\nFibras alimentares 0 g | 0%\nSódio 0 mg | 0%\nVitamina C 1.600 mg | 1600%\nZinco 2,2 mg | 20%\nÁcido clorogênico 256 mg | \nAntocianinas da laranja moro 1,5 mg | \n*Percentual de valores diários fornecidos pela porção",
+ "warnings_texto": "Este produto não é um medicamento.\nNão exceder a recomendação diária de consumo indicada na embalagem.\nMantenha fora do alcance de crianças.\nPúblico indicado: adultos (19 anos ou mais).\nIngerir 1 dose (10 g) diluída em 200 mL de água, 1 vez ao dia.\nEste produto não deve ser consumido por gestantes, lactantes e crianças.\nContém TARTRAZINA (INS 102) — se o corante se confirmar (identificação PENDENTE).\nConservar em local seco, fresco e arejado, ao abrigo da luz e do calor excessivo, em temperatura ambiente entre 15 °C e 30 °C. Após aberto, consumir em até 60 dias. Não consumir se o lacre de segurança estiver violado."
+}

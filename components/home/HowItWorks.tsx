@@ -1,9 +1,25 @@
+// ============================================================================
+// SEM ROTA ATIVA desde 13/09/2026 — não é importado por nenhuma página.
+// Era o "Como funciona" (3 passos: catálogo -> carrinho -> orçamento) da landing
+// institucional que ficava em /. A raiz passou a ser a apresentação da fábrica,
+// que já tem um "Como funciona" próprio — o de
+// components/manufacturing/ManufacturingProcess.tsx, com as 5 etapas de um
+// projeto de marca própria. Dois blocos com o mesmo título e o mesmo assunto na
+// mesma página fariam o visitante ler a mesma coisa duas vezes, então ficou o
+// que descreve a INDÚSTRIA, não o site.
+// O que este tinha de exclusivo (montar cotação no carrinho e sair com o
+// orçamento para copiar ou baixar em PDF) foi salvo dentro do cartão de fórmula
+// pronta, em components/manufacturing/StartingPoint.tsx.
+// Guardado no repositório em vez de apagado por ordem do dono.
+// ============================================================================
+
 // Descreve só o que o site faz hoje (pedido do dono): escolher no catálogo,
 // cotar no carrinho (mínimo 100 potes) e sair de lá com um orçamento para
-// copiar, baixar em PDF ou levar para conversa com a equipe. O botão "Falar
-// no WhatsApp" da tela de orçamento (components/cart/QuoteSuccess.tsx) só
-// aparece quando NEXT_PUBLIC_WHATSAPP_NUMBER estiver configurado — hoje não
-// está (.env.local) — por isso o passo 3 não promete um canal específico.
+// copiar, baixar em PDF ou levar para conversa com a equipe. O passo 3 não
+// promete canal nenhum de propósito: em 14/09/2026 o dono tirou os botões de
+// WhatsApp do site ("o cliente já entra direto no catálogo depois de entrar em
+// contato com o comercial"), então a tela de orçamento entrega o documento e
+// quem já é atendido usa o contato que tem.
 const STEPS = [
   {
     title: "Escolha a fórmula",

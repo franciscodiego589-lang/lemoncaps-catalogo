@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { ModalShell } from "@/components/glass/ModalShell";
 import { lineLabel } from "@/lib/catalog/format-catalog";
 import { centsToBRL } from "@/lib/money";
-import { DEFAULT_MINIMUM_ORDER_POTES, useCartStore } from "@/lib/store/cart";
+import { DEFAULT_MINIMUM_ORDER_POTES, PRICE_ON_REQUEST_LABEL, useCartStore } from "@/lib/store/cart";
 import type { FormulaDTO, SegmentDTO } from "@/lib/data/formulas";
 
 const QUANTITY_STEP = 50;
@@ -46,14 +46,16 @@ export function QuoteModal({ formula, segment, isOpen, onClose }: QuoteModalProp
     }
   }
 
-  if (!formula || formula.listPriceCents == null) return null;
+  if (!formula) return null;
 
+  // Sem preço público: cota do mesmo jeito, como "Preço sob consulta" (pedido
+  // do dono, 21/10/2026). O orçamento chega ao admin com o preço em branco.
   const priceCents = formula.listPriceCents;
   const isBelowMinimum = quantity < minimum;
-  const subtotalCents = Math.max(quantity, 0) * priceCents;
+  const subtotalCents = priceCents === null ? null : Math.max(quantity, 0) * priceCents;
 
   function handleConfirm() {
-    if (formula === null || formula.listPriceCents === null || isBelowMinimum) return;
+    if (formula === null || isBelowMinimum) return;
     addItem({
       formulaId: formula.id,
       slug: formula.slug,
@@ -75,8 +77,14 @@ export function QuoteModal({ formula, segment, isOpen, onClose }: QuoteModalProp
       subtitle={segment ? `${segment.name} · ${lineLabel(formula.line)}` : lineLabel(formula.line)}
     >
       <div className="lc-quote-price">
-        {centsToBRL(priceCents)}
-        <small> / pote</small>
+        {priceCents === null ? (
+          PRICE_ON_REQUEST_LABEL
+        ) : (
+          <>
+            {centsToBRL(priceCents)}
+            <small> / pote</small>
+          </>
+        )}
       </div>
       <div className="lc-qty-stepper">
         <button
@@ -110,7 +118,7 @@ export function QuoteModal({ formula, segment, isOpen, onClose }: QuoteModalProp
       </p>
       <div className="lc-quote-subtotal">
         <span className="lc-lbl">Subtotal estimado</span>
-        <span className="lc-val">{centsToBRL(subtotalCents)}</span>
+        <span className="lc-val">{subtotalCents === null ? "Sob consulta" : centsToBRL(subtotalCents)}</span>
       </div>
       <div className="lc-modal-actions">
         <button type="button" className="lc-btn lc-btn-ghost" onClick={onClose}>

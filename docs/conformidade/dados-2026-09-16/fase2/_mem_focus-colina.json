@@ -1,0 +1,161 @@
+{
+ "documento": "/Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/05_FOCUS-COLINA/MEMORIAL-CALCULO-FOCUS-COLINA-rev02.docx",
+ "revisao": "rev02 (documento interno MEM-CALC-FOCUS-rev02)",
+ "data": "13/08/2026",
+ "procedencia": "Memorial de cálculo rev02 da fábrica, pasta MEMORIAIS_2026 2 (fonte primária desta tarefa) — /Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/05_FOCUS-COLINA/MEMORIAL-CALCULO-FOCUS-COLINA-rev02.docx",
+ "porcao": "1 g (2 cápsulas) · 30 porções por embalagem",
+ "formato": "cápsula",
+ "capsula": {
+  "tamanho": "0 (zero), gelatinosa dura",
+  "massa_mg": 500.0
+ },
+ "insumos": [
+  {
+   "nome_no_memorial": "Bitartarato de colina",
+   "forma_quimica": "Bitartarato de colina",
+   "massa_mg": 1157.35,
+   "teor_pct": 40.61,
+   "teor_fonte": "laudo lote 91442",
+   "ativo_mg": 470.0,
+   "ativo_recalculado_mg": 469.999835,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "91442",
+   "observacao": "LIDO: massa 1.157,35 mg; teor 40,61% de colina (Tabela 8). CALCULADO: 1.157,35 × 40,61% = 469,9998 mg ≈ 470,00 mg declarado. Diferença 0,000165 mg (0,00003% relativo). Memorial mostra o cálculo inverso no §6.1: 470 mg ÷ 40,61% = 1.157,35 mg — consistente."
+  },
+  {
+   "nome_no_memorial": "L-tirosina (vegetal)",
+   "forma_quimica": "L-tirosina (vegetal)",
+   "massa_mg": 220.22,
+   "teor_pct": 99.9,
+   "teor_fonte": "laudo lote 91382 (memorial) = lote interno 91382 do laudo (CONFIRMADO, lote fabricante 20250508, fab. 08/05/2025, val. 07/05/2028, origem/procedência China)",
+   "ativo_mg": 220.0,
+   "ativo_recalculado_mg": 219.99978,
+   "conta_fecha": true,
+   "fornecedor": "INLAB / Analitic Tecnologia de Precisão Ltda — R. Guian 554, Vila Campestre, São Paulo/SP (laudo lido; responsável Adriana Juliani, CRF-SP 16.092)",
+   "lote": "91382 (memorial) = lote interno 91382 do laudo (CONFIRMADO, lote fabricante 20250508, fab. 08/05/2025, val. 07/05/2028, origem/procedência China)",
+   "observacao": "LIDO no laudo (02_laudo_L-tirosina-vegetal_lote-91382.pdf): Teor 99,9% (spec 98,5~101,5% USP39), Conclusão 'Conforme USP39'. Teor usado no memorial (99,9%) bate EXATAMENTE com o laudo. CALCULADO: 220,22 × 99,9% = 219,99978 mg ≈ 220,00 mg declarado. Diferença 0,00022 mg. IMPORTANTE (achado de divergência de formato): na fórmula do pote SOLÚVEL (POPS, ver divergências) a mesma L-tirosina aparece com massa DIFERENTE, 262,76 mg — entregando 262,5 mg (o mínimo ANVISA), não os 220 mg desta fórmula em cápsula."
+  },
+  {
+   "nome_no_memorial": "L-teanina",
+   "forma_quimica": "L-teanina",
+   "massa_mg": 114.82,
+   "teor_pct": 100.16,
+   "teor_fonte": "laudo lote AUTO039250",
+   "ativo_mg": 115.0,
+   "ativo_recalculado_mg": 115.003712,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "AUTO039250",
+   "observacao": "LIDO: massa 114,82 mg; teor 100,16% (Tabela 8, valor de ensaio ligeiramente acima de 100%, plausível em HPLC). CALCULADO: 114,82 × 100,16% = 115,0037 mg ≈ 115,00 mg declarado. Diferença 0,0037 mg. ATENÇÃO: o memorial (Tabela 18) afirma que este insumo é de 'fonte sintética, não autorizada' pelo painel ANVISA, que autoriza apenas L-teanina de folhas de Camellia sinensis (especificação Blue California CO) — afirmação do próprio memorial, NÃO CONFIRMADA por mim pois o laudo desta matéria-prima não foi disponibilizado nesta tarefa."
+  },
+  {
+   "nome_no_memorial": "L-carnitina base",
+   "forma_quimica": "L-carnitina base",
+   "massa_mg": 99.01,
+   "teor_pct": 95.95,
+   "teor_fonte": "laudo lote 216523 (memorial) = lote interno 25K12-B008-216523 / lote fabricante A2508084 (laudo, CONFIRMADO). Fab. 19/08/2025, venc. 18/08/2027, análise 11/12/2025, origem/procedência China.",
+   "ativo_mg": 95.0,
+   "ativo_recalculado_mg": 95.000095,
+   "conta_fecha": true,
+   "fornecedor": "Fagron Distribution Brazil / SM Empreendimentos Farmacêuticos Ltda (laudo lido; responsáveis João Paulo Sartin Mendes CRF-GO 7.355 e Amanda R. Victorino CRF-SP 50.836)",
+   "lote": "216523 (memorial) = lote interno 25K12-B008-216523 / lote fabricante A2508084 (laudo, CONFIRMADO). Fab. 19/08/2025, venc. 18/08/2027, análise 11/12/2025, origem/procedência China.",
+   "observacao": "LIDO no laudo (04_laudo_L-carnitina-base_lote-216523.pdf, SM Empreendimentos/Fagron): Teor 99,30% em BASE ANIDRA (spec 97,0-103,0%) e Umidade 3,37% (spec ≤4,0%) — Conclusão APROVADO. Memorial calcula teor tal qual = 99,3% × 96,63% = 95,95% (§6.1) — o fator 96,63% é exatamente 100%-3,37% de umidade do laudo: CONFIRMADO, bate com precisão total (teor e umidade idênticos ao laudo original). CALCULADO: 99,01 × 95,95% = 95,0036 mg ≈ 95,00 mg declarado. Diferença 0,0036 mg."
+  },
+  {
+   "nome_no_memorial": "Bisglicinato de magnésio",
+   "forma_quimica": "Bisglicinato de magnésio",
+   "massa_mg": 198.54,
+   "teor_pct": 30.22,
+   "teor_fonte": "assumido",
+   "ativo_mg": 60.0,
+   "ativo_recalculado_mg": 59.998788,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "90844 — memorial (Tabela 19, Anexo 07) afirma que este lote está VENCIDO ('Os dois certificados de bisglicinato de magnésio localizados estão vencidos, e o site do fornecedor não publica lote mais recente')",
+   "observacao": "LIDO do memorial (NÃO confirmado em laudo original — não fazia parte do escopo desta tarefa): teor base seca 30,38%, fator água 99,46% (implica umidade 0,54%), teor tal qual 30,22% (§6.1). CALCULADO: 198,54 × 30,22% = 59,9907 mg ≈ 60,00 mg declarado. Diferença 0,0093 mg. ATENÇÃO: lote declarado VENCIDO pelo próprio memorial — não é apenas uma pendência de conferência, é uma não-conformidade já assumida no documento-fonte. Na fórmula SOLÚVEL (POPS) o mesmo insumo aparece com massa MAIOR, 208,47 mg, entregando 63 mg de magnésio (o mínimo ANVISA), não os 60 mg desta fórmula em cápsula."
+  },
+  {
+   "nome_no_memorial": "Mio-inositol",
+   "forma_quimica": "Mio-inositol",
+   "massa_mg": 25.04,
+   "teor_pct": 99.86,
+   "teor_fonte": "laudo lote 950479",
+   "ativo_mg": 25.0,
+   "ativo_recalculado_mg": 25.004944,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "950479",
+   "observacao": "LIDO: massa 25,04 mg; teor 99,86% (Tabela 8). CALCULADO: 25,04 × 99,86% = 25,0049 mg ≈ 25,00 mg declarado. Diferença 0,0049 mg."
+  },
+  {
+   "nome_no_memorial": "Vitamina D3 pó 100.000 UI/g",
+   "forma_quimica": "Vitamina D3 pó 100.000 UI/g",
+   "massa_mg": 1.74,
+   "teor_pct": null,
+   "teor_fonte": "não informado",
+   "ativo_mg": 0.005,
+   "ativo_recalculado_mg": 0.005,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "91408",
+   "observacao": "LIDO: massa 1,74 mg; potência usada no cálculo (§6.1) = 115.000 UI/g — NÃO É PERCENTUAL, por isso teor_pct=null; unidade real é UI/g. ATENÇÃO: o NOME comercial do insumo diz '100.000 UI/g' mas o valor usado no cálculo é 115.000 UI/g (15% acima do nominal do nome) — pode ser o valor real do Certificado de Análise deste lote específico (comum haver variação de lote dentro de faixa de especificação), mas eu NÃO CONFIRMEI isso porque o laudo de vitamina D3 não fazia parte do escopo desta tarefa (só recebi laudos de L-tirosina e L-carnitina). CALCULADO: 1,74 mg = 0,00174 g × 115.000 UI/g = 200,1 UI = 5,0025 mcg = 0,0050025 mg de vitamina D. Declarado: 5 mcg = 200 UI = 0,005 mg. Diferença 0,0000025 mg — desprezível."
+  },
+  {
+   "nome_no_memorial": "Cloridrato de piridoxina (vitamina B6)",
+   "forma_quimica": "Cloridrato de piridoxina (vitamina B6)",
+   "massa_mg": 1.58,
+   "teor_pct": 82.19,
+   "teor_fonte": "laudo lote 91188",
+   "ativo_mg": 1.3,
+   "ativo_recalculado_mg": 1.298602,
+   "conta_fecha": true,
+   "fornecedor": "NÃO INFORMADO NO MEMORIAL (laudo desta matéria-prima não fazia parte do escopo desta tarefa)",
+   "lote": "91188",
+   "observacao": "LIDO: massa 1,58 mg; dois fatores multiplicados no §6.1: 82,27% (fator estequiométrico de conversão cloridrato→B6 base, compatível com a razão de peso molecular B6/piridoxina-HCl) × 99,9% (pureza do laudo) = 82,19% efetivo. CALCULADO: 1,58 × 82,19% = 1,2986 mg ≈ 1,30 mg declarado. Diferença 0,0014 mg (0,11% relativo)."
+  },
+  {
+   "nome_no_memorial": "Metilcobalamina (vitamina B12)",
+   "forma_quimica": "Metilcobalamina (vitamina B12)",
+   "massa_mg": 0.0025,
+   "teor_pct": 94.54,
+   "teor_fonte": "laudo lote 219376",
+   "ativo_mg": 0.0024,
+   "ativo_recalculado_mg": 0.002364,
+   "conta_fecha": false,
+   "fornecedor": "FAGRON / SM EMPREENDIMENTOS FARMACÊUTICOS — lote de fabricante 032511057 (conforme Tabela 17 do próprio memorial). Laudo de B12 NÃO estava entre os PDFs desta pasta disponibilizados para conferência direta nesta tarefa.",
+   "lote": "219376",
+   "observacao": "ACHADO IMPORTANTE — INCONSISTÊNCIA INTERNA NO PRÓPRIO MEMORIAL, mesmo padrão do bug histórico documentado 'B12 com lote errado'. LIDO no §6.1 (parágrafo de cálculo): '2,40 mcg ÷ 94,54% = 2,54 mcg = 0,0025 mg' — usa teor 94,54%, de origem NÃO EXPLICADA no documento. LIDO na Tabela 17 (mesmo memorial, discutindo o MESMO lote 219376 adotado): teor por HPLC 98,17% em BASE ANIDRA, umidade 9,07% => teor TAL QUAL = 98,17% × (1-9,07%) = 89,27%. Pelo próprio critério de teor do memorial (Tabela 2: 'quando o certificado declara o teor em base seca ou anidra, a umidade é descontada para obter o teor tal qual — que é o que se pesa na balança'), o cálculo do §6.1 deveria ter usado 89,27%, não 94,54%. DECLARADO (memorial, §6.1): massa = 0,0025 mg. RECALCULADO usando o teor tal-qual correto da Tabela 17 (89,27%) para entregar os mesmos 2,40 mcg declarados: massa = 2,40 ÷ 0,8927 = 2,6886 mcg = 0,002689 mg. DIFERENÇA: absoluta 0,00015 mg (dentro da tolerância de 0,5 mg), relativa 5,58% (FORA da tolerância de 3%). CONFIRMAÇÃO CRUZADA: o PDF independente da fórmula SOLÚVEL (POPS/FORMULAS-FOCUS-COLINA-SOLUVEL-150g-300g.pdf) usa exatamente 0,0027 mg de metilcobalamina para a dose equivalente — batendo com o recálculo em 89,27%, e NÃO com o valor de 0,0025 mg escrito no §6.1 deste memorial. Isto sugere que o §6.1 do rev02 usou um teor desatualizado ou de outro lote, apesar de a Tabela 17 do MESMO documento já ter o valor correto do lote efetivamente adotado. Marcado 'conta_fecha=não' pela divergência relativa e pela inconsistência interna, mesmo a diferença absoluta em mg sendo minúscula (nutriente de microdose). Não há laudo de B12 nesta pasta para dirimir com o certificado original."
+  }
+ ],
+ "excipientes": [
+  {
+   "nome": "Dióxido de silício (INS 551) — antiumectante: LISTADO no §13 (INGREDIENTES) do memorial, mas com 0,00 mg alocados na Tabela 7 (fechamento de massa) — não há espaço físico para ele na fórmula atual, pois os insumos ativos sozinhos já somam 1.818,30 mg para uma porção declarada de 1.000 mg.",
+   "massa_mg": 0.0
+  },
+  {
+   "nome": "Cápsula gelatinosa dura tamanho 0 (invólucro, não é massa da porção): 98,45 mg vazia por unidade, fornecedor Qualicaps/Genix, lote 2505380SA, validade 02/04/2030 (Tabela 23/24 do memorial) — composição do invólucro: gelatina, dióxido de titânio (INS 171) e lauril sulfato de sódio (§11.1) / memorial §13 acrescenta água purificada à lista.",
+   "massa_mg": null
+  },
+  {
+   "nome": "DIVERGÊNCIA: o rótulo vigente (30_ROTULO_FocusColina_2026.pdf, lido nesta tarefa) declara a cápsula como 'gelatina, água purificada e corante dióxido de titânio (INS 171)' — SEM mencionar o lauril sulfato de sódio que o próprio memorial (§11.1 e §13) atribui à cápsula.",
+   "massa_mg": null
+  }
+ ],
+ "massa_total_mg": 1818.3025,
+ "soma_fecha": false,
+ "observacoes": [
+  "FORMATO — CÁPSULA × PÓ SOLÚVEL (achado central pedido nesta tarefa): /Users/diegofrancisco/Desktop/POPS/FORMULAS-FOCUS-COLINA-SOLUVEL-150g-300g.pdf (documento FOR-FORM-FOCUS-SOL-001, arquivo datado 20/08/2026, uma semana após o rev02 de 13/08/2026) descreve um FORMATO DIFERENTE — pó solúvel em pote de 150 g (dose de 5 g, 30 doses) e 300 g (dose de 10 g, 30 doses) — e NÃO é a mesma fórmula apenas re-embalada. Ingredientes exclusivos do solúvel, ausentes da cápsula: maltodextrina (veículo, 2.554,23 mg/dose — maior insumo da fórmula), ácido cítrico anidro (335,00 mg, acidulante), flavorizante limão pó (165,00 mg), sucralose (25,00 mg, edulcorante). Dos 9 ativos, 6 têm massa IDÊNTICA à da cápsula (bitartarato de colina 1.157,35 mg; L-teanina 114,82 mg; L-carnitina base 99,01 mg; mio-inositol 25,04 mg; vitamina D3 1,74 mg; cloridrato de piridoxina 1,58 mg), mas 2 têm massa DIFERENTE E MAIOR: L-tirosina (262,76 mg no solúvel vs 220,22 mg na cápsula — o solúvel entrega 262,5 mg, exatamente o mínimo ANVISA que a cápsula não atinge) e bisglicinato de magnésio (208,47 mg no solúvel vs 198,54 mg na cápsula — o solúvel entrega 63 mg, exatamente o mínimo ANVISA que a cápsula não atinge). A metilcobalamina do solúvel (0,0027 mg) também bate com o recálculo correto da B12 da cápsula (89,27% tal qual), não com o valor escrito no §6.1 da cápsula (0,0025 mg). CONCLUSÃO desta leitura: são duas fórmulas APARENTADAS (mesma base de ativos, mesmo fabricante/RT/CNPJ) mas NÃO IDÊNTICAS — o pó solúvel parece uma reformulação/correção que já resolve os dois pontos que a própria cápsula rev02 sinaliza como abaixo do mínimo ANVISA (L-tirosina e magnésio), adaptada a um formato de pó para diluir. Não é possível afirmar qual data/revisão é 'mais nova' regulatoriamente — o memorial de cálculo formal da cápsula é rev02/13-08-2026; o PDF do pote solúvel é uma ficha de fórmula (POPS), datada por metadado de arquivo em 20/08/2026, sem número de revisão indicado no próprio conteúdo do documento.",
+  "B12/metilcobalamina — inconsistência de teor DENTRO do próprio memorial rev02: §6.1 usa 94,54% (origem não explicada); Tabela 17, tratando do mesmo lote 219376, documenta teor tal qual de 89,27%. Ver observação detalhada no insumo 'Metilcobalamina' acima. Recalculado com 89,27%: massa deveria ser ≈0,00269 mg, não 0,0025 mg. O PDF independente da fórmula solúvel usa 0,0027 mg — reforça que o §6.1 da cápsula está desatualizado/errado.",
+  "RÓTULO VIGENTE × MEMORIAL — conferido por leitura direta do rótulo (30_ROTULO_FocusColina_2026.pdf), não apenas aceito por afirmação do memorial: (a) CONFIRMADO — colina, L-tirosina, L-teanina, L-carnitina e inositol aparecem no texto 'Composição por porção' do rótulo, mas NÃO constam da tabela formal 'INFORMAÇÃO NUTRICIONAL' (%VD), que só lista Magnésio, B6, B12 e D; (b) CONFIRMADO — rótulo declara 'agente de massa celulose microcristalina', divergente do padrão de dióxido de silício do memorial, e sem espaço de massa disponível na fórmula atual para qualquer agente de massa; (c) CONFIRMADO — rótulo declara 'cianocobalamina', mas o lote/laudo adotado no memorial (219376) é de METILCOBALAMINA, forma química diferente; (d) NOVO — rótulo descreve a cápsula como 'gelatina, água purificada e corante dióxido de titânio (INS 171)', OMITINDO o lauril sulfato de sódio que o próprio memorial (§11.1 e §13) inclui na composição do invólucro; (e) todos os 9 valores numéricos de 'entrega' (colina 470 mg … B12 2,4 mcg) batem EXATAMENTE entre rótulo e memorial — sem divergência numérica nesse ponto.",
+  "FÓRMULA DA CÁPSULA NÃO CABE NA PORÇÃO DECLARADA — já apontado pelo próprio memorial (Tabela 12) e CONFIRMADO por mim recalculando a soma dos 9 insumos: 1.818,3025 mg (memorial arredonda para 1.818,30 mg) para uma porção declarada de 1.000 mg — excesso de 818,30 mg (quase o dobro). Maior responsável isolado: bitartarato de colina, 1.157,35 mg sozinho já ultrapassa a porção inteira.",
+  "MAGNÉSIO (lote 90844) — o próprio memorial (Tabela 19) declara que os dois certificados localizados para este insumo estão VENCIDOS e que o fornecedor não publica lote mais recente. NÃO CONFIRMADO por mim diretamente: o laudo de magnésio não fazia parte do escopo desta tarefa (só recebi laudos de L-tirosina e L-carnitina) — registro apenas o que o memorial afirma sobre si mesmo.",
+  "L-TEANINA — o próprio memorial (Tabela 18) declara que o insumo em uso é de fonte sintética, não a fonte autorizada pelo painel ANVISA (L-teanina de folhas de Camellia sinensis, especificação Blue California CO). NÃO CONFIRMADO por mim diretamente: laudo de L-teanina fora do escopo desta tarefa.",
+  "VITAMINA D3 — nome comercial do insumo diz '100.000 UI/g', mas o teor usado no cálculo do memorial é 115.000 UI/g (15% acima do nominal do nome). Pode ser apenas o valor real do Certificado de Análise deste lote específico dentro de faixa de especificação, mas NÃO CONFIRMADO por mim: laudo de D3 fora do escopo desta tarefa.",
+  "RASCUNHO ANTIGO SUPERADO E QUEBRADO — /Users/diegofrancisco/Downloads/Memorial_FOCUS_COLINA.doc (27/07/2026, revisão 00, formato HTML salvo como .doc): é uma saída de sistema/template NÃO PREENCHIDA — usa texto-placeholder literal 'fornecendo respectivamente' no lugar de nomes reais de insumos, soma da fórmula de apenas 0,21 mg para uma porção-alvo de 1.000 mg, com o PRÓPRIO documento alertando '⚠ A soma da fórmula (0,21 mg) não fecha o peso-alvo (1.000 mg): Δ -999,79 mg'. Além disso mistura, no mesmo documento, linguagem de produto LÍQUIDO/GOTAS ('SUPLEMENTO ALIMENTAR EM LÍQUIDO', 'Porção: 1 mL (20 gotas)', 'ingerir 20 gotas ao dia') com linguagem de CÁPSULA ('Cápsulas duras de gelatina', '60 unidades', 'Peso líquido: 30 g') — internamente contraditório. CONCLUSÃO: documento claramente SUPERADO pelo rev02 e inutilizável como fonte de dados; NENHUM valor numérico dele foi aproveitado nesta extração.",
+  "FICHA TÉCNICA DEDICADA — busca em /Users/diegofrancisco/Desktop/POPS/03_FICHAS_TECNICAS/ por '*focus*' ou '*colina*' (case-insensitive) NÃO retornou nenhum arquivo. A pasta existe e tem 36 arquivos (outras fichas técnicas e fórmulas da Lemoncaps), nenhum relacionado a Focus Colina. NÃO EXISTE ficha técnica dedicada para este produto naquela pasta.",
+  "CONFERÊNCIA DE FECHAMENTO DE MASSA (feita nesta consolidação): Soma de TODOS os insumos+excipientes = 1818.3025 mg; porção declarada ≈ 1000.0 mg; diferença +818.30 mg. Nenhum item ficou sem massa extraída.",
+  "Porções por lote: NÃO LEGÍVEL — o memorial rev02 não declara um tamanho de lote de produção (batch size); só informa 30 porções por EMBALAGEM (60 cápsulas / 30 g), o que é unidade comercial, não tamanho de lote fabril.",
+  "Fontes secundárias conferidas: /Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/05_FOCUS-COLINA/ARQUIVOS-PDF/02_laudo_L-tirosina-vegetal_lote-91382.pdf | /Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/05_FOCUS-COLINA/ARQUIVOS-PDF/04_laudo_L-carnitina-base_lote-216523.pdf | /Users/diegofrancisco/Downloads/MEMORIAIS_2026 2/05_FOCUS-COLINA/ARQUIVOS-PDF/30_ROTULO_FocusColina_2026.pdf | /Users/diegofrancisco/Downloads/Memorial_FOCUS_COLINA.doc | /Users/diegofrancisco/Desktop/POPS/FORMULAS-FOCUS-COLINA-SOLUVEL-150g-300g.pdf | /Users/diegofrancisco/Desktop/POPS/03_FICHAS_TECNICAS/ (busca por *focus*/*colina* — pasta existe, 36 arquivos, NENHUM resultado; NÃO EXISTE ficha técnica dedicada)"
+ ]
+}

@@ -13,7 +13,8 @@ export interface CartItem {
   formulaId: string;
   slug: string;
   name: string;
-  unitPriceCents: number;
+  /** null = preço sob consulta (fórmula ainda sem list_price_cents). */
+  unitPriceCents: number | null;
   quantityPotes: number;
   minimumOrderPotes: number;
 }
@@ -30,9 +31,21 @@ interface CartState {
   clear: () => void;
 }
 
+/**
+ * Teto de potes por item. O piso já existia (o pedido mínimo); o teto faltava, e
+ * sem ele o carrinho aceitava 999999999999999999 potes e exibia um subtotal de
+ * R$ 32,9 quintilhões — número que não trava o site, mas destrói a confiança de
+ * quem está cotando, e viraria um orçamento absurdo no banco.
+ *
+ * 100.000 potes é folgado para o negócio (o maior pedido mínimo do catálogo é de
+ * algumas centenas) e ainda assim mantém o total numa ordem de grandeza plausível.
+ */
+export const MAXIMUM_ORDER_POTES = 100_000;
+
 function clampQuantity(quantityPotes: number, minimumOrderPotes: number): number {
   const minimum = minimumOrderPotes > 0 ? minimumOrderPotes : DEFAULT_MINIMUM_ORDER_POTES;
-  return Math.max(Math.trunc(quantityPotes) || 0, minimum);
+  const pedido = Math.trunc(quantityPotes) || 0;
+  return Math.min(Math.max(pedido, minimum), MAXIMUM_ORDER_POTES);
 }
 
 export const useCartStore = create<CartState>()(
@@ -67,10 +80,20 @@ export const useCartStore = create<CartState>()(
   ),
 );
 
-export function cartItemTotalCents(item: CartItem): number {
-  return item.unitPriceCents * item.quantityPotes;
+// Item sob consulta (sem preço) não tem subtotal: devolve null, nunca 0, para
+// a tela e o PDF não mostrarem "R$ 0,00" como se fosse preço.
+export function cartItemTotalCents(item: CartItem): number | null {
+  return item.unitPriceCents === null ? null : item.unitPriceCents * item.quantityPotes;
 }
 
+// Soma só os itens com preço. Quem mostra o total avisa à parte, com
+// hasPriceOnRequest, que há item sob consulta fora da conta.
 export function cartTotalCents(items: readonly CartItem[]): number {
-  return items.reduce((sum, item) => sum + cartItemTotalCents(item), 0);
+  return items.reduce((sum, item) => sum + (cartItemTotalCents(item) ?? 0), 0);
 }
+
+export function hasPriceOnRequest(items: readonly CartItem[]): boolean {
+  return items.some((item) => item.unitPriceCents === null);
+}
+
+export const PRICE_ON_REQUEST_LABEL = "Preço sob consulta";
