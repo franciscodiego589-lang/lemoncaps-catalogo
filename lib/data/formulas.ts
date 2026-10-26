@@ -140,6 +140,24 @@ function emptyToNull(value: string | null): string | null {
   return value && value.trim().length > 0 ? value : null;
 }
 
+// Prévia local dos mockups "SUA MARCA EM …" (pedido do dono, 26/10/2026: "não é
+// pra publicar, somente subir as imagens e abrir"). Só com MOCKUP_PREVIA=1 no
+// ambiente do `next dev` - variável que a VPS nunca recebe -, a fórmula sem
+// mockup gravado no banco mostra a imagem do seu formato. Sem a variável, nada
+// muda: vale o mockup_path do banco, como sempre.
+const MOCKUP_PREVIA_POR_FORMATO: Record<ProductFormat, string> = {
+  capsula: "/produtos/sua-marca-capsulas.webp",
+  liquido: "/produtos/sua-marca-gotas.webp",
+  soluvel: "/produtos/sua-marca-po.webp",
+  gummy: "/produtos/sua-marca-gummy.webp",
+};
+
+function mockupDaFormula(mockupPath: string | null, format: ProductFormat): string | null {
+  const gravado = emptyToNull(mockupPath);
+  if (gravado || process.env.MOCKUP_PREVIA !== "1") return gravado;
+  return MOCKUP_PREVIA_POR_FORMATO[format] ?? null;
+}
+
 // ingredients.metadata é jsonb livre (procedência da imagem: fonte, autor,
 // licença, data - ver public/insumos/CREDITOS.md). Aqui só interessa o campo
 // image_alt, lido com o mesmo cuidado de nunca confiar em formato de dado
@@ -335,7 +353,7 @@ async function fetchCatalogDataFromDatabase(): Promise<CatalogData> {
     minimumOrderPotes: row.minimum_order_potes,
     sortOrder: row.sort_order,
     featuredAt: row.featured_at,
-    mockupPath: emptyToNull(row.mockup_path),
+    mockupPath: mockupDaFormula(row.mockup_path, row.format),
     compositions: compositionsByFormula.get(row.id) ?? [],
     complianceVerifiedAt: row.compliance_verified_at,
     complianceNorms: row.compliance_norms ?? [],
