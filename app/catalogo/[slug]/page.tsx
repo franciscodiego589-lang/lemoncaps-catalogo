@@ -241,7 +241,7 @@ export default async function DossiePage({ params }: DossiePageProps) {
             <dl className="lc-dossie-facts">
               <div className="lc-dossie-fact">
                 <dt>Preço por pote</dt>
-                <dd>{formula.listPriceCents != null ? centsToBRL(formula.listPriceCents) : "Sob consulta"}</dd>
+                <dd>{formula.listPriceCents != null ? centsToBRL(formula.listPriceCents) : "R$ -- (sob consulta)"}</dd>
               </div>
               <div className="lc-dossie-fact">
                 <dt>Pedido mínimo</dt>

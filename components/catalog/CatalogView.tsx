@@ -68,13 +68,6 @@ function readSearchParam(params: URLSearchParams): string {
   return params.get(SEARCH_PARAM) ?? "";
 }
 
-function subtituloDaLinha(formulas: readonly FormulaDTO[]): string {
-  const comPreco = formulas.filter((formula) => formula.listPriceCents != null).length;
-  if (comPreco === formulas.length) return "Composição, modo de uso e preço direto do nosso catálogo vigente.";
-  if (comPreco === 0) return "Composição e modo de uso de cada fórmula. Preço sob consulta.";
-  return "Composição, modo de uso e preço de cada fórmula. As que não mostram preço são sob consulta.";
-}
-
 // Linha vem de ?linha= quando o valor é uma linha com fórmula. Sem o
 // parâmetro, um link que só traz ?segmento= (ex.: "diabetes") abre na linha
 // onde aquele segmento tem produto — senão o cliente cairia na Premium e o
@@ -293,11 +286,9 @@ export function CatalogView({ segments, formulas }: CatalogViewProps) {
           de ponta a ponta no mobile). */}
       <main id="main-content">
         <div className="lc-page-head">
+          {/* Sem subtítulo: o dono mandou tirar a frase de composição e preço
+              (26/10/2026) — o card já mostra o preço ou "R$ --". */}
           <h1>Catálogo de fórmulas</h1>
-          {/* O subtítulo só promete preço quando a aba tem preço: a linha
-              Essencial pode estar no ar com "Preço sob consulta" (decisão do
-              dono de 23/09/2026). */}
-          <p>{subtituloDaLinha(lineFormulas)}</p>
         </div>
 
         {lines.length > 1 && <LineTabs lines={lines} value={selectedLine} onChange={handleSelectLine} />}

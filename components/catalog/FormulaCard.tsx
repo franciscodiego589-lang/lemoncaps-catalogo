@@ -169,8 +169,14 @@ export function FormulaCard({ formula, segment, onQuote }: FormulaCardProps) {
               </span>
             </div>
           ) : (
+            // Sem preço cadastrado: o card mantém o lugar do preço ("R$ -- / pote") e o
+            // valor aparece sozinho quando o dono salva o preço no admin (pedido do dono,
+            // 26/10/2026). O aria-label diz por extenso o que os tracinhos significam.
             <div className="lc-price-row">
-              <span className="lc-price-tbd">Preço sob consulta</span>
+              <span className="lc-price" aria-label="Preço sob consulta">
+                R$ --
+                <small> / pote</small>
+              </span>
             </div>
           )}
           <span className="lc-min-note">Pedido mínimo: {formula.minimumOrderPotes} potes</span>
